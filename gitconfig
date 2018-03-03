@@ -1,13 +1,17 @@
 [user]
     email = rhysormond@gmail.com
     name = rhys
-[diff]
-    tool = vimdiff
-[merge]
-    tool = vimdiff
 [core]
     editor = vim
     excludesfiles = ~/.gitignore_global
     filemode = false
+[push]
+    default = simple
+[diff]
+    tool = vimdiff
+[merge]
+    tool = vimdiff
+[color]
+    ui = true
 [alias]
     graph = log --all --decorate --oneline --graph

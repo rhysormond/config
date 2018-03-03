@@ -1,6 +1,10 @@
-# vim
-*~
+# os files
+.DS_Store
 
-# tags
+# editor files
+*~
+.idea
+
+# misc
 tags
 
