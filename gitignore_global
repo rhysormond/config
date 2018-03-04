@@ -1,10 +1,21 @@
 # os files
 .DS_Store
 
+# environment files
+.env
+
 # editor files
-*~
 .idea
-
-# misc
 tags
+*~
 
+# compiled files
+__pycache__/
+*.egg-info/
+*.egg
+
+# test-generated files
+.__pytest_cache/
+.coverage
+.cache/
+.tox/

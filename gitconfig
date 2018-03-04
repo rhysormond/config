@@ -3,7 +3,7 @@
     name = rhys
 [core]
     editor = vim
-    excludesfiles = ~/.gitignore_global
+    excludesfile = ~/.gitignore_global
     filemode = false
 [push]
     default = simple
