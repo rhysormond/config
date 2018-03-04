@@ -29,7 +29,7 @@ ZSH_THEME="refined"
 
 # zsh plugins
 plugins=(
-    git colorize colored-man-pages              # default
+    git colorize colored-man-pages pip          # default
     zsh-syntax-highlighting zsh-autosuggestions # installed separately
 )
 
