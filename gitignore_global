@@ -12,10 +12,11 @@ tags
 # compiled files
 __pycache__/
 *.egg-info/
+*.pyc
 *.egg
 
 # test-generated files
-.__pytest_cache/
+.pytest_cache/
 .coverage
 .cache/
 .tox/
