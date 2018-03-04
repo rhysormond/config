@@ -90,6 +90,9 @@ inoremap <s-tab> <c-n>
 " delete trailing white space on save
 autocmd BufWritePre * :%s/\s\+$//e
 
+" silence error sounds
+set noerrorbells visualbell t_vb=
+
 " performance optimizations
 set lazyredraw " don't redraw while executing macros
 
