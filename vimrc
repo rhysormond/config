@@ -26,8 +26,8 @@ set spell spelllang=en_us
 " window settings
 set winwidth=84 " focused split width
 set winheight=30 " focused split height
-set winminwidth=84 " minimum split width
-set winminheight=10 " minimum split height
+silent! set winminwidth=84 " minimum split width
+silent! set winminheight=10 " minimum split height
 
 " line breaks
 set wrap " visually wrap lines
