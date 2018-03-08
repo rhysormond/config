@@ -18,10 +18,12 @@ export TERM="xterm-256color"
 # text editor
 export EDITOR="vim"
 
-# pyenv
+# pyenv & rbenv
 export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
+export RBENV_ROOT="$HOME/.rbenv"
+export PATH="$PYENV_ROOT/bin:$RBENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+eval "$(rbenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
 # zsh theme
@@ -29,7 +31,7 @@ ZSH_THEME="refined"
 
 # zsh plugins
 plugins=(
-    git colorize colored-man-pages pip          # default
+    git colorize colored-man-pages pip bundler  # default
     zsh-syntax-highlighting zsh-autosuggestions # installed separately
 )
 
