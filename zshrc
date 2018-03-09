@@ -1,3 +1,6 @@
+# add ~/bin to $PATH
+export PATH="$HOME/bin:$PATH"
+
 # os-specific configuration
 if [[ `uname` == 'Linux' ]]; then
     # pbcopy && pbpaste from MacOS
