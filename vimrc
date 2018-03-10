@@ -45,6 +45,10 @@ set number " show line numbers
 set relativenumber " relative line numbers
 set scrolloff=5 " 5 lines of scroll buffer
 
+" cursor position
+au BufWinLeave * mkview " save previous position on close
+au BufWinEnter * silent loadview " load previous position on open
+
 " command & status lines
 set showcmd " always show the current command
 set cmdheight=1 " height of the command line
