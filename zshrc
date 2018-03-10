@@ -21,14 +21,6 @@ export TERM="xterm-256color"
 # text editor
 export EDITOR="vim"
 
-# pyenv & rbenv
-export PYENV_ROOT="$HOME/.pyenv"
-export RBENV_ROOT="$HOME/.rbenv"
-export PATH="$PYENV_ROOT/bin:$RBENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(rbenv init -)"
-eval "$(pyenv virtualenv-init -)"
-
 # zsh theme
 ZSH_THEME="refined"
 
@@ -51,5 +43,10 @@ function chpwd() {
 export ZSH=$HOME/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
+# add shims to $PATH
+export PYENV_ROOT="$HOME/.pyenv"
+export RBENV_ROOT="$HOME/.rbenv"
+export PATH="$PYENV_ROOT/bin:$RBENV_ROOT/bin:$PATH"
+
 # source system-specific env
-source ~/.env.sh
+source ~/.env
