@@ -20,8 +20,9 @@ syntax on
 set t_Co=256
 colorscheme jellybeans
 
-" spell checking
-set spell spelllang=en_us
+" general configuration
+set hidden " hide buffers rather than abandoning them
+set spell spelllang=en_us " spell checking
 
 " window settings
 set winwidth=84 " focused split width
@@ -45,12 +46,9 @@ set number " show line numbers
 set relativenumber " relative line numbers
 set scrolloff=5 " 5 lines of scroll buffer
 
-" cursor position
-au BufWinLeave * mkview " save previous position on close
-au BufWinEnter * silent loadview " load previous position on open
-
 " command & status lines
 set showcmd " always show the current command
+set showmode " show current mode (insert, visual)
 set cmdheight=1 " height of the command line
 set laststatus=2 " always show the status line
 
@@ -76,10 +74,10 @@ set ignorecase " ignore case when searching
 " command line completion
 set wildmenu
 set wildmode=longest:full,full
-set wildignore=*/.git/*
+set wildignore+=.*
 
 " key remapping
-let mapleader = ","
+let mapleader=","
 nnoremap <c-h> <c-w>h
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
@@ -88,7 +86,7 @@ nnoremap <c-l> <c-w>l
 " selecta integration
 function! SelectaCommand(choice_command, selecta_args, vim_command)
   try
-    let selection = system(a:choice_command . " | selecta " . a:selecta_args)
+    let selection=system(a:choice_command . " | selecta " . a:selecta_args)
   catch /Vim:Interrupt/
     redraw!
     return
@@ -98,8 +96,8 @@ function! SelectaCommand(choice_command, selecta_args, vim_command)
 endfunction
 
 function! SelectaBuffer()
-  let bufnrs = filter(range(1, bufnr("$")), 'buflisted(v:val)')
-  let buffers = map(bufnrs, 'bufname(v:val)')
+  let bufnrs=filter(range(1, bufnr("$")), 'buflisted(v:val)')
+  let buffers=map(bufnrs, 'bufname(v:val)')
   call SelectaCommand('echo "' . join(buffers, "\n") . '"', "", ":b")
 endfunction
 
@@ -108,7 +106,7 @@ nnoremap <leader>b :call SelectaBuffer()<cr>
 
 " multi function tab key
 function! InsertTabWrapper()
-    let col = col('.') - 1
+    let col=col('.') - 1
     if !col || getline('.')[col - 1] !~ '\k'
         return "\<tab>"
     else
@@ -119,11 +117,18 @@ endfunction
 inoremap <expr> <tab> InsertTabWrapper()
 inoremap <s-tab> <c-n>
 
+" persist undo between sessions
+if has('persistent_undo') && isdirectory(expand('~').'/.vim/backups')
+  silent !mkdir ~/.vim/backups > /dev/null 2>&1
+  set undodir=~/.vim/backups
+  set undofile
+endif
+
+" persist cursor position between sessions
+autocmd BufReadPost * silent! normal! g`"zv
+
 " delete trailing white space on save
 autocmd BufWritePre * :%s/\s\+$//e
-
-" silence error sounds
-set noerrorbells visualbell t_vb=
 
 " performance optimizations
 set lazyredraw " don't redraw while executing macros
