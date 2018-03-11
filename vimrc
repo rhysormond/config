@@ -84,9 +84,9 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
 
 " selecta integration
-function! SelectaCommand(choice_command, selecta_args, vim_command)
+function! SelectaCommand(vim_command, selecta_in, selecta_out)
   try
-    let selection=system(a:choice_command . " | selecta " . a:selecta_args)
+    let selection=system(a:selecta_in . " | selecta  | " . a:selecta_out)
   catch /Vim:Interrupt/
     redraw!
     return
@@ -95,13 +95,15 @@ function! SelectaCommand(choice_command, selecta_args, vim_command)
   exec a:vim_command . " " . selection
 endfunction
 
+nnoremap <leader>s :call SelectaCommand(":", "cat -n " . @%, "cut -f1")<cr>
+nnoremap <leader>f :call SelectaCommand(":e", "find * -type f", "cat")<cr>
+
 function! SelectaBuffer()
   let bufnrs=filter(range(1, bufnr("$")), 'buflisted(v:val)')
   let buffers=map(bufnrs, 'bufname(v:val)')
-  call SelectaCommand('echo "' . join(buffers, "\n") . '"', "", ":b")
+  call SelectaCommand(":b", 'echo "' . join(buffers, "\n") . '"', "cat")
 endfunction
 
-nnoremap <leader>f :call SelectaCommand("find * -type f", "", ":e")<cr>
 nnoremap <leader>b :call SelectaBuffer()<cr>
 
 " multi function tab key
