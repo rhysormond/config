@@ -83,28 +83,41 @@ nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
 
-" selecta integration
-function! SelectaCommand(vim_command, selecta_in, selecta_out)
+" fuzzy search integration
+let g:fuzzy_finder = "selecta"
+
+function! FuzzySearch(input)
   try
-    let selection=system(a:selecta_in . " | selecta  | " . a:selecta_out)
+    let selection=system(a:input . " | " . g:fuzzy_finder)
   catch /Vim:Interrupt/
     redraw!
     return
   endtry
   redraw!
-  exec a:vim_command . " " . selection
+  return selection
 endfunction
 
-nnoremap <leader>s :call SelectaCommand(":", "cat -n " . @%, "cut -f1")<cr>
-nnoremap <leader>f :call SelectaCommand(":e", "find * -type f", "cat")<cr>
+function! SearchWithinFile()
+    let line_selection = FuzzySearch("cat -n " .@%)
+    let line_number = split(line_selection)[0]
+    exec ": " . line_number
+endfunction
 
-function! SelectaBuffer()
+function! SearchFilePaths()
+    let path_selection = FuzzySearch("find * -type f")
+    exec ":e " . path_selection
+endfunction
+
+function! SearchBuffers()
   let bufnrs=filter(range(1, bufnr("$")), 'buflisted(v:val)')
   let buffers=map(bufnrs, 'bufname(v:val)')
-  call SelectaCommand(":b", 'echo "' . join(buffers, "\n") . '"', "cat")
+  let buffer_selection = FuzzySearch('echo "' . join(buffers, "\n") . '"')
+  exec ":b " . buffer_selection
 endfunction
 
-nnoremap <leader>b :call SelectaBuffer()<cr>
+nnoremap <leader>s :call SearchWithinFile()<cr>
+nnoremap <leader>f :call SearchFilePaths()<cr>
+nnoremap <leader>b :call SearchBuffers()<cr>
 
 " multi function tab key
 function! InsertTabWrapper()
