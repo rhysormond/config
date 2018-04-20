@@ -87,14 +87,14 @@ nnoremap <c-l> <c-w>l
 let g:fuzzy_finder = "selecta"
 
 function! FuzzySearch(input)
-  try
-    let selection=system(a:input . " | " . g:fuzzy_finder)
-  catch /Vim:Interrupt/
-    redraw!
+    try
+        let selection=system(a:input . " | " . g:fuzzy_finder)
+    catch /Vim:Interrupt/
+        redraw!
     return
-  endtry
-  redraw!
-  return selection
+    endtry
+    redraw!
+    return selection
 endfunction
 
 function! SearchWithinFile()
@@ -109,10 +109,10 @@ function! SearchFilePaths()
 endfunction
 
 function! SearchBuffers()
-  let bufnrs=filter(range(1, bufnr("$")), 'buflisted(v:val)')
-  let buffers=map(bufnrs, 'bufname(v:val)')
-  let buffer_selection = FuzzySearch('echo "' . join(buffers, "\n") . '"')
-  exec ":b " . buffer_selection
+    let bufnrs=filter(range(1, bufnr("$")), 'buflisted(v:val)')
+    let buffers=map(bufnrs, 'bufname(v:val)')
+    let buffer_selection = FuzzySearch('echo "' . join(buffers, "\n") . '"')
+    exec ":b " . buffer_selection
 endfunction
 
 nnoremap <leader>s :call SearchWithinFile()<cr>
@@ -134,9 +134,9 @@ inoremap <s-tab> <c-n>
 
 " persist undo between sessions
 if has('persistent_undo') && isdirectory(expand('~').'/.vim/backups')
-  silent !mkdir ~/.vim/backups > /dev/null 2>&1
-  set undodir=~/.vim/backups
-  set undofile
+    silent !mkdir ~/.vim/backups > /dev/null 2>&1
+    set undodir=~/.vim/backups
+    set undofile
 endif
 
 " persist cursor position between sessions
