@@ -45,12 +45,10 @@ source $ZSH/oh-my-zsh.sh
 
 # add shims to $PATH
 export PYENV_ROOT="$HOME/.pyenv"
-export RBENV_ROOT="$HOME/.rbenv"
 export PATH="$PYENV_ROOT/bin:$RBENV_ROOT/bin:$PATH"
 
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
-eval "$(rbenv init -)"
 
 # source system-specific env
 source ~/.env
