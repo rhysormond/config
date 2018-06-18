@@ -86,40 +86,40 @@ nnoremap j gj
 nnoremap k gk
 
 " fuzzy search integration
-let g:fuzzy_finder = "selecta"
-
-function! FuzzySearch(input)
-    try
-        let selection=system(a:input . " | " . g:fuzzy_finder)
-    catch /Vim:Interrupt/
+if !empty($FUZZY_SELECTOR)
+    function! FuzzySelect(input)
+        try
+            let selection=system(a:input . " | " . $FUZZY_SELECTOR)
+        catch /Vim:Interrupt/
+            redraw!
+        return
+        endtry
         redraw!
-    return
-    endtry
-    redraw!
-    return selection
-endfunction
+        return selection
+    endfunction
 
-function! SearchWithinFile()
-    let line_selection = FuzzySearch("cat -n " .@%)
-    let line_number = split(line_selection)[0]
-    exec ": " . line_number
-endfunction
+    function! SearchWithinFile()
+        let line_selection = FuzzySelect("cat -n " .@%)
+        let line_number = split(line_selection)[0]
+        exec ": " . line_number
+    endfunction
 
-function! SearchFilePaths()
-    let path_selection = FuzzySearch("find * -type f")
-    exec ":e " . path_selection
-endfunction
+    function! SearchFilePaths()
+        let path_selection = FuzzySelect("find * -type f")
+        exec ":e " . path_selection
+    endfunction
 
-function! SearchBuffers()
-    let bufnrs=filter(range(1, bufnr("$")), 'buflisted(v:val)')
-    let buffers=map(bufnrs, 'bufname(v:val)')
-    let buffer_selection = FuzzySearch('echo "' . join(buffers, "\n") . '"')
-    exec ":b " . buffer_selection
-endfunction
+    function! SearchBuffers()
+        let bufnrs=filter(range(1, bufnr("$")), 'buflisted(v:val)')
+        let buffers=map(bufnrs, 'bufname(v:val)')
+        let buffer_selection = FuzzySelect('echo "' . join(buffers, "\n") . '"')
+        exec ":b " . buffer_selection
+    endfunction
 
-nnoremap <leader>s :call SearchWithinFile()<cr>
-nnoremap <leader>f :call SearchFilePaths()<cr>
-nnoremap <leader>b :call SearchBuffers()<cr>
+    nnoremap <leader>s :call SearchWithinFile()<cr>
+    nnoremap <leader>f :call SearchFilePaths()<cr>
+    nnoremap <leader>b :call SearchBuffers()<cr>
+endif
 
 " multi function tab key
 function! InsertTabWrapper()

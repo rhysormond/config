@@ -20,6 +20,7 @@ export TERM="xterm-256color"
 
 # text editor
 export EDITOR="vim"
+export FUZZY_SELECTOR="selecta"
 
 # zsh theme
 ZSH_THEME="refined"
