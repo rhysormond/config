@@ -41,16 +41,35 @@ set cursorline " highlight current cursor line
 set colorcolumn=81 " highlight the over-length column
 
 " line numbers
-set ruler " show row,col position
 set number " show line numbers
-set relativenumber " relative line numbers
+set relativenumber " set line numbers to be relative to current row
 set scrolloff=5 " 5 lines of scroll buffer
+
+" window focus changes
+augroup WINDOW
+    autocmd!
+    " only set relative line numbers for the current window
+    autocmd WinEnter * set relativenumber
+    autocmd WinLeave * set norelativenumber
+augroup END
 
 " command & status lines
 set showcmd " always show the current command
 set showmode " show current mode (insert, visual)
 set cmdheight=1 " height of the command line
 set laststatus=2 " always show the status line
+
+" status line
+set statusline=%{expand('%:~:h')}/\ ❮❮\ %f\ %y\ ❯❯\ %m
+set statusline+=%=❮❮\ %03v\ ::\ %P\ ::\ %n\ ❯❯
+
+" insert mode changes
+augroup INSERT
+    autocmd!
+    " only set cursor column when inserting text
+    autocmd InsertEnter * set cursorcolumn
+    autocmd InsertLeave * set nocursorcolumn
+augroup END
 
 " tab behavior
 set expandtab " tab inserts spaces instead of tabs
