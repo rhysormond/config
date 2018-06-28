@@ -60,7 +60,7 @@ set cmdheight=1 " height of the command line
 set laststatus=2 " always show the status line
 
 " status line
-set statusline=%{expand('%:~:h')}/\ ❮❮\ %f\ %y\ ❯❯\ %m
+set statusline=%{pathshorten(expand('%:~:h'))}/\ ❮❮\ %t\ %y\ ❯❯\ %m
 set statusline+=%=❮❮\ %03v\ ::\ %P\ ::\ %n\ ❯❯
 
 " insert mode changes
