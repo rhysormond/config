@@ -24,13 +24,24 @@ colorscheme jellybeans
 set hidden " hide buffers rather than abandoning them
 set spell spelllang=en_us " spell checking
 
-" window settings
+" split window sizing
 set winwidth=84 " focused split width
 set winheight=30 " focused split height
 silent! set winminwidth=84 " minimum split width
 silent! set winminheight=10 " minimum split height
 
-" line breaks
+" split window navigation
+nnoremap <c-h> <c-w>h
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-l> <c-w>l
+augroup RelativeNumberFocus " only show relative numbers for the current split
+    autocmd!
+    autocmd WinEnter * set relativenumber
+    autocmd WinLeave * set norelativenumber
+augroup END
+
+" line wrapping
 set wrap " visually wrap lines
 set nolist " list disables line break
 set linebreak " only wrap at specific characters
@@ -39,49 +50,32 @@ set linebreak " only wrap at specific characters
 set showmatch " highlight matching braces
 set cursorline " highlight current cursor line
 set colorcolumn=81 " highlight the over-length column
-
-" line numbers
-set number " show line numbers
-set relativenumber " set line numbers to be relative to current row
-set scrolloff=5 " 5 lines of scroll buffer
-
-" window focus changes
-augroup WINDOW
+augroup InsertHighlighting " highlight column in insert mode
     autocmd!
-    " only set relative line numbers for the current window
-    autocmd WinEnter * set relativenumber
-    autocmd WinLeave * set norelativenumber
-augroup END
-
-" command & status lines
-set showcmd " always show the current command
-set showmode " show current mode (insert, visual)
-set cmdheight=1 " height of the command line
-set laststatus=2 " always show the status line
-
-" status line
-set statusline=%{pathshorten(expand('%:~:h'))}/\ ❮❮\ %t\ ❯❯\ %m
-set statusline+=%=❮❮\ %03v\ ❯❯
-
-" insert mode changes
-augroup INSERT
-    autocmd!
-    " only set cursor column when inserting text
     autocmd InsertEnter * set cursorcolumn
     autocmd InsertLeave * set nocursorcolumn
 augroup END
+
+" line numbers
+set number " always show line numbers
+set relativenumber " set line numbers to be relative to current row
+set scrolloff=5 " 5 lines of scroll buffer
+
+" commands
+set showcmd " always show the current command
+set showmode " show current mode (insert, visual)
+set cmdheight=1 " height of the command line
+
+" status line
+set laststatus=2 " always show the status line
+set statusline=%{pathshorten(expand('%:~:h'))}/\ ❮❮\ %t\ ❯❯\ %m
+set statusline+=%=❮❮\ %03v\ ❯❯
 
 " tab behavior
 set expandtab " tab inserts spaces instead of tabs
 set autoindent " auto indent
 set shiftwidth=4 " automatic indentation width
 set softtabstop=4 " tab space equivalents
-
-" configure backspace so it works as it should
-set backspace=eol,indent,start
-
-" allow cursor line wrapping with h and l
-set whichwrap+=<,>,h,l
 
 " searching
 set magic " regex magic
@@ -97,12 +91,26 @@ set wildignore+=.*
 
 " key remapping
 let mapleader=","
-nnoremap <c-h> <c-w>h
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-nnoremap <c-l> <c-w>l
+
+" configure backspace so it works as expected
+set backspace=eol,indent,start
+
+" allow cursor wrapping with movement keys
+set whichwrap+=<,>,h,l
 nnoremap j gj
 nnoremap k gk
+
+" multi function tab key
+function! InsertTabWrapper()
+    let col=col('.') - 1
+    if !col || getline('.')[col - 1] !~ '\k'
+        return "\<tab>"
+    else
+        return "\<c-p>"
+    endif
+endfunction
+inoremap <expr> <tab> InsertTabWrapper()
+inoremap <s-tab> <c-n>
 
 " fuzzy search integration
 if !empty($FUZZY_SELECTOR)
@@ -139,19 +147,6 @@ if !empty($FUZZY_SELECTOR)
     nnoremap <leader>f :call SearchFilePaths()<cr>
     nnoremap <leader>b :call SearchBuffers()<cr>
 endif
-
-" multi function tab key
-function! InsertTabWrapper()
-    let col=col('.') - 1
-    if !col || getline('.')[col - 1] !~ '\k'
-        return "\<tab>"
-    else
-        return "\<c-p>"
-    endif
-endfunction
-
-inoremap <expr> <tab> InsertTabWrapper()
-inoremap <s-tab> <c-n>
 
 " persist undo between sessions
 if has('persistent_undo') && isdirectory(expand('~').'/.vim/backups')
