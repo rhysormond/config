@@ -161,11 +161,17 @@ if has('persistent_undo') && isdirectory(expand('~').'/.vim/backups')
 endif
 
 " persist cursor position between sessions
-autocmd BufReadPost * silent! normal! g`"zv
-
-" delete trailing white space on save
-autocmd BufWritePre * :%s/\s\+$//e
+augroup PersistCursorPosition
+    autocmd!
+    autocmd BufReadPost * silent! normal! g`"zv
+augroup END
 
 " performance optimizations
 set lazyredraw " don't redraw while executing macros
+set ttimeout " don't wait for escape codes; modern terminals are plenty fast
+augroup NoInsertTimeout
+    autocmd!
+    autocmd InsertEnter * set ttimeoutlen=0 " no timeout
+    autocmd InsertLeave * set ttimeoutlen=-1 " default value
+augroup END
 
