@@ -60,8 +60,8 @@ set cmdheight=1 " height of the command line
 set laststatus=2 " always show the status line
 
 " status line
-set statusline=%{pathshorten(expand('%:~:h'))}/\ ❮❮\ %t\ %y\ ❯❯\ %m
-set statusline+=%=❮❮\ %03v\ ::\ %P\ ::\ %n\ ❯❯
+set statusline=%{pathshorten(expand('%:~:h'))}/\ ❮❮\ %t\ ❯❯\ %m
+set statusline+=%=❮❮\ %03v\ ❯❯
 
 " insert mode changes
 augroup INSERT
