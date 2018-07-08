@@ -1,3 +1,6 @@
+# launch tmux on startup
+if [ "$TMUX" = "" ]; then tmux; fi
+
 # add ~/bin to $PATH
 export PATH="$HOME/bin:$PATH"
 
