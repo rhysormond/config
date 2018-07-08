@@ -31,10 +31,31 @@ silent! set winminwidth=84 " minimum split width
 silent! set winminheight=10 " minimum split height
 
 " split window navigation
-nnoremap <c-h> <c-w>h
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-nnoremap <c-l> <c-w>l
+if exists('$TMUX')
+  function! TmuxOrSplitSwitch(wincmd, tmuxdir)
+    let previous_winnr = winnr()
+    silent! execute "wincmd " . a:wincmd
+    if previous_winnr == winnr()
+      call system("tmux select-pane -" . a:tmuxdir)
+      redraw!
+    endif
+  endfunction
+
+  let tmux_display = "tmux display-message -p '#{pane_title}'"
+  let previous_title = substitute(system(tmux_display), '\n', '', '')
+  let &t_ti = "\<Esc>]2;vim\<Esc>\\" . &t_ti
+  let &t_te = "\<Esc>]2;". previous_title . "\<Esc>\\" . &t_te
+
+  nnoremap <silent> <c-h> :call TmuxOrSplitSwitch('h', 'L')<cr>
+  nnoremap <silent> <c-j> :call TmuxOrSplitSwitch('j', 'D')<cr>
+  nnoremap <silent> <c-k> :call TmuxOrSplitSwitch('k', 'U')<cr>
+  nnoremap <silent> <c-l> :call TmuxOrSplitSwitch('l', 'R')<cr>
+else
+  nnoremap <c-h> <c-w>h
+  nnoremap <c-j> <c-w>j
+  nnoremap <c-k> <c-w>k
+  nnoremap <c-l> <c-w>l
+endif
 augroup RelativeNumberFocus " only show relative numbers for the current split
     autocmd!
     autocmd WinEnter * set relativenumber
