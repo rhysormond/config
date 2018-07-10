@@ -1,0 +1,19 @@
+" ignore case when searching
+set ignorecase
+
+" lines of scroll buffer
+set scrolloff=5
+
+" window navigation
+nmap <c-h> <c-w>h
+nmap <c-j> <c-w>j
+nmap <c-k> <c-w>k
+nmap <c-l> <c-w>l
+
+" leader
+let mapleader=","
+
+" JetBrains commands
+nnoremap <leader>s :action Find<cr>
+nnoremap <leader>f :action GotoFile<cr>
+nnoremap <leader>b :action RecentFiles<cr>
