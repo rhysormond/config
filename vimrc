@@ -89,7 +89,7 @@ set cmdheight=1 " height of the command line
 
 " status line
 set laststatus=2 " always show the status line
-set statusline=%{pathshorten(expand('%:~:h'))}/%t\ %m
+set statusline=%{pathshorten(expand('%:~:h'))}/%t\ (%{&ft})\ %m
 set statusline+=%=\ col:\ %02v\ 
 
 " tab behavior
