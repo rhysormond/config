@@ -25,14 +25,31 @@ export TERM="xterm-256color"
 export EDITOR="vim"
 export FUZZY_SELECTOR="selecta"
 
-# zsh theme
-ZSH_THEME="refined"
+# add python shims
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+export VIRTUALENV_ROOT="$HOME/.pyenv_custom/pyenv-virtualenv"
+export PATH="$VIRTUALENV_ROOT/bin:$PATH"
+export PYENV_HOOK_PATH="$PYENV_HOOK_PATH:$VIRTUALENV_ROOT/etc/pyenv.d"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
+# add ruby shims
+export RBENV_ROOT="$HOME/.rbenv"
+export PATH="$RBENV_ROOT/bin:$PATH"
+eval "$(rbenv init -)"
+
+# oh-my-zsh customization
+ZSH_CUSTOM="$HOME/.zsh_custom"
 
 # zsh plugins
 plugins=(
-    git colorize colored-man-pages pip bundler  # default
-    zsh-syntax-highlighting zsh-autosuggestions # installed separately
+    git colorize colored-man-pages pip bundler  # from oh-my-zsh
+    zsh-syntax-highlighting zsh-autosuggestions # from submodules
 )
+
+# zsh theme
+ZSH_THEME="refined"
 
 # zsh completion
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' # case insensitive
@@ -43,16 +60,10 @@ function chpwd() {
     ls
 }
 
-# zsh package control
-export ZSH=$HOME/.oh-my-zsh
-source $ZSH/oh-my-zsh.sh
-
-# add shims to $PATH
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$RBENV_ROOT/bin:$PATH"
-
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+# oh-my-zsh package control
+export ZSH="$HOME/.oh-my-zsh"
+source "$ZSH/oh-my-zsh.sh"
 
 # source system-specific env
 source ~/.env
+

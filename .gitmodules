@@ -1,0 +1,30 @@
+[submodule ".zsh_custom/zsh-syntax-highlighting"]
+	path = .zsh_custom/plugins/zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
+[submodule ".zsh_custom/zsh-autosuggestions"]
+	path = .zsh_custom/plugins/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions.git
+[submodule ".oh-my-zsh"]
+	path = .oh-my-zsh
+	url = https://github.com/robbyrussell/oh-my-zsh.git
+[submodule "bin/selecta"]
+	path = bin/.selecta
+	url = https://github.com/garybernhardt/selecta.git
+[submodule ".rbenv"]
+	path = .rbenv
+	url = https://github.com/rbenv/rbenv.git
+[submodule ".pyenv"]
+	path = .pyenv
+	url = https://github.com/pyenv/pyenv.git
+[submodule ".pyenv_custom/pyenv-virtualenv"]
+	path = .pyenv_custom/pyenv-virtualenv
+	url = https://github.com/pyenv/pyenv-virtualenv.git
+[submodule ".vim_custom/jellybeans.vim"]
+	path = .vim/colors/.jellybeans.vim
+	url = https://github.com/nanotech/jellybeans.vim.git
+[submodule ".vim_custom/vim-signify"]
+	path = .vim/bundle/vim-signify
+	url = https://github.com/mhinz/vim-signify.git
+[submodule ".vim/autoload/vim-pathogen"]
+	path = .vim/autoload/vim-pathogen
+	url = https://github.com/tpope/vim-pathogen.git

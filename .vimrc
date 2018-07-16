@@ -1,10 +1,16 @@
+" remove all existing autocmds
+autocmd!
+
 " enable plugins
 execute pathogen#infect()
 
 " save long long command history
 set history=10000
 
-" enable file type plugins
+" reload outside changes automatically
+set autoread
+
+" enable file type detection
 filetype indent plugin on
 
 " Unicode support
@@ -14,10 +20,12 @@ set encoding=utf8
 set nowb
 set nobackup
 set noswapfile
+set nowritebackup
 
 " colors
 syntax on
 set t_Co=256
+set background=dark
 colorscheme jellybeans
 
 " general configuration
@@ -102,7 +110,7 @@ set softtabstop=4 " tab space equivalents
 set magic " regex magic
 set hlsearch " highlight search results
 set incsearch " modern search
-set smartcase " when searching be smart about cases
+set smartcase " when searching be smart about cases.
 set ignorecase " ignore case when searching
 
 " command line completion
