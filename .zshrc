@@ -1,6 +1,10 @@
 # launch tmux on startup
 if [ "$TMUX" = "" ]; then tmux; fi
 
+# dotfile installation config
+alias config="git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
+alias config-update="config pull && config submodule update --init --recursive"
+
 # add ~/bin to $PATH
 export PATH="$HOME/bin:$PATH"
 
