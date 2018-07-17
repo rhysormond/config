@@ -48,7 +48,7 @@ ZSH_CUSTOM="$HOME/.zsh_custom"
 
 # zsh plugins
 plugins=(
-    git colorize colored-man-pages pip bundler  # from oh-my-zsh
+    git colorize colored-man-pages pip bundler vi-mode # from oh-my-zsh
     zsh-syntax-highlighting zsh-autosuggestions # from submodules
 )
 
