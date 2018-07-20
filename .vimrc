@@ -25,7 +25,9 @@ set nowritebackup
 " colors
 syntax on
 set t_Co=256
+set background=dark
 colorscheme gruvbox
+hi Normal ctermbg=NONE
 
 " general configuration
 set hidden " hide buffers rather than abandoning them
