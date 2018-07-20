@@ -1,8 +1,12 @@
-" ignore case when searching
-set ignorecase
+" searching
+set magic " regex magic
+set hlsearch " highlight search results
+set incsearch " modern search
+set smartcase " when searching be smart about cases.
+set ignorecase " ignore case when searching
 
-" lines of scroll buffer
-set scrolloff=5
+" line numbers
+set scrolloff=5 " 5 lines of scroll buffer
 
 " window navigation
 nmap <c-h> <c-w>h
