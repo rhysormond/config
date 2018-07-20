@@ -35,7 +35,7 @@ set spell spelllang=en_us " spell checking
 set winwidth=84 " focused split width
 set winheight=30 " focused split height
 silent! set winminwidth=84 " minimum split width
-silent! set winminheight=10 " minimum split height
+silent! set winminheight=5 " minimum split height
 
 " split window navigation
 if exists('$TMUX')
