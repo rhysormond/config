@@ -26,7 +26,7 @@ set nowritebackup
 syntax on
 set t_Co=256
 set background=dark
-colorscheme jellybeans
+colorscheme gruvbox
 
 " general configuration
 set hidden " hide buffers rather than abandoning them
