@@ -2,6 +2,7 @@
 .DS_Store
 
 # environment files
+.python-version
 .env
 
 # editor files
