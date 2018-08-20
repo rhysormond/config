@@ -1,6 +1,3 @@
-# launch tmux on startup
-if [ "$TMUX" = "" ]; then tmux; fi
-
 # dotfile installation config
 alias config="git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
 alias config-update="config pull && config submodule update --init --recursive"
@@ -37,11 +34,6 @@ export PATH="$VIRTUALENV_ROOT/bin:$PATH"
 export PYENV_HOOK_PATH="$PYENV_HOOK_PATH:$VIRTUALENV_ROOT/etc/pyenv.d"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
-
-# add ruby shims
-export RBENV_ROOT="$HOME/.rbenv"
-export PATH="$RBENV_ROOT/bin:$PATH"
-eval "$(rbenv init -)"
 
 # oh-my-zsh customization
 ZSH_CUSTOM="$HOME/.zsh_custom"
