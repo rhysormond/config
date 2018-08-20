@@ -10,9 +10,6 @@
 [submodule "bin/selecta"]
 	path = bin/.selecta
 	url = https://github.com/garybernhardt/selecta.git
-[submodule ".rbenv"]
-	path = .rbenv
-	url = https://github.com/rbenv/rbenv.git
 [submodule ".pyenv"]
 	path = .pyenv
 	url = https://github.com/pyenv/pyenv.git
