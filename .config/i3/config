@@ -99,14 +99,6 @@ bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
 ##
-# Sound
-##
-
-exec --no-startup-id volumeicon
-bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
-#bindsym $mod+Ctrl+m exec pavucontrol
-
-##
 # Brightness
 ##
 
@@ -231,6 +223,7 @@ exec --no-startup-id pamac-tray
 exec --no-startup-id clipit
 exec --no-startup-id start_conky_maia
 exec --no-startup-id xautolock -time 10 -locker blurlock
+exec --no-startup-id volumeicon
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 
