@@ -17,6 +17,7 @@ new_float normal
 ##
 # Keymaps
 ##
+
 # set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod4
 
@@ -24,7 +25,7 @@ set $mod Mod4
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec terminal
+bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -94,11 +95,7 @@ bindsym $mod+Ctrl+Left workspace prev
 # Scratch Pad
 ##
 
-# move the currently focused window to the scratchpad
 bindsym $mod+Shift+minus move scratchpad
-
-# show the next scratchpad window or hide the focused scratchpad window.
-# if there are multiple scratchpad windows, this command cycles through them.
 bindsym $mod+minus scratchpad show
 
 ##
@@ -107,8 +104,6 @@ bindsym $mod+minus scratchpad show
 
 exec --no-startup-id volumeicon
 bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
-#exec --no-startup-id pulseaudio
-#exec --no-startup-id pa-applet
 #bindsym $mod+Ctrl+m exec pavucontrol
 
 ##
@@ -172,10 +167,10 @@ for_window [urgent=latest] focus
 # reload the configuration file
 bindsym $mod+Shift+c reload
 
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+# restart i3 inplace
 bindsym $mod+Shift+r restart
 
-# exit i3 (logs you out of your X session)
+# exit i3
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 
@@ -227,16 +222,14 @@ mode "resize" {
 ##
 # Autostart Applications
 ##
+#
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nitrogen --restore; sleep 1; compton -b
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id pamac-tray
 exec --no-startup-id clipit
-# exec --no-startup-id blueman-applet
-# exec_always --no-startup-id sbxkb
 exec --no-startup-id start_conky_maia
-# exec --no-startup-id start_conky_green
 exec --no-startup-id xautolock -time 10 -locker blurlock
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
@@ -245,7 +238,6 @@ exec_always --no-startup-id fix_xcursor
 # Colors (see: ~/.Xresources)
 ##
 
-# Theme colors
 # class                 border  backgr. text    indic.
 client.focused          #556064 #556064 #80FFF9 #FDF6E3
 client.focused_inactive #2F3D44 #2F3D44 #1ABC9C #454948
@@ -276,6 +268,7 @@ set_from_resource $term_color15    color15
 ##
 # Bar
 ##
+
 bar {
 	i3bar_command i3bar
 	status_command i3status
@@ -300,52 +293,13 @@ bar {
 }
 
 ##
-# Gaps Config
+# Gaps
 ##
 
-# Set inner/outer gaps
+# gaps
 gaps inner 10
 gaps outer -4
 
-# Smart gaps (gaps used if only more than one container on the workspace)
+# context-sensitive settings
 smart_gaps on
-
-# Smart borders (draw borders around container only if it is not the only container on this workspace) 
 smart_borders on
-
-# Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying outer/inner gaps.
-set $mode_gaps Gaps: (o) outer, (i) inner
-set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
-set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
-bindsym $mod+Shift+g mode "$mode_gaps"
-
-mode "$mode_gaps" {
-        bindsym o      mode "$mode_gaps_outer"
-        bindsym i      mode "$mode_gaps_inner"
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
-mode "$mode_gaps_inner" {
-        bindsym plus  gaps inner current plus 5
-        bindsym minus gaps inner current minus 5
-        bindsym 0     gaps inner current set 0
-
-        bindsym Shift+plus  gaps inner all plus 5
-        bindsym Shift+minus gaps inner all minus 5
-        bindsym Shift+0     gaps inner all set 0
-
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
-mode "$mode_gaps_outer" {
-        bindsym plus  gaps outer current plus 5
-        bindsym minus gaps outer current minus 5
-        bindsym 0     gaps outer current set 0
-
-        bindsym Shift+plus  gaps outer all plus 5
-        bindsym Shift+minus gaps outer all minus 5
-        bindsym Shift+0     gaps outer all set 0
-
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
