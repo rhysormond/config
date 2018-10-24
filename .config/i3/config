@@ -99,6 +99,12 @@ bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
 ##
+# Audio
+##
+
+exec_always --no-startup-id pa-applet
+
+##
 # Brightness
 ##
 
@@ -214,7 +220,7 @@ mode "resize" {
 ##
 # Autostart Applications
 ##
-#
+
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nitrogen --restore; sleep 1; compton -b
 exec --no-startup-id nm-applet
@@ -223,7 +229,6 @@ exec --no-startup-id pamac-tray
 exec --no-startup-id clipit
 exec --no-startup-id start_conky_maia
 exec --no-startup-id xautolock -time 10 -locker blurlock
-exec --no-startup-id volumeicon
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 
