@@ -142,40 +142,22 @@ endfunction
 inoremap <expr> <tab> InsertTabWrapper()
 inoremap <s-tab> <c-n>
 
-" fuzzy search integration
+" fuzzy selection integration
 if !empty($FUZZY_SELECTOR)
-    function! FuzzySelect(input)
+    function! FuzzyCommand(input_command, selection_field, vim_command)
         try
-            let selection=system(a:input . " | " . $FUZZY_SELECTOR)
+            let selection=system(a:input_command . " | " . $FUZZY_SELECTOR)
         catch /Vim:Interrupt/
-            redraw!
-        return
         endtry
         redraw!
-        return selection
+        if v:shell_error == 0 && !empty(selection)
+            let selected_field=split(selection)[a:selection_field]
+            exec a:vim_command . ' ' . selected_field
+        endif
     endfunction
 
-    function! SearchWithinFile()
-        let line_selection = FuzzySelect("cat -n " .@%)
-        let line_number = split(line_selection)[0]
-        exec ": " . line_number
-    endfunction
-
-    function! SearchFilePaths()
-        let path_selection = FuzzySelect("find * -type f")
-        exec ":e " . path_selection
-    endfunction
-
-    function! SearchBuffers()
-        let bufnrs=filter(range(1, bufnr("$")), 'buflisted(v:val)')
-        let buffers=map(bufnrs, 'bufname(v:val)')
-        let buffer_selection = FuzzySelect('echo "' . join(buffers, "\n") . '"')
-        exec ":b " . buffer_selection
-    endfunction
-
-    nnoremap <leader>s :call SearchWithinFile()<cr>
-    nnoremap <leader>f :call SearchFilePaths()<cr>
-    nnoremap <leader>b :call SearchBuffers()<cr>
+    nnoremap <leader>s :call FuzzyCommand("cat -n " . @%, 0, ":")<cr>
+    nnoremap <leader>f :call FuzzyCommand("find -type f", 0, ":e")<cr>
 endif
 
 " persist undo between sessions
