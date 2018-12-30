@@ -26,15 +26,6 @@ export TERM="xterm-256color"
 export EDITOR="vim"
 export FUZZY_SELECTOR="selecta"
 
-# add python shims
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-export VIRTUALENV_ROOT="$HOME/.pyenv_custom/pyenv-virtualenv"
-export PATH="$VIRTUALENV_ROOT/bin:$PATH"
-export PYENV_HOOK_PATH="$PYENV_HOOK_PATH:$VIRTUALENV_ROOT/etc/pyenv.d"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-
 # oh-my-zsh customization
 ZSH_CUSTOM="$HOME/.zsh_custom"
 
