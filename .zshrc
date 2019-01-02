@@ -24,7 +24,7 @@ export TERM="xterm-256color"
 
 # text editor
 export EDITOR="vim"
-export FUZZY_SELECTOR="selecta"
+export FUZZY_SELECTOR="fzy"
 
 # oh-my-zsh customization
 ZSH_CUSTOM="$HOME/.zsh_custom"
