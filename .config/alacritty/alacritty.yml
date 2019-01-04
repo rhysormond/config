@@ -1,11 +1,13 @@
 window:
-  decorations: none
   dimensions:
     columns: 80
     lines: 24
   padding:
     x: 2
     y: 2
+  dynamic_padding: false
+  decorations: full
+  start_maximized: false
 
 scrolling:
   history: 10000
@@ -16,30 +18,30 @@ scrolling:
 tabspaces: 4
 
 font:
-  size: 8.0
   normal:
     family: monospace
   bold:
     family: monospace
   italic:
     family: monospace
+  size: 8.0
   offset:
     x: 0
     y: 0
   glyph_offset:
     x: 0
     y: 0
-  scale_with_dpi: true
 
-custom_cursor_colors: false
+render_timer: false
+
+persistent_logging: false
+
 draw_bold_text_with_bright_colors: true
 
-# colors (gruvbox)
 colors:
   primary:
     background: '0x282828'
     foreground: '0xebdbb2'
-
   normal:
     black:   '0x282828'
     red:     '0xcc241d'
@@ -49,7 +51,6 @@ colors:
     magenta: '0xb16286'
     cyan:    '0x689d6a'
     white:   '0xa89984'
-
   bright:
     black:   '0x928374'
     red:     '0xfb4934'
@@ -63,21 +64,32 @@ colors:
 visual_bell:
   animation: EaseOutExpo
   duration: 0
+  color: '0xffffff'
 
 background_opacity: 0.95
 
+mouse_bindings:
+  - { mouse: Middle, action: PasteSelection }
+
 mouse:
   double_click: { threshold: 300 }
+  triple_click: { threshold: 300 }
+
+  hide_when_typing: false
+
+  url:
+    launcher: xdg-open
 
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>"
+  save_to_clipboard: false
 
-save_to_clipboard: false
 dynamic_title: true
 
-cursor_style: Block
-hide_cursor_when_typing: false
-unfocused_hollow_cursor: true
+cursor:
+  style: Block
+  unfocused_hollow: true
+
 live_config_reload: true
 
 key_bindings:
@@ -91,6 +103,8 @@ key_bindings:
   - { key: Key0,     mods: Control, action: ResetFontSize                }
   - { key: Equals,   mods: Control, action: IncreaseFontSize             }
   - { key: Subtract, mods: Control, action: DecreaseFontSize             }
+  - { key: L,        mods: Control, action: ClearLogNotice               }
+  - { key: L,        mods: Control, chars: "\x0c"                        }
   - { key: Home,                    chars: "\x1bOH",   mode: AppCursor   }
   - { key: Home,                    chars: "\x1b[H",   mode: ~AppCursor  }
   - { key: End,                     chars: "\x1bOF",   mode: AppCursor   }
