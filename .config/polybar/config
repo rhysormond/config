@@ -19,5 +19,5 @@ monitor-fallback = ${env:MONITOR:LVDS-1}
 
 modules-left   = i3
 modules-center =
-modules-right  = brightness volume cpu memory temp disk wifi eth battery clock
+modules-right  = volume brightness cpu memory temp disk wifi eth battery clock
 
