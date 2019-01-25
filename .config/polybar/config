@@ -1,0 +1,23 @@
+;=====================================================
+;     File Includes
+;=====================================================
+
+[section/base]
+include-file = ~/.config/polybar/master.conf
+include-file = ~/.config/polybar/modules.conf
+
+;=====================================================
+;     i3 Bars
+;=====================================================
+
+[bar/i3-bar]
+inherit = bar/master
+
+; Use $ xrandr -q | grep " connected" | cut -d ' ' -f1
+monitor =
+monitor-fallback = ${env:MONITOR:LVDS-1}
+
+modules-left   = i3
+modules-center = clock
+modules-right  = filesystem brightness volume cpu memory wifi eth battery temperature
+

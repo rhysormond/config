@@ -6,8 +6,7 @@
 font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 font pango:DejaVu Sans Mono 12
 font pango:DejaVu Sans Mono, Terminus Bold Semi-Condensed 12
-font pango:Terminus 12px
-font xft:URWGothic-Book 12
+font xft:DejaVu Sans Mono 12
 
 # configure border style <normal|1pixel|pixel xx|none|pixel>
 hide_edge_borders none
@@ -266,29 +265,7 @@ set_from_resource $term_color15    color15
 ##
 # Bar
 ##
-
-bar {
-	i3bar_command i3bar
-	status_command i3status
-	position bottom
-
-	bindsym button4 nop
-	bindsym button5 nop
-	strip_workspace_numbers yes
-
-    colors {
-        background #283339
-        statusline #F9FAF9
-        separator  #454947
-
-        #workspace         border  backgr. text
-        focused_workspace  #F9FAF9 #16a085 #292F34
-        active_workspace   #595B5B #353836 #FDF6E3
-        inactive_workspace #595B5B #283339 #EEE8D5
-        binding_mode       #16a085 #2C2C2C #F9FAF9
-        urgent_workspace   #16a085 #FDF6E3 #E5201D
-    }
-}
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 ##
 # Gaps
