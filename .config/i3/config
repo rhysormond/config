@@ -63,6 +63,10 @@ set $mod Mod4
 # use Mouse+$mod to drag floating windows
 floating_modifier $mod
 
+# scratch pad
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
+
 # start a terminal
 bindsym $mod+Return exec alacritty
 
