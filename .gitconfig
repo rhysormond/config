@@ -17,3 +17,4 @@
     ui = true
 [alias]
     graph = log --all --decorate --oneline --graph
+    update = submodule update --init --recursive
