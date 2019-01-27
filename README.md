@@ -19,6 +19,7 @@ yay -S
     pulseaudio
     ranger
     ripgrep
+    rofi
     rsync
     screengrab
     tmux

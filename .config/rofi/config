@@ -1,0 +1,5 @@
+rofi.modi:             window,run,ssh,combi
+rofi.font:             DejaVuSansMono 12
+rofi.terminal:         alacritty
+rofi.theme:            gruvbox-dark-soft
+rofi.kb-primary-paste: Control+V
