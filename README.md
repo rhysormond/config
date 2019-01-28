@@ -39,6 +39,6 @@ alias config='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 config config --local status.showUntrackedFiles no
 config reset
 config stash
-config submodule update --init --recursive
+config update
 ```
 
