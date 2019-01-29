@@ -5,7 +5,7 @@ window:
   padding:
     x: 2
     y: 2
-  dynamic_padding: false
+  dynamic_padding: true
   decorations: full
   start_maximized: false
 
