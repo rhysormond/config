@@ -7,6 +7,7 @@ pacman -S yay
 yay -S
     alacritty
     firefox
+    flameshot
     fzy
     git
     gtk-theme-arc-gruvbox-git

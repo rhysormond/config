@@ -73,6 +73,9 @@ bindsym $mod+minus scratchpad show
 # launch terminal
 bindsym $mod+Return exec alacritty
 
+# screenshot
+bindsym $mod+p exec --no-startup-id flameshot gui
+
 # start program launcher
 bindsym $mod+d exec --no-startup-id rofi -show combi
 
