@@ -16,7 +16,7 @@ zstyle ':completion:*' insert-tab pending           # handle pasted tabs better
 
 # zsh ls after every cd
 function chpwd() {
-    ls
+    ls --color=auto
 }
 
 # oh-my-zsh package control
