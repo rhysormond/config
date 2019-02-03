@@ -28,6 +28,7 @@ yay -S
     tree
     ttf-dejavu
     xautolock
+    xcape
     xfce4-power-manager
     xorg-xbacklight
     zsh
