@@ -264,6 +264,9 @@ exec --no-startup-id xfce4-power-manager
 # auto locking
 exec --no-startup-id xautolock -time 10 -locker i3lock -c 000000
 
+# bind caps lock to escape on tap (ctrl binding handled in ~/.xmodmap)
+exec --no-startup-id xcape
+
 # ui tweaks and fixes
 exec_always --no-startup-id fix_xcursor
 
