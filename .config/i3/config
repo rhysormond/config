@@ -23,17 +23,16 @@ smart_gaps on
 smart_borders on
 
 ##
-# Colors (see: ~/.Xresources)
+# Colors
 ##
 
-# class                 border  backgr. text    indic.
-client.focused          #556064 #556064 #80FFF9 #FDF6E3
-client.focused_inactive #2F3D44 #2F3D44 #1ABC9C #454948
-client.unfocused        #2F3D44 #2F3D44 #1ABC9C #454948
-client.urgent           #CB4B16 #FDF6E3 #1ABC9C #268BD2
-client.placeholder      #000000 #0c0c0c #ffffff #000000
-client.background       #2B2C2B
+# class                 border           background       text          indicator    child_border
+client.focused          $term_background $term_background $term_color3  $term_color5 $term_background
+client.focused_inactive $term_background $term_background $term_color3  $term_color5 $term_background
+client.unfocused        $term_background $term_background $term_color8  $term_color5 $term_background
+client.urgent           $term_color1     $term_color1     $term_color15 $term_color1 $term_color1
 
+# see: ~/.Xresources
 set_from_resource $term_background background
 set_from_resource $term_foreground foreground
 set_from_resource $term_color0     color0
