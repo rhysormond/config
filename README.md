@@ -7,6 +7,7 @@ pacman -S yay
 yay -S
     alacritty
     firefox
+    fish
     flameshot
     fzy
     git
@@ -31,7 +32,6 @@ yay -S
     xcape
     xfce4-power-manager
     xorg-xbacklight
-    zsh
 ```
 
 ## Install Configuration
