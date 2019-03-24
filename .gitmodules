@@ -1,12 +1,3 @@
-[submodule ".zsh_custom/zsh-syntax-highlighting"]
-	path = .zsh_custom/plugins/zsh-syntax-highlighting
-	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
-[submodule ".zsh_custom/zsh-autosuggestions"]
-	path = .zsh_custom/plugins/zsh-autosuggestions
-	url = https://github.com/zsh-users/zsh-autosuggestions.git
-[submodule ".oh-my-zsh"]
-	path = .oh-my-zsh
-	url = https://github.com/robbyrussell/oh-my-zsh.git
 [submodule ".vim/autoload/vim-pathogen"]
 	path = .vim/autoload/vim-pathogen
 	url = https://github.com/tpope/vim-pathogen.git
