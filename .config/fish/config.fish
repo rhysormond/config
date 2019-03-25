@@ -2,6 +2,10 @@
 alias g="git"
 alias config="git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
 
+# env vars
+set -x EDITOR vim
+set -x FUZZY_SELECTOR fzy
+
 # autojump support
 begin
     set --local AUTOJUMP_PATH "/usr/share/autojump/autojump.fish"
