@@ -1,4 +1,5 @@
-# dotfile installation config
+# aliases
+alias g="git"
 alias config="git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
 
 # add ~/bin to $PATH

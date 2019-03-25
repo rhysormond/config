@@ -1,5 +1,14 @@
 # aliases
+alias g="git"
 alias config="git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
+
+# autojump support
+begin
+    set --local AUTOJUMP_PATH "/usr/share/autojump/autojump.fish"
+    if test -e $AUTOJUMP_PATH
+        source $AUTOJUMP_PATH
+    end
+end
 
 # add ~/bin to $PATH
 set -x PATH "$HOME/bin" $PATH

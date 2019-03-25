@@ -6,6 +6,7 @@ A set of configuration and scripts to roughly recreate my development environmen
 pacman -S yay
 yay -S
     alacritty
+    autojump
     firefox
     fish
     flameshot
