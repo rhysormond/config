@@ -55,22 +55,34 @@ function fish_mode_prompt --description "Displays the current vi mode"
     end
 end
 
+# git status colors
+set __fish_git_prompt_color normal
+set __fish_git_prompt_color_branch yellow
+
+# git status state
+set __fish_git_prompt_showuntrackedfiles 'yes'
+set __fish_git_prompt_showdirtystate 'yes'
+set __fish_git_prompt_showstashstate 'yes'
+set __fish_git_prompt_showupstream 'yes'
+
+# git status chars
+set __fish_git_prompt_char_untrackedfiles '☡'
+set __fish_git_prompt_char_dirtystate '✗'
+set __fish_git_prompt_char_stagedstate '→'
+set __fish_git_prompt_char_stashstate '↩'
+set __fish_git_prompt_char_upstream_ahead '↑'
+set __fish_git_prompt_char_upstream_behind '↓'
+
 # prompt
 function fish_prompt
     set_color blue
     printf "%s" (prompt_pwd)
-    set_color grey
+    set_color normal
     printf "%s" (__fish_git_prompt)
     set_color purple
     printf " > "
     set_color normal
 end
-
-# git prompt settings
-set __fish_git_prompt_showuntrackedfiles "yes"
-set __fish_git_prompt_showdirtystate "yes"
-set __fish_git_prompt_showstashstate ""
-set __fish_git_prompt_showupstream "none"
 
 # reuse common env vars
 # from https://gist.github.com/overtrue/f7cd321708ba917b8def
