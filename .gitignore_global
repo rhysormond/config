@@ -16,8 +16,9 @@ __pycache__/
 *.pyc
 *.egg
 
-# test-generated files
+# generated files
 .pytest_cache/
+.attach_pid*
 .coverage
 .cache/
 .tox/
