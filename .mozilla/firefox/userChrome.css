@@ -1,0 +1,9 @@
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+/* move header bars below content */
+#titlebar { -moz-box-ordinal-group: 10; }
+#navigator-toolbox { -moz-box-ordinal-group: 10; }
+
+/* move search completion above nav bar */
+#PopupAutoCompleteRichResult { margin-top: -30vh; }
+
