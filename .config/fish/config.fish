@@ -77,7 +77,7 @@ set __fish_git_prompt_char_stashstate '↩'
 set __fish_git_prompt_char_upstream_ahead '↑'
 set __fish_git_prompt_char_upstream_behind '↓'
 
-# prompt
+# left prompt
 function fish_prompt
     set_color blue
     printf "%s" (prompt_pwd)
@@ -85,6 +85,13 @@ function fish_prompt
     printf "%s" (__fish_git_prompt)
     set_color purple
     printf " > "
+    set_color normal
+end
+
+# right prompt
+function fish_right_prompt
+    set_color grey
+    printf "%s" (hostname)
     set_color normal
 end
 
