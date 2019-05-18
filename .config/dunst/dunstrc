@@ -1,0 +1,30 @@
+[global]
+    transparency = 10
+    padding = 4
+    horizontal_padding = 4
+    separator_color = "#585858"
+    separator_height = 2
+    sticky_history = yes
+
+[frame]
+    width = 0
+
+[shortcuts]
+    close_all = ctrl+space
+    history = ctrl+grave
+
+[urgency_low]
+    background = "#282828"
+    foreground = "#ebdbb2"
+    timeout = 5
+
+[urgency_normal]
+    background = "#282828"
+    foreground = "#ebdbb2"
+    timeout = 10
+
+[urgency_critical]
+    background = "#282828"
+    foreground = "#ebdbb2"
+    timeout = 0
+

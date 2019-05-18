@@ -7,6 +7,7 @@ pacman -S yay
 yay -S
     alacritty
     autojump
+    dunst
     firefox
     fish
     flameshot
