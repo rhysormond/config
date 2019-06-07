@@ -33,7 +33,6 @@
 /* hide controls on urlbar focus */
 :root:not([customizing]) #navigator-toolbox #nav-bar #urlbar-container:focus-within {
     width: 100% !important;
-    position: absolute !important;
     left: 0 !important;
 }
 
