@@ -71,8 +71,7 @@
     #navigator-toolbox #nav-bar:focus-within {
         margin-right: 0vw !important;
         z-index: 2 !important;
-        background-attachment: fixed !important;
-        background-color: transparent !important;
+        background-color: #282828 !important;
         background-image: var(--lwt-header-image) !important;
         background-position: right top !important;
         background-repeat: no-repeat !important;
