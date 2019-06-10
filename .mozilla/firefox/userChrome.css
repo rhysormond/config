@@ -4,7 +4,7 @@
 #navigator-toolbox { -moz-box-ordinal-group: 10; }
 
 /* move search completion above nav bar */
-#PopupAutoCompleteRichResult { margin-top: -30vh; }
+#PopupAutoCompleteRichResult { margin-top: -29.5vh; }
 
 /* hide buttons **/
 :root:not([customizing]) #nav-bar toolbarbutton {
