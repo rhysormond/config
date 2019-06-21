@@ -1,8 +1,115 @@
 @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 
 /* move header bars below content */
-#navigator-toolbox { -moz-box-ordinal-group: 10; }
+#navigator-toolbox {
+  -moz-box-ordinal-group: 10;
+}
 
 /* move search completion above nav bar */
-#PopupAutoCompleteRichResult { margin-top: -29.75vh; }
+#PopupAutoCompleteRichResult {
+  margin-top: -340px !important;
+}
 
+/* hide forward and back buttons when not used */
+#forward-button[disabled="true"] { display: none; }
+#back-button[disabled="true"] { display: none; }
+
+/* show tab close buttons only on hover */
+.close-icon{
+  transform:scale(1,1)!important;
+  transition:opacity 250ms var(--animation-easing-function),
+    margin-left 250ms var(--animation-easing-function),
+    transform var(--animation-easing-function),
+    visibility 0ms 25ms!important;
+}
+.tabbrowser-tab:not(:hover) .close-icon{
+  opacity:0!important;
+  margin-left:calc((-20px * .9) + 2px)!important;
+  transform:scale(.9,.9)!important;
+}
+
+/* hide notification icon */
+.desktop-notification-icon {
+  display: none !important;
+}
+
+/* hide identity lables (secure) */
+#identity-box #identity-icon-labels {
+  display:none
+}
+
+/* hide green lock icon */
+#urlbar[pageproxystate="valid"] > #identity-box.verifiedDomain > #connection-icon,
+#urlbar[pageproxystate="valid"] > #identity-box.verifiedIdentity > #connection-icon,
+#urlbar[pageproxystate="valid"] > #identity-box.mixedActiveBlocked > #connection-icon {
+  display: none !important;
+}
+
+/* hide scroll bar */
+browser {
+  margin-right: -17px !important;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+/* inline nav-bar and TabsToolbar */
+#TabsToolbar {
+  margin-bottom: 4px !important;
+  margin-top: 0px !important;
+  margin-left: 35vw !important;
+  margin-right: -34px !important;
+  max-height: 32px !important;
+  border: none !important;
+}
+#nav-bar {
+  margin-bottom: -1px !important;
+  margin-top: -32px !important;
+  margin-right: 65vw !important;
+  border-top: none !important;
+}
+#urlbar {
+  margin-top: -2px !important;
+  margin-bottom: -2px !important;
+}
+
+/* remove url bar border */
+#urlbar {
+  border-width: 0px !important;;
+}
+
+/* remove TabsToolbar border */
+:root {
+  --chrome-content-separator-color: none !important;
+}
+
+/* shrink forward and back buttons */
+#back-button > .toolbarbutton-icon,
+#forward-button > .toolbarbutton-icon {
+  transform: scale(0.9, 0.9) !important;
+  margin-left: -2px !important;
+  margin-right: -2px !important;
+}
+
+/* move hamburger menu to the left */
+#PanelUI-button,
+#customization-panel-container,
+#customization-panelWrapper .panel-arrow {
+  -moz-box-ordinal-group: 0 !important;
+  margin-right: -6px !important;
+}
+#appMenu-popup {
+  margin-right: -258px !important;
+}
+#appMenu-popup .panel-arrow {
+  margin-right: 248px !important;
+}
+
+/* remove tab spacers */
+.tabbrowser-tab::after, .tabbrowser-tab::before {
+  border-left: none !important;
+}
+
+/* remove focused tab accent */
+.tab-line {
+  height: 0px !important;
+}
