@@ -16,5 +16,17 @@
 [color]
     ui = true
 [alias]
-    graph = log --all --decorate --oneline --graph
-    update = submodule update --init --recursive
+    cfg = "!git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
+
+    aa = add --all
+    ap = add --patch
+    ca = commit --amend
+    ci = commit --verbose
+    cm = commit --message
+    co = checkout
+    dh = diff HEAD~1
+    di = diff
+    fa = fetch --all
+    gr = log --all --decorate --oneline --graph
+    lh = log -1
+    st = status

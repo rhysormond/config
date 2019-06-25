@@ -1,6 +1,5 @@
 # aliases
 alias g="git"
-alias config="git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
 
 # env vars
 set -x EDITOR vim
