@@ -16,6 +16,7 @@
 [color]
     ui = true
 [alias]
+    alias = "!git config --get-regexp '^alias.' | sed -e s/'^alias.'// -e s/' '/' = '/"
     cfg = "!git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
 
     aa = add --all
