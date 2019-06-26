@@ -1,19 +1,22 @@
 [user]
     email = rhysormond@gmail.com
     name = rhys
+[color]
+    ui = auto
 [core]
     editor = vim
     excludesfile = ~/.gitignore_global
     filemode = false
     pager = less -FRX
-[push]
-    default = simple
 [diff]
-    tool = vimdiff
+    algorithm = patience
+    compactionHeuristic = true
+[help]
+    autocorrect = 1
 [merge]
     tool = vimdiff
-[color]
-    ui = true
+[push]
+    default = simple
 [alias]
     alias = "!git config --get-regexp '^alias.' | sed -e s/'^alias.'// -e s/' '/' = '/"
     cfg = "!git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
