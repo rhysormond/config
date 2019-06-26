@@ -20,7 +20,9 @@
 
     aa = add --all
     ap = add --patch
+    br = branch
     ca = commit --amend
+    cb = checkout -B
     ci = commit --verbose
     cm = commit --message
     co = checkout
@@ -29,4 +31,5 @@
     fa = fetch --all
     gr = log --all --decorate --oneline --graph
     lh = log -1
+    lo = log
     st = status
