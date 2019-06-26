@@ -5,10 +5,9 @@
     editor = vim
     excludesfile = ~/.gitignore_global
     filemode = false
+    pager = less -FRX
 [push]
     default = simple
-[pager]
-    branch = false
 [diff]
     tool = vimdiff
 [merge]
@@ -22,7 +21,7 @@
     aa = add --all
     ap = add --patch
     br = branch
-    ca = commit --amend
+    ca = commit --amend --verbose
     cb = checkout -B
     ci = commit --verbose
     cm = commit --message
