@@ -45,13 +45,6 @@
   display: none !important;
 }
 
-/* hide scroll bar */
-browser {
-  margin-right: -17px !important;
-  overflow-y: scroll;
-  overflow-x: hidden;
-}
-
 /* inline nav-bar and TabsToolbar */
 #TabsToolbar {
   margin-bottom: 4px !important;
