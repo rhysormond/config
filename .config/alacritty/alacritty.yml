@@ -7,7 +7,6 @@ window:
     y: 2
   dynamic_padding: true
   decorations: full
-  start_maximized: false
 
 scrolling:
   history: 10000
@@ -31,10 +30,6 @@ font:
   glyph_offset:
     x: 0
     y: 0
-
-render_timer: false
-
-persistent_logging: false
 
 draw_bold_text_with_bright_colors: true
 
