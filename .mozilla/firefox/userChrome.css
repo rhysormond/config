@@ -6,8 +6,8 @@
 }
 
 /* move search completion above nav bar */
-#PopupAutoCompleteRichResult {
-  margin-top: -340px !important;
+#urlbar-results {
+  margin-top: -355px !important;
 }
 
 /* hide forward and back buttons when not used */
