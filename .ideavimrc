@@ -18,6 +18,7 @@ nmap <c-l> <c-w>l
 let mapleader=","
 
 " JetBrains commands
+set ideajoin " use IDE joining logic
 nnoremap <leader>s :action Find<cr>
 nnoremap <leader>f :action GotoFile<cr>
 nnoremap <leader>b :action RecentFiles<cr>
