@@ -29,10 +29,10 @@
     ci = commit --verbose
     cm = commit --message
     co = checkout
-    dh = diff HEAD~1
     di = diff
     fa = fetch --all
     gr = log --all --decorate --oneline --graph
     lh = log -1
     lo = log
+    sh = show
     st = status
