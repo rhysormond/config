@@ -27,6 +27,7 @@ yay -S
     terminus-font
     tree
     ttf-dejavu
+    upower
     xautolock
     xcape
     xfce4-power-manager
