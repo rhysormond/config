@@ -13,7 +13,7 @@ yay -S
     gtk-theme-arc-gruvbox-git
     gvim
     networkmanager
-    network-manager-applet
+    networkmanager-dmenu
     nitrogen
     openssh
     polybar
