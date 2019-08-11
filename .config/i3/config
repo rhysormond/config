@@ -220,7 +220,7 @@ set $mode_system (l)ock, (r)eboot, (s)hutdown
 mode "$mode_system" {
     bindsym l exec --no-startup-id i3lock -c 000000, mode "default"
     bindsym r exec --no-startup-id i3exit reboot, mode "default"
-    bindsym s exec --no-startup-id shutdown, mode "default"
+    bindsym s exec --no-startup-id shutdown now, mode "default"
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
