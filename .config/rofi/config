@@ -1,5 +1,17 @@
 rofi.modi:             window,run,ssh,combi
-rofi.font:             DejaVuSansMono 12
 rofi.terminal:         alacritty
-rofi.theme:            gruvbox-dark-soft
 rofi.kb-primary-paste: Control+V
+
+!theming
+rofi.font:            DejaVuSansMono 12
+rofi.separator-style: dash
+rofi.hide-scrollbar:  true
+rofi.bw:              0
+rofi.width:           750
+
+!color
+rofi.color-enabled: true
+rofi.color-window:  #282828, #282828
+rofi.color-normal:  #282828, #ebdbb2, #282828, #282828, #fabd2f
+rofi.color-urgent:  #282828, #ebdbb2, #282828, #282828, #fabd2f
+rofi.color-active:  #282828, #ebdbb2, #282828, #282828, #fabd2f
