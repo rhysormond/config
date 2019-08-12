@@ -2,6 +2,7 @@
 
 pacman -S yay
 yay -S
+    acpi
     alacritty
     autojump
     dunst
@@ -27,7 +28,6 @@ yay -S
     terminus-font
     tree
     ttf-dejavu
-    upower
     xautolock
     xcape
     xfce4-power-manager
