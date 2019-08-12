@@ -2,8 +2,7 @@
     transparency = 10
     padding = 4
     horizontal_padding = 4
-    separator_color = "#585858"
-    separator_height = 2
+    separator_height = 0
     sticky_history = yes
 
 [frame]
