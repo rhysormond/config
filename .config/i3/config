@@ -136,8 +136,8 @@ bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 # tiling orientation
-bindsym $mod+v split h;exec notify-send 'tile horizontally'
-bindsym $mod+s split v;exec notify-send 'tile vertically'
+bindsym $mod+v split h
+bindsym $mod+s split v
 
 # change focus
 bindsym $mod+h focus left
