@@ -5,6 +5,7 @@ yay -S
     acpi
     alacritty
     autojump
+    compton
     dunst
     firefox
     fish
