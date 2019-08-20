@@ -125,10 +125,18 @@ let mapleader=","
 " configure backspace so it works as expected
 set backspace=eol,indent,start
 
-" allow cursor wrapping with movement keys
+" allow cursor wrapping when moving left/right
 set whichwrap+=<,>,h,l
-nnoremap j gj
-nnoremap k gk
+
+" up and navigate through wrapped text
+nnoremap <Up> gk
+nnoremap <Down> gj
+
+" left and right indent and dedent
+nmap <Left> <<
+nmap <Right> >>
+vmap <Left> <gv
+vmap <Right> >gv
 
 " multi function tab key
 function! InsertTabWrapper()
