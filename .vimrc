@@ -81,11 +81,11 @@ set linebreak " only wrap at specific characters
 set showmatch " highlight matching braces
 set cursorline " highlight current cursor line
 set colorcolumn=81 " highlight the over-length column
-augroup InsertHighlighting " highlight column in insert mode
-    autocmd!
-    autocmd InsertEnter * set cursorcolumn
-    autocmd InsertLeave * set nocursorcolumn
-augroup END
+
+" mode-depenant cursor style
+let &t_EI = "\<Esc>[2 q" " block in normal mode
+let &t_SR = "\<Esc>[4 q" " underscore in replace mode
+let &t_SI = "\<Esc>[6 q" " bar in insert mode
 
 " line numbers
 set number " always show line numbers
