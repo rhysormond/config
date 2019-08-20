@@ -35,11 +35,15 @@ set spell spelllang=en_us " spell checking
 
 " split window sizing
 set winwidth=84 " focused split width
-set winheight=30 " focused split height
-silent! set winminwidth=84 " minimum split width
-silent! set winminheight=5 " minimum split height
+set winheight=24 " focused split height
 
 " split window navigation
+nnoremap <c-h> <c-w>h
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-l> <c-w>l
+
+" naviate between tmux and vim splits
 if exists('$TMUX')
   function! TmuxOrSplitSwitch(wincmd, tmuxdir)
     let previous_winnr = winnr()
@@ -59,13 +63,10 @@ if exists('$TMUX')
   nnoremap <silent> <c-j> :call TmuxOrSplitSwitch('j', 'D')<cr>
   nnoremap <silent> <c-k> :call TmuxOrSplitSwitch('k', 'U')<cr>
   nnoremap <silent> <c-l> :call TmuxOrSplitSwitch('l', 'R')<cr>
-else
-  nnoremap <c-h> <c-w>h
-  nnoremap <c-j> <c-w>j
-  nnoremap <c-k> <c-w>k
-  nnoremap <c-l> <c-w>l
 endif
-augroup RelativeNumberFocus " only show relative numbers for the current split
+
+" only show relative numbers for the current split
+augroup RelativeNumberFocus
     autocmd!
     autocmd WinEnter * set relativenumber
     autocmd WinLeave * set norelativenumber

@@ -1,23 +1,8 @@
-" searching
-set magic " regex magic
-set hlsearch " highlight search results
-set incsearch " modern search
-set smartcase " when searching be smart about cases.
-set ignorecase " ignore case when searching
-
-" line numbers
-set scrolloff=5 " 5 lines of scroll buffer
-
-" window navigation
-nmap <c-h> <c-w>h
-nmap <c-j> <c-w>j
-nmap <c-k> <c-w>k
-nmap <c-l> <c-w>l
-
-" leader
-let mapleader=","
+" source normal vimrc
+source ~/.vimrc
 
 " JetBrains commands
+set surround " enable TPope surround plugin
 set ideajoin " use IDE joining logic
 nnoremap <leader>s :action Find<cr>
 nnoremap <leader>f :action GotoFile<cr>
