@@ -184,10 +184,5 @@ augroup END
 
 " performance optimizations
 set lazyredraw " don't redraw while executing macros
-set ttimeout " don't wait for escape codes; modern terminals are plenty fast
-augroup NoInsertTimeout
-    autocmd!
-    autocmd InsertEnter * set ttimeoutlen=0 " no timeout
-    autocmd InsertLeave * set ttimeoutlen=-1 " default value
-augroup END
-
+set ttimeout " enable escape code timeout
+set ttimeoutlen=0 " set timeout length to 0
