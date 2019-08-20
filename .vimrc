@@ -127,7 +127,7 @@ let mapleader=","
 set backspace=eol,indent,start
 
 " allow cursor wrapping when moving left/right
-set whichwrap+=<,>,h,l
+set whichwrap+=h,l
 
 " up and navigate through wrapped text
 nnoremap <Up> gk
