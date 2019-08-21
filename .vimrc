@@ -123,20 +123,18 @@ set backspace=eol,indent,start
 " allow cursor wrapping when moving left/right
 set whichwrap+=h,l
 
+" unmap arrow keys
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
+noremap! <Up> <Nop>
+noremap! <Down> <Nop>
+noremap! <Left> <Nop>
+noremap! <Right> <Nop>
+
 " leader key
 let mapleader=","
-
-" up and down move lines up and down
-nmap <Up> ddkP
-nmap <Down> ddp
-vmap <Up> xkP`[V`]
-vmap <Down> xp`[V`]
-
-" left and right indent and dedent
-nmap <Left> <<
-nmap <Right> >>
-vmap <Left> <gv
-vmap <Right> >gv
 
 " fuzzy selection integration
 if !empty($FUZZY_SELECTOR)
