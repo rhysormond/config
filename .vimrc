@@ -4,23 +4,15 @@ autocmd!
 " enable plugins
 execute pathogen#infect()
 
-" save long long command history
-set history=10000
-
-" reload outside changes automatically
-set autoread
-
 " enable file type detection
 filetype indent plugin on
 
-" Unicode support
-set encoding=utf8
-
-" prevent automatic backups
-set nowb
-set nobackup
-set noswapfile
-set nowritebackup
+" general configuration
+set hidden " hide buffers rather than abandoning them
+set autoread " reload outside changes automatically
+set encoding=utf8 " unicode support
+set history=10000 " preserve lots of command history
+set spell spelllang=en_us " spell checking language
 
 " colors
 syntax on
@@ -29,23 +21,38 @@ set background=dark
 colorscheme gruvbox
 hi Normal ctermbg=NONE
 
-" general configuration
-set hidden " hide buffers rather than abandoning them
-set spell spelllang=en_us " spell checking
+" highlighting
+set showmatch " highlight matching braces
+set cursorline " highlight current cursor line
+set colorcolumn=80 " highlight the over-length column
+
+" mode-depenant cursor style
+let &t_EI = "\<Esc>[2 q" " block in normal mode
+let &t_SR = "\<Esc>[4 q" " underscore in replace mode
+let &t_SI = "\<Esc>[6 q" " bar in insert mode
+
+" line wrapping
+set wrap " visually wrap lines
+set nolist " list disables line break
+set linebreak " only wrap at specific characters
+
+" line numbers
+set number " always show line numbers
+set relativenumber " set line numbers to be relative to current row
+augroup RelativeNumberFocus " only use relativenumber for the active window
+    autocmd!
+    autocmd WinEnter * set relativenumber
+    autocmd WinLeave * set norelativenumber
+augroup END
 
 " split window sizing
+set scrolloff=5 " scroll buffer size
 set winwidth=84 " focused split width
 set winheight=24 " focused split height
 set winminwidth=84 " minimum split width
 set winminheight=5 " minimum split height
 
 " split window navigation
-nnoremap <c-h> <c-w>h
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-nnoremap <c-l> <c-w>l
-
-" naviate between tmux and vim splits
 if exists('$TMUX')
     function! TmuxOrSplitSwitch(wincmd, tmuxdir)
         let previous_winnr = winnr()
@@ -65,36 +72,14 @@ if exists('$TMUX')
     nnoremap <silent> <c-j> :call TmuxOrSplitSwitch('j', 'D')<cr>
     nnoremap <silent> <c-k> :call TmuxOrSplitSwitch('k', 'U')<cr>
     nnoremap <silent> <c-l> :call TmuxOrSplitSwitch('l', 'R')<cr>
+else
+    nnoremap <c-h> <c-w>h
+    nnoremap <c-j> <c-w>j
+    nnoremap <c-k> <c-w>k
+    nnoremap <c-l> <c-w>l
 endif
 
-" only show relative numbers for the current split
-augroup RelativeNumberFocus
-    autocmd!
-    autocmd WinEnter * set relativenumber
-    autocmd WinLeave * set norelativenumber
-augroup END
-
-" line wrapping
-set wrap " visually wrap lines
-set nolist " list disables line break
-set linebreak " only wrap at specific characters
-
-" highlighting
-set showmatch " highlight matching braces
-set cursorline " highlight current cursor line
-set colorcolumn=81 " highlight the over-length column
-
-" mode-depenant cursor style
-let &t_EI = "\<Esc>[2 q" " block in normal mode
-let &t_SR = "\<Esc>[4 q" " underscore in replace mode
-let &t_SI = "\<Esc>[6 q" " bar in insert mode
-
-" line numbers
-set number " always show line numbers
-set relativenumber " set line numbers to be relative to current row
-set scrolloff=5 " 5 lines of scroll buffer
-
-" commands
+" command line
 set showcmd " always show the current command
 set showmode " show current mode (insert, visual)
 set cmdheight=1 " height of the command line
@@ -109,6 +94,16 @@ set expandtab " tab inserts spaces instead of tabs
 set autoindent " auto indent
 set shiftwidth=4 " automatic indentation width
 set softtabstop=4 " tab space equivalents
+function! InsertTabWrapper() " multi function tab key
+    let col=col('.') - 1
+    if !col || getline('.')[col - 1] !~ '\k'
+        return "\<tab>"
+    else
+        return "\<c-p>"
+    endif
+endfunction
+inoremap <expr> <tab> InsertTabWrapper()
+inoremap <s-tab> <c-n>
 
 " searching
 set magic " regex magic
@@ -122,14 +117,14 @@ set wildmenu
 set wildmode=longest:full,full
 set wildignore+=.*
 
-" key remapping
-let mapleader=","
-
 " configure backspace so it works as expected
 set backspace=eol,indent,start
 
 " allow cursor wrapping when moving left/right
 set whichwrap+=h,l
+
+" leader key
+let mapleader=","
 
 " up and down move lines up and down
 nmap <Up> ddkP
@@ -142,18 +137,6 @@ nmap <Left> <<
 nmap <Right> >>
 vmap <Left> <gv
 vmap <Right> >gv
-
-" multi function tab key
-function! InsertTabWrapper()
-    let col=col('.') - 1
-    if !col || getline('.')[col - 1] !~ '\k'
-        return "\<tab>"
-    else
-        return "\<c-p>"
-    endif
-endfunction
-inoremap <expr> <tab> InsertTabWrapper()
-inoremap <s-tab> <c-n>
 
 " fuzzy selection integration
 if !empty($FUZZY_SELECTOR)
@@ -185,6 +168,12 @@ augroup PersistCursorPosition
     autocmd!
     autocmd BufReadPost * silent! normal! g`"zv
 augroup END
+
+" prevent automatic backups
+set nowb
+set nobackup
+set noswapfile
+set nowritebackup
 
 " performance optimizations
 set lazyredraw " don't redraw while executing macros
