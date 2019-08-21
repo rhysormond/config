@@ -36,6 +36,8 @@ set spell spelllang=en_us " spell checking
 " split window sizing
 set winwidth=84 " focused split width
 set winheight=24 " focused split height
+set winminwidth=84 " minimum split width
+set winminheight=5 " minimum split height
 
 " split window navigation
 nnoremap <c-h> <c-w>h
