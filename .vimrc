@@ -129,9 +129,11 @@ set backspace=eol,indent,start
 " allow cursor wrapping when moving left/right
 set whichwrap+=h,l
 
-" up and navigate through wrapped text
-nnoremap <Up> gk
-nnoremap <Down> gj
+" up and down move lines up and down
+nmap <Up> ddkP
+nmap <Down> ddp
+vmap <Up> xkP`[V`]
+vmap <Down> xp`[V`]
 
 " left and right indent and dedent
 nmap <Left> <<
