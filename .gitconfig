@@ -11,6 +11,9 @@
 [diff]
     algorithm = patience
     compactionHeuristic = true
+    tool = vimdiff
+[difftool]
+    prompt = false
 [help]
     autocorrect = 1
 [merge]
@@ -30,6 +33,7 @@
     cm = commit --message
     co = checkout
     di = diff
+    dt = difftool
     fa = fetch --all
     gr = log --all --decorate --oneline --graph
     lh = log -1
