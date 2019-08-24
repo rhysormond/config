@@ -137,10 +137,10 @@ noremap! <Right> <Nop>
 let mapleader=","
 
 " fuzzy selection integration
-if !empty($FUZZY_SELECTOR)
+if executable('fzy')
     function! FuzzyCommand(input_command, selection_field, vim_command)
         try
-            let selection=system(a:input_command . " | " . $FUZZY_SELECTOR)
+            let selection=system(a:input_command . " | fzy")
         catch /Vim:Interrupt/
         endtry
         redraw!
