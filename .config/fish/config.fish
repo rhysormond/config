@@ -3,6 +3,30 @@ alias g="git"
 alias pbcopy="xsel --clipboard --input"
 alias pbpaste="xsel --clipboard --output"
 
+# fuzzy selection utils
+function rv --argument pattern --description 'rg a pattern, fzy the results, and open in vim'
+    if not test -n "$pattern"
+        set pattern .
+    end
+
+    set file_and_number (rg -i --line-number test | fzy | cut -d ":" -f-2)
+
+    if test -n "$file_and_number"
+        set file (echo $file_and_number | cut -d ":" -f1)
+        set number (echo $file_and_number | cut -d ":" -f2)
+        command vim +$number $file
+    end
+end
+
+function kp --description "fzy for a process and kill it"
+    set pid (ps -ef | sed 1d | fzy | awk '{print $2}')
+
+    if test -n "$pid"
+        command kill -9 $pid
+    end
+end
+
+
 # colored man output
 # from http://linuxtidbits.wordpress.com/2009/03/23/less-colors-for-man-pages/
 setenv LESS_TERMCAP_mb \e"[01;31m"       # begin blinking
