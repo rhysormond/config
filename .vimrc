@@ -22,11 +22,12 @@ colorscheme gruvbox
 hi Normal ctermbg=NONE
 
 " highlighting
+set hlsearch " highlight search results
 set showmatch " highlight matching braces
 set cursorline " highlight current cursor line
 set colorcolumn=80 " highlight the over-length column
 
-" mode-depenant cursor style
+" mode-depenent cursor style
 let &t_EI = "\<Esc>[2 q" " block in normal mode
 let &t_SR = "\<Esc>[4 q" " underscore in replace mode
 let &t_SI = "\<Esc>[6 q" " bar in insert mode
@@ -107,7 +108,6 @@ inoremap <s-tab> <c-n>
 
 " searching
 set magic " regex magic
-set hlsearch " highlight search results
 set incsearch " modern search
 set smartcase " when searching be smart about cases.
 set ignorecase " ignore case when searching
