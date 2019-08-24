@@ -4,7 +4,6 @@ pacman -S yay
 yay -S
     acpi
     alacritty
-    autojump
     compton
     dunst
     firefox
@@ -24,10 +23,7 @@ yay -S
     ripgrep
     rofi
     rsync
-    screengrab
     tmux
-    terminus-font
-    tree
     ttf-dejavu
     xautolock
     xcape

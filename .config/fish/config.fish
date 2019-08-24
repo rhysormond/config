@@ -1,20 +1,7 @@
 # aliases
 alias g="git"
-
-# autojump support
-begin
-    set --local AUTOJUMP_PATH "/usr/share/autojump/autojump.fish"
-    if test -e $AUTOJUMP_PATH
-        source $AUTOJUMP_PATH
-    end
-end
-
-# os-specific configuration
-switch (uname)
-    case Linux
-        alias pbcopy="xsel --clipboard --input"
-        alias pbpaste="xsel --clipboard --output"
-end
+alias pbcopy="xsel --clipboard --input"
+alias pbpaste="xsel --clipboard --output"
 
 # colored man output
 # from http://linuxtidbits.wordpress.com/2009/03/23/less-colors-for-man-pages/
