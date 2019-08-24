@@ -1,10 +1,6 @@
 # aliases
 alias g="git"
 
-# env vars
-set -x EDITOR vim
-set -x FUZZY_SELECTOR fzy
-
 # autojump support
 begin
     set --local AUTOJUMP_PATH "/usr/share/autojump/autojump.fish"
@@ -12,9 +8,6 @@ begin
         source $AUTOJUMP_PATH
     end
 end
-
-# add ~/bin to $PATH
-set -x PATH "$HOME/bin" $PATH
 
 # os-specific configuration
 switch (uname)
