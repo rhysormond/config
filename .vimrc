@@ -86,31 +86,15 @@ set showmode " show the current mode if it's not normal
 set cmdheight=1 " height of the command line
 
 " status line
+hi User1 ctermbg=black ctermfg=white
+hi User2 ctermbg=black ctermfg=darkgrey
+hi User3 ctermbg=black ctermfg=darkmagenta
+hi User4 ctermbg=black ctermfg=yellow cterm=bold
+hi User5 ctermbg=black ctermfg=green cterm=bold
+hi User6 ctermbg=black ctermfg=red cterm=bold
 set laststatus=2 " always show the status line
-
-hi User1 ctermbg=black ctermfg=white guibg=black guifg=white
-hi User2 ctermbg=black ctermfg=darkgrey guibg=black guifg=darkgrey
-hi User3 ctermbg=black ctermfg=darkmagenta guibg=black guifg=darkmagenta
-hi User4 ctermbg=black ctermfg=yellow guibg=black guifg=yellow
-hi User5 ctermbg=black ctermfg=green guibg=black guifg=green
-
-" clear statusline
-set statusline=
-" buffer number
-set statusline+=%3*[%n]
-" the shortened current file directory
-set statusline+=%2*\ %{pathshorten(expand('%:~:h'))}/
-" the current file name
-set statusline+=%4*%t
-" whether the file has been modified
-set statusline+=%5*\ %m
-" right block separator
-set statusline+=%=
-" current row
-set statusline+=%1*row:\ %03l/%03L
-" current column
-set statusline+=%1*\ col:\ %02v
-
+set statusline=%3*[%n]\ %2*%{pathshorten(expand('%:~:h'))}/%4*%t\ %5*%m\ %6*%r
+set statusline+=%=%1*r.%03l/%03L\ -\ c.%02v
 
 " tab behavior
 set expandtab " tab inserts spaces instead of tabs
