@@ -9,7 +9,7 @@ function rv --argument pattern --description 'rg a pattern, fzy the results, and
         set pattern .
     end
 
-    set file_and_number (rg -i --line-number test | fzy | cut -d ":" -f-2)
+    set file_and_number (rg -i --line-number $pattern | fzy | cut -d ":" -f-2)
 
     if test -n "$file_and_number"
         set file (echo $file_and_number | cut -d ":" -f1)
@@ -18,7 +18,7 @@ function rv --argument pattern --description 'rg a pattern, fzy the results, and
     end
 end
 
-function kp --description "fzy for a process and kill it"
+function pk --description "fzy for a process and kill it"
     set pid (ps -ef | sed 1d | fzy | awk '{print $2}')
 
     if test -n "$pid"
