@@ -26,7 +26,6 @@ yay -S
     rofi
     rsync
     tmux
-    ttf-hack
     xautolock
     xcape
     xfce4-power-manager
