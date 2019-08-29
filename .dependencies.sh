@@ -17,6 +17,8 @@ yay -S
     networkmanager-dmenu
     nitrogen
     openssh
+    otf-fira-code
+    otf-fira-sans
     polybar
     pulseaudio
     ranger
@@ -24,7 +26,7 @@ yay -S
     rofi
     rsync
     tmux
-    ttf-dejavu
+    ttf-hack
     xautolock
     xcape
     xfce4-power-manager

@@ -1,5 +1,5 @@
 ! global
-*.font: DejaVuSansMono 12
+*.font: Fira Sans 12
 
 ! typeface
 Xft.antialias: 1
