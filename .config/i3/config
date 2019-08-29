@@ -23,11 +23,11 @@ smart_borders on
 # Colors
 ##
 
-# class                 border           background       text          indicator    child_border
-client.focused          $term_background $term_background $term_color3  $term_color5 $term_background
-client.focused_inactive $term_background $term_background $term_color3  $term_color5 $term_background
-client.unfocused        $term_background $term_background $term_color8  $term_color5 $term_background
-client.urgent           $term_color1     $term_color1     $term_color15 $term_color1 $term_color1
+# class                 border           background       text             indicator        child_border
+client.focused          $term_background $term_background $term_foreground $term_color5 $term_background
+client.focused_inactive $term_background $term_background $term_foreground $term_color5 $term_background
+client.unfocused        $term_background $term_background $term_foreground $term_color5 $term_background
+client.urgent           $term_color1     $term_color1     $term_foreground $term_color1 $term_color1
 
 # see: ~/.Xresources
 set_from_resource $term_background background
