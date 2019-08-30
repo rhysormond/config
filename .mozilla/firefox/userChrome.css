@@ -10,10 +10,6 @@
   margin-top: -355px !important;
 }
 
-/* hide forward and back buttons when not used */
-#forward-button[disabled="true"] { display: none; }
-#back-button[disabled="true"] { display: none; }
-
 /* show tab close buttons only on hover */
 .close-icon{
   transform:scale(1,1)!important;
