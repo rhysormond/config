@@ -245,11 +245,8 @@ exec --no-startup-id xfce4-power-manager
 # auto locking
 exec --no-startup-id xautolock -time 10 -locker i3lock -c 000000
 
-# turn caps lock into a control key
-exec --no-startup-id setxkbmap -option ctrl:nocaps
-
-# bind caps lock to escape on tap; sleep to fix initialization issues
-exec --no-startup-id xcape; sleep 1
+# turn caps lock into excape on tap and ctrl on press
+exec --no-startup-id setxkbmap -option ctrl:nocaps; xcape
 
 # ui tweaks and fixes
 exec_always --no-startup-id fix_xcursor
