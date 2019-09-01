@@ -34,9 +34,9 @@ entry {
 
 #textbox-prompt-colon {
   expand: false;
-  str: " 直 ";
+  str: "直";
   text-color: @accent;
-  padding: @network-textbox-prompt-colon-padding;
+  padding: @icon-textbox-prompt-colon-padding;
   font: @icon-font-small;
 }
 

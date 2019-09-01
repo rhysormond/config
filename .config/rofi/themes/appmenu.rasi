@@ -29,8 +29,8 @@ entry {
 
 #textbox-prompt-colon {
   expand: false;
-  str: "  : :  ";
-  padding: @apps-textbox-prompt-colon-padding;
+  str: ": :";
+  padding: @text-textbox-prompt-colon-padding;
 }
 
 #entry {
