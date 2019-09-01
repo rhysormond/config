@@ -1,21 +1,32 @@
 [global]
-    transparency = 10
-    padding = 4
-    horizontal_padding = 4
-    separator_height = 0
-    sticky_history = yes
+    # layout
+    geometry = "350x5-25-60"
+    horizontal_padding = 10
+    padding = 10
 
-[frame]
-    width = 0
+    # border
+    frame_color = "#83a598"
+    frame_width = 2
+    separator_color = frame
+    separator_height = 2
+
+    # text
+    font = Fira Sans 12
+    line_height = 5
+    markup = full
+    format = "<b>%s</b>\n%b"
+    word_wrap = yes
+    stack_duplicates = false
 
 [shortcuts]
-    close_all = ctrl+space
+    close = ctrl+space
+    close_all = ctrl+shift+space
     history = ctrl+grave
 
 [urgency_low]
     background = "#282828"
     foreground = "#ebdbb2"
-    timeout = 5
+    timeout = 10
 
 [urgency_normal]
     background = "#282828"
@@ -24,6 +35,5 @@
 
 [urgency_critical]
     background = "#282828"
-    foreground = "#ebdbb2"
+    foreground = "#fb4934"
     timeout = 0
-
