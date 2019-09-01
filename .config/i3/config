@@ -120,10 +120,6 @@ bindsym $mod+Shift+space floating toggle
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
-# tiling orientation
-bindsym $mod+v split h
-bindsym $mod+s split v
-
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
