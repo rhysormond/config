@@ -1,4 +1,4 @@
-@import "shared/settings.rasi"
+@import "shared.rasi"
 * {
   background-color: @background;
   text-color: @foreground-list;

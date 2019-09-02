@@ -1,0 +1,10 @@
+configuration {
+  show-icons:         false;
+  icon-theme:         "Paper";
+  cycle:              true;
+  hide-scrollbar:     true;
+  disable-history:    false;
+  modi:               "drun";
+  display-drun:       "Apps";
+  columns: 2;
+}

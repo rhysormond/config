@@ -1,0 +1,32 @@
+@import "shared.rasi"
+* {
+  background-color: @background;
+  text-color: @foreground;
+  font: @icon-font;
+}
+
+#window {
+  children: [ horibox ];
+  padding: @option-4-window-padding;
+}
+
+#horibox {
+  children: [ listview ];
+}
+
+#listview {
+  layout: horizontal;
+  spacing: @option-4-listview-spacing;
+  lines: 4;
+}
+
+#element {
+  padding: @option-element-padding;
+  background-color: @background-light;
+}
+
+#element.selected {
+  background-color: @accent;
+  text-color: @background;
+}
+
