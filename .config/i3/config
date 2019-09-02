@@ -72,7 +72,7 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+p exec --no-startup-id flameshot gui
 
 # application launcher
-bindsym $mod+d exec --no-startup-id rofi -no-lazy-grab -show drun -theme themes/appmenu.rasi
+bindsym $mod+d exec --no-startup-id rofi -show combi -theme themes/appmenu.rasi
 
 # network manager
 bindsym $mod+n exec --no-startup-id networkmanager_dmenu

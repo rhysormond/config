@@ -1,10 +1,6 @@
 configuration {
-  show-icons:         false;
-  icon-theme:         "Paper";
-  cycle:              true;
-  hide-scrollbar:     true;
-  disable-history:    false;
-  modi:               "drun";
-  display-drun:       "Apps";
-  columns: 2;
+  cycle:           true;
+  hide-scrollbar:  true;
+  modi:            "combi";
+  display-combi:   ">";
 }

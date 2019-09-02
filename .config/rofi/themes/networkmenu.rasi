@@ -1,17 +1,8 @@
-configuration {
-  show-icons: false;
-  columns: 1;
-}
-
 @import "shared.rasi"
 * {
   background-color: @background;
   text-color: @foreground-list;
   font: @text-font-mono;
-}
-
-#window {
-  padding: @list-8-window-padding;
 }
 
 inputbar,

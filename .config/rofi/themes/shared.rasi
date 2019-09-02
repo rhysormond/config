@@ -1,3 +1,8 @@
+configuration {
+  lines:   10;
+  columns: 2;
+}
+
 * {
   text-font:       "Fira Sans 14";
   text-font-mono:  "Fira Code 14";
@@ -20,15 +25,7 @@
   list-element-border:    0% 0% 0% 0.5%;
   option-element-padding: 5%;
 
-  option-4-window-padding:   40% 20%;
-  option-4-listview-spacing: 2%;
-  list-8-window-padding:     25%;
-
   text-textbox-prompt-colon-padding: 1.75% 2%;
   icon-textbox-prompt-colon-padding: 1.5% 2%;
 }
 
-#window {
-  height: 100%;
-  width: 100%;
-}
