@@ -5,6 +5,7 @@ yay -S
     acpi
     alacritty
     compton
+    diffr
     dunst
     firefox
     fish
