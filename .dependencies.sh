@@ -14,6 +14,8 @@ yay -S
     git
     gtk-theme-arc-gruvbox-git
     gvim
+    lightdm
+    lightdm-gtk-greeter
     networkmanager
     networkmanager-dmenu
     nitrogen
