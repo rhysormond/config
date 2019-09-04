@@ -78,7 +78,7 @@ bindsym $mod+d exec --no-startup-id rofi -show combi -theme themes/appmenu.rasi
 bindsym $mod+n exec --no-startup-id networkmanager_dmenu
 
 # power menu
-bindsym $mod+0 exec --no-startup-id powermenu
+bindsym $mod+q exec --no-startup-id powermenu
 
 # restart i3 inplace
 bindsym $mod+Shift+r restart
