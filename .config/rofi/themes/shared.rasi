@@ -1,8 +1,3 @@
-configuration {
-  lines:   10;
-  columns: 2;
-}
-
 * {
   text-font:       "Fira Sans 14";
   text-font-mono:  "Fira Code 14";
@@ -29,3 +24,6 @@ configuration {
   icon-textbox-prompt-colon-padding: 1.5% 2%;
 }
 
+window {
+  fullscreen: true;
+}

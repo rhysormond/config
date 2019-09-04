@@ -5,6 +5,10 @@
   font: @text-font;
 }
 
+window {
+  padding: 20% 30%;
+}
+
 inputbar,
 prompt,
 textbox-prompt-colon,
