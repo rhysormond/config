@@ -5,7 +5,7 @@ rofi_command="rofi -theme themes/powermenu.rasi"
 power_off=""
 reboot=""
 lock=""
-log_out=""
+log_out="⍇"
 
 options="$power_off\n$reboot\n$lock\n$log_out"
 selection="$(echo -e "$options" | $rofi_command -dmenu -selected-row 2)"
