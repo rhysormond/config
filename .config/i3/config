@@ -215,7 +215,7 @@ exec --no-startup-id compton -b
 exec --no-startup-id xfce4-power-manager
 
 # auto locking
-exec --no-startup-id xautolock -time 10 -locker i3lock -c 000000
+exec --no-startup-id xautolock -time 10 -locker i3lock -B1 --bar-indicator
 
 # turn caps lock into excape on tap and ctrl on press
 exec --no-startup-id setxkbmap -option ctrl:nocaps; xcape

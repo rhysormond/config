@@ -14,6 +14,8 @@ yay -S
     git
     gtk-theme-arc-gruvbox-git
     gvim
+    i3-gaps
+    i3lock-color
     lightdm
     lightdm-gtk-greeter
     networkmanager
