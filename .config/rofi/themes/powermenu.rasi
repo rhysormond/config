@@ -7,7 +7,7 @@
 
 #window {
   children: [ horibox ];
-  padding: 40% 24%;
+  padding: 40% 23%;
 }
 
 #horibox {
