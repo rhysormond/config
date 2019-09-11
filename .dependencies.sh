@@ -4,7 +4,6 @@ pacman -S yay
 yay -S
     acpi
     alacritty
-    compton
     diffr
     dunst
     firefox

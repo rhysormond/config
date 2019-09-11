@@ -208,9 +208,6 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 # wallpaper
 exec --no-startup-id nitrogen --restore
 
-# compositor
-exec --no-startup-id compton -b
-
 # power management
 exec --no-startup-id xfce4-power-manager
 
