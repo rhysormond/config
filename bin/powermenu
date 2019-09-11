@@ -17,7 +17,7 @@ case $selection in
         systemctl reboot
         ;;
     $lock)
-        i3lock -B1 --bar-indicator
+        xset s activate
         ;;
     $log_out)
         i3-msg exit

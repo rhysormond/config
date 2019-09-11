@@ -15,7 +15,6 @@ yay -S
     gtk-theme-arc-gruvbox-git
     gvim
     i3-gaps
-    i3lock-color
     lightdm
     lightdm-gtk-greeter
     networkmanager
@@ -35,4 +34,6 @@ yay -S
     xcape
     xfce4-power-manager
     xorg-xbacklight
+    xsecurelock
+    xss-lock
 

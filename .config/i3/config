@@ -214,8 +214,11 @@ exec --no-startup-id compton -b
 # power management
 exec --no-startup-id xfce4-power-manager
 
-# auto locking
-exec --no-startup-id xautolock -time 10 -locker i3lock -B1 --bar-indicator
+# set x to blank the screen after 5 minutes
+exec --no-startup-id xset s 300 5
+
+# start autolocker
+exec --no-startup-id xss-lock -n /usr/lib/xsecurelock/dimmer -l -- xsecurelock
 
 # turn caps lock into excape on tap and ctrl on press
 exec --no-startup-id setxkbmap -option ctrl:nocaps; xcape
