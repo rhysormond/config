@@ -1,5 +1,6 @@
 @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 
+
 /* Align tab bar to the bottom of the screen */
 
 #TabsToolbar {
@@ -10,6 +11,13 @@
 
 #TabsToolbar:not([inFullscreen="true"]) {
 	bottom: 0em;
+}
+
+
+/* Set larger default tab width */
+
+.tabbrowser-tab[fadein]:not([pinned]) {
+        width: 150px !important;
 }
 
 
