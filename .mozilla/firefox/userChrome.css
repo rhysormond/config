@@ -1,5 +1,6 @@
-@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 
+
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 
 /* Align tab bar to the bottom of the screen */
 
@@ -16,7 +17,7 @@
 
 /* Set larger default tab width */
 
-.tabbrowser-tab[fadein]:not([pinned]) {
+.tabbrowser-tab:not([pinned]) {
   width: 250px !important;
   min-width: 100px !important;
   max-width: 250px !important;
@@ -29,63 +30,15 @@
   height: 30px;
 }
 
-.browserContainer>statuspanel {
-  left: 4px !important;
-  bottom: 0px;
-  transition-duration: 0s !important;
-  transition-delay: 0s !important;
-}
-
-.browserContainer>statuspanel>.statuspanel-inner>.statuspanel-label {
-  margin-left: 0px !important;
-  padding: 0px !important;
-}
-
-window[inFullscreen="true"] #browser-bottombox {
-  display: none !important;
-}
-
-window[inFullscreen="true"] .browserContainer>statuspanel[type="overLink"] .statuspanel-label {
-  display: none !important;
-}
-
 
 /* Hide navigation bar when it is not focused; use Ctrl+L to get focus */
 
-#main-window:not([customizing]) #navigator-toolbox {
-  transition: margin-bottom 0.1s 0s ease-out;
+#nav-bar {
+  transition: margin-top 0.2s 0.3s ease-out !important;
 }
 
-#main-window:not([customizing]) #navigator-toolbox #nav-bar,
-#main-window:not([customizing]) #navigator-toolbox #PersonalToolbar {
-  transition: margin-top 0.1s 0s ease-out, opacity 0.1s 0.1s ease-out !important;
-}
-
-#main-window:not([customizing]) #navigator-toolbox #nav-bar,
-#main-window:not([customizing]) #navigator-toolbox #PersonalToolbar {
-  transition: margin-top 0.1s 0s ease-out, opacity 0.1s 0s ease-out !important;
-}
-
-#main-window:not([customizing]) #navigator-toolbox #nav-bar>*,
-#main-window:not([customizing]) #navigator-toolbox #PersonalToolbar>* {
-  transition: opacity 0.1s 0.3s ease-out !important;
-  opacity: 1;
-}
-
-#main-window:not([customizing]) #navigator-toolbox:not(:focus-within):not(:hover) {
-  margin-bottom: 0px;
-  transition: margin-bottom 0.1s 0.3s ease-out;
-}
-
-#main-window:not([customizing]) #navigator-toolbox:not(:focus-within):not(:hover) #nav-bar,
-#main-window:not([customizing]) #navigator-toolbox:not(:focus-within):not(:hover) #PersonalToolbar {
-  transition: margin-top 0.1s 0.3s ease-out, opacity 0.1s 0.4s ease-out !important;
+#navigator-toolbox:not(:focus-within):not(:hover) #nav-bar {
+  transition: margin-top 0.2s 0.3s ease-out !important;
   margin-top: -29px;
-  opacity: 0;
 }
 
-#main-window:not([customizing]) #navigator-toolbox:not(:focus-within):not(:hover) #nav-bar>*,
-#main-window:not([customizing]) #navigator-toolbox:not(:focus-within):not(:hover) #PersonalToolbar>* {
-  transition: opacity 0.1s 0s ease-out !important;
-  opacity: 0;
-}
