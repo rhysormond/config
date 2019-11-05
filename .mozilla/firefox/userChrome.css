@@ -1,104 +1,84 @@
 @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 
-/* move header bars below content */
-#navigator-toolbox {
-  -moz-box-ordinal-group: 10;
-}
+/* Align tab bar to the bottom of the screen */
 
-/* move search completion above nav bar */
-#urlbar-results {
-  margin-top: -355px !important;
-}
-
-/* show tab close buttons only on hover */
-.close-icon{
-  transform:scale(1,1)!important;
-  transition:opacity 250ms var(--animation-easing-function),
-    margin-left 250ms var(--animation-easing-function),
-    transform var(--animation-easing-function),
-    visibility 0ms 25ms!important;
-}
-.tabbrowser-tab:not(:hover) .close-icon{
-  opacity:0!important;
-  margin-left:calc((-20px * .9) + 2px)!important;
-  transform:scale(.9,.9)!important;
-}
-
-/* hide notification icon */
-.desktop-notification-icon {
-  display: none !important;
-}
-
-/* hide identity lables (secure) */
-#identity-box #identity-icon-labels {
-  display:none
-}
-
-/* hide green lock icon */
-#urlbar[pageproxystate="valid"] > #identity-box.verifiedDomain > #connection-icon,
-#urlbar[pageproxystate="valid"] > #identity-box.verifiedIdentity > #connection-icon,
-#urlbar[pageproxystate="valid"] > #identity-box.mixedActiveBlocked > #connection-icon {
-  display: none !important;
-}
-
-/* inline nav-bar and TabsToolbar */
 #TabsToolbar {
-  margin-bottom: 4px !important;
-  margin-top: 0px !important;
-  margin-left: 35vw !important;
-  margin-right: -34px !important;
-  max-height: 32px !important;
-  border: none !important;
+	position: fixed;
+	bottom: -0.5em;
+	width: 100%;
 }
+
+#TabsToolbar:not([inFullscreen="true"]) {
+	bottom: 0em;
+}
+
+
+/* Move bottom box above tab bar */
+
+#browser-bottombox {
+	height: 30px;
+}
+
+.browserContainer>statuspanel {
+	left: 4px !important;
+	bottom: 0px;
+	transition-duration: 0s !important;
+	transition-delay: 0s !important;
+}
+
+.browserContainer>statuspanel>.statuspanel-inner>.statuspanel-label {
+	margin-left: 0px !important;
+	padding: 0px !important;
+}
+
+window[inFullscreen="true"] #browser-bottombox {
+	display: none !important;
+}
+
+window[inFullscreen="true"] .browserContainer>statuspanel[type="overLink"] .statuspanel-label {
+	display: none !important;
+}
+
+
+/* Auto hide url bar */
+
 #nav-bar {
-  margin-bottom: -1px !important;
-  margin-top: -32px !important;
-  margin-right: 65vw !important;
-  border-top: none !important;
-}
-#urlbar {
-  margin-top: -2px !important;
-  margin-bottom: -2px !important;
+	position: fixed !important;
+	width: 100vw;
+	opacity: 0
 }
 
-/* remove url bar border */
-#urlbar {
-  border-width: 0px !important;;
+#nav-bar-customization-target {
+	width: calc(100vw - 30px)
 }
 
-/* remove TabsToolbar border */
-:root {
-  --chrome-content-separator-color: none !important;
+#nav-bar[overflowing]>#nav-bar-customization-target {
+	width: calc(100vw - 60px)
 }
 
-/* shrink forward and back buttons */
-#back-button > .toolbarbutton-icon,
-#forward-button > .toolbarbutton-icon {
-  transform: scale(0.9, 0.9) !important;
-  margin-left: -2px !important;
-  margin-right: -2px !important;
-}
-
-/* move hamburger menu to the left */
 #PanelUI-button,
-#customization-panel-container,
-#customization-panelWrapper .panel-arrow {
-  -moz-box-ordinal-group: 0 !important;
-  margin-right: -6px !important;
-}
-#appMenu-popup {
-  margin-right: -258px !important;
-}
-#appMenu-popup .panel-arrow {
-  margin-right: 248px !important;
+#nav-bar-overflow-button {
+	transform: translateY(2px)
 }
 
-/* remove tab spacers */
-.tabbrowser-tab::after, .tabbrowser-tab::before {
-  border-left: none !important;
+#PanelUI-button {
+	float: right
 }
 
-/* remove focused tab accent */
-.tab-line {
-  height: 0px !important;
+#nav-bar:-moz-any(:hover, :focus-within) {
+	opacity: 1;
+}
+
+#PopupAutoCompleteRichResult {
+	margin-top: -332px;
+	margin-left: 10px;
+	height: 300px;
+}
+
+#PopupAutoCompleteRichResult .autocomplete-richlistbox>scrollbox {
+	overflow-y: auto !important;
+}
+
+#sidebar-splitter {
+	margin-bottom: 33px;
 }
