@@ -17,7 +17,9 @@
 /* Set larger default tab width */
 
 .tabbrowser-tab[fadein]:not([pinned]) {
-        width: 150px !important;
+        width: 250px !important;
+        min-width: 100px !important;
+        max-width: 250px !important;
 }
 
 
