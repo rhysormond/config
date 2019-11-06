@@ -5,7 +5,6 @@
 #TabsToolbar {
   position: fixed;
   bottom: -0.5em;
-  width: 100%;
 }
 
 #TabsToolbar:not([inFullscreen="true"]) {
@@ -13,16 +12,15 @@
 }
 
 #browser-bottombox {
-  height: 30px;
+  height: 2em;
 }
 
 
 /* Set larger default tab width */
 
 .tabbrowser-tab:not([pinned]) {
-  width: 250px !important;
-  min-width: 100px !important;
-  max-width: 250px !important;
+  width: 15em !important;
+  min-width: 5em !important;
 }
 
 
@@ -34,5 +32,5 @@
 
 #nav-bar:not(:focus-within):not(:hover) {
   transition: margin-top 0.2s 0.3s ease-out !important;
-  margin-top: -29px;
+  margin-top: -1.8em;
 }
