@@ -5,48 +5,39 @@
 # font
 font pango:Fira Sans 12
 
-# border style
-hide_edge_borders none
-default_border none
+# border
 default_border none
 default_floating_border none
-default_floating_border none
-
-# gaps
-gaps inner 10
-gaps outer -4
-smart_gaps on
-smart_borders on
 
 ##
 # Colors
 ##
 
-# class                 border           background       text             indicator        child_border
-client.focused          $term_background $term_background $term_foreground $term_color5 $term_background
-client.focused_inactive $term_background $term_background $term_foreground $term_color5 $term_background
-client.unfocused        $term_background $term_background $term_foreground $term_color5 $term_background
-client.urgent           $term_color1     $term_color1     $term_foreground $term_color1 $term_color1
-
 # see: ~/.Xresources
-set_from_resource $term_background background
-set_from_resource $term_foreground foreground
-set_from_resource $term_color0     color0
-set_from_resource $term_color1     color1
-set_from_resource $term_color2     color2
-set_from_resource $term_color3     color3
-set_from_resource $term_color4     color4
-set_from_resource $term_color5     color5
-set_from_resource $term_color6     color6
-set_from_resource $term_color7     color7
-set_from_resource $term_color8     color8
-set_from_resource $term_color9     color9
-set_from_resource $term_color10    color10
-set_from_resource $term_color11    color11
-set_from_resource $term_color12    color12
-set_from_resource $term_color13    color13
-set_from_resource $term_color14    color14
-set_from_resource $term_color15    color15
+set_from_resource $color_bg background
+set_from_resource $color_fg foreground
+set_from_resource $color_0     color0
+set_from_resource $color_1     color1
+set_from_resource $color_2     color2
+set_from_resource $color_3     color3
+set_from_resource $color_4     color4
+set_from_resource $color_5     color5
+set_from_resource $color_6     color6
+set_from_resource $color_7     color7
+set_from_resource $color_8     color8
+set_from_resource $color_9     color9
+set_from_resource $color_10    color10
+set_from_resource $color_11    color11
+set_from_resource $color_12    color12
+set_from_resource $color_13    color13
+set_from_resource $color_14    color14
+set_from_resource $color_15    color15
+
+# class                 border    bg        fg        indic    child_border
+client.focused          $color_5  $color_bg $color_fg $color_5 $color_bg
+client.focused_inactive $color_5  $color_bg $color_fg $color_5 $color_bg
+client.unfocused        $color_bg $color_bg $color_fg $color_5 $color_bg
+client.urgent           $color_1  $color_1  $color_fg $color_1 $color_1
 
 ##
 # I3 Keybindings
