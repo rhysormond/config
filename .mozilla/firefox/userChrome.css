@@ -19,11 +19,11 @@
 /* Hide navigation bar when it is not focused; use Ctrl+L to get focus */
 
 #nav-bar {
-  transition: margin-top 0.2s 0.3s ease-out !important;
+  transition: margin-top 0.1s 0.1s ease-out !important;
 }
 
 #nav-bar:not(:focus-within):not(:hover) {
-  transition: margin-top 0.2s 0.3s ease-out !important;
+  transition: margin-top 0.1s 0.1s ease-out !important;
   margin-top: -1.8em;
 }
 
