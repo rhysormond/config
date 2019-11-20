@@ -1,43 +1,49 @@
 @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 
-/* Align tab bar to the bottom of the screen */
+/* Move bars to the bottom */
 
-#TabsToolbar {
-  position: fixed;
-  bottom: -0.5em;
+#TabsToolbar,
+#titlebar,
+#navigator-toolbox {
+    -moz-box-ordinal-group: 999 !important;
 }
 
-#TabsToolbar:not([inFullscreen="true"]) {
-  bottom: 0em;
+.urlbarView {
+    bottom: 75px !important;
+    top: unset !important;
 }
 
-#browser-bottombox {
-  height: 2em;
+.titlebar-spacer,
+.search-one-offs {
+    display: none !important;
+}
+
+.titlebar-buttonbox-container {
+    -moz-box-ordinal-group: 999 !important;
+    margin-right: 10px;
 }
 
 
-/* Hide navigation bar when it is not focused; use Ctrl+L to get focus */
+/* Automatically hide bars */
+
+#titlebar {
+    margin-bottom: -32px !important;
+    transition: margin-bottom 0.1s ease-in-out !important;
+}
+
+:hover>#titlebar {
+    margin-bottom: 0 !important;
+}
 
 #nav-bar {
-  transition: margin-top 0.1s 0.1s ease-out !important;
+    overflow-y: hidden !important;
+    min-height: 0 !important;
+    max-height: 0 !important;
+    transition: max-height 0.1s ease-in-out 0.3s, min-height 0.1s ease-in-out 0.3s !important;
 }
 
-#nav-bar:not(:focus-within):not(:hover) {
-  transition: margin-top 0.1s 0.1s ease-out !important;
-  margin-top: -1.8em;
-}
-
-
-/* Hide the min/max/close window controls */
-
-#window-controls {
-  visibility: hidden !important;
-}
-
-
-/* Set larger default tab width */
-
-.tabbrowser-tab:not([pinned]) {
-  width: 15em !important;
-  min-width: 5em !important;
+:hover>#nav-bar,
+#nav-bar:focus-within {
+    max-height: 32px !important;
+    transition: max-height 0.1s ease-in-out, min-height 0.1s ease-in-out !important;
 }
