@@ -9,20 +9,9 @@
 }
 
 .urlbarView {
-    bottom: 60px !important;
+    bottom: 62px !important;
     top: unset !important;
 }
-
-.titlebar-spacer,
-.search-one-offs {
-    display: none !important;
-}
-
-.titlebar-buttonbox-container {
-    -moz-box-ordinal-group: 999 !important;
-    margin-right: 10px;
-}
-
 
 /* Automatically hide bars */
 
