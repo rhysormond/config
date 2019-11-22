@@ -23,6 +23,9 @@
 [alias]
     alias = "!git config --get-regexp '^alias.' | sed -e s/'^alias.'// -e s/' '/' = '/"
     cfg = "!git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
+    com = "!git lo --pretty=format:%s"
+    tmp = "!f() { git co $1 && read && git st && git co master && git br -D $1; }; f"
+    wip = "!git aa && if [[ $(git com -1) == "wip" ]]; then git cm "wip" --amend; else git cm "wip"; fi"
 
     aa = add --all
     ap = add --patch
