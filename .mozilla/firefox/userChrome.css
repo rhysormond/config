@@ -23,7 +23,7 @@
 
 #TabsToolbar {
   position: fixed;
-  bottom: -0.5em;
+  bottom: 0;
 }
 
 #appcontent {
