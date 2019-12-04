@@ -1,38 +1,39 @@
 @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 
-/* Move bars to the bottom */
+/* Hide min/max/close buttons */
 
-#TabsToolbar,
-#titlebar,
-#navigator-toolbox {
-    -moz-box-ordinal-group: 999 !important;
+#window-controls {
+  visibility: hidden !important;
 }
 
-.urlbarView {
-    bottom: 62px !important;
-    top: unset !important;
-}
 
-/* Automatically hide bars */
-
-#titlebar {
-    margin-bottom: -32px !important;
-    transition: margin-bottom 0.1s ease-in-out !important;
-}
-
-:hover>#titlebar {
-    margin-bottom: 0 !important;
-}
+/* Auto hide the nav bar */
 
 #nav-bar {
-    overflow-y: hidden !important;
-    min-height: 0 !important;
-    max-height: 0 !important;
-    transition: max-height 0.1s ease-in-out, min-height 0.1s ease-in-out !important;
+  transition: margin-top 0.1s 0.1s ease-out !important;
 }
 
-:hover>#nav-bar,
-#nav-bar:focus-within {
-    max-height: 32px !important;
-    transition: max-height 0.1s ease-in-out, min-height 0.1s ease-in-out !important;
+#nav-bar:not(:focus-within):not(:hover) {
+  transition: margin-top 0.1s 0.1s ease-out !important;
+  margin-top: -1.8em;
+}
+
+
+/* Move tab bar to the bottom of the window */
+
+#TabsToolbar {
+  position: fixed;
+  bottom: -0.5em;
+}
+
+#appcontent {
+  margin-bottom: 2em !important;
+}
+
+
+/* Increase tab width */
+
+.tabbrowser-tab:not([pinned]) {
+  width: 15em !important;
+  min-width: 5em !important;
 }
