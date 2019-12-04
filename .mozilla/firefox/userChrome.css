@@ -11,10 +11,10 @@
 
 #nav-bar {
   transition: margin-top 0.1s 0.1s ease-out !important;
+  margin-top: 0;
 }
 
 #nav-bar:not(:focus-within):not(:hover) {
-  transition: margin-top 0.1s 0.1s ease-out !important;
   margin-top: -1.8em;
 }
 
