@@ -14,7 +14,7 @@
   margin-top: 0;
 }
 
-#nav-bar:not(:focus-within):not(:hover) {
+#navigator-toolbox:not(:focus-within):not(:hover) {
   margin-top: -1.8em;
 }
 
