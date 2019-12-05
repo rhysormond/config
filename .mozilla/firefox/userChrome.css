@@ -11,11 +11,12 @@
 
 #nav-bar {
   transition: margin-top 0.1s 0.1s ease-out !important;
-  margin-top: 0;
+  margin-top: -1.8em;
 }
 
-#navigator-toolbox:not(:focus-within):not(:hover) {
-  margin-top: -1.8em;
+#nav-bar:focus-within,
+#nav-bar:hover {
+  margin-top: 0;
 }
 
 
