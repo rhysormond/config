@@ -11,7 +11,7 @@
 /* Auto hide the nav bar */
 
 #navigator-toolbox {
-  transition: margin-top 0.2s 0.2s ease-out !important;
+  transition: margin-top 0.05s 0.05s ease-out !important;
   margin-top: -3.6em;
 }
 
