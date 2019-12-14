@@ -1,9 +1,6 @@
 " remove all existing autocmds
 autocmd!
 
-" enable plugins
-execute pathogen#infect()
-
 " enable file type detection
 filetype indent plugin on
 

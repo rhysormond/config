@@ -9,5 +9,8 @@ cfg='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 # hide all the untracked files
 cfg config --local status.showUntrackedFiles no
 
-# reset but keep local changes (reset --hard, stash, or commit what's left)
-cfg reset
+# reset and stash local changes
+cfg reset && cfg stash
+
+# update submodules (vim plugins)
+git submodule update --init --recursive
