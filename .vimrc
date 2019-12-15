@@ -68,11 +68,6 @@ if exists('$TMUX')
         endif
     endfunction
 
-    let tmux_display = "tmux display-message -p '#{pane_title}'"
-    let previous_title = substitute(system(tmux_display), '\n', '', '')
-    let &t_ti = "\<Esc>]2;vim\<Esc>\\" . &t_ti
-    let &t_te = "\<Esc>]2;". previous_title . "\<Esc>\\" . &t_te
-
     nnoremap <silent> <c-h> :call TmuxOrSplitSwitch('h', 'L')<cr>
     nnoremap <silent> <c-j> :call TmuxOrSplitSwitch('j', 'D')<cr>
     nnoremap <silent> <c-k> :call TmuxOrSplitSwitch('k', 'U')<cr>
