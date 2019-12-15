@@ -34,6 +34,13 @@ set wrap " visually wrap lines
 set nolist " list disables line break
 set linebreak " only wrap at specific characters
 
+" folding
+set foldenable " enable folding
+set foldnestmax=10 " 10 nested fold max
+set foldlevelstart=10 " open most folds by default
+set foldmethod=indent " fold based on indent level
+nnoremap <space> za
+
 " line numbers
 set number " always show line numbers
 set relativenumber " set line numbers to be relative to current row
