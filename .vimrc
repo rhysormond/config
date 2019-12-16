@@ -4,6 +4,9 @@ autocmd!
 " enable file type detection
 filetype indent plugin on
 
+" leader key
+let mapleader="\<Space>"
+
 " general configuration
 set hidden " hide buffers rather than abandoning them
 set autoread " reload outside changes automatically
@@ -39,7 +42,10 @@ set foldenable " enable folding
 set foldnestmax=10 " 10 nested fold max
 set foldlevelstart=10 " open most folds by default
 set foldmethod=indent " fold based on indent level
-nnoremap <space> za
+noremap <leader>t za
+
+" use the system clipboard
+noremap <Leader><leader> "+
 
 " line numbers
 set number " always show line numbers
@@ -137,9 +143,6 @@ noremap! <Up> <Nop>
 noremap! <Down> <Nop>
 noremap! <Left> <Nop>
 noremap! <Right> <Nop>
-
-" leader key
-let mapleader=","
 
 " fuzzy selection integration
 if executable('fzy')
