@@ -120,13 +120,14 @@ inoremap <s-tab> <c-n>
 " searching
 set magic " regex magic
 set incsearch " modern search
-set smartcase " when searching be smart about cases.
+set smartcase " when searching be smart about cases
 set ignorecase " ignore case when searching
+set path+=** " recursively search through directories
 
 " command line completion
-set wildmenu
-set wildmode=longest:full,full
-set wildignore+=.*
+set wildmenu " menu for tab completion from the command line
+set wildmode=longest:full,full " command line completion using wildmenu
+set wildignore+=.* " ignore any hidden files for completion
 
 " configure backspace so it works as expected
 set backspace=eol,indent,start
