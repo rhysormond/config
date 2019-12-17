@@ -25,8 +25,9 @@
 [alias]
     alias = "!git config --get-regexp '^alias.' | sed -e s/'^alias.'// -e s/' '/' = '/"
     cfg = "!git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
+    run = "!f() { set -e && git rev-list --reverse $1 | while read r; do git co $r; $2; done; }; f"
     tmp = "!f() { git co $1 && read && git st && git co master && git br -D $1; }; f"
-    wip = "!git aa && if [[ $(git to) == "wip" ]]; then git cx "wip"; else git cm "wip"; fi"
+    wip = "!git aa && if [[ $(git lh) == "wip" ]]; then git cx "wip"; else git cm "wip"; fi"
 
     aa = add --all
     ap = add --patch
@@ -42,7 +43,7 @@
     dt = difftool
     fa = fetch --all
     gr = log --all --decorate --oneline --graph
-    lo = log
+    lg = log
+    lh = log --pretty=format:%s -1
     sh = show
     st = status
-    to = log --pretty=format:%s -1
