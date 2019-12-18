@@ -3,6 +3,11 @@ alias g="git"
 alias pbcopy="xsel --clipboard --input"
 alias pbpaste="xsel --clipboard --output"
 
+# diff utils
+function jd --argument file1 --argument file2 --description 'jq, sort, and diff two json files'
+    command diff (jq "." -S < $file1 | psub) (jq "." -S < $file2 | psub)
+end
+
 # fuzzy selection utils
 function rv --argument pattern --description 'rg a pattern, fzy the results, and open in vim'
     if not test -n "$pattern"
