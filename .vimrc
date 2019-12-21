@@ -5,7 +5,7 @@ autocmd!
 filetype indent plugin on
 
 " leader key
-let mapleader="\<Space>"
+let mapleader=","
 
 " general configuration
 set hidden " hide buffers rather than abandoning them
