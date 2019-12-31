@@ -9,32 +9,39 @@ Xft.hintstyle: hintfull
 Xft.lcdfilter: lcdfull
 Xft.rgba:      rgb
 
-! colors (gruvbox)
-! hard contrast: *background: #1d2021
-*background: #282828
-! soft contrast: *background: #32302f
-*foreground: #ebdbb2
-! Black + DarkGrey
-*color0:  #282828
-*color8:  #928374
-! DarkRed + Red
-*color1:  #cc241d
-*color9:  #fb4934
-! DarkGreen + Green
-*color2:  #98971a
-*color10: #b8bb26
-! DarkYellow + Yellow
-*color3:  #d79921
-*color11: #fabd2f
-! DarkBlue + Blue
-*color4:  #458588
-*color12: #83a598
-! DarkMagenta + Magenta
-*color5:  #b16286
-*color13: #d3869b
-! DarkCyan + Cyan
-*color6:  #689d6a
-*color14: #8ec07c
-! LightGrey + White
-*color7:  #a89984
-*color15: #ebdbb2
+#define black         #282828
+#define gray          #504945
+#define light_gray    #a89984
+#define white         #ebdbb2
+#define red           #cc241d
+#define light_red     #fb4934
+#define green         #98971a
+#define light_green   #b8bb26
+#define yellow        #d79921
+#define light_yellow  #fabd2f
+#define blue          #458588
+#define light_blue    #83a598
+#define magenta       #b16286
+#define light_magenta #d3869b
+#define cyan          #689d6a
+#define light_cyan    #8ec07c
+
+*background: black
+*foreground: white
+
+*color0:  black
+*color1:  red
+*color2:  green
+*color3:  yellow
+*color4:  blue
+*color5:  magenta
+*color6:  cyan
+*color7:  gray
+*color8:  light_gray
+*color9:  light_red
+*color10: light_green
+*color11: light_yellow
+*color12: light_blue
+*color13: light_magenta
+*color14: light_cyan
+*color15: white
