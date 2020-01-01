@@ -61,10 +61,10 @@ augroup END
 
 " split window sizing
 set scrolloff=5 " scroll buffer size
-set winwidth=84 " focused split width
+set winwidth=80 " focused split width
 set winheight=24 " focused split height
-set winminwidth=84 " minimum split width
-set winminheight=5 " minimum split height
+set winminwidth=40 " minimum split width
+set winminheight=12 " minimum split height
 
 " split window navigation
 if exists('$TMUX')
