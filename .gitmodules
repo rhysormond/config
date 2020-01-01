@@ -10,3 +10,6 @@
 [submodule ".vim/pack/git-plugins/start/vim-surround"]
 	path = .vim/pack/git-plugins/start/vim-surround
 	url = git@github.com:tpope/vim-surround.git
+[submodule ".vim/pack/git-plugins/start/vim-commentary"]
+	path = .vim/pack/git-plugins/start/vim-commentary
+	url = git@github.com:tpope/vim-commentary.git

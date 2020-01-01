@@ -8,6 +8,7 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
 
 " JetBrains commands
+set commentary " enable TPope commentary plugin
 set surround " enable TPope surround plugin
 set ideajoin " use IDE joining logic
 nnoremap <leader>fl :action Find<cr>
