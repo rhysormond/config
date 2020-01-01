@@ -163,8 +163,14 @@ if executable('fzy')
         endif
     endfunction
 
-    nnoremap <leader>s :call FuzzyCommand("cat -n " . @%, 0, ":")<cr>
-    nnoremap <leader>f :call FuzzyCommand("find -type f", 0, ":e")<cr>
+    " [F]ind [L]ine in file
+    nnoremap <leader>fl :call FuzzyCommand("cat -n " . @%, 0, ":")<cr>
+    " [F]ind [F]ile in directory
+    nnoremap <leader>ff :call FuzzyCommand("find -type f", 0, ":e")<cr>
+    " [F]ind file in directory and open in [V]ertical split
+    nnoremap <leader>fv :call FuzzyCommand("find -type f", 0, ":vs")<cr>
+    " [F]ind file in directory and open in horizontal [S]plit
+    nnoremap <leader>fs :call FuzzyCommand("find -type f", 0, ":sp")<cr>
 endif
 
 " persist undo between sessions

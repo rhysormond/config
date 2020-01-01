@@ -10,6 +10,6 @@ nnoremap <c-l> <c-w>l
 " JetBrains commands
 set surround " enable TPope surround plugin
 set ideajoin " use IDE joining logic
-nnoremap <leader>s :action Find<cr>
-nnoremap <leader>f :action GotoFile<cr>
+nnoremap <leader>fl :action Find<cr>
+nnoremap <leader>ff :action GotoFile<cr>
 nnoremap <leader>b :action RecentFiles<cr>
