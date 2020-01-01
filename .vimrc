@@ -42,7 +42,7 @@ set foldenable " enable folding
 set foldnestmax=10 " 10 nested fold max
 set foldlevelstart=10 " open most folds by default
 set foldmethod=indent " fold based on indent level
-noremap <leader>t za
+noremap <leader><tab> za
 
 " use the system clipboard
 noremap <Leader><leader> "+
