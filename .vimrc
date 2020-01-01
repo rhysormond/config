@@ -49,6 +49,7 @@ noremap <Leader><leader> "+
 
 " open the netrw explorer
 noremap <leader>e :Explore<cr>
+let g:netrw_banner = 0 " don't show the netrw banner
 
 " line numbers
 set number " always show line numbers
