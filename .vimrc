@@ -165,12 +165,25 @@ if executable('fzy')
 
     " [F]ind [L]ine in file
     nnoremap <leader>fl :call FuzzyCommand("cat -n " . @%, 0, ":")<cr>
+
+    " find that ignores certain directories
+    let find_cmd="find -type f ! -ipath '*/.git/*' ! -ipath '*/target/*'"
+
     " [F]ind [F]ile in directory
-    nnoremap <leader>ff :call FuzzyCommand("find -type f", 0, ":e")<cr>
+    nnoremap <leader>ff :call FuzzyCommand(find_cmd, 0, ":e")<cr>
     " [F]ind file in directory and open in [V]ertical split
-    nnoremap <leader>fv :call FuzzyCommand("find -type f", 0, ":vs")<cr>
+    nnoremap <leader>fv :call FuzzyCommand(find_cmd, 0, ":vs")<cr>
     " [F]ind file in directory and open in horizontal [S]plit
-    nnoremap <leader>fs :call FuzzyCommand("find -type f", 0, ":sp")<cr>
+    nnoremap <leader>fs :call FuzzyCommand(find_cmd, 0, ":sp")<cr>
+
+    function! FuzzyBuffer()
+        let bufnrs = filter(range(1, bufnr("$")), 'buflisted(v:val)')
+        let buffers = map(bufnrs, 'bufname(v:val)')
+        call FuzzyCommand('echo "' . join(buffers, "\n") . '"', 0, ":b")
+    endfunction
+
+    " [F]ind [B]uffer
+    nnoremap <leader>fb :call FuzzyBuffer()<cr>
 endif
 
 " persist undo between sessions
