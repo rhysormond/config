@@ -149,41 +149,43 @@ noremap! <Down> <Nop>
 noremap! <Left> <Nop>
 noremap! <Right> <Nop>
 
-" fuzzy selection integration
-if executable('fzy')
-    function! FuzzyCommand(input_command, selection_field, vim_command)
+" fuzzy finding integration
+let fuzzy_finder='fzy'
+if executable(fuzzy_finder)
+    function! FuzzyFind(input_command, vim_command)
         try
-            let selection=system(a:input_command . " | fzy")
+            let selection=system(a:input_command . " | " . g:fuzzy_finder)
         catch /Vim:Interrupt/
         endtry
         redraw!
         if v:shell_error == 0 && !empty(selection)
-            let selected_field=split(selection)[a:selection_field]
+            " slice the first field from the selection
+            let selected_field=split(selection)[0]
             exec a:vim_command . ' ' . selected_field
         endif
     endfunction
 
     " [F]ind [L]ine in file
-    nnoremap <leader>fl :call FuzzyCommand("cat -n " . @%, 0, ":")<cr>
+    nnoremap <leader>fl :call FuzzyFind("cat -n " . @%, 0, ":")<cr>
 
     " find that ignores certain directories
     let find_cmd="find -type f ! -ipath '*/.git/*' ! -ipath '*/target/*'"
 
     " [F]ind [F]ile in directory
-    nnoremap <leader>ff :call FuzzyCommand(find_cmd, 0, ":e")<cr>
+    nnoremap <leader>ff :call FuzzyFind(find_cmd, ":e")<cr>
     " [F]ind file in directory and open in [V]ertical split
-    nnoremap <leader>fv :call FuzzyCommand(find_cmd, 0, ":vs")<cr>
+    nnoremap <leader>fv :call FuzzyFind(find_cmd, ":vs")<cr>
     " [F]ind file in directory and open in horizontal [S]plit
-    nnoremap <leader>fs :call FuzzyCommand(find_cmd, 0, ":sp")<cr>
+    nnoremap <leader>fs :call FuzzyFind(find_cmd, ":sp")<cr>
 
-    function! FuzzyBuffer()
+    function! Buffers()
         let bufnrs = filter(range(1, bufnr("$")), 'buflisted(v:val)')
         let buffers = map(bufnrs, 'bufname(v:val)')
-        call FuzzyCommand('echo "' . join(buffers, "\n") . '"', 0, ":b")
+        return join(buffers, "\n")
     endfunction
 
     " [F]ind [B]uffer
-    nnoremap <leader>fb :call FuzzyBuffer()<cr>
+    nnoremap <leader>fb :call FuzzyFind('echo "' . Buffers() . '"', ":b")<cr>
 endif
 
 " persist undo between sessions
