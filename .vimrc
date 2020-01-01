@@ -151,11 +151,10 @@ noremap! <Left> <Nop>
 noremap! <Right> <Nop>
 
 " fuzzy finding integration
-let fuzzy_finder='fzy'
-if executable(fuzzy_finder)
+if executable("fzy") && executable("rg")
     function! FuzzyFind(input_command, vim_command)
         try
-            let selection=system(a:input_command . " | " . g:fuzzy_finder)
+            let selection=system(a:input_command . " | fzy")
         catch /Vim:Interrupt/
         endtry
         redraw!
@@ -167,17 +166,13 @@ if executable(fuzzy_finder)
     endfunction
 
     " [F]ind [L]ine in file
-    nnoremap <leader>fl :call FuzzyFind("cat -n " . @%, 0, ":")<cr>
-
-    " find that ignores certain directories
-    let find_cmd="find -type f ! -ipath '*/.git/*' ! -ipath '*/target/*'"
-
+    nnoremap <leader>fl :call FuzzyFind("cat -n " . @%, ":")<cr>
     " [F]ind [F]ile in directory
-    nnoremap <leader>ff :call FuzzyFind(find_cmd, ":e")<cr>
+    nnoremap <leader>ff :call FuzzyFind("rg . -l", ":e")<cr>
     " [F]ind file in directory and open in [V]ertical split
-    nnoremap <leader>fv :call FuzzyFind(find_cmd, ":vs")<cr>
+    nnoremap <leader>fv :call FuzzyFind("rg . -l", ":vs")<cr>
     " [F]ind file in directory and open in horizontal [S]plit
-    nnoremap <leader>fs :call FuzzyFind(find_cmd, ":sp")<cr>
+    nnoremap <leader>fs :call FuzzyFind("rg . -l", ":sp")<cr>
 
     function! Buffers()
         let bufnrs = filter(range(1, bufnr("$")), 'buflisted(v:val)')
