@@ -47,6 +47,9 @@ noremap <leader>t za
 " use the system clipboard
 noremap <Leader><leader> "+
 
+" open the netrw explorer
+noremap <leader>e :Explore<cr>
+
 " line numbers
 set number " always show line numbers
 set relativenumber " set line numbers to be relative to current row
