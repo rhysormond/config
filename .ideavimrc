@@ -1,12 +1,6 @@
 " source normal vimrc
 source ~/.vimrc
 
-" remap split nagivation (not properly sourced from ~/.vimrc)
-nnoremap <c-h> <c-w>h
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-nnoremap <c-l> <c-w>l
-
 " JetBrains commands
 set commentary " enable TPope commentary plugin
 set surround " enable TPope surround plugin
