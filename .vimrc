@@ -150,38 +150,59 @@ noremap! <Down> <Nop>
 noremap! <Left> <Nop>
 noremap! <Right> <Nop>
 
+" list all currently open buffers
+function! Buffers()
+    let bufnrs = filter(range(1, bufnr("$")), 'buflisted(v:val)')
+    let buffers = map(bufnrs, 'bufname(v:val)')
+    return join(buffers, "\n")
+endfunction
+
 " fuzzy finding integration
 if executable("fzy") && executable("rg")
-    function! FuzzyFind(input_command, vim_command)
+    " execute an input command and pipe it into fzy while handling interrupts
+    function! FuzzyFind(input_command)
         try
             let selection=system(a:input_command . " | fzy")
         catch /Vim:Interrupt/
         endtry
         redraw!
-        if v:shell_error == 0 && !empty(selection)
-            " slice the first field from the selection
+        if v:shell_error == 0
+            return selection
+        endif
+    endfunction
+
+    " fuzzy find input_command and execute vim_command on the first filed
+    function! FuzzyCmd(input_command, vim_command)
+        let selection=FuzzyFind(a:input_command)
+        if !empty(selection)
             let selected_field=split(selection)[0]
             exec a:vim_command . ' ' . selected_field
         endif
     endfunction
 
-    " [F]ind [L]ine in file
-    nnoremap <leader>fl :call FuzzyFind("cat -n " . @%, ":")<cr>
-    " [F]ind [F]ile in directory
-    nnoremap <leader>ff :call FuzzyFind("rg . -l", ":e")<cr>
-    " [F]ind file in directory and open in [V]ertical split
-    nnoremap <leader>fv :call FuzzyFind("rg . -l", ":vs")<cr>
-    " [F]ind file in directory and open in horizontal [S]plit
-    nnoremap <leader>fs :call FuzzyFind("rg . -l", ":sp")<cr>
-
-    function! Buffers()
-        let bufnrs = filter(range(1, bufnr("$")), 'buflisted(v:val)')
-        let buffers = map(bufnrs, 'bufname(v:val)')
-        return join(buffers, "\n")
+    " find line within all files
+    function! FuzzyFindAll()
+        let selection=FuzzyFind("rg . -n --no-heading --with-filename")
+        if !empty(selection)
+            let fields=split(selection, ":")
+            let file=fields[0]
+            let line=fields[1]
+            exec ":e +" . line . " " .file
+        endif
     endfunction
 
+    " [Find] a line within [A]ll files
+    nnoremap <leader>fa :call FuzzyFindAll()<cr>
+    " [F]ind [L]ine in file
+    nnoremap <leader>fl :call FuzzyCmd("cat -n " . @%, ":")<cr>
+    " [F]ind [F]ile in directory
+    nnoremap <leader>ff :call FuzzyCmd("rg . -l", ":e")<cr>
+    " [F]ind file in directory and open in [V]ertical split
+    nnoremap <leader>fv :call FuzzyCmd("rg . -l", ":vs")<cr>
+    " [F]ind file in directory and open in horizontal [S]plit
+    nnoremap <leader>fs :call FuzzyCmd("rg . -l", ":sp")<cr>
     " [F]ind [B]uffer
-    nnoremap <leader>fb :call FuzzyFind('echo "' . Buffers() . '"', ":b")<cr>
+    nnoremap <leader>fb :call FuzzyCmd('echo "' . Buffers() . '"', ":b")<cr>
 endif
 
 " persist undo between sessions
