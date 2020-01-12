@@ -16,22 +16,22 @@ default_floating_border none
 # see: ~/.Xresources
 set_from_resource $color_bg background
 set_from_resource $color_fg foreground
-set_from_resource $color_0     color0
-set_from_resource $color_1     color1
-set_from_resource $color_2     color2
-set_from_resource $color_3     color3
-set_from_resource $color_4     color4
-set_from_resource $color_5     color5
-set_from_resource $color_6     color6
-set_from_resource $color_7     color7
-set_from_resource $color_8     color8
-set_from_resource $color_9     color9
-set_from_resource $color_10    color10
-set_from_resource $color_11    color11
-set_from_resource $color_12    color12
-set_from_resource $color_13    color13
-set_from_resource $color_14    color14
-set_from_resource $color_15    color15
+set_from_resource $color_0  color0
+set_from_resource $color_1  color1
+set_from_resource $color_2  color2
+set_from_resource $color_3  color3
+set_from_resource $color_4  color4
+set_from_resource $color_5  color5
+set_from_resource $color_6  color6
+set_from_resource $color_7  color7
+set_from_resource $color_8  color8
+set_from_resource $color_9  color9
+set_from_resource $color_10 color10
+set_from_resource $color_11 color11
+set_from_resource $color_12 color12
+set_from_resource $color_13 color13
+set_from_resource $color_14 color14
+set_from_resource $color_15 color15
 
 # class                 border    bg        fg        indic    child_border
 client.focused          $color_5  $color_bg $color_fg $color_5 $color_bg
@@ -73,6 +73,9 @@ bindsym $mod+q exec --no-startup-id powermenu
 
 # restart i3 inplace
 bindsym $mod+Shift+r restart
+
+# toggle bar
+bindsym $mod+b exec --no-startup-id polybar-msg cmd toggle
 
 ##
 # Media Controls
