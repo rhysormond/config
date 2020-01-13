@@ -1,6 +1,32 @@
 configuration {
-  cycle:           true;
-  hide-scrollbar:  true;
-  modi:            "combi";
-  display-combi:   ">";
+    cycle:          true;
+    hide-scrollbar: true;
 }
+
+* {
+    font:             "Fira Code 14";
+    background-color: #282828;
+    text-color:       #ebdbb2;
+}
+
+#inputbar {
+    children: [ textbox-prompt-colon, entry ];
+}
+
+#textbox-prompt-colon {
+    expand: false;
+    str:    "~ > ";
+}
+
+window {
+    border:   1;
+    padding:  10;
+    height:   100 %;
+    width:    450 px;
+    location: west;
+}
+
+element selected {
+    text-color: #d79921;
+}
+

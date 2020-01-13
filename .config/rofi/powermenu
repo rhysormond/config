@@ -1,14 +1,12 @@
 #!/bin/bash
 
-rofi_command="rofi -theme themes/powermenu.rasi"
-
-power_off=""
-reboot=""
-lock=""
-log_out="⍇"
+power_off="S shutdown"
+reboot="R reboot"
+lock="L lock"
+log_out="G logout"
 
 options="$power_off\n$reboot\n$lock\n$log_out"
-selection="$(echo -e "$options" | $rofi_command -dmenu -selected-row 2)"
+selection="$(echo -e "$options" | rofi -dmenu -selected-row 2)"
 case $selection in
     $power_off)
         systemctl poweroff
