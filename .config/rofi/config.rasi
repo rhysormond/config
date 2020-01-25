@@ -19,7 +19,6 @@ configuration {
 }
 
 window {
-    border:   1;
     padding:  10;
     height:   100 %;
     width:    450 px;
