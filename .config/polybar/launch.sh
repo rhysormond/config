@@ -8,6 +8,3 @@ while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
 # launch bar
 polybar i3-bar &
-
-# hide the bar on launch
-sleep 1 && polybar-msg cmd toggle
