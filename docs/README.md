@@ -39,7 +39,7 @@ git cfg submodule update --init --recursive
 | lightdm-gtk-greeter       | greeter                        |
 | networkmanager            | network manager                |
 | networkmanager-dmenu      | dmenu networkmanager interface |
-| nitrogen                  | wallpaper setter               |
+| xorg-xsetroot             | wallpaper setter               |
 | openssh                   | ssh tools                      |
 | otf-fira-code             | monospace font with ligatures  |
 | otf-fira-sans             | font                           |

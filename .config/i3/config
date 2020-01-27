@@ -200,7 +200,7 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 # wallpaper
-exec --no-startup-id nitrogen --restore
+exec --no-startup-id xsetroot -solid "#282828"
 
 # power management
 exec --no-startup-id xfce4-power-manager
