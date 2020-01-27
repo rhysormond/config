@@ -5,6 +5,9 @@ source ~/.vimrc
 set commentary " enable TPope commentary plugin
 set surround " enable TPope surround plugin
 set ideajoin " use IDE joining logic
+
+" fuzzy finding integration
+nnoremap <leader>fa :action FindInPath<cr>
 nnoremap <leader>fl :action Find<cr>
 nnoremap <leader>ff :action GotoFile<cr>
-nnoremap <leader>b :action RecentFiles<cr>
+nnoremap <leader>fb :action RecentFiles<cr>
