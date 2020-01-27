@@ -69,7 +69,7 @@ bindsym $mod+d exec --no-startup-id rofi -show combi
 bindsym $mod+n exec --no-startup-id networkmanager_dmenu
 
 # power menu
-bindsym $mod+q exec --no-startup-id ~/.config/rofi/powermenu
+bindsym $mod+q exec --no-startup-id $XDG_CONFIG_HOME/rofi/powermenu
 
 # restart i3 inplace
 bindsym $mod+Shift+r restart
@@ -194,7 +194,7 @@ bindsym $mod+Shift+9 move container to $ws9; $ws9
 ##
 
 # polybar
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id $XDG_CONFIG_HOME/polybar/launch.sh
 
 # authentication agent
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1

@@ -1,14 +1,6 @@
-;=====================================================
-;     File Includes
-;=====================================================
-
 [section/base]
-include-file = ~/.config/polybar/master.conf
-include-file = ~/.config/polybar/modules.conf
-
-;=====================================================
-;     i3 Bars
-;=====================================================
+include-file = $XDG_CONFIG_HOME/polybar/master.conf
+include-file = $XDG_CONFIG_HOME/polybar/modules.conf
 
 [bar/i3-bar]
 inherit = bar/master
