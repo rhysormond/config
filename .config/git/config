@@ -33,17 +33,12 @@
     ca = commit --amend
     ci = commit
     cm = commit --message
-    cx = commit --amend --message
     co = checkout
     di = diff
     dm = diff master...HEAD
     dt = difftool
-    fa = fetch --all
     gr = log --all --decorate --oneline --graph
-    lh = log --pretty=format:%s -1
     mm = merge-base HEAD master
     rr = rev-list --reverse
-    sh = show
-    st = status
     sh = stash
     up = submodule update --init --recursive
