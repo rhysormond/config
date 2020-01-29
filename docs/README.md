@@ -32,6 +32,7 @@ git cfg submodule update --init --recursive
 | flameshot                 | screenshot utility             |
 | fzy                       | fuzzy finder                   |
 | git                       | version control tool           |
+| git-extras                | extra git tools                |
 | acpi                      | power monitoring               |
 | gvim                      | exitor                         |
 | i3-wm                     | window manager                 |
