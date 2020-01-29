@@ -5,7 +5,7 @@
     ui = auto
 [core]
     editor = vim
-    excludesfile = $XDG_CONFIG_HOME/git/ignore
+    excludesfile = ~/.config/git/ignore
     filemode = false
     pager = diffr | less -FRX
 [commit]
@@ -24,8 +24,7 @@
     default = simple
 [alias]
     alias = "!git config --get-regexp '^alias.' | sed -e s/'^alias.'// -e s/' '/' = '/"
-    cfg = "!git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
-    dim = "!git diff $(git mm)"
+    cfg = "!git --git-dir=$HOME/.cfg --work-tree=$HOME"
     run = "!f() { set -e && git rev-list --reverse $1 | while read r; do git co $r; $2; done; }; f"
     tmp = "!f() { git co $1 && read && git st && git co master && git br -D $1; }; f"
     wip = "!git aa && if [[ $(git lh) == "wip" ]]; then git cx "wip"; else git cm "wip"; fi"
@@ -41,6 +40,7 @@
     cx = commit --amend --message
     co = checkout
     di = diff
+    dm = diff master...HEAD
     dt = difftool
     fa = fetch --all
     gr = log --all --decorate --oneline --graph
