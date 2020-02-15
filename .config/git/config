@@ -1,6 +1,7 @@
 [user]
     email = git@rhysormond.com
     name = rhysormond
+    signingkey = 9A822A229581A606
 [color]
     ui = auto
 [core]
@@ -10,6 +11,7 @@
     pager = diffr | less -FRX
 [commit]
     verbose = true
+    gpgsign = true
 [diff]
     algorithm = patience
     tool = vimdiff
@@ -21,6 +23,11 @@
     tool = vimdiff
 [push]
     default = simple
+    gpgsign = if-asked
+[tag]
+    forceSignAnnotated = true
+[gpg]
+    program = gpg2
 [alias]
     cfg = "!git --git-dir=$HOME/.cfg --work-tree=$HOME"
     run = "!f() { git rr $1 | while read c; do git co $c; $2; done; }; f"

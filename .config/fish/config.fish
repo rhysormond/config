@@ -105,3 +105,6 @@ end
 
 # system-specific env vars
 source $HOME/.env
+
+# set tty for gpg
+set -x GPG_TTY (tty)
