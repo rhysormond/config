@@ -46,7 +46,6 @@ git cfg submodule update --init --recursive
 | otf-fira-sans             | font                           |
 | gtk-theme-arc-gruvbox-git | gtk gruvbox theme              |
 | polybar                   | status bar                     |
-| ranger                    | file browser                   |
 | rofi                      | application launcher           |
 | tmux                      | terminal multiplexer           |
 | ripgrep                   | grep replacement               |
@@ -56,4 +55,5 @@ git cfg submodule update --init --recursive
 | xorg-xbacklight           | backlight configuration tool   |
 | xsecurelock               | screen locker                  |
 | xss-lock                  | session locker                 |
+| slack-desktop             | messaging tool                 |
 
