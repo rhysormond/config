@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# rejects commits that don't match the conventional commit format
+# see: www.conventionalcommits.org
+
+type_regex="\(build\|ci\|docs\|feat\|fix\|perf\|refactor\|revert\|style\|test\)"
+scope_regex="\((.\+)\)\?"
+description_regex=".\{1,50\}"
+
+commit_regex="^$type_regex$scope_regex!\?: $description_regex$"
+
+match=$(grep "$commit_regex" "$1") 
+test ! -z "$match" || {
+    printf "no match for regex in commit message\n$commit_regex\n\n$(cat $1)"
+    exit 1
+}
+

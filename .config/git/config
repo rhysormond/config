@@ -9,6 +9,7 @@
     excludesfile = ~/.config/git/ignore
     filemode = false
     pager = diffr | less -FRX
+    hooksPath = ~/.config/git/hooks
 [commit]
     verbose = true
     gpgsign = true
