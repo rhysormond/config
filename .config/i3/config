@@ -187,7 +187,7 @@ assign [class="Alacritty"] $ws3
 ##
 
 # polybar
-exec_always --no-startup-id $XDG_CONFIG_HOME/polybar/launch.sh
+exec_always --no-startup-id $XDG_CONFIG_HOME/polybar/launch
 
 # authentication agent
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
