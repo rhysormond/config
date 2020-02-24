@@ -10,7 +10,9 @@ commit_regex="^$type_regex$scope_regex!\?: $description_regex$"
 
 match=$(grep "$commit_regex" "$1") 
 test ! -z "$match" || {
-    printf "no match for regex in commit message\n$commit_regex\n\n$(cat $1)"
+    # drop all comment lines
+    message=$(cat $1 | sed -n '/^#/q;p')
+    printf "no match for regex in commit message\n$commit_regex\n\n$message"
     exit 1
 }
 
