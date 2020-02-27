@@ -31,13 +31,15 @@
     program = gpg2
 [alias]
     cfg = "!git --git-dir=$HOME/.cfg --work-tree=$HOME"
+    del = "!f() { git reset --hard && git co master && git bd @{-1}; }; f"
     run = "!f() { git rr $1 | while read c; do git co $c; $2; done; }; f"
-    tmp = "!f() { git co $1 && read && git sh && git co - && git br -D $1; }; f"
 
     aa = add --all
     ap = add --patch
     br = branch
+    bd = branch --delete
     ca = commit --amend
+    cb = checkout -b
     ci = commit
     cm = commit --message
     co = checkout
@@ -46,6 +48,6 @@
     dt = difftool
     gr = log --all --decorate --oneline --graph
     mm = merge-base HEAD master
+    mt = mergetool
     rr = rev-list --reverse
-    sh = stash
     up = submodule update --init --recursive
