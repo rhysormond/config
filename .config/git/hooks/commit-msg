@@ -8,7 +8,8 @@ description_regex=".\{1,50\}"
 
 commit_regex="^$type_regex$scope_regex!\?: $description_regex$"
 
-match=$(grep "$commit_regex" "$1") 
+# only try to match the first line
+match=$(head -n1 "$1" | grep "$commit_regex")
 test ! -z "$match" || {
     # drop all comment lines
     message=$(cat $1 | sed -n '/^#/q;p')
