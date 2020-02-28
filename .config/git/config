@@ -37,7 +37,7 @@
     aa = add --all
     ap = add --patch
     br = branch
-    bd = branch --delete
+    bd = branch --delete --force
     ca = commit --amend
     cb = checkout -b
     ci = commit
