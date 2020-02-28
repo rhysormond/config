@@ -20,6 +20,7 @@ set t_Co=256
 set background=dark
 colorscheme gruvbox
 hi Normal ctermbg=NONE
+hi SpellBad ctermfg=011 ctermbg=009 guifg=#cc214d guibg=#282828
 
 " highlighting
 set hlsearch " highlight search results
