@@ -56,4 +56,5 @@ git cfg submodule update --init --recursive
 | xsecurelock               | screen locker                  |
 | xss-lock                  | session locker                 |
 | slack-desktop             | messaging tool                 |
+| jetbrains-toolbox         | ide                            |
 

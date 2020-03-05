@@ -180,7 +180,11 @@ bindsym $mod+Shift+6 move container to $ws6; $ws6
 # assign default workspaces for some applications
 assign [class="Slack"] $ws1
 assign [class="firefox"] $ws2
-assign [class="Alacritty"] $ws3
+assign [class="jetbrains-idea"] $ws3
+assign [class="jetbrains-toolbox"] $ws3
+
+# float terminal windows by default
+for_window [class="Alacritty"] move scratchpad
 
 ##
 # Autostart Applications
