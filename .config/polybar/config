@@ -5,7 +5,6 @@ include-file = $XDG_CONFIG_HOME/polybar/modules.conf
 [bar/i3-bar]
 inherit = bar/master
 
-; Use $ xrandr -q | grep " connected" | cut -d ' ' -f1
 monitor =
 monitor-fallback = ${env:MONITOR:LVDS-1}
 
