@@ -35,7 +35,8 @@ git cfg submodule update --init --recursive
 | git-extras                | extra git tools                |
 | acpi                      | power monitoring               |
 | gvim                      | exitor                         |
-| i3-wm                     | window manager                 |
+| xmonad                    | window manager                 |
+| wmctrl                    | window manager scripting util  |
 | lightdm                   | display manager                |
 | lightdm-gtk-greeter       | greeter                        |
 | networkmanager            | network manager                |

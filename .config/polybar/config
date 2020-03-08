@@ -2,12 +2,12 @@
 include-file = $XDG_CONFIG_HOME/polybar/master.conf
 include-file = $XDG_CONFIG_HOME/polybar/modules.conf
 
-[bar/i3-bar]
+[bar/bar]
 inherit = bar/master
 
 monitor =
 monitor-fallback = ${env:MONITOR:LVDS-1}
 
-modules-left   = clock i3 title
+modules-left   = clock xmonad title
 modules-center =
 modules-right  = volume brightness cpu memory wifi battery
