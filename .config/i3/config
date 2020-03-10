@@ -1,6 +1,4 @@
-##
 # Appearace
-##
 
 # font
 font pango:Fira Sans 12
@@ -9,9 +7,7 @@ font pango:Fira Sans 12
 for_window [class=".*"] border pixel 1
 hide_edge_borders smart
 
-##
 # Colors
-##
 
 # see: ~/.Xresources
 set_from_resource $color_bg background
@@ -39,9 +35,7 @@ client.focused_inactive $color_5  $color_bg $color_fg $color_5 $color_7
 client.unfocused        $color_bg $color_bg $color_fg $color_5 $color_bg
 client.urgent           $color_1  $color_1  $color_fg $color_1 $color_1
 
-##
 # I3 Keybindings
-##
 
 # set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod4
@@ -77,9 +71,7 @@ bindsym $mod+Shift+r restart
 # toggle bar
 bindsym $mod+b exec --no-startup-id polybar-msg cmd toggle
 
-##
 # Media Controls
-##
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset Master 5%+
@@ -92,15 +84,7 @@ bindsym Shift+XF86MonBrightnessUp exec xbacklight -inc 1
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10
 bindsym Shift+XF86MonBrightnessDown exec xbacklight -dec 1
 
-# Media player controls
-bindsym XF86AudioPlay exec playerctl play
-bindsym XF86AudioPause exec playerctl pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
-
-##
 # Windows
-##
 
 # focus doesn't follow mouse
 focus_follows_mouse no
@@ -138,9 +122,7 @@ bindsym $mod+Shift+Down resize shrink height 1 px or 1 ppt
 bindsym $mod+Shift+Up resize grow height 1 px or 1 ppt
 bindsym $mod+Shift+Right resize shrink width 1 px or 1 ppt
 
-##
 # Workspaces
-##
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
@@ -186,9 +168,7 @@ assign [class="jetbrains-toolbox"] $ws3
 # float terminal windows by default
 for_window [class="Alacritty"] move scratchpad
 
-##
 # Autostart Applications
-##
 
 # polybar
 exec_always --no-startup-id $XDG_CONFIG_HOME/polybar/launch
