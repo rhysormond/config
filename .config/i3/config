@@ -51,7 +51,7 @@ bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
 # launch terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec --no-startup-id alacritty
 
 # screenshot
 bindsym $mod+p exec --no-startup-id flameshot gui
@@ -190,6 +190,3 @@ exec --no-startup-id xss-lock -n /usr/lib/xsecurelock/dimmer -l -- xsecurelock
 
 # turn caps lock into excape on tap and ctrl on press
 exec --no-startup-id setxkbmap -option ctrl:nocaps; xcape
-
-# ui tweaks and fixes
-exec_always --no-startup-id fix_xcursor
