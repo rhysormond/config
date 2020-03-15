@@ -1,8 +1,9 @@
 import XMonad
-import XMonad.Config.Desktop
-import XMonad.Hooks.EwmhDesktops
-import XMonad.Layout.NoBorders
-import XMonad.Util.SpawnOnce
+import XMonad.Config.Desktop (desktopConfig, desktopLayoutModifiers)
+import XMonad.Hooks.EwmhDesktops (fullscreenEventHook)
+import XMonad.Layout.NoBorders (smartBorders)
+import XMonad.Hooks.ManageDocks (avoidStruts)
+import XMonad.Util.SpawnOnce (spawnOnce)
 import Graphics.X11.ExtraTypes.XF86
 import qualified Data.Map as M
 
@@ -28,7 +29,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $ [
         ((0, xF86XK_MonBrightnessUp),    (spawn "xbacklight + 10 &"))
     ]
 
-myLayoutHook = smartBorders tiled ||| Full
+myLayoutHook = smartBorders $ avoidStruts $ tiled ||| Full
     where
         tiled   = Tall nmaster delta ratio
         nmaster = 1
