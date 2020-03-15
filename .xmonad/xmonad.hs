@@ -21,32 +21,33 @@ myModMask =           mod4Mask
 myTerminal =          "alacritty"
 myWorkspaces =        ["msg", "web", "txt", "a", "b", "c"]
 
-myKeys conf@(XConfig { XMonad.modMask = modm }) =
-  M.fromList
-    $ [ ((modm, xK_Return),             namedScratchpadAction scratchpads "term")
-      , ((modm, xK_d),                  (spawn "rofi -show combi"))
-      , ((modm, xK_n),                  (spawn "networkmanager_dmenu"))
-      , ((modm, xK_p),                  (spawn "flameshot gui"))
-      , ((modm, xK_q),                  (spawn "~/.config/rofi/powermenu"))
-      , ((modm .|. shiftMask, xK_q),    kill)
-      , ((modm .|. shiftMask, xK_r),    (spawn "xmonad --restart"))
-      , ((0, xF86XK_AudioMute),         (spawn "amixer set Master toggle &"))
-      , ((0, xF86XK_AudioLowerVolume),  (spawn "amixer -D pulse sset Master 5%-"))
-      , ((0, xF86XK_AudioRaiseVolume),  (spawn "amixer -D pulse sset Master 5%+"))
-      , ((0, xF86XK_MonBrightnessDown), (spawn "xbacklight - 10 &"))
-      , ((0, xF86XK_MonBrightnessUp),   (spawn "xbacklight + 10 &"))
-      ]
+myKeys conf@(XConfig { XMonad.modMask = modm }) = M.fromList $
+    [ ((modm, xK_Return),             namedScratchpadAction scratchpads "term")
+    , ((modm, xK_d),                  (spawn "rofi -show combi"))
+    , ((modm, xK_n),                  (spawn "networkmanager_dmenu"))
+    , ((modm, xK_p),                  (spawn "flameshot gui"))
+    , ((modm, xK_q),                  (spawn "~/.config/rofi/powermenu"))
+    , ((modm .|. shiftMask, xK_q),    kill)
+    , ((modm .|. shiftMask, xK_r),    (spawn "xmonad --restart"))
+    , ((0, xF86XK_AudioMute),         (spawn "amixer set Master toggle &"))
+    , ((0, xF86XK_AudioLowerVolume),  (spawn "amixer -D pulse sset Master 5%-"))
+    , ((0, xF86XK_AudioRaiseVolume),  (spawn "amixer -D pulse sset Master 5%+"))
+    , ((0, xF86XK_MonBrightnessDown), (spawn "xbacklight - 10 &"))
+    , ((0, xF86XK_MonBrightnessUp),   (spawn "xbacklight + 10 &"))
+    ]
 
 myLayoutHook = smartBorders $ avoidStruts $ tiled ||| Full
- where
-  tiled   = Tall nmaster delta ratio
-  nmaster = 1
-  ratio   = 1 / 2
-  delta   = 3 / 100
+  where
+    tiled   = Tall nmaster delta ratio
+    nmaster = 1
+    ratio   = 1 / 2
+    delta   = 3 / 100
 
 scratchpads =
-    [ NS "term" "alacritty --title 'term'" (title =? "term") (customFloating $ W.RationalRect l t w h)
-    ] where
+    [ NS "term" "alacritty --title 'term'" (title =? "term")
+        (customFloating $ W.RationalRect l t w h)
+    ]
+      where
         role = stringProperty "WM_WINDOW_ROLE"
         h =    0.75 -- terminal height
         w =    0.50 -- terminal width
@@ -54,33 +55,33 @@ scratchpads =
         l =    0.25 -- distance from left edge
 
 myManageHook = composeAll
-  [ className =? "Slack"             --> doShift "msg"
-  , className =? "firefox"           --> doShift "web"
-  , className =? "jetbrains-idea"    --> doShift "txt"
-  , className =? "jetbrains-toolbox" --> doShift "txt"
-  ]
+    [ className =? "Slack"             --> doShift "msg"
+    , className =? "firefox"           --> doShift "web"
+    , className =? "jetbrains-idea"    --> doShift "txt"
+    , className =? "jetbrains-toolbox" --> doShift "txt"
+    ] <+> namedScratchpadManageHook scratchpads
 
 myStartupHook = do
-  spawnOnce "$XDG_CONFIG_HOME/polybar/launch"
-  spawnOnce "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
-  spawnOnce "xsetroot -solid '#282828'"
-  spawnOnce "xfce4-power-manager"
-  spawnOnce "xset s 300 5"
-  spawnOnce "xss-lock -n /usr/lib/xsecurelock/dimmer -l -- xsecurelock"
-  spawnOnce "setxkbmap -option ctrl:nocaps; xcape"
+    spawnOnce "$XDG_CONFIG_HOME/polybar/launch"
+    spawnOnce "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+    spawnOnce "xsetroot -solid '#282828'"
+    spawnOnce "xfce4-power-manager"
+    spawnOnce "xset s 300 5"
+    spawnOnce "xss-lock -n /usr/lib/xsecurelock/dimmer -l -- xsecurelock"
+    spawnOnce "setxkbmap -option ctrl:nocaps; xcape"
 
 main = do
-  xmonad $ desktopConfig
-    { terminal           = myTerminal
-    , focusFollowsMouse  = myFocusFollowsMouse
-    , clickJustFocuses   = myClickJustFocuses
-    , focusedBorderColor = "#ebdbb2"
-    , normalBorderColor  = "#282828"
-    , modMask            = myModMask
-    , XMonad.workspaces  = myWorkspaces
-    , keys               = \c -> myKeys c `M.union` keys XMonad.def c
-    , layoutHook         = desktopLayoutModifiers $ myLayoutHook
-    , manageHook         = namedScratchpadManageHook scratchpads <+> myManageHook <+> manageHook desktopConfig
-    , handleEventHook    = fullscreenEventHook <+> handleEventHook desktopConfig
-    , startupHook        = myStartupHook <+> startupHook desktopConfig
-    }
+    xmonad $ desktopConfig
+        { terminal           = myTerminal
+        , focusFollowsMouse  = myFocusFollowsMouse
+        , clickJustFocuses   = myClickJustFocuses
+        , focusedBorderColor = "#ebdbb2"
+        , normalBorderColor  = "#282828"
+        , modMask            = myModMask
+        , XMonad.workspaces  = myWorkspaces
+        , keys               = \c -> myKeys c `M.union` keys XMonad.def c
+        , layoutHook         = desktopLayoutModifiers $ myLayoutHook
+        , manageHook         = myManageHook <+> manageHook desktopConfig
+        , handleEventHook    = fullscreenEventHook <+> handleEventHook desktopConfig
+        , startupHook        = myStartupHook <+> startupHook desktopConfig
+        }
