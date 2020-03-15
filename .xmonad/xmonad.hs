@@ -1,10 +1,18 @@
 import XMonad
 import XMonad.Config.Desktop (desktopConfig, desktopLayoutModifiers)
 import XMonad.Hooks.EwmhDesktops (fullscreenEventHook)
-import XMonad.Layout.NoBorders (smartBorders)
 import XMonad.Hooks.ManageDocks (avoidStruts)
+import XMonad.Layout.NoBorders (smartBorders)
+import XMonad.Util.NamedScratchpad
+  (
+  customFloating,
+  namedScratchpadAction,
+  namedScratchpadManageHook,
+  NamedScratchpad(NS)
+  )
 import XMonad.Util.SpawnOnce (spawnOnce)
 import Graphics.X11.ExtraTypes.XF86
+import qualified XMonad.StackSet as W
 import qualified Data.Map as M
 
 myFocusFollowsMouse = False
@@ -15,7 +23,7 @@ myWorkspaces =        ["msg", "web", "txt", "a", "b", "c"]
 
 myKeys conf@(XConfig { XMonad.modMask = modm }) =
   M.fromList
-    $ [ ((modm, xK_Return),             (spawn myTerminal))
+    $ [ ((modm, xK_Return),             namedScratchpadAction scratchpads "term")
       , ((modm, xK_d),                  (spawn "rofi -show combi"))
       , ((modm, xK_n),                  (spawn "networkmanager_dmenu"))
       , ((modm, xK_p),                  (spawn "flameshot gui"))
@@ -35,6 +43,15 @@ myLayoutHook = smartBorders $ avoidStruts $ tiled ||| Full
   nmaster = 1
   ratio   = 1 / 2
   delta   = 3 / 100
+
+scratchpads =
+    [ NS "term" "alacritty --title 'term'" (title =? "term") (customFloating $ W.RationalRect l t w h)
+    ] where
+        role = stringProperty "WM_WINDOW_ROLE"
+        h =    0.75 -- terminal height
+        w =    0.50 -- terminal width
+        t =    0.01 -- distance from top edge
+        l =    0.25 -- distance from left edge
 
 myManageHook = composeAll
   [ className =? "Slack"             --> doShift "msg"
@@ -60,10 +77,10 @@ main = do
     , focusedBorderColor = "#ebdbb2"
     , normalBorderColor  = "#282828"
     , modMask            = myModMask
-    , workspaces         = myWorkspaces
+    , XMonad.workspaces  = myWorkspaces
     , keys               = \c -> myKeys c `M.union` keys XMonad.def c
     , layoutHook         = desktopLayoutModifiers $ myLayoutHook
-    , manageHook         = myManageHook <+> manageHook desktopConfig
+    , manageHook         = namedScratchpadManageHook scratchpads <+> myManageHook <+> manageHook desktopConfig
     , handleEventHook    = fullscreenEventHook <+> handleEventHook desktopConfig
     , startupHook        = myStartupHook <+> startupHook desktopConfig
     }
