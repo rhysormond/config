@@ -36,6 +36,7 @@ git cfg submodule update --init --recursive
 | acpi                      | power monitoring               |
 | gvim                      | exitor                         |
 | xmonad                    | window manager                 |
+| xmonad-contrib            | xmonad utils                   |
 | wmctrl                    | window manager scripting util  |
 | lightdm                   | display manager                |
 | lightdm-gtk-greeter       | greeter                        |
