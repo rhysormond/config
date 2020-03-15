@@ -4,11 +4,10 @@ import XMonad.Hooks.EwmhDesktops (fullscreenEventHook)
 import XMonad.Hooks.ManageDocks (avoidStruts)
 import XMonad.Layout.NoBorders (smartBorders)
 import XMonad.Util.NamedScratchpad
-  (
-  customFloating,
-  namedScratchpadAction,
-  namedScratchpadManageHook,
-  NamedScratchpad(NS)
+  ( customFloating
+  , namedScratchpadAction
+  , namedScratchpadManageHook
+  , NamedScratchpad(NS)
   )
 import XMonad.Util.SpawnOnce (spawnOnce)
 import Graphics.X11.ExtraTypes.XF86
@@ -49,9 +48,9 @@ scratchpads =
     ]
       where
         h = 0.75 -- terminal height
-        w = 0.50 -- terminal width
-        t = 0.01 -- distance from top edge
-        l = 0.25 -- distance from left edge
+        w = 0.60 -- terminal width
+        t = 0.00 -- distance from top edge
+        l = 0.20 -- distance from left edge
 
 myManageHook = composeAll
     [ className =? "Slack"             --> doShift "msg"
