@@ -48,11 +48,10 @@ scratchpads =
         (customFloating $ W.RationalRect l t w h)
     ]
       where
-        role = stringProperty "WM_WINDOW_ROLE"
-        h =    0.75 -- terminal height
-        w =    0.50 -- terminal width
-        t =    0.01 -- distance from top edge
-        l =    0.25 -- distance from left edge
+        h = 0.75 -- terminal height
+        w = 0.50 -- terminal width
+        t = 0.01 -- distance from top edge
+        l = 0.25 -- distance from left edge
 
 myManageHook = composeAll
     [ className =? "Slack"             --> doShift "msg"
