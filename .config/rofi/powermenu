@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 power_off="S shutdown"
 reboot="R reboot"
@@ -18,11 +18,6 @@ case $selection in
         xset s activate
         ;;
     $log_out)
-        # close all open windows
-        WIN_IDs=$(wmctrl -l | awk '$3 != "N/A" {print $1}')
-        for i in $WIN_IDs; do wmctrl -ic "$i"; done
-        # logout from the current session
-        session=$(loginctl session-status | awk 'NR==1{print $1}')
-        loginctl terminate-session "$session"
+        quit-wm
         ;;
 esac
