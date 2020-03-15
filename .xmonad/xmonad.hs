@@ -15,18 +15,18 @@ myModMask    = mod4Mask
 myWorkspaces = ["msg","web","txt","a","b","c"]
 
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $ [
-        ((mod4Mask, xK_Return),          (spawn myTerminal)),
-        ((mod4Mask, xK_d),               (spawn "rofi -show combi")),
-        ((mod4Mask, xK_n),               (spawn "networkmanager_dmenu")),
-        ((mod4Mask, xK_p),               (spawn "flameshot gui")),
-        ((mod4Mask, xK_q),               (spawn "~/.config/rofi/powermenu")),
-        ((mod4Mask .|. shiftMask, xK_q), kill),
-        ((mod4Mask .|. shiftMask, xK_r), (spawn "xmonad --restart")),
-        ((0, xF86XK_AudioMute),          (spawn "amixer set Master toggle &")),
-        ((0, xF86XK_AudioLowerVolume),   (spawn "amixer -D pulse sset Master 5%-")),
-        ((0, xF86XK_AudioRaiseVolume),   (spawn "amixer -D pulse sset Master 5%+")),
-        ((0, xF86XK_MonBrightnessDown),  (spawn "xbacklight - 10 &")),
-        ((0, xF86XK_MonBrightnessUp),    (spawn "xbacklight + 10 &"))
+        ((modm, xK_Return),             (spawn myTerminal)),
+        ((modm, xK_d),                  (spawn "rofi -show combi")),
+        ((modm, xK_n),                  (spawn "networkmanager_dmenu")),
+        ((modm, xK_p),                  (spawn "flameshot gui")),
+        ((modm, xK_q),                  (spawn "~/.config/rofi/powermenu")),
+        ((modm .|. shiftMask, xK_q),    kill),
+        ((modm .|. shiftMask, xK_r),    (spawn "xmonad --restart")),
+        ((0, xF86XK_AudioMute),         (spawn "amixer set Master toggle &")),
+        ((0, xF86XK_AudioLowerVolume),  (spawn "amixer -D pulse sset Master 5%-")),
+        ((0, xF86XK_AudioRaiseVolume),  (spawn "amixer -D pulse sset Master 5%+")),
+        ((0, xF86XK_MonBrightnessDown), (spawn "xbacklight - 10 &")),
+        ((0, xF86XK_MonBrightnessUp),   (spawn "xbacklight + 10 &"))
     ]
 
 myLayoutHook = smartBorders $ avoidStruts $ tiled ||| Full
