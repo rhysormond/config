@@ -2,7 +2,25 @@
 # rejects commits that don't match the conventional commit format
 # see: www.conventionalcommits.org
 
-type_regex="\(build\|ci\|docs\|feat\|fix\|perf\|refactor\|revert\|style\|test\)"
+commit_types=(
+    "build"
+    "ci"
+    "docs"
+    "feat"
+    "fix"
+    "perf"
+    "refactor"
+    "revert"
+    "style"
+    "test"
+)
+
+for t in "${commit_types[@]}"
+do    
+    type_alternatives="${type_alternatives:+$type_alternatives}\|$t"
+done
+
+type_regex="\($type_alternatives\)"
 scope_regex="\((.\+)\)\?"
 commit_regex="^$type_regex$scope_regex!\?: .*$"
 
