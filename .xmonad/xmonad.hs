@@ -9,8 +9,8 @@ import Graphics.X11.ExtraTypes.XF86
 import qualified XMonad.StackSet as W
 import qualified Data.Map as M
 
-myKeys conf@(XConfig { XMonad.modMask = modm }) =
-    M.fromList $ [
+myKeys conf@(XConfig { modMask = modm }) =
+    M.fromList [
         ((modm, xK_Return),             scratchpad "term"),
         ((modm, xK_d),                  spawn "rofi -show combi"),
         ((modm, xK_n),                  spawn "networkmanager_dmenu"),
@@ -62,7 +62,7 @@ myStartupHook = do
     spawnOnce "setxkbmap -option ctrl:nocaps; xcape"
 
 main = do
-    xmonad $ desktopConfig {
+    xmonad desktopConfig {
         terminal           = "alacritty",
         focusFollowsMouse  = False,
         clickJustFocuses   = False,
@@ -78,7 +78,7 @@ main = do
     }
       where
         allKeys      = \c -> myKeys c `M.union` keys def c
-        layoutHooks  = desktopLayoutModifiers $ myLayoutHook
+        layoutHooks  = desktopLayoutModifiers myLayoutHook
         manageHooks  = myManageHook <> manageHook desktopConfig
         eventHooks   = fullscreenEventHook <> handleEventHook desktopConfig
         startupHooks = myStartupHook <> startupHook desktopConfig
