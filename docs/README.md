@@ -23,7 +23,7 @@ git cfg submodule update --init --recursive
 
 | Name                      | Use                            |
 | ------------------------- | ------------------------------ |
-| yay                       | package manager                |
+| acpi                      | power monitoring               |
 | alacritty                 | terminal emulator              |
 | diffr                     | diff post-processing           |
 | dunst                     | notification daemon            |
@@ -33,31 +33,31 @@ git cfg submodule update --init --recursive
 | fzy                       | fuzzy finder                   |
 | git                       | version control tool           |
 | git-extras                | extra git tools                |
-| acpi                      | power monitoring               |
+| gtk-theme-arc-gruvbox-git | gtk gruvbox theme              |
 | gvim                      | exitor                         |
-| xmonad                    | window manager                 |
-| xmonad-contrib            | xmonad utils                   |
-| polkit-gnome              | authentication agent           |
-| wmctrl                    | window manager scripting util  |
+| jetbrains-toolbox         | ide                            |
 | lightdm                   | display manager                |
 | lightdm-gtk-greeter       | greeter                        |
 | networkmanager            | network manager                |
 | networkmanager-dmenu      | dmenu networkmanager interface |
-| xorg-xsetroot             | wallpaper setter               |
 | openssh                   | ssh tools                      |
 | otf-fira-code             | monospace font with ligatures  |
 | otf-fira-sans             | font                           |
-| gtk-theme-arc-gruvbox-git | gtk gruvbox theme              |
+| polkit-gnome              | authentication agent           |
 | polybar                   | status bar                     |
-| rofi                      | application launcher           |
-| tmux                      | terminal multiplexer           |
-| ripgrep                   | grep replacement               |
 | pulseaudio                | sound server                   |
+| ripgrep                   | grep replacement               |
+| rofi                      | application launcher           |
+| slack-desktop             | messaging tool                 |
+| tmux                      | terminal multiplexer           |
+| wmctrl                    | window manager scripting util  |
 | xcape                     | keyboard configuration tool    |
 | xfce4-power-manager       | power settings manager         |
+| xmonad                    | window manager                 |
+| xmonad-contrib            | xmonad utils                   |
 | xorg-xbacklight           | backlight configuration tool   |
+| xorg-xsetroot             | wallpaper setter               |
 | xsecurelock               | screen locker                  |
 | xss-lock                  | session locker                 |
-| slack-desktop             | messaging tool                 |
-| jetbrains-toolbox         | ide                            |
+| yay                       | package manager                |
 
