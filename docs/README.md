@@ -37,6 +37,7 @@ git cfg submodule update --init --recursive
 | gvim                      | exitor                         |
 | xmonad                    | window manager                 |
 | xmonad-contrib            | xmonad utils                   |
+| polkit-gnome              | authentication agent           |
 | wmctrl                    | window manager scripting util  |
 | lightdm                   | display manager                |
 | lightdm-gtk-greeter       | greeter                        |
