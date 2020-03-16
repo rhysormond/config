@@ -53,7 +53,7 @@ myManageHook =
     ] <> namedScratchpadManageHook scratchpads
 
 myStartupHook = do
-    spawnOnce "$XDG_CONFIG_HOME/polybar/launch"
+    spawn "$XDG_CONFIG_HOME/polybar/launch"
     spawnOnce "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
     spawnOnce "xsetroot -solid '#282828'"
     spawnOnce "xfce4-power-manager"
