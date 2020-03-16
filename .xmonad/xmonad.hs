@@ -19,8 +19,10 @@ myKeys conf@(XConfig { modMask = modm }) =
         ((modm .|. shiftMask, xK_q),    kill),
         ((modm .|. shiftMask, xK_r),    spawn "xmonad --restart"),
         ((0, xF86XK_AudioMute),         spawn "amixer set Master toggle &"),
-        ((0, xF86XK_AudioLowerVolume),  spawn "amixer sset Master 5%-"),
-        ((0, xF86XK_AudioRaiseVolume),  spawn "amixer sset Master 5%+"),
+        ((0, xF86XK_AudioLowerVolume),
+            spawn "amixer -D pulse sset Master 5%-"),
+        ((0, xF86XK_AudioRaiseVolume),
+            spawn "amixer -D pulse sset Master 5%+"),
         ((0, xF86XK_MonBrightnessDown), spawn "xbacklight - 10 &"),
         ((0, xF86XK_MonBrightnessUp),   spawn "xbacklight + 10 &")
     ]
