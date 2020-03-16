@@ -21,7 +21,7 @@ myTerminal =          "alacritty"
 myWorkspaces =        ["msg", "web", "txt", "a", "b", "c"]
 
 myKeys conf@(XConfig { XMonad.modMask = modm }) = M.fromList $
-    [ ((modm, xK_Return),             namedScratchpadAction scratchpads "term")
+    [ ((modm, xK_Return),             scratchpad "term")
     , ((modm, xK_d),                  (spawn "rofi -show combi"))
     , ((modm, xK_n),                  (spawn "networkmanager_dmenu"))
     , ((modm, xK_p),                  (spawn "flameshot gui"))
@@ -29,11 +29,13 @@ myKeys conf@(XConfig { XMonad.modMask = modm }) = M.fromList $
     , ((modm .|. shiftMask, xK_q),    kill)
     , ((modm .|. shiftMask, xK_r),    (spawn "xmonad --restart"))
     , ((0, xF86XK_AudioMute),         (spawn "amixer set Master toggle &"))
-    , ((0, xF86XK_AudioLowerVolume),  (spawn "amixer -D pulse sset Master 5%-"))
-    , ((0, xF86XK_AudioRaiseVolume),  (spawn "amixer -D pulse sset Master 5%+"))
+    , ((0, xF86XK_AudioLowerVolume),  (spawn "amixer sset Master 5%-"))
+    , ((0, xF86XK_AudioRaiseVolume),  (spawn "amixer sset Master 5%+"))
     , ((0, xF86XK_MonBrightnessDown), (spawn "xbacklight - 10 &"))
     , ((0, xF86XK_MonBrightnessUp),   (spawn "xbacklight + 10 &"))
     ]
+      where
+        scratchpad = namedScratchpadAction scratchpads
 
 myLayoutHook = smartBorders $ avoidStruts $ tiled ||| Full
   where
@@ -43,10 +45,10 @@ myLayoutHook = smartBorders $ avoidStruts $ tiled ||| Full
     delta   = 3 / 100
 
 scratchpads =
-    [ NS "term" "alacritty --title 'term'" (title =? "term")
-        (customFloating $ W.RationalRect l t w h)
+    [ NS "term" "alacritty --title 'term'" (title =? "term") (floating)
     ]
       where
+        floating = customFloating $ W.RationalRect l t w h
         h = 0.75 -- terminal height
         w = 0.60 -- terminal width
         t = 0.00 -- distance from top edge
