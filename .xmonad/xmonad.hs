@@ -4,21 +4,10 @@ import XMonad.Hooks.EwmhDesktops (fullscreenEventHook)
 import XMonad.Hooks.ManageDocks (avoidStruts)
 import XMonad.Layout.NoBorders (smartBorders)
 import XMonad.Util.NamedScratchpad
-  ( customFloating
-  , namedScratchpadAction
-  , namedScratchpadManageHook
-  , NamedScratchpad(NS)
-  )
 import XMonad.Util.SpawnOnce (spawnOnce)
 import Graphics.X11.ExtraTypes.XF86
 import qualified XMonad.StackSet as W
 import qualified Data.Map as M
-
-myFocusFollowsMouse = False
-myClickJustFocuses =  False
-myModMask =           mod4Mask
-myTerminal =          "alacritty"
-myWorkspaces =        ["msg", "web", "txt", "a", "b", "c"]
 
 myKeys conf@(XConfig { XMonad.modMask = modm }) =
     M.fromList $ [
@@ -74,16 +63,22 @@ myStartupHook = do
 
 main = do
     xmonad $ desktopConfig {
-        terminal           = myTerminal,
-        focusFollowsMouse  = myFocusFollowsMouse,
-        clickJustFocuses   = myClickJustFocuses,
+        terminal           = "alacritty",
+        focusFollowsMouse  = False,
+        clickJustFocuses   = False,
         focusedBorderColor = "#ebdbb2",
         normalBorderColor  = "#282828",
-        modMask            = myModMask,
-        XMonad.workspaces  = myWorkspaces,
-        keys               = \c -> myKeys c `M.union` keys XMonad.def c,
-        layoutHook         = desktopLayoutModifiers $ myLayoutHook,
-        manageHook         = myManageHook <+> manageHook desktopConfig,
-        handleEventHook    = fullscreenEventHook <+> handleEventHook desktopConfig,
-        startupHook        = myStartupHook <+> startupHook desktopConfig
+        modMask            = mod4Mask,
+        workspaces         = ["msg", "web", "txt", "a", "b", "c"],
+        keys               = allKeys,
+        layoutHook         = layoutHooks,
+        manageHook         = manageHooks,
+        handleEventHook    = eventHooks,
+        startupHook        = startupHooks
     }
+      where
+        allKeys      = \c -> myKeys c `M.union` keys def c
+        layoutHooks  = desktopLayoutModifiers $ myLayoutHook
+        manageHooks  = myManageHook <+> manageHook desktopConfig
+        eventHooks   = fullscreenEventHook <+> handleEventHook desktopConfig
+        startupHooks = myStartupHook <+> startupHook desktopConfig
