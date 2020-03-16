@@ -50,7 +50,7 @@ myManageHook =
         className =? "firefox"           --> doShift "web",
         className =? "jetbrains-idea"    --> doShift "txt",
         className =? "jetbrains-toolbox" --> doShift "txt"
-    ] <+> namedScratchpadManageHook scratchpads
+    ] <> namedScratchpadManageHook scratchpads
 
 myStartupHook = do
     spawnOnce "$XDG_CONFIG_HOME/polybar/launch"
@@ -79,6 +79,6 @@ main = do
       where
         allKeys      = \c -> myKeys c `M.union` keys def c
         layoutHooks  = desktopLayoutModifiers $ myLayoutHook
-        manageHooks  = myManageHook <+> manageHook desktopConfig
-        eventHooks   = fullscreenEventHook <+> handleEventHook desktopConfig
-        startupHooks = myStartupHook <+> startupHook desktopConfig
+        manageHooks  = myManageHook <> manageHook desktopConfig
+        eventHooks   = fullscreenEventHook <> handleEventHook desktopConfig
+        startupHooks = myStartupHook <> startupHook desktopConfig
