@@ -15,8 +15,7 @@ commit_types=(
     "test"
 )
 
-for t in "${commit_types[@]}"
-do    
+for t in "${commit_types[@]}"; do
     type_alternatives="${type_alternatives:+$type_alternatives}\|$t"
 done
 
@@ -35,7 +34,7 @@ test ! -z "$match" || {
     exit 1
 }
 
-if (( ${#match} > 50 )); then
+if ((${#match} > 50)); then
     printf "$commit_message\nhas a title longer than 50 characters\n"
     exit 1
 fi
