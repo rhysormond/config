@@ -5,10 +5,10 @@
     padding = 10
 
     # border
-    frame_color = "#83a598"
-    frame_width = 2
+    frame_color = "#a89984"
+    frame_width = 1
     separator_color = frame
-    separator_height = 2
+    separator_height = 1
 
     # text
     font = Fira Sans 12
