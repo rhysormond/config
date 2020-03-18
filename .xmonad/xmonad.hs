@@ -2,7 +2,7 @@ import XMonad
 import XMonad.Config.Desktop (desktopConfig, desktopLayoutModifiers)
 import XMonad.Hooks.EwmhDesktops (fullscreenEventHook)
 import XMonad.Hooks.ManageDocks (avoidStruts)
-import XMonad.Layout.NoBorders (noBorders)
+import XMonad.Layout.NoBorders (smartBorders, withBorder)
 import XMonad.Util.NamedScratchpad
 import XMonad.Util.SpawnOnce (spawnOnce)
 import Graphics.X11.ExtraTypes.XF86
@@ -30,8 +30,10 @@ myKeys conf@(XConfig { modMask = modm }) =
         scratchpad = namedScratchpadAction scratchpads
 
 myLayoutHook =
-    Tall nmaster delta ratio ||| noBorders Full
+    tiled ||| full
       where
+        tiled = smartBorders $ Tall nmaster delta ratio
+        full = withBorder 1 Full
         nmaster = 1
         ratio   = 1 / 2
         delta   = 3 / 100
@@ -67,7 +69,7 @@ main = do
         clickJustFocuses   = False,
         focusFollowsMouse  = False,
         modMask            = mod4Mask,
-        focusedBorderColor = "#ebdbb2",
+        focusedBorderColor = "#a89984",
         normalBorderColor  = "#282828",
         terminal           = "alacritty",
         workspaces         = ["msg", "web", "txt", "a", "b", "c"],
