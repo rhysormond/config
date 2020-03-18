@@ -33,17 +33,17 @@ myLayoutHook =
     Tall nmaster delta ratio ||| noBorders Full
       where
         nmaster = 1
-        delta   = 3 / 100
         ratio   = 1 / 2
+        delta   = 3 / 100
 
 scratchpads =
     [NS "term" "alacritty --title 'term'" (title =? "term") floating]
       where
-        floating = customFloating $ W.RationalRect l t w h
-        h = 0.75 -- terminal height
-        w = 0.60 -- terminal width
-        t = 0.00 -- distance from top edge
-        l = 0.20 -- distance from left edge
+        floating = customFloating $ W.RationalRect left top width height
+        height = 0.75
+        width = 0.60
+        left = 0.20
+        top = 0.00
 
 myManageHook =
     composeAll [
@@ -64,22 +64,22 @@ myStartupHook = do
 
 main = do
     xmonad desktopConfig {
-        terminal           = "alacritty",
-        focusFollowsMouse  = False,
         clickJustFocuses   = False,
+        focusFollowsMouse  = False,
+        modMask            = mod4Mask,
         focusedBorderColor = "#ebdbb2",
         normalBorderColor  = "#282828",
-        modMask            = mod4Mask,
+        terminal           = "alacritty",
         workspaces         = ["msg", "web", "txt", "a", "b", "c"],
-        keys               = allKeys,
+        startupHook        = startupHooks,
         layoutHook         = layoutHooks,
         manageHook         = manageHooks,
         handleEventHook    = eventHooks,
-        startupHook        = startupHooks
+        keys               = allKeys
     }
       where
-        allKeys      = \c -> myKeys c `M.union` keys def c
+        startupHooks = myStartupHook <> startupHook desktopConfig
         layoutHooks  = desktopLayoutModifiers myLayoutHook
         manageHooks  = myManageHook <> manageHook desktopConfig
         eventHooks   = fullscreenEventHook <> handleEventHook desktopConfig
-        startupHooks = myStartupHook <> startupHook desktopConfig
+        allKeys      = \c -> myKeys c `M.union` keys def c
