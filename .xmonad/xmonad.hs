@@ -2,7 +2,7 @@ import XMonad
 import XMonad.Config.Desktop (desktopConfig, desktopLayoutModifiers)
 import XMonad.Hooks.EwmhDesktops (fullscreenEventHook)
 import XMonad.Hooks.ManageDocks (avoidStruts)
-import XMonad.Layout.NoBorders (smartBorders)
+import XMonad.Layout.NoBorders (noBorders)
 import XMonad.Util.NamedScratchpad
 import XMonad.Util.SpawnOnce (spawnOnce)
 import Graphics.X11.ExtraTypes.XF86
@@ -30,12 +30,11 @@ myKeys conf@(XConfig { modMask = modm }) =
         scratchpad = namedScratchpadAction scratchpads
 
 myLayoutHook =
-    smartBorders $ avoidStruts $ tiled ||| Full
+    Tall nmaster delta ratio ||| noBorders Full
       where
-        tiled   = Tall nmaster delta ratio
         nmaster = 1
-        ratio   = 1 / 2
         delta   = 3 / 100
+        ratio   = 1 / 2
 
 scratchpads =
     [NS "term" "alacritty --title 'term'" (title =? "term") floating]
