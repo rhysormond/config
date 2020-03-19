@@ -1,6 +1,6 @@
 [global]
     # layout
-    geometry = "350x5-25-60"
+    geometry = "350x5-0-25"
     horizontal_padding = 10
     padding = 10
 
@@ -26,14 +26,11 @@
 [urgency_low]
     background = "#282828"
     foreground = "#ebdbb2"
-    timeout = 10
 
 [urgency_normal]
     background = "#282828"
     foreground = "#ebdbb2"
-    timeout = 10
 
 [urgency_critical]
     background = "#282828"
     foreground = "#fb4934"
-    timeout = 0
