@@ -69,13 +69,8 @@ set winminwidth=40 " minimum split width
 set winminheight=12 " minimum split height
 
 " split window navigation
-nnoremap <c-h> <c-w>h
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-nnoremap <c-l> <c-w>l
-
-" override split window navigation if using tmux
 if exists('$TMUX')
+    " override split window navigation if using tmux
     function! TmuxOrSplitSwitch(wincmd, tmuxdir)
         let previous_winnr = winnr()
         silent! execute "wincmd " . a:wincmd
@@ -89,6 +84,11 @@ if exists('$TMUX')
     nnoremap <silent> <c-j> :call TmuxOrSplitSwitch('j', 'D')<cr>
     nnoremap <silent> <c-k> :call TmuxOrSplitSwitch('k', 'U')<cr>
     nnoremap <silent> <c-l> :call TmuxOrSplitSwitch('l', 'R')<cr>
+else
+    nnoremap <c-h> <c-w>h
+    nnoremap <c-j> <c-w>j
+    nnoremap <c-k> <c-w>k
+    nnoremap <c-l> <c-w>l
 endif
 
 " command line
