@@ -1,7 +1,6 @@
 import XMonad
 import XMonad.Config.Desktop (desktopConfig, desktopLayoutModifiers)
 import XMonad.Hooks.EwmhDesktops (fullscreenEventHook)
-import XMonad.Hooks.ManageDocks (avoidStruts)
 import XMonad.Layout.NoBorders (smartBorders, withBorder)
 import XMonad.Util.NamedScratchpad
 import XMonad.Util.SpawnOnce (spawnOnce)
