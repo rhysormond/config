@@ -44,7 +44,6 @@ git cfg submodule update --init --recursive
 | otf-fira-code             | monospace font with ligatures  |
 | otf-fira-sans             | font                           |
 | polkit-gnome              | authentication agent           |
-| polybar                   | status bar                     |
 | pulseaudio                | sound server                   |
 | ripgrep                   | grep replacement               |
 | rofi                      | application launcher           |
@@ -55,6 +54,7 @@ git cfg submodule update --init --recursive
 | xfce4-power-manager       | power settings manager         |
 | xmonad                    | window manager                 |
 | xmonad-contrib            | xmonad utils                   |
+| xmobar                    | status bar                     |
 | xorg-xbacklight           | backlight configuration tool   |
 | xorg-xsetroot             | wallpaper setter               |
 | xsecurelock               | screen locker                  |
