@@ -1,10 +1,11 @@
 Config {
-  font     = "xft:Fira Code:size=12:bold:antialias=true"
-  bgColor  = "#282828",
-  fgColor  = "#ebdbb2",
-  position = Bottom,
-  template = " %date% | %UnsafeStdinReader% }{ %default:Master% | %bright% | %coretemp% | %multicpu% | %memory% | %battery% ",
-  commands = [
+  font       = "xft:Fira Code:size=12:bold:antialias=true"
+  bgColor    = "#282828",
+  fgColor    = "#ebdbb2",
+  position   = Bottom,
+  textOffset = 14,
+  template   = " %date% | %UnsafeStdinReader% }{ %default:Master% | %bright% | %coretemp% | %multicpu% | %memory% | %battery% ",
+  commands   = [
     Run Date "%F (%a) %T" "date" 10,
     Run UnsafeStdinReader,
     Run Volume "default" "Master" [
