@@ -1,0 +1,64 @@
+Config {
+  font     = "xft:Fira Code:size=12:bold:antialias=true"
+  bgColor  = "#282828",
+  fgColor  = "#ebdbb2",
+  position = Bottom,
+  template = " %date% | %UnsafeStdinReader% }{ %default:Master% | %bright% | %coretemp% | %multicpu% | %memory% | %battery% ",
+  commands = [
+    Run Date "%F (%a) %T" "date" 10,
+    Run UnsafeStdinReader,
+    Run Volume "default" "Master" [
+      "--template", "vol: <status> <volumebar>",
+      "--",
+      "--on",       "~",
+      "--onc",      "#d79921",
+      "--off",      "-",
+      "--offc",     "#a89984"
+    ] 10,
+    Run Brightness [
+      "--template", "bkl: <bar>",
+      "--",
+      "-D",         "intel_backlight"
+    ] 10,
+    Run CoreTemp [
+      "--template", "tmp: <core0>°C - <core1>°C",
+      "--Low",      "70",
+      "--High",     "80",
+      "--low",      "#98971a",
+      "--normal",   "#d65d0e",
+      "--high",     "#cc241d"
+    ] 30,
+    Run MultiCpu [
+      "--template", "cpu:<total0>% -<total1>%",
+      "--Low",      "50",
+      "--High",     "85",
+      "--low",      "#98971a",
+      "--normal",   "#d65d0e",
+      "--high",     "#cc241d",
+      "--ppad",     "3"
+    ] 10,
+    Run Memory [
+      "--template", "mem:<usedratio>%",
+      "--Low",      "20",
+      "--High",     "90",
+      "--low",      "#98971a",
+      "--normal",   "#d65d0e",
+      "--high",     "#cc241d",
+      "--ppad",     "3"
+    ] 10,
+    Run Battery [
+      "--template", "bat: <acstatus>",
+      "--Low",      "10",
+      "--High",     "80",
+      "--high",     "#98971a",
+      "--normal",   "#d65d0e",
+      "--low",      "#cc241d",
+      "--ppad",     "3",
+      "--",
+      "-o",         "<left>%",
+      "-O",         "<fc=#d79921>-ch-</fc>",
+      "-i",         "<fc=#98971a>-ch-</fc>"
+    ] 30
+  ]
+}
+-- vim: syntax=haskell

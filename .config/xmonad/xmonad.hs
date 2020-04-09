@@ -1,9 +1,12 @@
 import XMonad
 import XMonad.Config.Desktop (desktopConfig, desktopLayoutModifiers)
+import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.EwmhDesktops (fullscreenEventHook)
 import XMonad.Layout.NoBorders (smartBorders, withBorder)
 import XMonad.Util.NamedScratchpad
+import XMonad.Util.Run (hPutStrLn, spawnPipe)
 import XMonad.Util.SpawnOnce (spawnOnce)
+import GHC.IO.Handle (Handle)
 import Graphics.X11.ExtraTypes.XF86
 import qualified XMonad.StackSet as W
 import qualified Data.Map as M
@@ -56,7 +59,6 @@ myManageHook =
     ] <> namedScratchpadManageHook scratchpads
 
 myStartupHook = do
-    spawn "$XDG_CONFIG_HOME/polybar/launch"
     spawnOnce "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
     spawnOnce "xsetroot -solid '#282828'"
     spawnOnce "xfce4-power-manager"
@@ -64,7 +66,19 @@ myStartupHook = do
     spawnOnce "xss-lock -n /usr/lib/xsecurelock/dimmer -l -- xsecurelock"
     spawnOnce "setxkbmap -option ctrl:nocaps; xcape"
 
+buildXmobarPP :: Handle -> PP
+buildXmobarPP xmobarProcess =
+    xmobarPP {
+        ppOutput          = hPutStrLn xmobarProcess,
+        ppCurrent         = xmobarColor "#d79921" "",
+        ppHidden          = xmobarColor "#a89984" "",
+        ppHiddenNoWindows = xmobarColor "#504945" "",
+        ppUrgent          = xmobarColor "#cc241d" "",
+        ppTitle           = xmobarColor "#a89984" "" . shorten 100
+    }
+
 main = do
+    xmobarProcess <- spawnPipe "xmobar -d"
     xmonad desktopConfig {
         clickJustFocuses   = False,
         focusFollowsMouse  = False,
@@ -75,6 +89,7 @@ main = do
         workspaces         = ["msg", "web", "txt", "a", "b", "c"],
         startupHook        = startupHooks,
         layoutHook         = layoutHooks,
+        logHook            = dynamicLogWithPP $ buildXmobarPP(xmobarProcess),
         manageHook         = manageHooks,
         handleEventHook    = eventHooks,
         keys               = allKeys
