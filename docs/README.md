@@ -23,7 +23,6 @@ git cfg submodule update --init --recursive
 
 | Name                      | Use                            |
 | ------------------------- | ------------------------------ |
-| acpi                      | power monitoring               |
 | alacritty                 | terminal emulator              |
 | diffr                     | diff post-processing           |
 | dunst                     | notification daemon            |
@@ -52,9 +51,9 @@ git cfg submodule update --init --recursive
 | wmctrl                    | window manager scripting util  |
 | xcape                     | keyboard configuration tool    |
 | xfce4-power-manager       | power settings manager         |
+| xmobar                    | status bar                     |
 | xmonad                    | window manager                 |
 | xmonad-contrib            | xmonad utils                   |
-| xmobar                    | status bar                     |
 | xorg-xbacklight           | backlight configuration tool   |
 | xorg-xsetroot             | wallpaper setter               |
 | xsecurelock               | screen locker                  |
