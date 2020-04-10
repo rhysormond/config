@@ -14,7 +14,7 @@
     verbose = true
     gpgsign = true
 [diff]
-    algorithm = patience
+    algorithm = histogram
     tool = vimdiff
 [difftool]
     prompt = false
@@ -27,8 +27,6 @@
     gpgsign = if-asked
 [tag]
     forceSignAnnotated = true
-[gpg]
-    program = gpg2
 [alias]
     cfg = "!git --git-dir=$HOME/.cfg --work-tree=$HOME"
 
