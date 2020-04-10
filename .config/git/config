@@ -23,7 +23,7 @@
 [merge]
     tool = vimdiff
 [push]
-    default = simple
+    default = current
     gpgsign = if-asked
 [tag]
     forceSignAnnotated = true
