@@ -31,8 +31,6 @@
     program = gpg2
 [alias]
     cfg = "!git --git-dir=$HOME/.cfg --work-tree=$HOME"
-    del = "!f() { git reset --hard && git co master && git bd @{-1}; }; f"
-    run = "!f() { git rr $1 | while read c; do git co $c; $2; done; }; f"
 
     aa = add --all
     ap = add --patch
@@ -49,5 +47,4 @@
     gr = log --all --decorate --oneline --graph
     mm = merge-base HEAD master
     mt = mergetool
-    rr = rev-list --reverse
     up = submodule update --init --recursive
