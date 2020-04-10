@@ -1,18 +1,18 @@
-[submodule ".vim/pack/git-plugins/start/gruvbox"]
-	path = .vim/pack/git-plugins/start/gruvbox
+[submodule "gruvbox"]
+	path = .config/vim/pack/git-plugins/start/gruvbox
 	url = git@github.com:morhetz/gruvbox.git
-[submodule ".vim/pack/git-plugins/start/vim-signify"]
-	path = .vim/pack/git-plugins/start/vim-signify
+[submodule "vim-signify"]
+	path = .config/vim/pack/git-plugins/start/vim-signify
 	url = git@github.com:mhinz/vim-signify.git
-[submodule ".vim/pack/git-plugins/start/vim-fugitive"]
-	path = .vim/pack/git-plugins/start/vim-fugitive
+[submodule "vim-fugitive"]
+	path = .config/vim/pack/git-plugins/start/vim-fugitive
 	url = git@github.com:tpope/vim-fugitive.git
-[submodule ".vim/pack/git-plugins/start/vim-surround"]
-	path = .vim/pack/git-plugins/start/vim-surround
+[submodule "vim-surround"]
+	path = .config/vim/pack/git-plugins/start/vim-surround
 	url = git@github.com:tpope/vim-surround.git
-[submodule ".vim/pack/git-plugins/start/vim-commentary"]
-	path = .vim/pack/git-plugins/start/vim-commentary
+[submodule "vim-commentary"]
+	path = .config/vim/pack/git-plugins/start/vim-commentary
 	url = git@github.com:tpope/vim-commentary.git
-[submodule ".vim/pack/git-plugins/start/vim-easymotion"]
-	path = .vim/pack/git-plugins/start/vim-easymotion
+[submodule "vim-easymotion"]
+	path = .config/vim/pack/git-plugins/start/vim-easymotion
 	url = git@github.com:easymotion/vim-easymotion.git

@@ -1,3 +1,7 @@
+" XDG base directory-compliance
+set packpath+=$XDG_CONFIG_HOME/vim
+set runtimepath+=$XDG_CONFIG_HOME/vim
+
 " remove all existing autocmds
 autocmd!
 
@@ -207,11 +211,12 @@ if executable("fzy") && executable("rg")
 endif
 
 " persist undo between sessions
-if has('persistent_undo') && isdirectory(expand('~').'/.vim/backups')
-    silent !mkdir ~/.vim/backups > /dev/null 2>&1
-    set undodir=~/.vim/backups
-    set undofile
+let undodir=$XDG_DATA_HOME . "/vim/undo"
+if !isdirectory(undodir)
+    call mkdir(undodir, "p", 0700)
 endif
+set undodir=$XDG_DATA_HOME/vim/undo
+set undofile
 
 " persist cursor position between sessions
 augroup PersistCursorPosition

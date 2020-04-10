@@ -1,6 +1,3 @@
-" source normal vimrc
-source ~/.vimrc
-
 " split navigation (not properly sourced from vimrc)
 nnoremap <c-h> <c-w>h
 nnoremap <c-j> <c-w>j
