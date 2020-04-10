@@ -6,7 +6,7 @@ Config {
   textOffset = 14,
   template   = " %date% | %UnsafeStdinReader% }{ %default:Master% | %bright% | %coretemp% | %multicpu% | %memory% | %battery% ",
   commands   = [
-    Run Date "%F (%a) %T" "date" 10,
+    Run Date "%F (%a) %T" "date" 5,
     Run UnsafeStdinReader,
     Run Volume "default" "Master" [
       "--template", "vol: <status> <volumebar>",
@@ -15,12 +15,12 @@ Config {
       "--onc",      "#d79921",
       "--off",      "-",
       "--offc",     "#a89984"
-    ] 10,
+    ] 2,
     Run Brightness [
       "--template", "bkl: <bar>",
       "--",
       "-D",         "intel_backlight"
-    ] 10,
+    ] 2,
     Run CoreTemp [
       "--template", "tmp: <core0>°C - <core1>°C",
       "--Low",      "70",
@@ -28,7 +28,7 @@ Config {
       "--low",      "#98971a",
       "--normal",   "#d65d0e",
       "--high",     "#cc241d"
-    ] 30,
+    ] 10,
     Run MultiCpu [
       "--template", "cpu:<total0>% -<total1>%",
       "--Low",      "50",
