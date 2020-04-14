@@ -5,8 +5,8 @@
     padding = 10
 
     # border
-    frame_color = "#a89984"
-    frame_width = 1
+    frame_color = "#3c3836"
+    frame_width = 0
     separator_color = frame
     separator_height = 1
 
