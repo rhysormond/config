@@ -4,11 +4,11 @@ Config {
   fgColor    = "#ebdbb2",
   position   = Bottom,
   textOffset = 14,
-  template   = " %date% | %UnsafeStdinReader% }{ %default:Master% | %bright% | %coretemp% | %multicpu% | %memory% | %battery% ",
+  template   = " %date% | %UnsafeStdinReader% }{ %pulse:Master% | %bright% | %coretemp% | %multicpu% | %memory% | %battery% ",
   commands   = [
     Run Date "%F (%a) %T" "date" 5,
     Run UnsafeStdinReader,
-    Run Volume "default" "Master" [
+    Run Volume "pulse" "Master" [
       "--template", "vol: <status> <volumebar>",
       "--",
       "--on",       "~",
