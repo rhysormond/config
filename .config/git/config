@@ -8,7 +8,12 @@
     editor = vim
     excludesfile = ~/.config/git/ignore
     filemode = false
-    pager = diffr | less -FRX
+    pager = diffr \
+        --colors added:none:background:0x33,0x55,0x33 \
+        --colors removed:none:background:0x55,0x33,0x33 \
+        --colors refine-added:none:background:0x33,0x99,0x33:bold \
+        --colors refine-removed:none:background:0x99,0x33,0x33:bold \
+        | less -FRX
     hooksPath = ~/.config/git/hooks
 [commit]
     verbose = true
