@@ -41,6 +41,7 @@
     co = checkout
     di = diff
     dm = diff master...HEAD
+    ds = diff --stat
     dt = difftool
     gr = log --all --decorate --oneline --graph
     mm = merge-base HEAD master
