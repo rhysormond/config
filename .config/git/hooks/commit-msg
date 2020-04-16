@@ -24,7 +24,7 @@ scope_regex="\((.\+)\)\?"
 commit_regex="^$type_regex$scope_regex!\?: .*$"
 
 # strip comment lines
-commit_message=$(cat $1 | sed -n '/^#/q;p')
+commit_message=$(sed -n '/^#/q;p' < $1)
 
 # the commit title if it conforms to the regex
 match=$(echo "$commit_message" | head -n1 | grep "$commit_regex")
