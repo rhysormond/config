@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# prompts for confirmation before pushing to remote refs named master
+
+# local_ref local_sha remote_ref remote_sha are passed into stdin
+read -a args
+remote_ref=${args[2]}
+
+if [ "$remote_ref" = "refs/heads/master" ]; then
+    # assign stdin to the keyboard, prompt the user, and close stdin
+    exec < /dev/tty
+    read -n1 -p "Do you really want to push to master? (y/n): " should_push
+    exec <&-
+
+    if [ "$should_push" = "y" ]; then
+        printf "\nPushing to master.\n"
+    else
+        printf "\nNot pushing to master.\n"
+        exit 1
+    fi
+fi
+
+exit 0
