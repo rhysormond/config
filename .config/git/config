@@ -37,8 +37,8 @@
 
     aa = add --all
     ap = add --patch
-    br = branch --sort=committerdate
     bd = branch --delete --force
+    br = branch --sort=committerdate
     ca = commit --amend
     cb = checkout -b
     ci = commit
@@ -51,4 +51,5 @@
     gr = log --all --decorate --oneline --graph
     mm = merge-base HEAD master
     mt = mergetool
+    sp = log --oneline --author rhys --since '2 weeks'
     up = submodule update --init --recursive
