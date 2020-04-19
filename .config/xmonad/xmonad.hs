@@ -12,7 +12,7 @@ import qualified XMonad.StackSet as W
 import qualified Data.Map as M
 
 myKeys conf@(XConfig { modMask = modm }) =
-    M.fromList [
+    M.fromList $ [
         ((modm, xK_Return),             scratchpad "term"),
         ((modm, xK_d),                  spawn "rofi -show combi"),
         ((modm, xK_n),                  spawn "networkmanager_dmenu"),
@@ -25,12 +25,20 @@ myKeys conf@(XConfig { modMask = modm }) =
         ((0, xF86XK_AudioRaiseVolume),  raise),
         ((0, xF86XK_MonBrightnessDown), spawn "xbacklight - 10 &"),
         ((0, xF86XK_MonBrightnessUp),   spawn "xbacklight + 10 &")
+    ] ++ [
+        ((mod .|. modm, num), fn ws) |
+            (ws, num) <- zip (workspaces conf) [xK_1 .. xK_9],
+            (mod, fn) <- [(0, switchWorkspace), (shiftMask, moveToWorkspace)]
     ]
       where
         mute       = spawn "amixer -D pulse sset Master toggle &"
         lower      = spawn "amixer -D pulse sset Master 5%-"
         raise      = spawn "amixer -D pulse sset Master 5%+"
         scratchpad = namedScratchpadAction scratchpads
+        switchWorkspace workspace =
+            windows $ W.greedyView workspace
+        moveToWorkspace workspace =
+            (windows $ W.shift workspace) >> (windows $ W.greedyView workspace)
 
 myLayoutHook =
     tiled ||| full
