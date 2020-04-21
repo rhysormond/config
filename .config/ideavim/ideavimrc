@@ -9,7 +9,6 @@ nnoremap <c-l> <c-w>l
 
 " JetBrains commands
 set commentary " enable TPope commentary plugin emulation
-set easymotion " enable vim easymotion plugin emulation
 set surround " enable TPope surround plugin emulation
 set ideajoin " use IDE joining logic
 

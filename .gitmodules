@@ -13,6 +13,3 @@
 [submodule "vim-commentary"]
 	path = .config/vim/pack/git-plugins/start/vim-commentary
 	url = git@github.com:tpope/vim-commentary.git
-[submodule "vim-easymotion"]
-	path = .config/vim/pack/git-plugins/start/vim-easymotion
-	url = git@github.com:easymotion/vim-easymotion.git
