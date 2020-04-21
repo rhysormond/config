@@ -53,6 +53,7 @@ noremap <leader><tab> za
 noremap <leader>c "+c
 noremap <leader>d "+d
 noremap <leader>y "+y
+noremap <leader>p "+p
 
 " open the netrw explorer
 noremap <leader>e :Explore<cr>
