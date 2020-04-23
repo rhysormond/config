@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+
+if [ -z $NOTES ]; then
+    note_dir=~/docs/notes
+else
+    note_dir=$NOTES
+fi
+
+directory_format="$note_dir/%Y/%m"
+mkdir -p $(date +"$directory_format")
+$EDITOR $(date +"$directory_format/%d.md")
