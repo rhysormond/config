@@ -36,12 +36,10 @@ git cfg up
 | gtk-theme-arc-gruvbox-git | gtk gruvbox theme              |
 | gvim                      | exitor                         |
 | jetbrains-toolbox         | ide                            |
-| networkmanager-dmenu      | dmenu networkmanager interface |
 | openssh                   | ssh tools                      |
 | otf-fira-code             | monospace font with ligatures  |
 | otf-fira-sans             | font                           |
 | ripgrep                   | grep replacement               |
-| rofi                      | application launcher           |
 | slack-desktop             | messaging tool                 |
 | tmux                      | terminal multiplexer           |
 | wmctrl                    | window manager scripting util  |

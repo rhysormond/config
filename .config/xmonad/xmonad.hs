@@ -15,26 +15,24 @@ import qualified Data.Map as M
 myKeys conf@(XConfig { modMask = modm }) =
     M.fromList $ [
         ((modm, xK_Return),             scratchpad "term"),
-        ((modm, xK_d),                  spawn "rofi -show combi"),
-        ((modm, xK_n),                  spawn "networkmanager_dmenu"),
-        ((modm, xK_p),                  spawn "flameshot gui"),
-        ((modm, xK_q),                  spawn "xfce4-session-logout"),
         ((modm .|. shiftMask, xK_q),    kill),
         ((modm .|. shiftMask, xK_r),    spawn "xmonad --restart"),
-        ((0, xF86XK_AudioMute),         mute),
-        ((0, xF86XK_AudioLowerVolume),  lower),
-        ((0, xF86XK_AudioRaiseVolume),  raise),
-        ((0, xF86XK_MonBrightnessDown), spawn "xbacklight - 10 &"),
-        ((0, xF86XK_MonBrightnessUp),   spawn "xbacklight + 10 &")
+        ((modm, xK_space),              sendMessage NextLayout),
+        ((modm, xK_Tab),                windows W.focusDown),
+        ((modm .|. shiftMask, xK_Tab),  windows W.focusUp),
+        ((modm, xK_j),                  windows W.focusDown),
+        ((modm, xK_k),                  windows W.focusUp),
+        ((modm .|. shiftMask, xK_j),    windows W.swapDown),
+        ((modm .|. shiftMask, xK_k),    windows W.swapUp),
+        ((modm, xK_h),                  sendMessage Shrink),
+        ((modm, xK_l),                  sendMessage Expand),
+        ((modm, xK_t),                  withFocused $ windows . W.sink)
     ] ++ [
         ((mod .|. modm, num), fn ws) |
             (ws, num) <- zip (workspaces conf) [xK_1 .. xK_9],
             (mod, fn) <- [(0, switchWorkspace), (shiftMask, moveToWorkspace)]
     ]
       where
-        mute       = spawn "amixer -D pulse sset Master toggle &"
-        lower      = spawn "amixer -D pulse sset Master 5%-"
-        raise      = spawn "amixer -D pulse sset Master 5%+"
         scratchpad = namedScratchpadAction scratchpads
         switchWorkspace workspace =
             windows $ W.greedyView workspace
@@ -64,8 +62,7 @@ myManageHook =
         className =? "Slack"             --> doShift "msg",
         className =? "firefox"           --> doShift "web",
         className =? "jetbrains-idea"    --> doShift "txt",
-        className =? "jetbrains-toolbox" --> doShift "txt",
-        className =? "xfce4-panel"       --> doFloat
+        className =? "jetbrains-toolbox" --> doShift "txt"
     ] <> namedScratchpadManageHook scratchpads
 
 myStartupHook = do
@@ -93,4 +90,4 @@ main = do
         layoutHooks  = desktopLayoutModifiers myLayoutHook
         manageHooks  = myManageHook <> manageHook desktopConfig
         eventHooks   = fullscreenEventHook <> handleEventHook desktopConfig
-        allKeys      = \c -> myKeys c `M.union` keys def c
+        allKeys      = \c -> myKeys c `M.union` def c
