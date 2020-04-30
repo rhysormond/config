@@ -64,13 +64,11 @@ myManageHook =
         className =? "Slack"             --> doShift "msg",
         className =? "firefox"           --> doShift "web",
         className =? "jetbrains-idea"    --> doShift "txt",
-        className =? "jetbrains-toolbox" --> doShift "txt"
+        className =? "jetbrains-toolbox" --> doShift "txt",
+        className =? "xfce4-panel"       --> doFloat
     ] <> namedScratchpadManageHook scratchpads
 
 myStartupHook = do
-    spawnOnce "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
-    spawnOnce "xsetroot -solid '#282828'"
-    spawnOnce "xfce4-power-manager"
     spawnOnce "xset s 300 5"
     spawnOnce "xss-lock -n /usr/lib/xsecurelock/dimmer -l -- xsecurelock"
     spawnOnce "setxkbmap -option ctrl:nocaps; xcape"

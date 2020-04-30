@@ -18,6 +18,6 @@ case $selection in
         xset s activate
         ;;
     $log_out)
-        quit-wm
+        xfce4-session-logout
         ;;
 esac

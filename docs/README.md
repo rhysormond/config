@@ -36,22 +36,16 @@ git cfg up
 | gtk-theme-arc-gruvbox-git | gtk gruvbox theme              |
 | gvim                      | exitor                         |
 | jetbrains-toolbox         | ide                            |
-| lightdm                   | display manager                |
-| lightdm-gtk-greeter       | greeter                        |
-| networkmanager            | network manager                |
 | networkmanager-dmenu      | dmenu networkmanager interface |
 | openssh                   | ssh tools                      |
 | otf-fira-code             | monospace font with ligatures  |
 | otf-fira-sans             | font                           |
-| polkit-gnome              | authentication agent           |
-| pulseaudio                | sound server                   |
 | ripgrep                   | grep replacement               |
 | rofi                      | application launcher           |
 | slack-desktop             | messaging tool                 |
 | tmux                      | terminal multiplexer           |
 | wmctrl                    | window manager scripting util  |
 | xcape                     | keyboard configuration tool    |
-| xfce4-power-manager       | power settings manager         |
 | xmobar                    | status bar                     |
 | xmonad                    | window manager                 |
 | xmonad-contrib            | xmonad utils                   |
