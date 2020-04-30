@@ -32,6 +32,7 @@ git cfg up
 | fzy                       | fuzzy finder                   |
 | git                       | version control tool           |
 | git-extras                | extra git tools                |
+| gnupg                     | OpenPGP tool                   |
 | gtk-theme-arc-gruvbox-git | gtk gruvbox theme              |
 | gvim                      | exitor                         |
 | jetbrains-toolbox         | ide                            |
@@ -57,6 +58,7 @@ git cfg up
 | xorg-xbacklight           | backlight configuration tool   |
 | xorg-xsetroot             | wallpaper setter               |
 | xsecurelock               | screen locker                  |
+| xsel                      | manipulate clipboard           |
 | xss-lock                  | session locker                 |
 | yay                       | package manager                |
 
