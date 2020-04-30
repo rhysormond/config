@@ -18,7 +18,7 @@ myKeys conf@(XConfig { modMask = modm }) =
         ((modm, xK_d),                  spawn "rofi -show combi"),
         ((modm, xK_n),                  spawn "networkmanager_dmenu"),
         ((modm, xK_p),                  spawn "flameshot gui"),
-        ((modm, xK_q),                  spawn "~/.config/rofi/powermenu"),
+        ((modm, xK_q),                  spawn "xfce4-session-logout"),
         ((modm .|. shiftMask, xK_q),    kill),
         ((modm .|. shiftMask, xK_r),    spawn "xmonad --restart"),
         ((0, xF86XK_AudioMute),         mute),
