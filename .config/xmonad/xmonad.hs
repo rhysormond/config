@@ -73,19 +73,7 @@ myStartupHook = do
     spawnOnce "xss-lock -n /usr/lib/xsecurelock/dimmer -l -- xsecurelock"
     spawnOnce "setxkbmap -option ctrl:nocaps; xcape"
 
-buildXmobarPP :: Handle -> PP
-buildXmobarPP xmobarProcess =
-    xmobarPP {
-        ppOutput          = hPutStrLn xmobarProcess,
-        ppCurrent         = xmobarColor "#d79921" "",
-        ppHidden          = xmobarColor "#a89984" "",
-        ppHiddenNoWindows = xmobarColor "#504945" "",
-        ppUrgent          = xmobarColor "#cc241d" "",
-        ppTitle           = xmobarColor "#a89984" "" . shorten 100
-    }
-
 main = do
-    xmobarProcess <- spawnPipe "xmobar -d"
     xmonad desktopConfig {
         clickJustFocuses   = False,
         focusFollowsMouse  = False,
@@ -93,10 +81,9 @@ main = do
         focusedBorderColor = "#a89984",
         normalBorderColor  = "#282828",
         terminal           = "alacritty",
-        workspaces         = ["msg", "web", "txt", "a", "b", "c"],
+        workspaces         = ["msg", "web", "txt"],
         startupHook        = startupHooks,
         layoutHook         = layoutHooks,
-        logHook            = dynamicLogWithPP $ buildXmobarPP(xmobarProcess),
         manageHook         = manageHooks,
         handleEventHook    = eventHooks,
         keys               = allKeys
