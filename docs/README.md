@@ -25,7 +25,6 @@ git cfg up
 | ------------------------- | ------------------------------ |
 | alacritty                 | terminal emulator              |
 | diffr                     | diff post-processing           |
-| dunst                     | notification daemon            |
 | firefox                   | browser                        |
 | fish                      | shell                          |
 | flameshot                 | screenshot utility             |
@@ -44,7 +43,6 @@ git cfg up
 | tmux                      | terminal multiplexer           |
 | wmctrl                    | window manager scripting util  |
 | xcape                     | keyboard configuration tool    |
-| xmobar                    | status bar                     |
 | xmonad                    | window manager                 |
 | xmonad-contrib            | xmonad utils                   |
 | xorg-xbacklight           | backlight configuration tool   |
