@@ -7,5 +7,5 @@ else
 fi
 
 directory_format="$note_dir/%Y/%m"
-mkdir -p $(date +"$directory_format")
-$EDITOR $(date +"$directory_format/%d.md")
+mkdir -p $(date +"$directory_format" "$@")
+$EDITOR $(date +"$directory_format/%d.md" "$@")
