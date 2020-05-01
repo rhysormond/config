@@ -19,7 +19,7 @@ myKeys conf@(XConfig { modMask = modm }) =
         ((modm .|. shiftMask, xK_q),    kill),
         ((modm .|. shiftMask, xK_r),    spawn "xmonad --restart"),
         ((modm, xK_p),                  spawn "flameshot gui"),
-        ((modm, xK_d),                  spawn "xfce4-popup-whiskermenu"),
+        ((modm, xK_d),                  spawn "rofi -show combi"),
         ((modm, xK_q),                  spawn "xset s activate"),
         ((modm, xK_space),              sendMessage NextLayout),
         ((modm, xK_j),                  windows W.focusDown),

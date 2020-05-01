@@ -19,6 +19,10 @@ cfg reset && cfg stash
 git cfg up
 ```
 
+# Desktop Environment
+
+These configs are designed to be installed on top of an xfce installation.
+
 # Dependencies
 
 | Name                      | Use                            |
