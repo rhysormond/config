@@ -1,0 +1,28 @@
+configuration {
+    cycle:          true;
+    hide-scrollbar: true;
+}
+
+* {
+    font:             "Fira Code 14";
+    background-color: #282828;
+    text-color:       #ebdbb2;
+}
+
+#inputbar {
+    children: [ textbox-prompt-colon, entry ];
+}
+
+#textbox-prompt-colon {
+    expand: false;
+    str:    "~ > ";
+}
+
+window {
+    padding:  10;
+}
+
+element selected {
+    text-color: #d79921;
+}
+
