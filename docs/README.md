@@ -22,6 +22,13 @@ git cfg up
 # Desktop Environment
 
 These configs are designed to be installed on top of Manjaro XFCE.
+To get things running:
+ - install these config files as discussed above
+ - install the dependencies below
+ - add `xmonad --replace` triggered `on login` to `xfce4-settings-manager`'s `Session and Startup` > `Application Autostart`
+ - disable `Manjaro Hello`' s autostart
+ - change the `xfce4-settings-manager`'s `Appearance` > `Style` to `Arc-Gruvbox`
+ - change the `xfce4-settings-manager`'s settings to remove all desktop icons
 
 # Dependencies
 
