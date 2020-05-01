@@ -16,7 +16,7 @@ cfg config --local status.showUntrackedFiles no
 cfg reset && cfg stash
 
 # update submodules (we can use git cfg now that git config has been copied)
-git cfg submodule update --init --recursive
+git cfg up
 ```
 
 # Dependencies
