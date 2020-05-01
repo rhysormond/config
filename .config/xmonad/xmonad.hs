@@ -1,5 +1,6 @@
 import XMonad
-import XMonad.Config.Desktop (desktopConfig, desktopLayoutModifiers)
+import XMonad.Config.Desktop (desktopLayoutModifiers)
+import XMonad.Config.Xfce (xfceConfig)
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.EwmhDesktops (fullscreenEventHook)
 import XMonad.Layout.NoBorders (noBorders, smartBorders, withBorder)
@@ -17,9 +18,10 @@ myKeys conf@(XConfig { modMask = modm }) =
         ((modm, xK_Return),             scratchpad "term"),
         ((modm .|. shiftMask, xK_q),    kill),
         ((modm .|. shiftMask, xK_r),    spawn "xmonad --restart"),
+        ((modm, xK_p),                  spawn "flameshot gui"),
+        ((modm, xK_d),                  spawn "xfce4-popup-whiskermenu"),
+        ((modm, xK_q),                  spawn "xset s activate"),
         ((modm, xK_space),              sendMessage NextLayout),
-        ((modm, xK_Tab),                windows W.focusDown),
-        ((modm .|. shiftMask, xK_Tab),  windows W.focusUp),
         ((modm, xK_j),                  windows W.focusDown),
         ((modm, xK_k),                  windows W.focusUp),
         ((modm .|. shiftMask, xK_j),    windows W.swapDown),
@@ -71,7 +73,7 @@ myStartupHook = do
     spawnOnce "setxkbmap -option ctrl:nocaps; xcape"
 
 main = do
-    xmonad desktopConfig {
+    xmonad xfceConfig {
         clickJustFocuses   = False,
         focusFollowsMouse  = False,
         modMask            = mod4Mask,
@@ -86,8 +88,8 @@ main = do
         keys               = allKeys
     }
       where
-        startupHooks = myStartupHook <> startupHook desktopConfig
+        startupHooks = myStartupHook <> startupHook xfceConfig
         layoutHooks  = desktopLayoutModifiers myLayoutHook
-        manageHooks  = myManageHook <> manageHook desktopConfig
-        eventHooks   = fullscreenEventHook <> handleEventHook desktopConfig
+        manageHooks  = myManageHook <> manageHook xfceConfig
+        eventHooks   = fullscreenEventHook <> handleEventHook xfceConfig
         allKeys      = \c -> myKeys c `M.union` def c
