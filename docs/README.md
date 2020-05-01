@@ -43,14 +43,12 @@ These configs are designed to be installed on top of Manjaro XFCE.
 | otf-fira-code             | monospace font with ligatures  |
 | otf-fira-sans             | font                           |
 | ripgrep                   | grep replacement               |
+| rofi                      | launcher                       |
 | slack-desktop             | messaging tool                 |
 | tmux                      | terminal multiplexer           |
-| wmctrl                    | window manager scripting util  |
 | xcape                     | keyboard configuration tool    |
 | xmonad                    | window manager                 |
 | xmonad-contrib            | xmonad utils                   |
-| xorg-xbacklight           | backlight configuration tool   |
-| xorg-xsetroot             | wallpaper setter               |
 | xsecurelock               | screen locker                  |
 | xsel                      | manipulate clipboard           |
 | xss-lock                  | session locker                 |
