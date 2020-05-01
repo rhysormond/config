@@ -1,6 +1,6 @@
 [global]
     # layout
-    geometry = "350x5-0-20"
+    geometry = "350x5-0-0"
     horizontal_padding = 10
     padding = 10
 
