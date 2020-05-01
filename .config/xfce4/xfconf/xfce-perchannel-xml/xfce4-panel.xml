@@ -9,7 +9,7 @@
       <property name="length" type="uint" value="100"/>
       <property name="position-locked" type="bool" value="true"/>
       <property name="icon-size" type="uint" value="16"/>
-      <property name="size" type="uint" value="26"/>
+      <property name="size" type="uint" value="25"/>
       <property name="plugin-ids" type="array">
         <value type="int" value="13"/>
         <value type="int" value="12"/>

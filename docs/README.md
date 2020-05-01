@@ -21,7 +21,7 @@ git cfg up
 
 # Desktop Environment
 
-These configs are designed to be installed on top of an xfce installation.
+These configs are designed to be installed on top of Manjaro XFCE.
 
 # Dependencies
 
