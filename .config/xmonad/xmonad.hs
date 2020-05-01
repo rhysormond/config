@@ -2,7 +2,7 @@ import XMonad
 import XMonad.Config.Desktop (desktopConfig, desktopLayoutModifiers)
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.EwmhDesktops (fullscreenEventHook)
-import XMonad.Layout.NoBorders (smartBorders, withBorder)
+import XMonad.Layout.NoBorders (noBorders, smartBorders, withBorder)
 import XMonad.Layout.NoFrillsDecoration (noFrillsDeco, shrinkText)
 import XMonad.Util.NamedScratchpad
 import XMonad.Util.Run (hPutStrLn, spawnPipe)
@@ -42,7 +42,7 @@ myKeys conf@(XConfig { modMask = modm }) =
             (windows $ W.shift workspace) >> (windows $ W.greedyView workspace)
 
 myLayoutHook =
-    tiled ||| fullDeco Full
+    tiled ||| fullDeco (noBorders Full)
       where
         tiled      = smartBorders $ Tall nmaster delta ratio
         fullDeco l = noFrillsDeco shrinkText def l
