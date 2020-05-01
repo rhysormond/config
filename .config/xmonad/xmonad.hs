@@ -3,6 +3,7 @@ import XMonad.Config.Desktop (desktopConfig, desktopLayoutModifiers)
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.EwmhDesktops (fullscreenEventHook)
 import XMonad.Layout.NoBorders (smartBorders, withBorder)
+import XMonad.Layout.NoFrillsDecoration (noFrillsDeco, shrinkText)
 import XMonad.Util.NamedScratchpad
 import XMonad.Util.Run (hPutStrLn, spawnPipe)
 import XMonad.Util.SpawnOnce (spawnOnce)
@@ -41,13 +42,13 @@ myKeys conf@(XConfig { modMask = modm }) =
             (windows $ W.shift workspace) >> (windows $ W.greedyView workspace)
 
 myLayoutHook =
-    tiled ||| full
+    tiled ||| fullDeco Full
       where
-        tiled   = smartBorders $ Tall nmaster delta ratio
-        full    = withBorder 1 Full
-        nmaster = 1
-        ratio   = 1 / 2
-        delta   = 3 / 100
+        tiled      = smartBorders $ Tall nmaster delta ratio
+        fullDeco l = noFrillsDeco shrinkText def l
+        nmaster    = 1
+        ratio      = 1 / 2
+        delta      = 3 / 100
 
 scratchpads =
     [NS "term" "alacritty --title 'term'" (title =? "term") floating]
