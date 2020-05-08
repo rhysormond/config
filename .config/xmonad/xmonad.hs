@@ -20,7 +20,6 @@ myKeys conf@(XConfig { modMask = modm }) =
         ((modm .|. shiftMask, xK_r),    spawn "xmonad --restart"),
         ((modm, xK_p),                  spawn "flameshot gui"),
         ((modm, xK_d),                  spawn "rofi -show combi"),
-        ((modm, xK_q),                  spawn "xset s activate"),
         ((modm, xK_space),              sendMessage NextLayout),
         ((modm, xK_j),                  windows W.focusDown),
         ((modm, xK_k),                  windows W.focusUp),
@@ -68,8 +67,6 @@ myManageHook =
     ] <> namedScratchpadManageHook scratchpads
 
 myStartupHook = do
-    spawnOnce "xset s 300 5"
-    spawnOnce "xss-lock -n /usr/lib/xsecurelock/dimmer -l -- xsecurelock"
     spawnOnce "setxkbmap -option ctrl:nocaps; xcape"
 
 main = do

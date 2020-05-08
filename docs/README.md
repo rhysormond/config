@@ -58,8 +58,6 @@ To get things running:
 | xcape                     | keyboard configuration tool    |
 | xmonad                    | window manager                 |
 | xmonad-contrib            | xmonad utils                   |
-| xsecurelock               | screen locker                  |
 | xsel                      | manipulate clipboard           |
-| xss-lock                  | session locker                 |
 | yay                       | package manager                |
 
