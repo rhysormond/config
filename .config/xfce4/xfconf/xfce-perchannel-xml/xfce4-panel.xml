@@ -11,7 +11,6 @@
       <property name="icon-size" type="uint" value="16"/>
       <property name="size" type="uint" value="25"/>
       <property name="plugin-ids" type="array">
-        <value type="int" value="0"/>
         <value type="int" value="1"/>
         <value type="int" value="2"/>
         <value type="int" value="3"/>
@@ -64,6 +63,7 @@
     <property name="plugin-6" type="string" value="pulseaudio">
       <property name="enable-keyboard-shortcuts" type="bool" value="true"/>
       <property name="show-notifications" type="bool" value="true"/>
+      <property name="mpris-players" type="string" value="chromium.instance2353"/>
     </property>
     <property name="plugin-7" type="string" value="notification-plugin"/>
     <property name="plugin-8" type="string" value="power-manager-plugin"/>

@@ -16,6 +16,7 @@ import qualified Data.Map as M
 myKeys conf@(XConfig { modMask = modm }) =
     M.fromList $ [
         ((modm, xK_Return),             scratchpad "term"),
+        ((modm, xK_q),                  spawn "xfce4-session-logout"),
         ((modm .|. shiftMask, xK_q),    kill),
         ((modm .|. shiftMask, xK_r),    spawn "xmonad --restart"),
         ((modm, xK_p),                  spawn "flameshot gui"),
