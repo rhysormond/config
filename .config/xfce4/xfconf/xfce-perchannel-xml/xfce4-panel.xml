@@ -51,6 +51,7 @@
       <property name="show-frame" type="bool" value="false"/>
       <property name="square-icons" type="bool" value="true"/>
       <property name="names-ordered" type="array">
+        <value type="string" value="jetbrains-toolbox"/>
         <value type="string" value="steam"/>
         <value type="string" value="discord"/>
         <value type="string" value="javaembeddedframe"/>

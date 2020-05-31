@@ -69,6 +69,8 @@ myManageHook =
 
 myStartupHook = do
     spawnOnce "setxkbmap -option ctrl:nocaps; xcape"
+    spawnOnce "redshift"
+    spawnOnce "xset b off"
 
 main = do
     xmonad xfceConfig {

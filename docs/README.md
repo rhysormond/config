@@ -51,6 +51,7 @@ To get things running:
 | openssh                   | ssh tools                      |
 | otf-fira-code             | monospace font with ligatures  |
 | otf-fira-sans             | font                           |
+| redshift                  | display color manager          |
 | ripgrep                   | grep replacement               |
 | rofi                      | launcher                       |
 | slack-desktop             | messaging tool                 |
