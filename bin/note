@@ -1,4 +1,11 @@
 #!/usr/bin/env sh
+#
+# Opens $NOTES/yyyy/m/dd.md in your $EDITOR.
+#
+# Has three modes of operations depending on the first argument passed in:
+# - nothing:       current date
+# - "last":        last work day (last friday if sat/sun/mon else yesterday)
+# - anything else: passed directly to date as a `--date`
 
 if [ -z $NOTES ]; then
     note_dir=~/docs/notes
@@ -7,5 +14,28 @@ else
 fi
 
 directory_format="$note_dir/%Y/%m"
-mkdir -p $(date +"$directory_format" "$@")
-$EDITOR $(date +"$directory_format/%d.md" "$@")
+
+case "$1" in
+  "")
+    day="today"
+    ;;
+
+  "last")
+    case $(date +%u) in
+      "6" | "7" | "1")
+        day="last friday"
+        ;;
+
+      *)
+        day="yesterday"
+        ;;
+    esac
+    ;;
+
+  *)
+    day="$1"
+    ;;
+esac
+
+mkdir -p $(date +"$directory_format" --date "$day")
+$EDITOR $(date +"$directory_format/%d.md" --date "$day")

@@ -2,9 +2,6 @@
 alias g="git"
 alias pbcopy="xsel --clipboard --input"
 alias pbpaste="xsel --clipboard --output"
-alias today="note"
-alias yesterday="note -d 'yesterday'"
-alias friday="note -d 'last friday'"
 
 # make tmux respect XDG standard; this can be removed once tmux 3.1 is released
 alias tmux="tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf"
