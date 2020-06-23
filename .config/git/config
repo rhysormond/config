@@ -30,6 +30,8 @@
 [push]
     default = current
     gpgsign = if-asked
+[pull]
+    ff = only
 [tag]
     forceSignAnnotated = true
 [alias]
