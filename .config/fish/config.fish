@@ -3,9 +3,6 @@ alias g="git"
 alias pbcopy="xsel --clipboard --input"
 alias pbpaste="xsel --clipboard --output"
 
-# make tmux respect XDG standard; this can be removed once tmux 3.1 is released
-alias tmux="tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf"
-
 function jd --argument file1 --argument file2 --description 'jq, sort, and diff two json files'
     command diff (jq "." -S < $file1 | psub) (jq "." -S < $file2 | psub)
 end
