@@ -8,16 +8,16 @@
     editor = vim
     excludesfile = ~/.config/git/ignore
     filemode = false
+    hooksPath = ~/.config/git/hooks
     pager = diffr \
         --colors added:none:background:0x33,0x55,0x33 \
         --colors removed:none:background:0x55,0x33,0x33 \
         --colors refine-added:none:background:0x33,0x99,0x33:bold \
         --colors refine-removed:none:background:0x99,0x33,0x33:bold \
         | less -FRX
-    hooksPath = ~/.config/git/hooks
 [commit]
-    verbose = true
     gpgsign = true
+    verbose = true
 [diff]
     algorithm = histogram
     tool = vimdiff
@@ -27,18 +27,17 @@
     autocorrect = 1
 [merge]
     tool = vimdiff
+[pull]
+    ff = only
 [push]
     default = current
     gpgsign = if-asked
-[pull]
-    ff = only
-[tag]
-    forceSignAnnotated = true
 [status]
     short = true
+[tag]
+    forceSignAnnotated = true
 [alias]
     cfg = "!git --git-dir=$HOME/.cfg --work-tree=$HOME"
-
     aa = add --all
     ap = add --patch
     bd = branch --delete --force
