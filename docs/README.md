@@ -25,8 +25,6 @@ These configs are designed to be installed on top of Manjaro XFCE.
 To get things running:
  - install these config files as discussed above
  - install the dependencies below
- - add `xmonad --replace` triggered `on login` to `xfce4-settings-manager`'s `Session and Startup` > `Application Autostart`
- - disable `Manjaro Hello`' s autostart
  - change the `xfce4-settings-manager`'s `Desktop` > `Style` to `None`
    if this is not done then `xfce4-panel` will be hidden on startup
  - change the `xfce4-settings-manager`'s settings to remove all desktop icons
