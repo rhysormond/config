@@ -34,6 +34,8 @@
     ff = only
 [tag]
     forceSignAnnotated = true
+[status]
+    short = true
 [alias]
     cfg = "!git --git-dir=$HOME/.cfg --work-tree=$HOME"
 
@@ -53,5 +55,4 @@
     gr = log --all --decorate --oneline --graph
     mm = merge-base HEAD master
     mt = mergetool
-    sp = log --oneline --author rhys --since '2 weeks'
     up = submodule update --init --recursive
