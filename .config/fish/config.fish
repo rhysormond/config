@@ -6,24 +6,8 @@ alias pbpaste="xsel --clipboard --output"
 # make tmux respect XDG standard; this can be removed once tmux 3.1 is released
 alias tmux="tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf"
 
-# diff utils
 function jd --argument file1 --argument file2 --description 'jq, sort, and diff two json files'
     command diff (jq "." -S < $file1 | psub) (jq "." -S < $file2 | psub)
-end
-
-# fuzzy selection utils
-function rv --argument pattern --description 'rg a pattern, fzy the results, and open in vim'
-    if not test -n "$pattern"
-        set pattern .
-    end
-
-    set file_and_number (rg -i --line-number $pattern | fzy | cut -d ":" -f-2)
-
-    if test -n "$file_and_number"
-        set file (echo $file_and_number | cut -d ":" -f1)
-        set number (echo $file_and_number | cut -d ":" -f2)
-        command vim +$number $file
-    end
 end
 
 function pk --description "fzy for a process and kill it"
