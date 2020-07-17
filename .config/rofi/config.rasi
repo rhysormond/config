@@ -20,9 +20,6 @@ configuration {
 
 window {
     padding:  10;
-    height:   100 %;
-    width:    450 px;
-    location: west;
 }
 
 element selected {
