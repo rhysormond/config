@@ -6,7 +6,6 @@
     ui = auto
 [core]
     editor = vim
-    excludesfile = ~/.config/git/ignore
     filemode = false
     hooksPath = ~/.config/git/hooks
     pager = diffr \
