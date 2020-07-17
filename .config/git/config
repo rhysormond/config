@@ -63,6 +63,7 @@
     ds = diff --stat
     dt = difftool
     gr = log --all --decorate --oneline --graph
+    hs = log --patch --stat
     mm = merge-base HEAD master
     mt = mergetool
     up = submodule update --init --recursive
