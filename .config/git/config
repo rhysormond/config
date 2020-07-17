@@ -2,8 +2,6 @@
     email = git@rhysormond.com
     name = rhysormond
     signingkey = 9A822A229581A606
-[color]
-    ui = auto
 [core]
     editor = vim
     filemode = false
@@ -14,6 +12,17 @@
         --colors refine-added:none:background:0x33,0x99,0x33:bold \
         --colors refine-removed:none:background:0x99,0x33,0x33:bold \
         | less -FRX
+[advice]
+    addIgnoredFile = false
+    pushUpdateRejected = false
+    resolveConflict = false
+    detachedHead = false
+[blame]
+    coloring = highlightRecent
+[branch]
+    sort = committerdate
+[color]
+    ui = always
 [commit]
     gpgsign = true
     verbose = true
@@ -24,6 +33,8 @@
     prompt = false
 [help]
     autocorrect = 1
+[log]
+    follow = true
 [merge]
     tool = vimdiff
 [pull]
@@ -34,13 +45,13 @@
 [status]
     short = true
 [tag]
-    forceSignAnnotated = true
+    gpgsign = true
 [alias]
     cfg = "!git --git-dir=$HOME/.cfg --work-tree=$HOME"
     aa = add --all
     ap = add --patch
     bd = branch --delete --force
-    br = branch --sort=committerdate
+    br = branch
     ca = commit --amend
     cb = checkout -b
     ci = commit
