@@ -20,7 +20,7 @@ myKeys conf@(XConfig { modMask = modm }) =
         ((modm .|. shiftMask, xK_q),    kill),
         ((modm .|. shiftMask, xK_r),    spawn "xmonad --restart"),
         ((modm, xK_p),                  spawn "flameshot gui"),
-        ((modm, xK_d),                  spawn "rofi -show combi"),
+        ((modm, xK_d),                  spawn "rofi -show run"),
         ((modm, xK_space),              sendMessage NextLayout),
         ((modm, xK_j),                  windows W.focusDown),
         ((modm, xK_k),                  windows W.focusUp),
