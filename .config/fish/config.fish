@@ -37,10 +37,10 @@ function fish_mode_prompt --description "Displays the current vi mode"
                 set_color --bold purple
                 echo "N"
             case insert
-                set_color --bold green
+                set_color --bold brgreen
                 echo "I"
             case replace_one
-                set_color --bold red
+                set_color --bold brred
                 echo "R"
             case visual
                 set_color --bold grey
@@ -71,11 +71,25 @@ set __fish_git_prompt_char_upstream_behind '↓'
 
 # left prompt
 function fish_prompt
+    # set first so this isn't overwritten by other downstream calls
+    set -l last_status $status
+
+    # print the current working directory
     set_color blue
     printf "%s" (prompt_pwd)
+
+    # print git information
     set_color normal
     printf "%s" (__fish_git_prompt)
-    set_color purple
+
+    # print the error code of the last command (if any)
+    if [ $last_status -ne 0 ]
+        set_color brred
+        printf " [$last_status]"
+    end
+
+    # print > as a delimiter and reset the color to normal
+    set_color --bold purple
     printf " > "
     set_color normal
 end
