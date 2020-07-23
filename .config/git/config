@@ -22,7 +22,7 @@
 [branch]
     sort = committerdate
 [color]
-    ui = always
+    ui = auto
 [commit]
     gpgsign = true
     verbose = true
