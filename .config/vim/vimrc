@@ -98,6 +98,10 @@ else
     nnoremap <c-l> <c-w>l
 endif
 
+" tab navigation with shift + ctrl + h/l
+noremap <c-H> gt
+noremap <c-L> gT
+
 " command line
 set showcmd " always show the current command
 set showmode " show the current mode if it's not normal
