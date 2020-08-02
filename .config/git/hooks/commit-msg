@@ -23,19 +23,17 @@ type_regex="\($type_alternatives\)"
 scope_regex="\((.\+)\)\?"
 commit_regex="^$type_regex$scope_regex!\?: .*$"
 
-# strip comment lines
-commit_message=$(sed -n '/^#/q;p' < $1)
+# check if the commit subject conforms to the regex
+commit_subject=$(head -n1 $1)
+regex_match=$(echo "$commit_subject" | grep "$commit_regex")
 
-# the commit title if it conforms to the regex
-match=$(echo "$commit_message" | head -n1 | grep "$commit_regex")
-
-test ! -z "$match" || {
-    printf "$commit_message\ndoesn't match commit format\n$commit_regex\n"
+test ! -z "$regex_match" || {
+    printf "$commit_subject\ndoesn't match commit format\n$commit_regex\n"
     exit 1
 }
 
-if ((${#match} > 50)); then
-    printf "$commit_message\nhas a title longer than 50 characters\n"
+if ((${#regex_match} > 50)); then
+    printf "$commit_subject\nhas a title longer than 50 characters\n"
     exit 1
 fi
 
