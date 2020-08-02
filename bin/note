@@ -2,40 +2,23 @@
 #
 # Opens $NOTES/yyyy/m/dd.md in your $EDITOR.
 #
-# Has three modes of operations depending on the first argument passed in:
-# - nothing:       current date
-# - "last":        last work day (last friday if sat/sun/mon else yesterday)
-# - anything else: passed directly to date as a `--date`
+# Any arguments passed are passed as a string to date -date
 
-if [ -z $NOTES ]; then
-    note_dir=~/docs/notes
-else
-    note_dir=$NOTES
-fi
+# format any arguments as a string
+date_args="$@"
 
-directory_format="$note_dir/%Y/%m"
+# determine what directory notes should be written to
+default_dir="~/docs/notes"
+base_dir=$(if [ -z $NOTES ]; then echo "$default_dir"; else echo $NOTES; fi)
 
-case "$1" in
-  "")
-    day="today"
-    ;;
+# generate the date format for the note file
+note_format="$base_dir/%Y/%m/%d.md"
 
-  "last")
-    case $(date +%u) in
-      "6" | "7" | "1")
-        day="last friday"
-        ;;
+# determine the note file
+note_file=$(date +"$note_format" --date "$date_args")
+note_dir=$(dirname "$note_file")
 
-      *)
-        day="yesterday"
-        ;;
-    esac
-    ;;
+# make the directory for the note and open it with $EDITOR
+mkdir -p "$note_dir"
+$EDITOR "$note_file"
 
-  *)
-    day="$1"
-    ;;
-esac
-
-mkdir -p $(date +"$directory_format" --date "$day")
-$EDITOR $(date +"$directory_format/%d.md" --date "$day")
