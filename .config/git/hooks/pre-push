@@ -1,20 +1,25 @@
 #!/usr/bin/env bash
-# prompts for confirmation before pushing to remote refs named master
+# confirms pushes to remote branches without the whitelisted prefix
 
-# local_ref local_sha remote_ref remote_sha are passed into stdin
+# parse out the remote ref name
+# args are (local_ref local_sha remote_ref remote_sha)
 read -a args
-remote_ref=${args[2]}
+ref=${args[2]}
+ref_name=${ref##*/}
 
-if [ "$remote_ref" = "refs/heads/master" ]; then
+# whitelisted branch prefix
+prefix="ro-"
+
+if [[ "$ref_name" != $prefix* ]]; then
     # assign stdin to the keyboard, prompt the user, and close stdin
     exec < /dev/tty
-    read -n1 -p "Do you really want to push to master? (y/n): " should_push
+    read -p "Push to $ref that doesn't begin with $prefix? (y/n): " push
     exec <&-
 
-    if [ "$should_push" = "y" ]; then
-        printf "\nPushing to master.\n"
+    if [[ "$push" == y* ]]; then
+        printf "Pushing to $ref.\n"
     else
-        printf "\nNot pushing to master.\n"
+        printf "Not pushing to $ref.\n"
         exit 1
     fi
 fi
