@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
-# confirms pushes to remote branches without the whitelisted prefix
+#
+# If $GIT_BRANCH_PREFIX is set, requires confirmation for pushes to remote
+# branches whose names don't begin with that prefix.
 
 # parse out the remote ref name
 # args are (local_ref local_sha remote_ref remote_sha)
@@ -7,20 +9,19 @@ read -a args
 ref=${args[2]}
 ref_name=${ref##*/}
 
-# whitelisted branch prefix
-prefix="ro-"
+if [[ ! -z "$GIT_BRANCH_PREFIX" ]]; then
+    if [[ "$ref_name" != $GIT_BRANCH_PREFIX* ]]; then
+        # assign stdin to the keyboard, prompt the user, and close stdin
+        exec < /dev/tty
+        read -p "Push to $ref that doesn't begin with $GIT_BRANCH_PREFIX? (y/n): " push
+        exec <&-
 
-if [[ "$ref_name" != $prefix* ]]; then
-    # assign stdin to the keyboard, prompt the user, and close stdin
-    exec < /dev/tty
-    read -p "Push to $ref that doesn't begin with $prefix? (y/n): " push
-    exec <&-
-
-    if [[ "$push" == y* ]]; then
-        printf "Pushing to $ref.\n"
-    else
-        printf "Not pushing to $ref.\n"
-        exit 1
+        if [[ "$push" == y* ]]; then
+            printf "Pushing to $ref.\n"
+        else
+            printf "Not pushing to $ref.\n"
+            exit 1
+        fi
     fi
 fi
 

@@ -1,11 +1,13 @@
 #!/usr/bin/env sh
 #
 # Pushes all commits with named branches to the origin.
+#
+# If $GIT_BRANCH_PREFIX is set, ensures branch names start with that prefix.
 
-BRANCH_PATTERN="^BRANCH NAME: \([a-zA-Z0-9-]*\)$"
+pattern="^BRANCH NAME: \($GIT_BRANCH_PREFIX[a-zA-Z0-9-]*\)$"
 
 for commit in $(git rev-list master...HEAD); do
-    branch=$(git show --quiet --format=%B $commit | sed -ne "s/$BRANCH_PATTERN/\1/p")
+    branch=$(git show --quiet --format=%B $commit | sed -ne "s/$pattern/\1/p")
     if [[ ! -z "$branch" ]]; then
         echo "Pushing commit $commit to branch $branch."
         git push --force-with-lease origin $commit:refs/heads/$branch

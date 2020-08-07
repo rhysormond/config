@@ -1,3 +1,6 @@
+# env vars for git tools
+set -x GIT_BRANCH_PREFIX "ro-"
+
 # aliases
 alias g="git"
 alias pbcopy="xsel --clipboard --input"
