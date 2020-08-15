@@ -49,10 +49,14 @@
 [alias]
     cfg = "!git --git-dir=$HOME/.cfg --work-tree=$HOME"
     cfx = "!git commit --edit --file=$(git rev-parse --git-dir)/COMMIT_EDITMSG"
+    lgb = lg --branches
+    lgs = lg --stat
+    lgp = lg --patch
     aa = add --all
     ap = add --patch
     bd = branch --delete --force
-    br = branch
+    br = branch\
+        --format='%(HEAD) %(color:yellow)%(objectname:short) %(color:reset)%(refname:short)'
     ca = commit --amend
     cb = checkout -b
     ci = commit
@@ -60,9 +64,9 @@
     co = checkout
     di = diff
     dm = diff master...HEAD
-    ds = diff --stat
     dt = difftool
-    gr = log --branches --decorate --oneline --graph
+    lg = log --graph\
+        --format='%C(white)%S%C(auto)%d %n%C(yellow)%h %Cgreen(%cr) %C(blue)%an %C(reset)%n%<(80,trunc)%s'
     mm = merge-base HEAD master
     mt = mergetool
     up = submodule update --init --recursive
