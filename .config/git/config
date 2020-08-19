@@ -51,7 +51,7 @@
     cfx = "!git commit --edit --file=$(git rev-parse --git-dir)/COMMIT_EDITMSG"
     lgb = lg --branches
     lgs = lg --stat
-    lgp = lg --patch
+    lgx = lg --branches --stat
     aa = add --all
     ap = add --patch
     bd = branch --delete --force
