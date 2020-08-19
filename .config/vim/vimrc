@@ -118,7 +118,7 @@ hi User5 ctermbg=black ctermfg=green cterm=bold
 hi User6 ctermbg=black ctermfg=red cterm=bold
 set laststatus=2 " always show the status line
 set statusline=%3*[%n]\ %2*%{pathshorten(expand('%:~:h'))}/%4*%t\ %5*%m\ %6*%r
-set statusline+=%=%1*[%P\ -\ c%02v]
+set statusline+=%=%1*[%3p:%3v]
 
 " tab behavior
 set expandtab " tab inserts spaces instead of tabs
