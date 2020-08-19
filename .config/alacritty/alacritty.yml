@@ -1,6 +1,8 @@
 window:
   dynamic_padding: true
+  dynamic_title: true
   decorations: none
+
 
 font:
   normal:
@@ -33,9 +35,8 @@ colors:
     cyan:    '0x8ec07c'
     white:   '0xebdbb2'
 
-visual_bell:
+bell:
   animation: EaseOutExpo
   duration: 0
   color: '0xffffff'
 
-dynamic_title: true
