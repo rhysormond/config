@@ -55,22 +55,23 @@ function fish_mode_prompt --description "Displays the current vi mode"
 end
 
 # git status colors
-set __fish_git_prompt_color normal
 set __fish_git_prompt_color_branch yellow
+set __fish_git_prompt_showcolorhints 'yes'
 
 # git status state
 set __fish_git_prompt_showuntrackedfiles 'yes'
 set __fish_git_prompt_showdirtystate 'yes'
-set __fish_git_prompt_showstashstate 'yes'
 set __fish_git_prompt_showupstream 'yes'
 
 # git status chars
-set __fish_git_prompt_char_untrackedfiles '☡'
-set __fish_git_prompt_char_dirtystate '✗'
-set __fish_git_prompt_char_stagedstate '→'
-set __fish_git_prompt_char_stashstate '↩'
+set __fish_git_prompt_char_stateseparator ''
+set __fish_git_prompt_char_dirtystate 'X'
+set __fish_git_prompt_char_untrackedfiles 'Z'
+set __fish_git_prompt_char_stagedstate '+'
+set __fish_git_prompt_char_upstream_equal ''
 set __fish_git_prompt_char_upstream_ahead '↑'
 set __fish_git_prompt_char_upstream_behind '↓'
+set __fish_git_prompt_char_upstream_diverged '⤱'
 
 # left prompt
 function fish_prompt
@@ -85,15 +86,15 @@ function fish_prompt
     set_color normal
     printf "%s" (__fish_git_prompt)
 
-    # print the error code of the last command (if any)
+    # print the delimiter along with an error code if the last command failed
     if [ $last_status -ne 0 ]
         set_color brred
-        printf " [$last_status]"
+        printf " |$last_status> "
+    else
+        set_color --bold purple
+        printf " |> "
     end
 
-    # print > as a delimiter and reset the color to normal
-    set_color --bold purple
-    printf " > "
     set_color normal
 end
 
