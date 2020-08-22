@@ -65,7 +65,7 @@ set __fish_git_prompt_showupstream 'yes'
 
 # git status chars
 set __fish_git_prompt_char_stateseparator ''
-set __fish_git_prompt_char_dirtystate '…'
+set __fish_git_prompt_char_dirtystate '%'
 set __fish_git_prompt_char_untrackedfiles '?'
 set __fish_git_prompt_char_stagedstate '+'
 set __fish_git_prompt_char_upstream_equal ''
@@ -84,7 +84,7 @@ function fish_prompt
 
     # print git information
     set_color normal
-    printf "%s" (__fish_git_prompt)
+    printf "%s" (fish_git_prompt)
 
     # print the delimiter along with an error code if the last command failed
     if [ $last_status -ne 0 ]
@@ -100,8 +100,19 @@ end
 
 # right prompt
 function fish_right_prompt
+    # set first so this isn't overwritten by other downstream calls
+    set -l last_status $status
+
     set_color grey
-    printf "%s" (hostname)
+
+    # show duration of the last command
+    if test $CMD_DURATION
+        printf "$CMD_DURATION ms "
+    end
+
+    # print the current time
+    date '+[%H:%M]'
+
     set_color normal
 end
 
