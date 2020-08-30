@@ -67,11 +67,6 @@ myManageHook =
         className =? "jetbrains-toolbox" --> doShift "txt"
     ] <> namedScratchpadManageHook scratchpads
 
-myStartupHook = do
-    spawnOnce "setxkbmap -option ctrl:nocaps; xcape"
-    spawnOnce "redshift"
-    spawnOnce "xset b off"
-
 main = do
     xmonad xfceConfig {
         clickJustFocuses   = False,
@@ -88,7 +83,7 @@ main = do
         keys               = allKeys
     }
       where
-        startupHooks = myStartupHook <> startupHook xfceConfig
+        startupHooks = startupHook xfceConfig
         layoutHooks  = desktopLayoutModifiers myLayoutHook
         manageHooks  = myManageHook <> manageHook xfceConfig
         eventHooks   = fullscreenEventHook <> handleEventHook xfceConfig
