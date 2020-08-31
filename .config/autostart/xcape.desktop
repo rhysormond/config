@@ -2,9 +2,9 @@
 Encoding=UTF-8
 Version=0.9.4
 Type=Application
-Name=keymap
+Name=xcape
 Comment=
-Exec=setxkbmap -option ctrl; xcape
+Exec=xcape
 OnlyShowIn=XFCE;
 RunHook=0
 StartupNotify=false
