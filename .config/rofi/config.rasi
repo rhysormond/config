@@ -6,7 +6,7 @@ configuration {
 * {
     background-color: #282828;
     border-color: #a89984;
-    font: "Fira Code 14";
+    font: "Fira Code 28";
     text-color: #ebdbb2;
 }
 

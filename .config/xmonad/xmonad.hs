@@ -54,7 +54,7 @@ scratchpads =
     [NS "term" "alacritty --title 'term'" (title =? "term") floating]
       where
         floating = customFloating $ W.RationalRect left top width height
-        height   = 0.75
+        height   = 1.00
         width    = 0.60
         left     = 0.20
         top      = 0.00
