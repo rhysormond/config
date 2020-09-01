@@ -54,10 +54,10 @@ scratchpads =
     [NS "term" "alacritty --title 'term'" (title =? "term") floating]
       where
         floating = customFloating $ W.RationalRect left top width height
-        height   = 0.90
+        height   = 0.80
         width    = 0.80
         left     = 0.10
-        top      = 0.00
+        top      = 0.10
 
 myManageHook =
     composeAll [
