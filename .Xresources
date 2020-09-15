@@ -1,9 +1,6 @@
 ! global
 *.font: Fira Sans 14
 
-! hidpi display
-Xft.dpi: 192
-
 ! typeface
 Xft.antialias: 1
 Xft.autohint:  0
