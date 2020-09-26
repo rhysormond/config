@@ -5,7 +5,7 @@
   <property name="panels" type="array">
     <value type="int" value="1"/>
     <property name="panel-1" type="empty">
-      <property name="position" type="string" value="p=8;x=960;y=1186"/>
+      <property name="position" type="string" value="p=8;x=1920;y=2146"/>
       <property name="length" type="uint" value="100"/>
       <property name="position-locked" type="bool" value="true"/>
       <property name="icon-size" type="uint" value="16"/>
@@ -22,7 +22,7 @@
         <value type="int" value="9"/>
         <value type="int" value="10"/>
       </property>
-      <property name="mode" type="uint" value="1"/>
+      <property name="mode" type="uint" value="0"/>
       <property name="disable-struts" type="bool" value="false"/>
       <property name="length-adjust" type="bool" value="true"/>
       <property name="autohide-behavior" type="uint" value="0"/>
@@ -43,6 +43,7 @@
     </property>
     <property name="plugin-4" type="string" value="clock">
       <property name="mode" type="uint" value="2"/>
+      <property name="digital-format" type="string" value="%A %d %B - %r"/>
     </property>
     <property name="plugin-5" type="string" value="separator">
       <property name="style" type="uint" value="0"/>
