@@ -69,4 +69,3 @@
         --format='%C(white)%S%C(auto)%d %n%C(yellow)%h %Cgreen(%cr) %C(blue)%an %C(reset)%n%<(80,trunc)%s'
     mm = merge-base HEAD master
     mt = mergetool
-    up = submodule update --init --recursive

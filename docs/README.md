@@ -37,6 +37,7 @@ To get things running:
 | diffr                     | diff post-processing           |
 | firefox                   | browser                        |
 | fish                      | shell                          |
+| fisher                    | fish plugin manager            |
 | flameshot                 | screenshot utility             |
 | fzy                       | fuzzy finder                   |
 | git                       | version control tool           |
@@ -53,6 +54,7 @@ To get things running:
 | rofi                      | launcher                       |
 | slack-desktop             | messaging tool                 |
 | tmux                      | terminal multiplexer           |
+| vim-plug                  | vim plugin manager             |
 | xcape                     | keyboard configuration tool    |
 | xmonad                    | window manager                 |
 | xmonad-contrib            | xmonad utils                   |
