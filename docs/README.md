@@ -45,6 +45,7 @@ To get things running:
 | gnupg                     | OpenPGP tool                   |
 | gtk-theme-arc-gruvbox-git | gtk gruvbox theme              |
 | gvim                      | exitor                         |
+| imwheel                   | mouse tweaker                  |
 | jetbrains-toolbox         | ide                            |
 | openssh                   | ssh tools                      |
 | otf-fira-code             | monospace font with ligatures  |
