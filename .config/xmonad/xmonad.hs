@@ -1,26 +1,19 @@
 import XMonad
-import XMonad.Config.Desktop (desktopLayoutModifiers)
-import XMonad.Config.Xfce (xfceConfig)
+import XMonad.Config.Desktop (desktopConfig, desktopLayoutModifiers)
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.EwmhDesktops (fullscreenEventHook)
 import XMonad.Layout.NoBorders (noBorders, smartBorders, withBorder)
 import XMonad.Layout.NoFrillsDecoration (noFrillsDeco, shrinkText)
 import XMonad.Util.NamedScratchpad
-import XMonad.Util.Run (hPutStrLn, spawnPipe)
 import XMonad.Util.SpawnOnce (spawnOnce)
-import GHC.IO.Handle (Handle)
 import Graphics.X11.ExtraTypes.XF86
 import qualified XMonad.StackSet as W
 import qualified Data.Map as M
 
 myKeys conf@(XConfig { modMask = modm }) =
     M.fromList $ [
-        ((modm, xK_Return),             scratchpad "term"),
-        ((modm, xK_q),                  spawn "xfce4-session-logout"),
         ((modm .|. shiftMask, xK_q),    kill),
-        ((modm .|. shiftMask, xK_r),    spawn "xmonad --restart"),
-        ((modm, xK_p),                  spawn "flameshot gui"),
-        ((modm, xK_d),                  spawn "rofi -show run"),
+        ((modm, xK_Return),             scratchpad "term"),
         ((modm, xK_space),              sendMessage NextLayout),
         ((modm, xK_j),                  windows W.focusDown),
         ((modm, xK_k),                  windows W.focusUp),
@@ -29,6 +22,10 @@ myKeys conf@(XConfig { modMask = modm }) =
         ((modm, xK_h),                  sendMessage Shrink),
         ((modm, xK_l),                  sendMessage Expand),
         ((modm, xK_t),                  withFocused $ windows . W.sink)
+        ((modm, xK_p),                  spawn "flameshot gui"),
+        ((modm, xK_d),                  spawn "rofi -show run"),
+        ((modm, xK_q),                  spawn "xfce4-session-logout"),
+        ((modm .|. shiftMask, xK_r),    spawn "xmonad --restart"),
     ] ++ [
         ((mod .|. modm, num), fn ws) |
             (ws, num) <- zip (workspaces conf) [xK_1 .. xK_9],
@@ -68,7 +65,7 @@ myManageHook =
     ] <> namedScratchpadManageHook scratchpads
 
 main = do
-    xmonad xfceConfig {
+    xmonad desktopConfig {
         clickJustFocuses   = False,
         focusFollowsMouse  = False,
         modMask            = mod4Mask,
@@ -83,8 +80,8 @@ main = do
         keys               = allKeys
     }
       where
-        startupHooks = startupHook xfceConfig
+        startupHooks = startupHook desktopConfig
         layoutHooks  = desktopLayoutModifiers myLayoutHook
-        manageHooks  = myManageHook <> manageHook xfceConfig
-        eventHooks   = fullscreenEventHook <> handleEventHook xfceConfig
+        manageHooks  = myManageHook <> manageHook desktopConfig
+        eventHooks   = fullscreenEventHook <> handleEventHook desktopConfig
         allKeys      = \c -> myKeys c `M.union` def c

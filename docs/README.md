@@ -22,9 +22,6 @@ These configs are designed to be installed on top of Manjaro XFCE.
 To get things running:
  - install these config files as discussed above
  - install the dependencies below
- - change the `xfce4-settings-manager`'s `Desktop` > `Style` to `None`
-   if this is not done then `xfce4-panel` will be hidden on startup
- - change the `xfce4-settings-manager`'s settings to remove all desktop icons
 
 # Dependencies
 
@@ -47,6 +44,8 @@ To get things running:
 | openssh                   | ssh tools                      |
 | otf-fira-code             | monospace font with ligatures  |
 | otf-fira-sans             | font                           |
+| pa-applet                 | pulse audio applet             |
+| polybar                   | status bar                     |
 | redshift                  | display color manager          |
 | ripgrep                   | grep replacement               |
 | rofi                      | launcher                       |
