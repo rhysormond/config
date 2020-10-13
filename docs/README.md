@@ -1,26 +1,26 @@
 # Setup
 
-These configs are designed to be cloned into a bare repository at `$HOME/.cfg`.
+These configs are designed to be cloned into a bare repository with a worktree in `~`.
 
-```bash
-# clone as a bare repository at $HOME/.cfg
-git clone git@github.com:rhysormond/dotfiles.git $HOME/.cfg --bare
+```fish
+# clone as a bare repository at ~/.cfg
+git clone git@github.com:rhysormond/dotfiles.git ~/.cfg --bare
 
-# temporary alias for working with a git work tree in $HOME
-cfg='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+# navigate to the newly cloned repo
+cd ~/.cfg
 
 # hide all the untracked files
-cfg config --local status.showUntrackedFiles no
+git config --local status.showUntrackedFiles no
 
-# reset and stash local changes
-cfg reset && cfg stash
+# copy files from git to ~
+git --work-tree=$HOME reset --hard
 ```
 
 # Desktop Environment
 
 These configs are designed to be installed on top of Manjaro XFCE.
 To get things running:
- - install these config files as discussed above
+ - install these config files as outlined above
  - install the dependencies below
 
 # Dependencies
