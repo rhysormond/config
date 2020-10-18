@@ -4,10 +4,15 @@
 #
 # If $GIT_BRANCH_PREFIX is set, ensures branch names start with that prefix.
 
+# describe the pattern for lines that specify branch names
 pattern="^BRANCH NAME: \($GIT_BRANCH_PREFIX[a-zA-Z0-9-]*\)$"
 
+# iterate through all commits since we diverged from master
 for commit in $(git rev-list master...HEAD); do
+    # find the branch name if one exists
     branch=$(git show --quiet --format=%B $commit | sed -ne "s/$pattern/\1/p")
+
+    # if a branch name was specified then log it and force push it
     if [[ ! -z "$branch" ]]; then
         echo "Pushing commit $commit to branch $branch."
         git push --force-with-lease origin $commit:refs/heads/$branch
