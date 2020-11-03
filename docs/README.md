@@ -33,7 +33,7 @@ To get things running:
 | fish                      | shell                          |
 | fisher                    | fish plugin manager            |
 | flameshot                 | screenshot utility             |
-| fzy                       | fuzzy finder                   |
+| fzf                       | fuzzy finder                   |
 | git                       | version control tool           |
 | git-extras                | extra git tools                |
 | gnupg                     | OpenPGP tool                   |
