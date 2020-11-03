@@ -91,19 +91,14 @@ augroup END
 
 " split window sizing
 set scrolloff=5 " scroll buffer size
-set winwidth=86 " focused split width (+ 1 (margin) +3 (numbers) +2 (signify))
+set winwidth=86 " focused split width (+ 1 (margin) +3 (numbers) +2 (gutter))
 set winheight=24 " focused split height
 set winminwidth=40 " minimum split width
 set winminheight=12 " minimum split height
 
 " split window navigation
-nnoremap <c-h> <c-w>h
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-nnoremap <c-l> <c-w>l
-
-" override split navigation if in a tmux session
 if exists('$TMUX')
+    " override split navigation if in a tmux session
     function! TmuxOrSplitSwitch(wincmd, tmuxdir)
         let previous_winnr = winnr()
         silent! execute "wincmd " . a:wincmd
@@ -117,6 +112,11 @@ if exists('$TMUX')
     nnoremap <c-j> :call TmuxOrSplitSwitch('j', 'D')<cr>
     nnoremap <c-k> :call TmuxOrSplitSwitch('k', 'U')<cr>
     nnoremap <c-l> :call TmuxOrSplitSwitch('l', 'R')<cr>
+else
+    nnoremap <c-h> <c-w>h
+    nnoremap <c-j> <c-w>j
+    nnoremap <c-k> <c-w>k
+    nnoremap <c-l> <c-w>l
 endif
 
 " tab navigation with leader + h/j (left) or k/l (right)
@@ -180,13 +180,6 @@ noremap <Up> <Nop>
 noremap <Down> <Nop>
 noremap <Left> <Nop>
 noremap <Right> <Nop>
-
-" list all currently open buffers
-function! Buffers()
-    let bufnrs = filter(range(1, bufnr("$")), 'buflisted(v:val)')
-    let buffers = map(bufnrs, 'bufname(v:val)')
-    return join(buffers, "\n")
-endfunction
 
 " fuzzy finding integration
 
