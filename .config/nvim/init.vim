@@ -38,6 +38,8 @@ set autoread " reload outside changes automatically
 set encoding=utf8 " unicode support
 set history=10000 " preserve lots of command history
 set spell spelllang=en_us " spell checking language
+set updatetime=300 " faster updates
+set shortmess+=c " don't pass messages to ins-completion-menu
 
 " colors
 syntax on
@@ -125,6 +127,11 @@ noremap <leader>j gT
 noremap <leader>k gt
 noremap <leader>l gt
 
+" source plugin-specific config
+for f in split(glob('$XDG_CONFIG_HOME/nvim/config/*.vim'), '\n')
+    exe 'source' f
+endfor
+
 " command line
 set showcmd " always show the current command
 set showmode " show the current mode if it's not normal
@@ -140,22 +147,6 @@ hi User6 ctermbg=black ctermfg=red cterm=bold
 set laststatus=2 " always show the status line
 set statusline=%3*[%n]\ %2*%{pathshorten(expand('%:~:h'))}/%4*%t\ %5*%m\ %6*%r
 set statusline+=%=%1*[%3p:%3v]
-
-" tab behavior
-set expandtab " tab inserts spaces instead of tabs
-set autoindent " auto indent
-set shiftwidth=4 " automatic indentation width
-set softtabstop=4 " tab space equivalents
-function! InsertTabWrapper() " multi function tab key
-    let col=col('.') - 1
-    if !col || getline('.')[col - 1] !~ '\k'
-        return "\<tab>"
-    else
-        return "\<c-p>"
-    endif
-endfunction
-inoremap <expr> <tab> InsertTabWrapper()
-inoremap <s-tab> <c-n>
 
 " searching
 set magic " regex magic
@@ -180,17 +171,6 @@ noremap <Up> <Nop>
 noremap <Down> <Nop>
 noremap <Left> <Nop>
 noremap <Right> <Nop>
-
-" fuzzy finding integration
-
-" [Find] a line within [A]ll open buffers
-nnoremap <leader>fa :Lines<cr>
-" [F]ind [L]ine in open buffer
-nnoremap <leader>fl :BLines<cr>
-" [F]ind [F]ile in directory
-nnoremap <leader>ff :GFiles<cr>
-" [F]ind [B]uffer with name
-nnoremap <leader>fb :Buffers<cr>
 
 " persist undo between sessions
 let undodir=$XDG_DATA_HOME . "/vim/undo"
