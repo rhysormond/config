@@ -121,12 +121,6 @@ else
     nnoremap <c-l> <c-w>l
 endif
 
-" tab navigation with leader + h/j (left) or k/l (right)
-noremap <leader>h gT
-noremap <leader>j gT
-noremap <leader>k gt
-noremap <leader>l gt
-
 " source plugin-specific config
 for f in split(glob('$XDG_CONFIG_HOME/nvim/config/*.vim'), '\n')
     exe 'source' f
