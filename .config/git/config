@@ -66,6 +66,6 @@
     dm = diff master...HEAD
     dt = difftool
     lg = log --graph\
-        --format='%C(white)%S%C(auto)%d %n%C(yellow)%h %Cgreen(%cr) %C(blue)%an %C(reset)%n%<(80,trunc)%s'
+        --format='%C(white)%S%C(auto)%d %n%C(yellow)%h %<(10,trunc)%C(blue)%an %Cgreen(%cr) %C(reset)%n%<(80,trunc)%s'
     mm = merge-base HEAD master
     mt = mergetool
