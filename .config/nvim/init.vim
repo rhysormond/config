@@ -6,19 +6,25 @@ endif
 
 call plug#begin('$XDG_CONFIG_HOME/vim/plugged')
 
+" ux improvements
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-
-Plug 'mhinz/vim-signify'
-Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 
-call plug#end()
+" ui improvements
+Plug 'mhinz/vim-signify'
+Plug 'morhetz/gruvbox'
 
-" remove all existing autocmds
-autocmd!
+" semantic language support
+Plug 'neoclide/coc.nvim'
+
+" syntactic language support
+Plug 'cespare/vim-toml'
+Plug 'rust-lang/rust.vim'
+
+call plug#end()
 
 " enable file type detection
 filetype indent plugin on
@@ -107,10 +113,10 @@ if exists('$TMUX')
         endif
     endfunction
 
-    nnoremap <silent> <c-h> :call TmuxOrSplitSwitch('h', 'L')<cr>
-    nnoremap <silent> <c-j> :call TmuxOrSplitSwitch('j', 'D')<cr>
-    nnoremap <silent> <c-k> :call TmuxOrSplitSwitch('k', 'U')<cr>
-    nnoremap <silent> <c-l> :call TmuxOrSplitSwitch('l', 'R')<cr>
+    nnoremap <c-h> :call TmuxOrSplitSwitch('h', 'L')<cr>
+    nnoremap <c-j> :call TmuxOrSplitSwitch('j', 'D')<cr>
+    nnoremap <c-k> :call TmuxOrSplitSwitch('k', 'U')<cr>
+    nnoremap <c-l> :call TmuxOrSplitSwitch('l', 'R')<cr>
 endif
 
 " tab navigation with leader + h/j (left) or k/l (right)
@@ -189,7 +195,7 @@ nnoremap <leader>fa :Lines<cr>
 " [F]ind [L]ine in open buffer
 nnoremap <leader>fl :BLines<cr>
 " [F]ind [F]ile in directory
-nnoremap <leader>ff :Files<cr>
+nnoremap <leader>ff :GFiles<cr>
 " [F]ind [B]uffer with name
 nnoremap <leader>fb :Buffers<cr>
 
