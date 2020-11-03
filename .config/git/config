@@ -27,15 +27,17 @@
     verbose = true
 [diff]
     algorithm = histogram
-    tool = vimdiff
-[difftool]
-    prompt = false
+    tool = nvimdiff
+[difftool "nvimdiff"]
+    cmd = "nvim -d $LOCAL $REMOTE"
 [help]
     autocorrect = 1
 [log]
     follow = true
 [merge]
-    tool = vimdiff
+    tool = nvimdiff
+[mergetool "nvimdiff"]
+    cmd = "nvim -d $BASE $LOCAL $REMOTE $MERGED"
 [pull]
     ff = only
 [push]
