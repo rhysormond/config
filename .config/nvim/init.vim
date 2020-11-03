@@ -1,4 +1,9 @@
 " plugins
+if empty(glob('$XDG_CONFIG_HOME/nvim/autoload/plug.vim'))
+  silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+endif
+
 call plug#begin('$XDG_CONFIG_HOME/vim/plugged')
 
 Plug 'mhinz/vim-signify'
@@ -8,10 +13,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 
 call plug#end()
-
-" XDG base directory-compliance
-set packpath+=$XDG_CONFIG_HOME/vim
-set runtimepath+=$XDG_CONFIG_HOME/vim
 
 " remove all existing autocmds
 autocmd!

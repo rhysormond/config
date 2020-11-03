@@ -3,7 +3,6 @@
     name = rhysormond
     signingkey = 9A822A229581A606
 [core]
-    editor = vim
     filemode = false
     hooksPath = ~/.config/git/hooks
     pager = diffr \

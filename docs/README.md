@@ -38,7 +38,7 @@ To get things running:
 | git-extras                | extra git tools                |
 | gnupg                     | OpenPGP tool                   |
 | gtk-theme-arc-gruvbox-git | gtk gruvbox theme              |
-| gvim                      | exitor                         |
+| neovim                    | editor                         |
 | imwheel                   | mouse tweaker                  |
 | jetbrains-toolbox         | ide                            |
 | openssh                   | ssh tools                      |
@@ -51,7 +51,6 @@ To get things running:
 | rofi                      | launcher                       |
 | slack-desktop             | messaging tool                 |
 | tmux                      | terminal multiplexer           |
-| vim-plug                  | vim plugin manager             |
 | xcape                     | keyboard configuration tool    |
 | xmonad                    | window manager                 |
 | xmonad-contrib            | xmonad utils                   |

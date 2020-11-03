@@ -3,6 +3,8 @@ set -x GIT_BRANCH_PREFIX "ro-"
 
 # aliases
 alias g="git"
+alias vi="vim"
+alias vim="nvim"
 alias pbcopy="xsel --clipboard --input"
 alias pbpaste="xsel --clipboard --output"
 
