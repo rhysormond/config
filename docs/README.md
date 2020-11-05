@@ -38,7 +38,7 @@ To get things running:
 | git-extras                | extra git tools                |
 | gnupg                     | OpenPGP tool                   |
 | gtk-theme-arc-gruvbox-git | gtk gruvbox theme              |
-| neovim                    | editor                         |
+| neovim-nightly            | editor                         |
 | imwheel                   | mouse tweaker                  |
 | jetbrains-toolbox         | ide                            |
 | openssh                   | ssh tools                      |
