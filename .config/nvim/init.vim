@@ -20,10 +20,6 @@ Plug 'morhetz/gruvbox'
 " semantic language support
 Plug 'neoclide/coc.nvim'
 
-" syntactic language support
-Plug 'cespare/vim-toml'
-Plug 'rust-lang/rust.vim'
-
 call plug#end()
 
 " enable file type detection
@@ -35,11 +31,11 @@ let mapleader=" "
 " general configuration
 set hidden " hide buffers rather than abandoning them
 set autoread " reload outside changes automatically
+set shortmess+=c " don't pass messages to ins-completion-menu
 set encoding=utf8 " unicode support
 set history=10000 " preserve lots of command history
-set spell spelllang=en_us " spell checking language
 set updatetime=300 " faster updates
-set shortmess+=c " don't pass messages to ins-completion-menu
+set spell spelllang=en_us " spell checking language
 
 " colors
 syntax on
@@ -54,6 +50,7 @@ set hlsearch " highlight search results
 set showmatch " highlight matching braces
 set cursorline " highlight current cursor line
 set colorcolumn=80 " highlight the over-length column
+set signcolumn=yes " always show the gutter
 
 " mode-dependent cursor style
 let &t_EI = "\<Esc>[2 q" " block in normal mode
@@ -121,11 +118,6 @@ else
     nnoremap <c-l> <c-w>l
 endif
 
-" source plugin-specific config
-for f in split(glob('$XDG_CONFIG_HOME/nvim/config/*.vim'), '\n')
-    exe 'source' f
-endfor
-
 " command line
 set showcmd " always show the current command
 set showmode " show the current mode if it's not normal
@@ -190,3 +182,8 @@ set nowritebackup
 set lazyredraw " don't redraw while executing macros
 set ttimeout " enable escape code timeout
 set ttimeoutlen=0 " set timeout length to 0
+
+" source plugin-specific config
+for f in split(glob('$XDG_CONFIG_HOME/nvim/config/*.vim'), '\n')
+    exe 'source' f
+endfor

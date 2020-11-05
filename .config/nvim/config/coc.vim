@@ -67,3 +67,16 @@ xmap af <Plug>(coc-funcobj-a)
 omap if <Plug>(coc-funcobj-i)
 omap af <Plug>(coc-funcobj-a)
 
+" class text object
+xmap ic <Plug>(coc-classobj-i)
+omap ic <Plug>(coc-classobj-i)
+xmap ac <Plug>(coc-classobj-a)
+omap ac <Plug>(coc-classobj-a)
+
+" `:Fmt` to format current buffer
+command! -nargs=0 Fmt :call CocAction('format')
+
+" `:Org` for organize import of current buffer
+command! -nargs=0 Org
+  \ :call CocAction('runCommand', 'editor.action.organizeImport')
+
