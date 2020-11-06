@@ -1,5 +1,11 @@
 " bindings for the coc plugin
 
+" install coc extensions
+let g:coc_global_extensions = [
+	\ 'coc-rls',
+	\ 'coc-metals'
+  \ ]
+
 " use tab for trigger completion with characters ahead and navigate
 function! s:check_back_space() abort
   let col = col('.') - 1

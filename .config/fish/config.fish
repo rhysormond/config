@@ -13,7 +13,7 @@ function jd --argument file1 --argument file2 --description 'jq, sort, and diff 
 end
 
 function pk --description "fzy for a process and kill it"
-    set pid (ps -ef | sed 1d | fzy | awk '{print $2}')
+    set pid (ps -ef | sed 1d | fzf | awk '{print $2}')
 
     if test -n "$pid"
         command kill -9 $pid
