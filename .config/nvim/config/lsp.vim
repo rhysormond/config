@@ -3,26 +3,34 @@
 " use a completion menu instead of automatically completing things
 set completeopt=menuone,noinsert,noselect
 
-" use (shift) tab to select completion options
+" (shift) tab to select completion alternatives
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
-" lsp key bindings
-nnoremap gd        <cmd>lua vim.lsp.buf.definition()<CR>
-nnoremap gD        <cmd>lua vim.lsp.buf.implementation()<CR>
-nnoremap gy        <cmd>lua vim.lsp.buf.type_definition()<CR>
-nnoremap gr        <cmd>lua vim.lsp.buf.references()<CR>
-nnoremap go        <cmd>lua vim.lsp.buf.document_symbol()<CR>
-nnoremap gg        <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
-nnoremap ge        <cmd>lua vim.lsp.util.show_line_diagnostics()<CR>
+" finding references forwards/backwards
+nnoremap gd <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap gD <cmd>lua vim.lsp.buf.implementation()<CR>
+nnoremap gr <cmd>lua vim.lsp.buf.references()<CR>
+
+" popup hints about the highlighted token
+nnoremap K     <cmd>lua vim.lsp.buf.hover()<CR>
+nnoremap gy    <cmd>lua vim.lsp.buf.type_definition()<CR>
+nnoremap <C-s> <cmd>lua vim.lsp.buf.signature_help()<CR>
+inoremap <C-s> <cmd>lua vim.lsp.buf.signature_help()<CR>
+
+" diagnostics
+nnoremap ge <cmd>lua vim.lsp.util.show_line_diagnostics()<CR>
+nnoremap ]e <cmd>NextDiagnostic<CR>
+nnoremap [e <cmd>PrevDiagnostic<CR>
+
+" refactoring
 nnoremap ga        <cmd>lua vim.lsp.buf.code_action()<CR>
-nnoremap K         <cmd>lua vim.lsp.buf.hover()<CR>
-nnoremap <C-s>     <cmd>lua vim.lsp.buf.signature_help()<CR>
-inoremap <C-s>     <cmd>lua vim.lsp.buf.signature_help()<CR>
 nnoremap <leader>r <cmd>lua vim.lsp.buf.rename()<CR>
 nnoremap <leader>s <cmd>lua vim.lsp.buf.formatting()<CR>
-nnoremap ]d        <cmd>NextDiagnostic<CR>
-nnoremap [d        <cmd>PrevDiagnostic<CR>
+
+" file and project outlines
+nnoremap <leader>of <cmd>lua vim.lsp.buf.document_symbol()<CR>
+nnoremap <leader>oo <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
 
 " adding language servers and hooks
 lua <<EOF
