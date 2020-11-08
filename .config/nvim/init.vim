@@ -18,7 +18,9 @@ Plug 'mhinz/vim-signify'
 Plug 'morhetz/gruvbox'
 
 " semantic language support
-Plug 'neoclide/coc.nvim'
+Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-lua/completion-nvim'
+Plug 'nvim-lua/diagnostic-nvim'
 
 call plug#end()
 
