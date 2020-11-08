@@ -7,8 +7,6 @@ endif
 call plug#begin('$XDG_CONFIG_HOME/vim/plugged')
 
 " ux improvements
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
@@ -17,10 +15,15 @@ Plug 'tpope/vim-surround'
 Plug 'mhinz/vim-signify'
 Plug 'morhetz/gruvbox'
 
-" semantic language support
+" language server
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
 Plug 'nvim-lua/diagnostic-nvim'
+
+" fuzzy finding
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-lua/telescope.nvim'
 
 call plug#end()
 
@@ -93,9 +96,7 @@ augroup END
 " split window sizing
 set scrolloff=5 " scroll buffer size
 set winwidth=86 " focused split width (+ 1 (margin) +3 (numbers) +2 (gutter))
-set winheight=24 " focused split height
 set winminwidth=40 " minimum split width
-set winminheight=12 " minimum split height
 
 " split window navigation
 if exists('$TMUX')

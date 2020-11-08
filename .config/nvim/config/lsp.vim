@@ -10,7 +10,7 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " finding references forwards/backwards
 nnoremap gd <cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap gD <cmd>lua vim.lsp.buf.implementation()<CR>
-nnoremap gr <cmd>lua vim.lsp.buf.references()<CR>
+nnoremap gr <cmd>lua require'telescope.builtin'.lsp_references{}<CR>
 
 " popup hints about the highlighted token
 nnoremap K     <cmd>lua vim.lsp.buf.hover()<CR>
@@ -29,8 +29,8 @@ nnoremap <leader>r <cmd>lua vim.lsp.buf.rename()<CR>
 nnoremap <leader>s <cmd>lua vim.lsp.buf.formatting()<CR>
 
 " file and project outlines
-nnoremap <leader>of <cmd>lua vim.lsp.buf.document_symbol()<CR>
-nnoremap <leader>oo <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
+nnoremap <leader>of <cmd>lua require'telescope.builtin'.lsp_document_symbols{}<CR>
+nnoremap <leader>oo <cmd>lua require'telescope.builtin'.lsp_workspace_symbols{}<CR>
 
 " adding language servers and hooks
 lua <<EOF
