@@ -55,7 +55,6 @@ set hlsearch " highlight search results
 set showmatch " highlight matching braces
 set cursorline " highlight current cursor line
 set colorcolumn=80 " highlight the over-length column
-set signcolumn=yes " always show the gutter
 
 " mode-dependent cursor style
 let &t_EI = "\<Esc>[2 q" " block in normal mode
@@ -87,15 +86,11 @@ let g:netrw_banner = 0 " don't show the netrw banner
 " line numbers
 set number " always show line numbers
 set relativenumber " set line numbers to be relative to current row
-augroup RelativeNumberFocus " only use relativenumber for the active window
-    autocmd!
-    autocmd WinEnter * set relativenumber
-    autocmd WinLeave * set norelativenumber
-augroup END
+set signcolumn=number " use the same column for line numbers and the gutter
 
 " split window sizing
 set scrolloff=5 " scroll buffer size
-set winwidth=86 " focused split width (+ 1 (margin) +3 (numbers) +2 (gutter))
+set winwidth=84 " focused split width (+ 1 (margin) +3 (line numbers + gutter))
 set winminwidth=40 " minimum split width
 
 " split window navigation
