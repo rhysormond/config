@@ -36,10 +36,8 @@ let mapleader=" "
 " general configuration
 set hidden " hide buffers rather than abandoning them
 set autoread " reload outside changes automatically
-set shortmess+=c " don't pass messages to ins-completion-menu
 set encoding=utf8 " unicode support
 set history=10000 " preserve lots of command history
-set updatetime=300 " faster updates
 set spell spelllang=en_us " spell checking language
 
 " colors
@@ -79,9 +77,9 @@ noremap <leader>d "+d
 noremap <leader>y "+y
 noremap <leader>p "+p
 
-" open the netrw explorer
-noremap <leader>e :Explore<cr>
+" netrw file browser
 let g:netrw_banner = 0 " don't show the netrw banner
+noremap <leader>e :Explore<cr>
 
 " line numbers
 set number " always show line numbers
@@ -139,10 +137,11 @@ set smartcase " when searching be smart about cases
 set ignorecase " ignore case when searching
 set path+=** " recursively search through directories
 
-" command line completion
+" completion
 set wildmenu " menu for tab completion from the command line
 set wildmode=longest:full,full " command line completion using wildmenu
 set wildignore+=.* " ignore any hidden files for completion
+set shortmess+=c " don't pass messages to ins-completion-menu
 
 " configure backspace so it works as expected
 set backspace=eol,indent,start
@@ -180,6 +179,7 @@ set nowritebackup
 set lazyredraw " don't redraw while executing macros
 set ttimeout " enable escape code timeout
 set ttimeoutlen=0 " set timeout length to 0
+set updatetime=300 " faster updates
 
 " source plugin-specific config
 for f in split(glob('$XDG_CONFIG_HOME/nvim/config/*.vim'), '\n')

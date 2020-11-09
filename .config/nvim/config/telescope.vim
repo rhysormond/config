@@ -1,5 +1,3 @@
-" bindings for the fzf plugin
-
 " [F]ind a line within [A]ll open buffers
 nnoremap <Leader>fa <cmd>lua require'telescope.builtin'.live_grep{}<CR>
 " [F]ind [L]ine in open buffer

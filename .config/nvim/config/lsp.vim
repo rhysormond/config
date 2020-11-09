@@ -1,5 +1,3 @@
-" bindings for the lsp ecosystem
-
 " use a completion menu instead of automatically completing things
 set completeopt=menuone,noinsert,noselect
 
