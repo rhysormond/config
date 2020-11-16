@@ -54,11 +54,6 @@ set showmatch " highlight matching braces
 set cursorline " highlight current cursor line
 set colorcolumn=80 " highlight the over-length column
 
-" mode-dependent cursor style
-let &t_EI = "\<Esc>[2 q" " block in normal mode
-let &t_SR = "\<Esc>[4 q" " underscore in replace mode
-let &t_SI = "\<Esc>[6 q" " bar in insert mode
-
 " line wrapping
 set wrap " visually wrap lines
 set nolist " list disables line break
