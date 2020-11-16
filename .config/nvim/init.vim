@@ -35,28 +35,18 @@ let mapleader=" "
 
 " general configuration
 set hidden " hide buffers rather than abandoning them
-set autoread " reload outside changes automatically
-set encoding=utf8 " unicode support
-set history=10000 " preserve lots of command history
 set spell spelllang=en_us " spell checking language
 
 " colors
-syntax on
-set t_Co=256
-set background=dark
 colorscheme gruvbox
-hi Normal ctermbg=NONE
 hi SpellBad ctermfg=009 cterm=bold,underline
 
 " highlighting
-set hlsearch " highlight search results
 set showmatch " highlight matching braces
 set cursorline " highlight current cursor line
 set colorcolumn=80 " highlight the over-length column
 
 " line wrapping
-set wrap " visually wrap lines
-set nolist " list disables line break
 set linebreak " only wrap at specific characters
 
 " use the system clipboard with leader
@@ -70,14 +60,14 @@ let g:netrw_banner = 0 " don't show the netrw banner
 noremap <leader>e :Explore<cr>
 
 " line numbers
-set number " always show line numbers
-set relativenumber " set line numbers to be relative to current row
+set number " show the current line number
+set relativenumber " show other line numbers relative to the current one
 set signcolumn=number " use the same column for line numbers and the gutter
 
 " split window sizing
-set scrolloff=5 " scroll buffer size
+set scrolloff=10 " scroll buffer size
 set winwidth=84 " focused split width (+ 1 (margin) +3 (line numbers + gutter))
-set winminwidth=40 " minimum split width
+set winminwidth=42 " minimum split width
 
 " split window navigation
 if exists('$TMUX')
@@ -102,11 +92,6 @@ else
     nnoremap <c-l> <c-w>l
 endif
 
-" command line
-set showcmd " always show the current command
-set showmode " show the current mode if it's not normal
-set cmdheight=1 " height of the command line
-
 " status line
 hi User1 ctermbg=black ctermfg=white
 hi User2 ctermbg=black ctermfg=darkgrey
@@ -119,14 +104,10 @@ set statusline=%3*[%n]\ %2*%{pathshorten(expand('%:~:h'))}/%4*%t\ %5*%m\ %6*%r
 set statusline+=%=%1*[%3p:%3v]
 
 " searching
-set magic " regex magic
-set incsearch " modern search
-set smartcase " when searching be smart about cases
-set ignorecase " ignore case when searching
+set smartcase ignorecase " only search by case when uppercase letters are used
 set path+=** " recursively search through directories
 
 " completion
-set wildmenu " menu for tab completion from the command line
 set wildmode=longest:full,full " command line completion using wildmenu
 set wildignore+=.* " ignore any hidden files for completion
 set shortmess+=c " don't pass messages to ins-completion-menu
@@ -144,11 +125,6 @@ noremap <Left> <Nop>
 noremap <Right> <Nop>
 
 " persist undo between sessions
-let undodir=$XDG_DATA_HOME . "/vim/undo"
-if !isdirectory(undodir)
-    call mkdir(undodir, "p", 0700)
-endif
-set undodir=$XDG_DATA_HOME/vim/undo
 set undofile
 
 " persist cursor position between sessions
