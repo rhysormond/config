@@ -59,13 +59,6 @@ set wrap " visually wrap lines
 set nolist " list disables line break
 set linebreak " only wrap at specific characters
 
-" folding
-set foldenable " enable folding
-set foldnestmax=10 " 10 nested fold max
-set foldlevelstart=10 " open most folds by default
-set foldmethod=indent " fold based on indent level
-noremap <leader><tab> za
-
 " use the system clipboard with leader
 noremap <leader>c "+c
 noremap <leader>d "+d
