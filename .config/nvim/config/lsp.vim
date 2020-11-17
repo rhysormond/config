@@ -17,9 +17,8 @@ nnoremap <C-s> <cmd>lua vim.lsp.buf.signature_help()<CR>
 inoremap <C-s> <cmd>lua vim.lsp.buf.signature_help()<CR>
 
 " diagnostics
-nnoremap ge <cmd>lua vim.lsp.util.show_line_diagnostics()<CR>
-nnoremap [e <cmd>PrevDiagnosticCycle<CR>
-nnoremap ]e <cmd>NextDiagnosticCycle<CR>
+nnoremap [g <cmd>vim.lsp.diagnostic.goto_prev()<CR>
+nnoremap ]g <cmd>vim.lsp.diagnostic.goto_next()<CR>
 
 " refactoring
 nnoremap ga        <cmd>lua vim.lsp.buf.code_action()<CR>
@@ -36,7 +35,6 @@ local lsp = require("nvim_lsp")
 
 local attach = function()
   require("completion").on_attach()
-  require("diagnostic").on_attach()
 end
 
 lsp.metals.setup{ on_attach = attach }

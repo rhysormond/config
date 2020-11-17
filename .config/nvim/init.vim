@@ -18,7 +18,6 @@ Plug 'morhetz/gruvbox'
 " language server
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
-Plug 'nvim-lua/diagnostic-nvim'
 
 " fuzzy finding
 Plug 'nvim-lua/popup.nvim'
