@@ -21,11 +21,11 @@ myKeys conf@(XConfig { modMask = modm }) =
         ((modm .|. shiftMask, xK_k),    windows W.swapUp),
         ((modm, xK_h),                  sendMessage Shrink),
         ((modm, xK_l),                  sendMessage Expand),
-        ((modm, xK_t),                  withFocused $ windows . W.sink)
+        ((modm, xK_t),                  withFocused $ windows . W.sink),
         ((modm, xK_p),                  spawn "flameshot gui"),
         ((modm, xK_d),                  spawn "rofi -show run"),
         ((modm, xK_q),                  spawn "xfce4-session-logout"),
-        ((modm .|. shiftMask, xK_r),    spawn "xmonad --restart"),
+        ((modm .|. shiftMask, xK_r),    spawn "xmonad --restart")
     ] ++ [
         ((mod .|. modm, num), fn ws) |
             (ws, num) <- zip (workspaces conf) [xK_1 .. xK_9],
