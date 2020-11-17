@@ -38,12 +38,14 @@ set hidden " hide buffers rather than abandoning them
 set spell spelllang=en_us " spell checking language
 
 " colors
+set termguicolors
 colorscheme gruvbox
 hi SpellBad ctermfg=009 cterm=bold,underline
 
 " highlighting
 set showmatch " highlight matching braces
 set cursorline " highlight current cursor line
+set cursorcolumn " highlight the current cursor column
 set colorcolumn=80 " highlight the over-length column
 
 " line wrapping
@@ -62,7 +64,7 @@ noremap <leader>e :Explore<cr>
 " line numbers
 set number " show the current line number
 set relativenumber " show other line numbers relative to the current one
-set signcolumn=yes " use the same column for line numbers and the gutter
+set signcolumn=yes " always show the gutter
 
 " split window sizing
 set scrolloff=10 " scroll buffer size
