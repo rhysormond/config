@@ -62,7 +62,7 @@ noremap <leader>e :Explore<cr>
 " line numbers
 set number " show the current line number
 set relativenumber " show other line numbers relative to the current one
-set signcolumn=number " use the same column for line numbers and the gutter
+set signcolumn=yes " use the same column for line numbers and the gutter
 
 " split window sizing
 set scrolloff=10 " scroll buffer size
