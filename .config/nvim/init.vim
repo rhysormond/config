@@ -40,12 +40,12 @@ set spell spelllang=en_us " spell checking language
 set termguicolors
 colorscheme gruvbox
 hi SpellBad ctermfg=009 cterm=bold,underline
+highlight LineNr guibg=NONE
+highlight SignColumn guibg=NONE
 
 " highlighting
 set showmatch " highlight matching braces
 set cursorline " highlight current cursor line
-set cursorcolumn " highlight the current cursor column
-set colorcolumn=80 " highlight the over-length column
 
 " line wrapping
 set linebreak " only wrap at specific characters
