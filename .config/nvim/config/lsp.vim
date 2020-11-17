@@ -1,6 +1,12 @@
 " use a completion menu instead of automatically completing things
 set completeopt=menuone,noinsert,noselect
 
+" format on save
+autocmd BufWrite * silent! lua vim.lsp.buf.formatting()
+
+" inlay hints
+autocmd BufRead,BufWrite * silent! lua require'lsp_extensions'.inlay_hints{ aligned = true }
+
 " (shift) tab to select completion alternatives
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
@@ -23,7 +29,6 @@ nnoremap ]g <cmd>vim.lsp.diagnostic.goto_next()<CR>
 " refactoring
 nnoremap ga        <cmd>lua vim.lsp.buf.code_action()<CR>
 nnoremap <leader>r <cmd>lua vim.lsp.buf.rename()<CR>
-nnoremap <leader>s <cmd>lua vim.lsp.buf.formatting()<CR>
 
 " file and project outlines
 nnoremap <leader>of <cmd>lua require'telescope.builtin'.lsp_document_symbols{}<CR>
