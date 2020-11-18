@@ -1,3 +1,3 @@
-highlight SignifySignAdd    ctermfg=green  ctermbg=NONE
-highlight SignifySignDelete ctermfg=red    ctermbg=NONE
-highlight SignifySignChange ctermfg=yellow ctermbg=NONE
+highlight SignifySignAdd    guifg=#b8bb26 guibg=NONE
+highlight SignifySignDelete guifg=#fb4934 guibg=NONE
+highlight SignifySignChange guifg=#fabd2f guibg=NONE

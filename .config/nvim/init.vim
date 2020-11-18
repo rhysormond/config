@@ -38,10 +38,11 @@ set hidden " hide buffers rather than abandoning them
 set spell spelllang=en_us " spell checking language
 
 " colors
+set termguicolors
 colorscheme gruvbox
-hi SpellBad ctermfg=red cterm=bold,underline
-highlight LineNr ctermbg=NONE
-highlight SignColumn ctermbg=NONE
+hi SpellBad          guifg=#fb4934 gui=bold,underline
+highlight LineNr     guibg=NONE
+highlight SignColumn guibg=NONE
 
 " highlighting
 set showmatch " highlight matching braces
@@ -94,14 +95,14 @@ else
 endif
 
 " status line
-hi User1 ctermfg=white
-hi User2 ctermfg=darkgrey
-hi User3 ctermfg=darkmagenta
-hi User4 ctermfg=yellow      cterm=bold
-hi User5 ctermfg=green       cterm=bold
-hi User6 ctermfg=red         cterm=bold
+hi User1 guifg=#ebdbb2
+hi User2 guifg=#928374
+hi User3 guifg=#b16286
+hi User4 guifg=#fabd2f gui=bold
+hi User5 guifg=#b8bb26 gui=bold
+hi User6 guifg=#fb4934 gui=bold
 set laststatus=2 " always show the status line
-set statusline=%3*[%n]\ %2*%{pathshorten(expand('%:~:h'))}/%4*%t\ %5*%m\ %6*%r
+set statusline=%3*[%n]\ %2*%{pathshorten(expand('%:~:h'))}/%4*%t\ %6*%r%5*%m
 set statusline+=%=%1*[%3p:%3v]
 
 " searching
