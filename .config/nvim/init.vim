@@ -40,9 +40,7 @@ set spell spelllang=en_us " spell checking language
 " colors
 set termguicolors
 colorscheme gruvbox
-hi SpellBad          guifg=#fb4934 gui=bold,underline
-highlight LineNr     guibg=NONE
-highlight SignColumn guibg=NONE
+hi SpellBad guifg=#fb4934 gui=bold,underline
 
 " highlighting
 set showmatch " highlight matching braces
