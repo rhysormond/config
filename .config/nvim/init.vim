@@ -13,7 +13,7 @@ Plug 'tpope/vim-surround'
 
 " ui improvements
 Plug 'mhinz/vim-signify'
-Plug 'morhetz/gruvbox'
+Plug 'gruvbox-community/gruvbox'
 
 " language server
 Plug 'neovim/nvim-lspconfig'
