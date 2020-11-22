@@ -38,6 +38,10 @@ let mapleader=" "
 set hidden " hide buffers rather than abandoning them
 set spell spelllang=en_us " spell checking language
 
+" whitespace
+set expandtab " use spaces instead of tabs
+set shiftwidth=2 " indents are 4 spaces
+
 " colors
 set termguicolors
 colorscheme gruvbox
@@ -76,25 +80,25 @@ set winminwidth=42 " minimum split width
 
 " split window navigation
 if exists('$TMUX')
-    " override split navigation if in a tmux session
-    function! TmuxOrSplitSwitch(wincmd, tmuxdir)
-        let previous_winnr = winnr()
-        silent! execute "wincmd " . a:wincmd
-        if previous_winnr == winnr()
-            call system("tmux select-pane -" . a:tmuxdir)
-            redraw!
-        endif
-    endfunction
+  " override split navigation if in a tmux session
+  function! TmuxOrSplitSwitch(wincmd, tmuxdir)
+    let previous_winnr = winnr()
+    silent! execute "wincmd " . a:wincmd
+    if previous_winnr == winnr()
+      call system("tmux select-pane -" . a:tmuxdir)
+      redraw!
+    endif
+  endfunction
 
-    nnoremap <c-h> :call TmuxOrSplitSwitch('h', 'L')<cr>
-    nnoremap <c-j> :call TmuxOrSplitSwitch('j', 'D')<cr>
-    nnoremap <c-k> :call TmuxOrSplitSwitch('k', 'U')<cr>
-    nnoremap <c-l> :call TmuxOrSplitSwitch('l', 'R')<cr>
+  nnoremap <c-h> :call TmuxOrSplitSwitch('h', 'L')<cr>
+  nnoremap <c-j> :call TmuxOrSplitSwitch('j', 'D')<cr>
+  nnoremap <c-k> :call TmuxOrSplitSwitch('k', 'U')<cr>
+  nnoremap <c-l> :call TmuxOrSplitSwitch('l', 'R')<cr>
 else
-    nnoremap <c-h> <c-w>h
-    nnoremap <c-j> <c-w>j
-    nnoremap <c-k> <c-w>k
-    nnoremap <c-l> <c-w>l
+  nnoremap <c-h> <c-w>h
+  nnoremap <c-j> <c-w>j
+  nnoremap <c-k> <c-w>k
+  nnoremap <c-l> <c-w>l
 endif
 
 " searching
@@ -123,8 +127,8 @@ set undofile
 
 " persist cursor position between sessions
 augroup PersistCursorPosition
-    autocmd!
-    autocmd BufReadPost * silent! normal! g`"zv
+  autocmd!
+  autocmd BufReadPost * silent! normal! g`"zv
 augroup END
 
 " prevent automatic backups
@@ -141,5 +145,5 @@ set updatetime=300 " faster updates
 
 " source plugin-specific config
 for f in split(glob('$XDG_CONFIG_HOME/nvim/config/*.vim'), '\n')
-    exe 'source' f
+  exe 'source' f
 endfor
