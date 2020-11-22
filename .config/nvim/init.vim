@@ -51,6 +51,19 @@ hi SpellBad guifg=#fb4934 gui=bold,underline
 set noshowmode " don't show the current mode
 let g:lightline = {}
 let g:lightline.colorscheme = 'gruvbox'
+let g:lightline.mode_map = {
+  \ 'n':      'Nrm',
+  \ 'i':      'Ins',
+  \ 'R':      'Rep',
+  \ 'v':      'Vis',
+  \ 'V':      'VLn',
+  \ "\<C-v>": 'VBk',
+  \ 'c':      'Cmd',
+  \ 's':      'Sel',
+  \ 'S':      'SLn',
+  \ "\<C-s>": 'SBk',
+  \ 't':      'Trm',
+\ }
 
 " highlighting
 set showmatch " highlight matching braces
