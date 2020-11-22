@@ -12,6 +12,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 
 " ui improvements
+Plug 'itchyny/lightline.vim'
 Plug 'mhinz/vim-signify'
 Plug 'gruvbox-community/gruvbox'
 
@@ -41,6 +42,10 @@ set spell spelllang=en_us " spell checking language
 set termguicolors
 colorscheme gruvbox
 hi SpellBad guifg=#fb4934 gui=bold,underline
+
+" status line
+let g:lightline = {}
+let g:lightline.colorscheme = 'gruvbox'
 
 " highlighting
 set showmatch " highlight matching braces
@@ -91,17 +96,6 @@ else
     nnoremap <c-k> <c-w>k
     nnoremap <c-l> <c-w>l
 endif
-
-" status line
-hi User1 guifg=#ebdbb2
-hi User2 guifg=#928374
-hi User3 guifg=#b16286
-hi User4 guifg=#fabd2f gui=bold
-hi User5 guifg=#b8bb26 gui=bold
-hi User6 guifg=#fb4934 gui=bold
-set laststatus=2 " always show the status line
-set statusline=%3*[%n]\ %2*%{pathshorten(expand('%:~:h'))}/%4*%t\ %6*%r%5*%m
-set statusline+=%=%1*[%3p:%3v]
 
 " searching
 set smartcase ignorecase " only search by case when uppercase letters are used
