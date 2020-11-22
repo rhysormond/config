@@ -48,6 +48,7 @@ colorscheme gruvbox
 hi SpellBad guifg=#fb4934 gui=bold,underline
 
 " status line
+set noshowmode " don't show the current mode
 let g:lightline = {}
 let g:lightline.colorscheme = 'gruvbox'
 
