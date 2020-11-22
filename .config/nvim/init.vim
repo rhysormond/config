@@ -11,10 +11,13 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 
+" colorscheme
+Plug 'chriskempson/base16-vim'
+Plug 'daviesjamie/vim-base16-lightline'
+
 " ui improvements
 Plug 'itchyny/lightline.vim'
 Plug 'mhinz/vim-signify'
-Plug 'gruvbox-community/gruvbox'
 
 " language server
 Plug 'neovim/nvim-lspconfig'
@@ -44,13 +47,14 @@ set shiftwidth=2 " indents are 4 spaces
 
 " colors
 set termguicolors
-colorscheme gruvbox
+let base16colorspace=256
+colorscheme base16-gruvbox-dark-medium
 hi SpellBad guifg=#fb4934 gui=bold,underline
 
 " status line
 set noshowmode " don't show the current mode
 let g:lightline = {}
-let g:lightline.colorscheme = 'gruvbox'
+let g:lightline.colorscheme = 'base16'
 let g:lightline.mode_map = {
   \ 'n':      'Nrm',
   \ 'i':      'Ins',
