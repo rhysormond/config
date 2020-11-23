@@ -49,7 +49,6 @@ set shiftwidth=2 " indents are 4 spaces
 set termguicolors
 let base16colorspace=256
 colorscheme base16-gruvbox-dark-medium
-hi SpellBad guifg=#fb4934 gui=bold,underline
 
 " status line
 set noshowmode " don't show the current mode
