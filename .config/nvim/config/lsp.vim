@@ -36,7 +36,7 @@ nnoremap <leader>oo <cmd>lua require'telescope.builtin'.lsp_workspace_symbols{}<
 
 " adding language servers and hooks
 lua <<EOF
-local lsp = require("nvim_lsp")
+local lsp = require("lspconfig")
 
 local attach = function()
   require("completion").on_attach()
