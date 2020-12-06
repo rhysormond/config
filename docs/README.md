@@ -18,12 +18,14 @@ git --work-tree=$HOME reset --hard
 
 # Desktop Environment
 
-These configs are designed to be installed on top of Manjaro XFCE.
+These configs are designed to be installed on top of Manjaro XFCE minimal.
 To get things running:
  - install these config files as outlined above
  - install the dependencies below
 
 # Dependencies
+
+Before installing the below packages `base-devel` and `binutils` need to be installed.
 
 | Name                      | Use                            |
 | ------------------------- | ------------------------------ |
@@ -42,7 +44,7 @@ To get things running:
 | imwheel                   | mouse tweaker                  |
 | jetbrains-toolbox         | ide                            |
 | openssh                   | ssh tools                      |
-| otf-fira-code             | monospace font with ligatures  |
+| ttf-fira-code             | monospace font with ligatures  |
 | otf-fira-sans             | font                           |
 | pa-applet                 | pulse audio applet             |
 | polybar                   | status bar                     |
