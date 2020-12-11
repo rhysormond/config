@@ -1,10 +1,10 @@
 " plugins
-if empty(glob('$XDG_CONFIG_HOME/nvim/autoload/plug.vim'))
+if empty(glob('~/.config/nvim/autoload/plug.vim'))
   silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 endif
 
-call plug#begin('$XDG_CONFIG_HOME/vim/plugged')
+call plug#begin('~/.config/vim/plugged')
 
 " ux improvements
 Plug 'tpope/vim-commentary'
@@ -161,6 +161,6 @@ set ttimeoutlen=0 " set timeout length to 0
 set updatetime=300 " faster updates
 
 " source plugin-specific config
-for f in split(glob('$XDG_CONFIG_HOME/nvim/config/*.vim'), '\n')
+for f in split(glob('~/.config/nvim/config/*.vim'), '\n')
   exe 'source' f
 endfor
