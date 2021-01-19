@@ -11,17 +11,8 @@ ref_name=${ref##*/}
 
 if [[ ! -z "$GIT_BRANCH_PREFIX" ]]; then
     if [[ "$ref_name" != $GIT_BRANCH_PREFIX* ]]; then
-        # assign stdin to the keyboard, prompt the user, and close stdin
-        exec < /dev/tty
-        read -p "Push to $ref that doesn't begin with $GIT_BRANCH_PREFIX? (y/n): " push
-        exec <&-
-
-        if [[ "$push" == y* ]]; then
-            printf "Pushing to $ref.\n"
-        else
-            printf "Not pushing to $ref.\n"
-            exit 1
-        fi
+        exec ~/bin/prompt "Push to $ref that doesn't begin with $GIT_BRANCH_PREFIX?"
+        printf "Pushing to $ref.\n"
     fi
 fi
 

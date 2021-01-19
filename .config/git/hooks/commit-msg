@@ -30,14 +30,12 @@ regex_match=$(echo "$commit_subject" | grep "$commit_regex")
 
 # exit if the commit message doesn't match the regex
 test ! -z "$regex_match" || {
-    printf "$commit_subject\ndoesn't match commit format\n$commit_regex\n"
-    exit 1
+    exec ~/bin/prompt "[$commit_subject] doesn't match commit format. Continue?"
 }
 
 # exit if the commit message is too long
 if ((${#regex_match} > 50)); then
-    printf "$commit_subject\nhas a title longer than 50 characters\n"
-    exit 1
+    exec ~/bin/prompt "[$commit_subject] has a title longer than 50 characters. Continue?"
 fi
 
 exit 0

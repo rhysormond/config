@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# prompts the user with the first argument and exits if they select no
+
+# assign stdin to the keyboard, prompt the user, and close stdin
+exec < /dev/tty
+read -p "$1 (y/n): " ok
+exec <&-
+
+if [[ "$ok" == y* ]]; then
+  printf "Proceeding\n"
+else
+  printf "Exiting\n"
+  exit 1
+fi
