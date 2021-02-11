@@ -69,6 +69,7 @@ let g:lightline.mode_map = {
 \ }
 
 " highlighting
+set hlsearch " highlight search results
 set showmatch " highlight matching braces
 set cursorline " highlight current cursor line
 
