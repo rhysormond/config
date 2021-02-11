@@ -6,8 +6,14 @@ alias g="git"
 alias v="vi"
 alias vi="vim"
 alias vim="nvim"
-alias pbcopy="xsel --clipboard --input"
-alias pbpaste="xsel --clipboard --output"
+
+switch (uname)
+    case Linux
+        alias pbcopy="xsel --clipboard --input"
+        alias pbpaste="xsel --clipboard --output"
+    case Darwin
+    case '*'
+end
 
 function jd --argument file1 --argument file2 --description 'jq, sort, and diff two json files'
     command diff (jq "." -S < $file1 | psub) (jq "." -S < $file2 | psub)
