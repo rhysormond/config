@@ -1,6 +1,9 @@
 " source the original vim config
 source ~/.config/nvim/init.vim
 
+" no bells
+set visualbell
+
 " JetBrains commands
 set commentary " enable TPope commentary plugin emulation
 set surround " enable TPope surround plugin emulation
