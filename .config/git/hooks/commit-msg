@@ -27,9 +27,9 @@ commit_subject=$(head -n1 $1)
 regex_match=$(echo "$commit_subject" | grep "$commit_regex")
 
 # exit if the commit message doesn't match the regex
-test ! -z "$regex_match" || {
+if [[ -z "$regex_match" ]]; then
     exec ~/bin/prompt "[$commit_subject] doesn't match commit format. Continue?"
-}
+fi
 
 # exit if the commit message is too long
 if ((${#regex_match} > 50)); then
