@@ -14,13 +14,11 @@ commit_types=(
     "revert"
     "style"
     "test"
+    "wip"
 )
 
-for t in "${commit_types[@]}"; do
-    type_alternatives="${type_alternatives:+$type_alternatives}\|$t"
-done
-
-type_regex="\($type_alternatives\)"
+type_alternatives=$(printf "\|%s" "${commit_types[@]}")
+type_regex="\(${type_alternatives:2}\)"
 scope_regex="\((.\+)\)\?"
 commit_regex="^$type_regex$scope_regex!\?: .*$"
 
