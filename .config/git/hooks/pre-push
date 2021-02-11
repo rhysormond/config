@@ -9,7 +9,7 @@ read -a args
 ref=${args[2]}
 ref_name=${ref##*/}
 
-if [[ ! -z "$GIT_BRANCH_PREFIX" ]]; then
+if [[ ! -z "$GIT_BRANCH_PREFIX" ]] && [[ ! -z "$ref_name" ]]; then
     if [[ "$ref_name" != $GIT_BRANCH_PREFIX* ]]; then
         exec ~/bin/prompt "Push to $ref that doesn't begin with $GIT_BRANCH_PREFIX?"
         printf "Pushing to $ref.\n"
