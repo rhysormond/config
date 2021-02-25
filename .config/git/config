@@ -58,7 +58,7 @@
     ap = add --patch
     bd = branch --delete --force
     br = branch\
-        --format='%(HEAD) %(color:yellow)%(objectname:short) %(color:reset)%(refname:short)'
+        --format='%(HEAD) %(color:yellow)%(objectname:short) %(color:green)%(committerdate:short) %(color:reset)%(refname:short)'
     ca = commit --amend
     cb = checkout -b
     ci = commit
