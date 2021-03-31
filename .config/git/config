@@ -38,7 +38,7 @@
 [merge]
     tool = nvimdiff
 [mergetool "nvimdiff"]
-    cmd = "nvim -d $BASE $LOCAL $REMOTE $MERGED"
+    cmd = "nvim -d $LOCAL $REMOTE $MERGED"
 [pull]
     ff = only
 [push]
