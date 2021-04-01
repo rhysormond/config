@@ -38,9 +38,6 @@ function man --description "wrap man to color output without changing less"
   command man $argv
 end
 
-# vi mode key bindings
-fish_vi_key_bindings
-
 # vi mode prompt
 function fish_mode_prompt --description "Displays the current vi mode"
     if test "$fish_key_bindings" = "fish_vi_key_bindings"
