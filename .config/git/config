@@ -71,3 +71,4 @@
         --format='%C(white)%S%C(auto)%d %n%C(yellow)%h %<(10,trunc)%C(blue)%an %Cgreen(%cr) %C(reset)%n%<(80,trunc)%s'
     mm = merge-base HEAD master
     mt = mergetool
+    pu = push --set-upstream
