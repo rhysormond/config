@@ -96,6 +96,13 @@ set scrolloff=10 " scroll buffer size
 set winwidth=84 " focused split width (+ 1 (margin) +3 (line numbers + gutter))
 set winminwidth=42 " minimum split width
 
+" focused window highlighting
+augroup FocusHighlight
+  autocmd!
+  autocmd WinEnter * set cursorline
+  autocmd WinLeave * set nocursorline
+augroup END
+
 " split window navigation
 if exists('$TMUX')
   " override split navigation if in a tmux session
