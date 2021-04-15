@@ -1,6 +1,10 @@
 # env vars for git tools
 set -x GIT_BRANCH_PREFIX "ro-"
 
+# use nvim as a pager
+set -x PAGER "nvim -R"
+set -x MANPAGER "nvim -c 'set ft=man' -"
+
 # aliases
 alias g="git"
 alias v="vi"
@@ -25,17 +29,6 @@ function pk --description "fzy for a process and kill it"
     if test -n "$pid"
         command kill -9 $pid
     end
-end
-
-function man --description "wrap man to color output without changing less"
-    set -x LESS_TERMCAP_mb (set_color brred)
-    set -x LESS_TERMCAP_md (set_color brred)
-    set -x LESS_TERMCAP_me (set_color normal)
-    set -x LESS_TERMCAP_se (set_color normal)
-    set -x LESS_TERMCAP_so (set_color -b blue bryellow)
-    set -x LESS_TERMCAP_ue (set_color normal)
-    set -x LESS_TERMCAP_us (set_color brgreen)
-  command man $argv
 end
 
 # vi mode prompt
