@@ -20,7 +20,7 @@ switch (uname)
 end
 
 function jd --argument file1 --argument file2 --description 'jq, sort, and diff two json files'
-    command diff (jq "." -S < $file1 | psub) (jq "." -S < $file2 | psub)
+    command git diff (jq "." -S < $file1 | psub) (jq "." -S < $file2 | psub)
 end
 
 function pk --description "fzy for a process and kill it"
