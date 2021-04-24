@@ -5,6 +5,9 @@ set -x GIT_BRANCH_PREFIX "ro-"
 set -x PAGER "nvim -R"
 set -x MANPAGER "nvim -c 'set ft=man' -"
 
+# set tty for gpg
+set -x GPG_TTY (tty)
+
 # aliases
 alias g="git"
 alias v="vi"
@@ -117,6 +120,3 @@ end
 
 # system-specific env vars
 source $HOME/.env
-
-# set tty for gpg
-set -x GPG_TTY (tty)
