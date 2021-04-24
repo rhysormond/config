@@ -12,8 +12,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 
 " colorscheme
-Plug 'chriskempson/base16-vim'
-Plug 'daviesjamie/vim-base16-lightline'
+Plug 'jacoborus/tender.vim'
 
 " ui improvements
 Plug 'itchyny/lightline.vim'
@@ -47,13 +46,13 @@ set shiftwidth=2 " indents are 4 spaces
 
 " colors
 set termguicolors
-let base16colorspace=256
-colorscheme base16-gruvbox-dark-medium
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+colorscheme tender
 
 " status line
 set noshowmode " don't show the current mode
 let g:lightline = {}
-let g:lightline.colorscheme = 'base16'
+let g:lightline.colorscheme = 'tender'
 let g:lightline.mode_map = {
   \ 'n':      'Nrm',
   \ 'i':      'Ins',
