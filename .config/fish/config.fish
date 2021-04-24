@@ -100,23 +100,5 @@ function fish_prompt
     set_color normal
 end
 
-# right prompt
-function fish_right_prompt
-    # set first so this isn't overwritten by other downstream calls
-    set -l last_status $status
-
-    set_color grey
-
-    # show duration of the last command
-    if test $CMD_DURATION
-        printf "$CMD_DURATION ms "
-    end
-
-    # print the current time
-    date '+[%H:%M]'
-
-    set_color normal
-end
-
 # system-specific env vars
 source $HOME/.env
