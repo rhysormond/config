@@ -39,7 +39,6 @@ Before installing the below packages `base-devel` and `binutils` need to be inst
 | git                       | version control tool           |
 | git-extras                | extra git tools                |
 | gnupg                     | OpenPGP tool                   |
-| gtk-theme-arc-gruvbox-git | gtk gruvbox theme              |
 | neovim-nightly            | editor                         |
 | imwheel                   | mouse tweaker                  |
 | jetbrains-toolbox         | ide                            |
