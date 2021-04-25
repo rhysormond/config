@@ -5,13 +5,13 @@ configuration {
 
 * {
     background-color: #282828;
-    border-color: #808080;
+    border-color: #d0d0d0;
+    text-color: #d0d0d0;
     font: "Fira Code 14";
-    text-color: #eeeeee;
 }
 
 element selected {
-    text-color: #ffc24b;
+    text-color: #d8af5f;
 }
 
 #inputbar {
@@ -21,7 +21,7 @@ element selected {
 #textbox-prompt-colon {
     expand: false;
     str: "~ > ";
-    text-color: #c9d05c;
+    text-color: #d7afaf;
 }
 
 window {
