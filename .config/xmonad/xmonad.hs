@@ -61,7 +61,6 @@ myManageHook =
         className =? "Slack"             --> doShift "msg",
         className =? "firefox"           --> doShift "web",
         className =? "jetbrains-idea"    --> doShift "txt",
-        className =? "jetbrains-toolbox" --> doShift "txt"
     ] <> namedScratchpadManageHook scratchpads
 
 main = do
