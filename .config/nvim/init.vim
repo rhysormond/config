@@ -12,7 +12,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 
 " colorscheme
-Plug 'jacoborus/tender.vim'
+Plug 'junegunn/seoul256.vim'
 
 " ui improvements
 Plug 'itchyny/lightline.vim'
@@ -46,12 +46,13 @@ set shiftwidth=2 " indents are 4 spaces
 
 " colors
 set termguicolors
-colorscheme tender
+let g:seoul256_background = 235
+colorscheme seoul256
 
 " status line
 set noshowmode " don't show the current mode
 let g:lightline = {}
-let g:lightline.colorscheme = 'tender'
+let g:lightline.colorscheme = 'seoul256'
 let g:lightline.mode_map = {
   \ 'n':      'Nrm',
   \ 'i':      'Ins',
