@@ -3,7 +3,6 @@ window:
   padding:
     x: 5
     y: 5
-  dynamic_title: true
 
 font:
   normal:
@@ -35,9 +34,4 @@ colors:
     magenta: '#ffafaf'
     cyan:    '#87d7d7'
     white:   '#e4e4e4'
-
-bell:
-  animation: EaseOutExpo
-  duration: 0
-  color: '0xffffff'
 
