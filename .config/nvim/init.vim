@@ -46,7 +46,6 @@ set shiftwidth=2 " indents are 4 spaces
 
 " colors
 set termguicolors
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 colorscheme tender
 
 " status line
