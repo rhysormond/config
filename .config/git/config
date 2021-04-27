@@ -6,12 +6,7 @@
     editor = nvim
     filemode = false
     hooksPath = ~/.config/git/hooks
-    pager = diffr \
-        --colors added:none:background:0x33,0x55,0x33 \
-        --colors removed:none:background:0x55,0x33,0x33 \
-        --colors refine-added:none:background:0x33,0x99,0x33:bold \
-        --colors refine-removed:none:background:0x99,0x33,0x33:bold \
-        | less -FRX
+    pager = diffr | less -FRX
 [advice]
     addIgnoredFile = false
     pushUpdateRejected = false
