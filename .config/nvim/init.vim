@@ -30,11 +30,11 @@ Plug 'nvim-lua/telescope.nvim'
 
 call plug#end()
 
-" enable file type detection
-filetype indent plugin on
-
 " leader key
 let mapleader=" "
+
+" enable file type detection
+filetype indent plugin on
 
 " general configuration
 set hidden " hide buffers rather than abandoning them
@@ -42,7 +42,7 @@ set spell spelllang=en_us " spell checking language
 
 " whitespace
 set expandtab " use spaces instead of tabs
-set shiftwidth=2 " indents are 4 spaces
+set shiftwidth=2 " indents are 2 spaces
 
 " colors
 set termguicolors
@@ -103,8 +103,13 @@ augroup FocusHighlight
 augroup END
 
 " split window navigation
+nnoremap <c-h> <c-w>h
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-l> <c-w>l
+
+" override split navigation if in a tmux session
 if exists('$TMUX')
-  " override split navigation if in a tmux session
   function! TmuxOrSplitSwitch(wincmd, tmuxdir)
     let previous_winnr = winnr()
     silent! execute "wincmd " . a:wincmd
@@ -118,11 +123,6 @@ if exists('$TMUX')
   nnoremap <c-j> :call TmuxOrSplitSwitch('j', 'D')<cr>
   nnoremap <c-k> :call TmuxOrSplitSwitch('k', 'U')<cr>
   nnoremap <c-l> :call TmuxOrSplitSwitch('l', 'R')<cr>
-else
-  nnoremap <c-h> <c-w>h
-  nnoremap <c-j> <c-w>j
-  nnoremap <c-k> <c-w>k
-  nnoremap <c-l> <c-w>l
 endif
 
 " searching
