@@ -15,7 +15,7 @@ Plug 'tpope/vim-surround'
 Plug 'junegunn/seoul256.vim'
 
 " ui improvements
-Plug 'itchyny/lightline.vim'
+Plug 'hoob3rt/lualine.nvim'
 Plug 'mhinz/vim-signify'
 
 " language server
@@ -51,26 +51,6 @@ colorscheme seoul256
 
 " status line
 set noshowmode " don't show the current mode
-let g:lightline = {}
-let g:lightline.colorscheme = 'seoul256'
-let g:lightline.mode_map = {
-  \ 'n':      'Nrm',
-  \ 'i':      'Ins',
-  \ 'R':      'Rep',
-  \ 'v':      'Vis',
-  \ 'V':      'VLn',
-  \ "\<C-v>": 'VBk',
-  \ 'c':      'Cmd',
-  \ 's':      'Sel',
-  \ 'S':      'SLn',
-  \ "\<C-s>": 'SBk',
-  \ 't':      'Trm',
-\ }
-
-" highlighting
-set hlsearch " highlight search results
-set showmatch " highlight matching braces
-set cursorline " highlight current cursor line
 
 " line wrapping
 set linebreak " only wrap at specific characters
@@ -167,7 +147,12 @@ set ttimeout " enable escape code timeout
 set ttimeoutlen=0 " set timeout length to 0
 set updatetime=300 " faster updates
 
-" source plugin-specific config
+" source vimscript config
 for f in split(glob('~/.config/nvim/config/*.vim'), '\n')
   exe 'source' f
+endfor
+
+" source lua config
+for f in split(glob('~/.config/nvim/config/*.lua'), '\n')
+  exe 'luafile' f
 endfor
