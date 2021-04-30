@@ -31,9 +31,6 @@ call plug#end()
 " leader key
 let mapleader=" "
 
-" enable file type detection
-filetype indent plugin on
-
 " general configuration
 set hidden " hide buffers rather than abandoning them
 set spell spelllang=en_us " spell checking language
@@ -111,9 +108,6 @@ set path+=** " recursively search through directories
 set wildmode=longest:full,full " command line completion using wildmenu
 set wildignore+=.* " ignore any hidden files for completion
 set shortmess+=c " don't pass messages to ins-completion-menu
-
-" configure backspace so it works as expected
-set backspace=eol,indent,start
 
 " allow cursor wrapping when moving left/right
 set whichwrap+=h,l
