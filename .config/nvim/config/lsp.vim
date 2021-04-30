@@ -11,23 +11,24 @@ autocmd BufRead,BufWrite * silent! lua require'lsp_extensions'.inlay_hints{ alig
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
-" finding references forwards/backwards
+" goto commands
 nnoremap gd <cmd>lua vim.lsp.buf.definition()<CR>
-nnoremap gD <cmd>lua vim.lsp.buf.implementation()<CR>
-nnoremap gr <cmd>lua require'telescope.builtin'.lsp_references{}<CR>
+nnoremap gi <cmd>lua vim.lsp.buf.implementation()<CR>
+nnoremap gr <cmd>lua require'telescope.builtin'.lsp_references()<CR>
+nnoremap gy <cmd>lua vim.lsp.buf.type_definition()<CR>
 
 " popup hints about the highlighted token
 nnoremap K     <cmd>lua vim.lsp.buf.hover()<CR>
-nnoremap gy    <cmd>lua vim.lsp.buf.type_definition()<CR>
-nnoremap <C-s> <cmd>lua vim.lsp.buf.signature_help()<CR>
-inoremap <C-s> <cmd>lua vim.lsp.buf.signature_help()<CR>
+nnoremap <C-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
 
 " diagnostics
-nnoremap [g <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
-nnoremap ]g <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
+nnoremap [g        <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
+nnoremap ]g        <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
+nnoremap <leader>e <cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>
+nnoremap <leader>q <cmd>lua vim.lsp.diagnostic.set_loclist()<CR>
 
 " refactoring
-nnoremap ga        <cmd>lua vim.lsp.buf.code_action()<CR>
+nnoremap <leader>a <cmd>lua vim.lsp.buf.code_action()<CR>
 nnoremap <leader>r <cmd>lua vim.lsp.buf.rename()<CR>
 
 " file and project outlines
