@@ -11,10 +11,8 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 
-" colorscheme
-Plug 'junegunn/seoul256.vim'
-
 " ui improvements
+Plug 'junegunn/seoul256.vim'
 Plug 'hoob3rt/lualine.nvim'
 Plug 'mhinz/vim-signify'
 
