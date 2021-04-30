@@ -23,8 +23,8 @@ nnoremap <C-s> <cmd>lua vim.lsp.buf.signature_help()<CR>
 inoremap <C-s> <cmd>lua vim.lsp.buf.signature_help()<CR>
 
 " diagnostics
-nnoremap [g <cmd>vim.lsp.diagnostic.goto_prev()<CR>
-nnoremap ]g <cmd>vim.lsp.diagnostic.goto_next()<CR>
+nnoremap [g <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
+nnoremap ]g <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
 
 " refactoring
 nnoremap ga        <cmd>lua vim.lsp.buf.code_action()<CR>
