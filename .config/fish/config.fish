@@ -26,6 +26,11 @@ function jd --argument file1 --argument file2 --description 'jq, sort, and diff 
     command git diff (jq "." -S < $file1 | psub) (jq "." -S < $file2 | psub)
 end
 
+function jq-inplace --argument file --description 'format a file with jq in place'
+    command jq < $file > temp.json
+    mv temp.json $file
+end
+
 function pk --description "fzy for a process and kill it"
     set pid (ps -ef | sed 1d | fzf | awk '{print $2}')
 
