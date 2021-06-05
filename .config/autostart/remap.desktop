@@ -2,7 +2,7 @@
 Encoding=UTF-8
 Name=remap
 Comment=Remap caps to ctrl, esc to tilde, and tap ctrl to esc
-Exec=xmodmap ~/.Xmodmap && xcape
+Exec=remap
 Type=Application
 StartupNotify=false
 Terminal=false
