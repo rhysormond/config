@@ -1,6 +1,10 @@
 # Setup
 
-These configs are designed to be cloned into a bare repository with a worktree in `~`.
+These configs are designed to be installed on top of Manjaro Gnome minimal.
+
+# Config
+
+These configs are cloned into a bare repository with a worktree in `~`.
 
 ```fish
 # clone as a bare repository at ~/.cfg
@@ -16,15 +20,12 @@ git config --local status.showUntrackedFiles no
 git --work-tree=$HOME reset --hard
 ```
 
-# Desktop Environment
-
-These configs are designed to be installed on top of Manjaro XFCE minimal.
-To get things running:
- - install these config files as outlined above
- - install the dependencies below
-
 # Dependencies
 
+```fish
+sudo pacman -S yay
+yay -S base-devel binutils
+```
 Before installing the below packages `base-devel` and `binutils` need to be installed.
 
 | Name                           | Use                            |
