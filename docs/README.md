@@ -23,39 +23,29 @@ git --work-tree=$HOME reset --hard
 # Dependencies
 
 ```fish
+# install an ergonomic pacman wrapper
 sudo pacman -S yay
-yay -S base-devel binutils
-```
-Before installing the below packages `base-devel` and `binutils` need to be installed.
 
-| Name                           | Use                            |
-| ------------------------------ | ------------------------------ |
-| alacritty                      | terminal emulator              |
-| diffr                          | diff post-processing           |
-| firefox                        | browser                        |
-| fish                           | shell                          |
-| fisher                         | fish plugin manager            |
-| flameshot                      | screenshot utility             |
-| fzf                            | fuzzy finder                   |
-| git                            | version control tool           |
-| git-extras                     | extra git tools                |
-| gnupg                          | OpenPGP tool                   |
-| neovim-nightly                 | editor                         |
-| imwheel                        | mouse tweaker                  |
-| intellij-idea-ultimate-edition | ide                            |
-| openssh                        | ssh tools                      |
-| ttf-fira-code                  | monospace font with ligatures  |
-| otf-fira-sans                  | font                           |
-| pa-applet                      | pulse audio applet             |
-| polybar                        | status bar                     |
-| redshift                       | display color manager          |
-| ripgrep                        | grep replacement               |
-| rofi                           | launcher                       |
-| slack-desktop                  | messaging tool                 |
-| tmux                           | terminal multiplexer           |
-| xcape                          | keyboard configuration tool    |
-| xmonad                         | window manager                 |
-| xmonad-contrib                 | xmonad utils                   |
-| xsel                           | manipulate clipboard           |
-| yay                            | pacman wrapper                 |
+# install build dependencies
+yay -S base-devel binutils
+
+# install everything else
+yay -S \
+  alacritty \
+  diffr \
+  firefox \
+  fish \
+  fisher \
+  fzf \
+  git \
+  git-extras \
+  gnupg \
+  neovim-git \
+  openssh \
+  ttf-fira-code \
+  ripgrep \
+  tmux \
+  xcape \
+  xsel
+```
 
