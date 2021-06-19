@@ -6,7 +6,7 @@
     NAME: "Topre Corporation HHKB Professional"
 
 # Else: only remap caps lock
-- JOB: intercept -g $DEVNODE | dual-function-keys -c /home/rhys/.config/interception/dual-function-keys.yaml | uinput -d $DEVNODE
+- JOB: intercept -g $DEVNODE | caps2esc -m 1 | uinput -d $DEVNODE
   DEVICE:
     EVENTS:
       EV_KEY: [[KEY_ESC]]
