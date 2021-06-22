@@ -1,6 +1,3 @@
-# env vars for git tools
-set -x GIT_BRANCH_PREFIX "ro-"
-
 # set tty for gpg
 set -x GPG_TTY (tty)
 
