@@ -1,10 +1,6 @@
 # env vars for git tools
 set -x GIT_BRANCH_PREFIX "ro-"
 
-# use nvim as a pager
-set -x PAGER "nvim -R"
-set -x MANPAGER "nvim -c 'set ft=man' -"
-
 # set tty for gpg
 set -x GPG_TTY (tty)
 
