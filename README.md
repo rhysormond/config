@@ -50,3 +50,10 @@ yay -S \
   xsel
 ```
 
+# Hacks
+
+```fish
+# help udevmon find its config
+sudo ln -s ~/.config/interception /etc/interception
+```
+

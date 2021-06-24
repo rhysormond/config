@@ -1,6 +1,0 @@
-#!/usr/bin/env sh
-#
-# Use Interception Tools to tweak evdev input events to remap key presses.
-
-udevmon -c $XDG_CONFIG_HOME/interception/config.yaml
-
