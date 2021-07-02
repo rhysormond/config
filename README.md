@@ -36,14 +36,10 @@ yay -S \
   firefox \
   fish \
   fisher \
-  fzf \
-  git \
   git-extras \
-  gnupg \
   interception-caps2esc \
   interception-dual-function-keys \
   neovim-git \
-  openssh \
   ttf-fira-code \
   ripgrep \
   tmux \
