@@ -12,6 +12,7 @@ switch (uname)
         alias pbcopy="xsel --clipboard --input"
         alias pbpaste="xsel --clipboard --output"
     case Darwin
+      set PATH $PATH ~/.local/bin
     case '*'
 end
 
