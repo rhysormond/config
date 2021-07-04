@@ -1,5 +1,18 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
+SETUVAR __fish_git_prompt_char_dirtystate:\x25
+SETUVAR __fish_git_prompt_char_stagedstate:\x2b
+SETUVAR __fish_git_prompt_char_stateseparator:
+SETUVAR __fish_git_prompt_char_untrackedfiles:\x3f
+SETUVAR __fish_git_prompt_char_upstream_ahead:\u2191
+SETUVAR __fish_git_prompt_char_upstream_behind:\u2193
+SETUVAR __fish_git_prompt_char_upstream_diverged:X
+SETUVAR __fish_git_prompt_char_upstream_equal:
+SETUVAR __fish_git_prompt_color_branch:yellow
+SETUVAR __fish_git_prompt_showcolorhints:yes
+SETUVAR __fish_git_prompt_showdirtystate:yes
+SETUVAR __fish_git_prompt_showuntrackedfiles:yes
+SETUVAR __fish_git_prompt_showupstream:yes
 SETUVAR __fish_initialized:3100
 SETUVAR fish_color_autosuggestion:brgrey
 SETUVAR fish_color_cancel:normal
@@ -26,16 +39,3 @@ SETUVAR fish_color_user:brgreen
 SETUVAR fish_color_valid_path:normal
 SETUVAR fish_greeting:
 SETUVAR fish_key_bindings:fish_vi_key_bindings
-SETUVAR __fish_git_prompt_color_branch:yellow
-SETUVAR __fish_git_prompt_showcolorhints:'yes'
-SETUVAR __fish_git_prompt_showuntrackedfiles:'yes'
-SETUVAR __fish_git_prompt_showdirtystate:'yes'
-SETUVAR __fish_git_prompt_showupstream:'yes'
-SETUVAR __fish_git_prompt_char_stateseparator:''
-SETUVAR __fish_git_prompt_char_dirtystate:'%'
-SETUVAR __fish_git_prompt_char_untrackedfiles:'?'
-SETUVAR __fish_git_prompt_char_stagedstate:'+'
-SETUVAR __fish_git_prompt_char_upstream_equal:''
-SETUVAR __fish_git_prompt_char_upstream_ahead:'↑'
-SETUVAR __fish_git_prompt_char_upstream_behind:'↓'
-SETUVAR __fish_git_prompt_char_upstream_diverged:'X'
