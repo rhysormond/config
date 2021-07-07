@@ -4,6 +4,15 @@ source ~/.config/nvim/init.vim
 " no bells
 set visualbell
 
+" highlight search results (on by default on neovim)
+set hlsearch
+
+" split window navigation (not properly sourced from nvim config)
+nnoremap <c-h> <c-w>h
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-l> <c-w>l
+
 " JetBrains commands
 set commentary " enable TPope commentary plugin emulation
 set surround " enable TPope surround plugin emulation

@@ -78,12 +78,6 @@ augroup FocusHighlight
 augroup END
 
 " split window navigation
-nnoremap <c-h> <c-w>h
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-nnoremap <c-l> <c-w>l
-
-" override split navigation if in a tmux session
 if exists('$TMUX')
   function! TmuxOrSplitSwitch(wincmd, tmuxdir)
     let previous_winnr = winnr()
@@ -98,6 +92,11 @@ if exists('$TMUX')
   nnoremap <c-j> :call TmuxOrSplitSwitch('j', 'D')<cr>
   nnoremap <c-k> :call TmuxOrSplitSwitch('k', 'U')<cr>
   nnoremap <c-l> :call TmuxOrSplitSwitch('l', 'R')<cr>
+else
+  nnoremap <c-h> <c-w>h
+  nnoremap <c-j> <c-w>j
+  nnoremap <c-k> <c-w>k
+  nnoremap <c-l> <c-w>l
 endif
 
 " searching
