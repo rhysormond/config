@@ -2,7 +2,10 @@
 # rejects commits that don't match the conventional commit format
 # see: www.conventionalcommits.org
 
-# build a regex for the commit message
+# build a regex for merge commits
+merge_commit_regex="^Merge branch .* into .*$"
+
+# build a regex for conventional commits
 commit_types=(
     "build"
     "ci"
@@ -20,20 +23,25 @@ commit_types=(
 type_alternatives=$(printf "\|%s" "${commit_types[@]}")
 type_regex="\(${type_alternatives:2}\)"
 scope_regex="\((.\+)\)\?"
-commit_regex="^$type_regex$scope_regex!\?: .*$"
+conventional_commit_regex="^$type_regex$scope_regex!\?: .*$"
 
 # check if the commit subject conforms to the regex
 commit_subject=$(head -n1 $1)
-regex_match=$(echo "$commit_subject" | grep "$commit_regex")
+merge_commit=$(echo "$commit_subject" | grep "$merge_commit_regex")
 
-# exit if the commit message doesn't match the regex
-if [[ -z "$regex_match" ]]; then
-    exec prompt "[$commit_subject] doesn't match commit format. Continue?"
-fi
+# if we don't have a merge commit, check for conventional commits
+if [[ -z "$merge_commit" ]]; then
+  conventional_commit=$(echo "$commit_subject" | grep "$conventional_commit_regex")
 
-# exit if the commit message is too long
-if ((${#regex_match} > 50)); then
-    exec prompt "[$commit_subject] has a title longer than 50 characters. Continue?"
+  # if we don't have a conventional commit, prompt to continue
+  if [[ -z "$conventional_commit" ]]; then
+      exec prompt "[$commit_subject] is not a conventional commit. Continue?"
+  fi
+
+  # if we don't have a commit that's too long, prompt to continue
+  if ((${#conventional_commit} > 50)); then
+      exec prompt "[$commit_subject] is longer than 50 characters. Continue?"
+  fi
 fi
 
 exit 0
