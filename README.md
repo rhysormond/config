@@ -1,6 +1,6 @@
 # Setup
 
-These configs are designed to be installed on top of Manjaro Gnome minimal.
+These configs are designed to be installed on top of Manjaro KDE.
 
 # Config
 
@@ -16,7 +16,7 @@ cd ~/.cfg
 # hide all the untracked files
 git config --local status.showUntrackedFiles no
 
-# copy files from git to ~
+# copy files to ~
 git --work-tree=$HOME reset --hard
 ```
 
@@ -33,23 +33,14 @@ yay -S base-devel binutils
 yay -S \
   alacritty \
   diffr \
-  firefox \
   fish \
   fisher \
   git-extras \
-  interception-caps2esc \
-  interception-dual-function-keys \
   neovim-git \
   ttf-fira-code \
   ripgrep \
   tmux \
+  xcape \
   xsel
-```
-
-# Hacks
-
-```fish
-# help udevmon find its config
-sudo ln -s ~/.config/interception /etc/interception
 ```
 

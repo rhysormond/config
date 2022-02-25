@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Xcape
+Comment=Use the left ctrl key as escape on tap.
+Exec=xcape
+Type=Application
+StartupNotify=false
+Terminal=false
+Hidden=false
+
