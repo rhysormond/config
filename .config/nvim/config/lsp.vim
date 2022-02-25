@@ -18,8 +18,8 @@ nnoremap gr <cmd>lua require'telescope.builtin'.lsp_references()<CR>
 nnoremap gy <cmd>lua vim.lsp.buf.type_definition()<CR>
 
 " popup hints about the highlighted token
-nnoremap K     <cmd>lua vim.lsp.buf.hover()<CR>
-nnoremap <C-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
+nnoremap K         <cmd>lua vim.lsp.buf.hover()<CR>
+nnoremap <leader>k <cmd>lua vim.lsp.buf.signature_help()<CR>
 
 " diagnostics
 nnoremap [g        <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
