@@ -71,8 +71,6 @@ set signcolumn=yes " always show the gutter
 
 " split window sizing
 set scrolloff=10 " scroll buffer size
-set winwidth=84 " focused split width (+ 1 (margin) +3 (line numbers + gutter))
-set winminwidth=42 " minimum split width
 
 " focused window highlighting
 augroup FocusHighlight
