@@ -12,7 +12,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 
 " ui improvements
-Plug 'junegunn/seoul256.vim'
+Plug 'savq/melange'
 Plug 'hoob3rt/lualine.nvim'
 Plug 'mhinz/vim-signify'
 
@@ -46,8 +46,7 @@ set shiftwidth=2 " indents are 2 spaces
 
 " colors
 set termguicolors
-let g:seoul256_background = 235
-colorscheme seoul256
+colorscheme melange
 
 " status line
 set noshowmode " don't show the current mode

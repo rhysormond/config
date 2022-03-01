@@ -1,6 +1,5 @@
 require'lualine'.setup{
   options = {
-    theme = 'seoul256',
     icons_enabled = false,
   },
   sections = {
