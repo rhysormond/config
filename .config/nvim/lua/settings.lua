@@ -57,5 +57,6 @@ vim.o.updatetime = 300 -- faster updates
 vim.cmd([[autocmd BufReadPost * silent! normal! g`"zv]])
 
 -- highlight the current line for the active window
+vim.o.cursorline = true
 vim.cmd([[autocmd WinEnter * set cursorline]])
 vim.cmd([[autocmd WinLeave * set nocursorline]])
