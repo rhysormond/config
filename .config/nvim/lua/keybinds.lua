@@ -4,6 +4,9 @@ require 'utils'
 nnoremap('<Space>', '')
 vim.g.mapleader = ' '
 
+-- use enter to clear search results
+vim.api.nvim_set_keymap('n', '<CR>', ':noh<CR><CR>', {noremap = true})
+
 -- use the system clipboard with leader
 nnoremap('<leader>c', '"+c')
 nnoremap('<leader>d', '"+d')
@@ -21,4 +24,3 @@ nnoremap('<Up>', '<Nop>')
 nnoremap('<Down>', '<Nop>')
 nnoremap('<Left>', '<Nop>')
 nnoremap('<Right>', '<Nop>')
-
