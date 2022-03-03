@@ -12,7 +12,12 @@ return require 'packer'.startup(function(use)
 
   -- ui improvements
   use 'savq/melange'
-  use 'mhinz/vim-signify'
+  use {
+    'lewis6991/gitsigns.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim'
+    },
+  }
   use {
     'hoob3rt/lualine.nvim',
     config = function() require 'plugins.lualine' end,
