@@ -59,4 +59,3 @@ vim.cmd([[autocmd BufReadPost * silent! normal! g`"zv]])
 -- highlight the current line for the active window
 vim.cmd([[autocmd WinEnter * set cursorline]])
 vim.cmd([[autocmd WinLeave * set nocursorline]])
-
