@@ -1,44 +1,10 @@
 " source lua config
 exe 'luafile' '~/.config/nvim/lua/plugins.lua'
-
-" leader key
-let mapleader=" "
-
-" general configuration
-set hidden " hide buffers rather than abandoning them
-set spell spelllang=en_us " spell checking language
-
-" whitespace
-set expandtab " use spaces instead of tabs
-set shiftwidth=2 " indents are 2 spaces
+exe 'luafile' '~/.config/nvim/lua/settings.lua'
 
 " colors
 set termguicolors
 colorscheme melange
-
-" status line
-set noshowmode " don't show the current mode
-
-" line wrapping
-set linebreak " only wrap at specific characters
-
-" use the system clipboard with leader
-noremap <leader>c "+c
-noremap <leader>d "+d
-noremap <leader>y "+y
-noremap <leader>p "+p
-
-" netrw file browser
-let g:netrw_banner = 0 " don't show the netrw banner
-noremap <leader>e :Explore<cr>
-
-" line numbers
-set number " show the current line number
-set relativenumber " show other line numbers relative to the current one
-set signcolumn=yes " always show the gutter
-
-" split window sizing
-set scrolloff=10 " scroll buffer size
 
 " focused window highlighting
 augroup FocusHighlight
@@ -69,42 +35,9 @@ else
   nnoremap <c-l> <c-w>l
 endif
 
-" searching
-set smartcase ignorecase " only search by case when uppercase letters are used
-set path+=** " recursively search through directories
-
-" completion
-set wildmode=longest:full,full " command line completion using wildmenu
-set wildignore+=.* " ignore any hidden files for completion
-set shortmess+=c " don't pass messages to ins-completion-menu
-
-" allow cursor wrapping when moving left/right
-set whichwrap+=h,l
-
-" unmap arrow keys
-noremap <Up> <Nop>
-noremap <Down> <Nop>
-noremap <Left> <Nop>
-noremap <Right> <Nop>
-
-" persist undo between sessions
-set undofile
-
 " persist cursor position between sessions
 augroup PersistCursorPosition
   autocmd!
   autocmd BufReadPost * silent! normal! g`"zv
 augroup END
-
-" prevent automatic backups
-set nowb
-set nobackup
-set noswapfile
-set nowritebackup
-
-" performance optimizations
-set lazyredraw " don't redraw while executing macros
-set ttimeout " enable escape code timeout
-set ttimeoutlen=0 " set timeout length to 0
-set updatetime=300 " faster updates
 
