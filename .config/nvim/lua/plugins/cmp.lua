@@ -1,12 +1,13 @@
 local cmp = require 'cmp'
 local luasnip = require 'luasnip'
 
-cmp.setup({
+-- general completion settings
+cmp.setup {
   snippet = { expand = function(args) luasnip.lsp_expand(args.body) end },
   mapping = {
     ['<C-j>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
     ['<C-k>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
-    ['<CR>'] = cmp.mapping.confirm({ select = true }),
+    ['<CR>'] = cmp.mapping.confirm { select = true },
     ['<Tab>'] = function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
@@ -35,14 +36,16 @@ cmp.setup({
       { name = 'buffer' },
     }
   )
-})
+}
 
+-- completion for search
 cmp.setup.cmdline('/', {
   sources = {
     { name = 'buffer' }
   }
 })
 
+-- completion for commands
 cmp.setup.cmdline(':', {
   sources = cmp.config.sources(
     {
