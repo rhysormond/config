@@ -21,11 +21,10 @@ return require('packer').startup(function(use)
   -- language server
   use {
     'neovim/nvim-lspconfig',
-    -- TODO break the lsp file out
-    config = function() require('plugins.lsp') end
+    config = function() require('plugins.lspconfig') end
   }
   use {
-    "hrsh7th/nvim-cmp",
+    'hrsh7th/nvim-cmp',
     requires = {
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-buffer',
@@ -34,8 +33,7 @@ return require('packer').startup(function(use)
       'hrsh7th/cmp-nvim-lua',
       'saadparwaiz1/cmp_luasnip',
     },
-    -- TODO break the lsp file out
-    config = function() require('plugins.lsp') end,
+    config = function() require('plugins.cmp') end,
   }
   use 'L3MON4D3/LuaSnip'
 
