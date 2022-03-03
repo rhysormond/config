@@ -5,11 +5,7 @@ local cmp = require 'cmp'
 local luasnip = require 'luasnip'
 
 cmp.setup({
-  snippet = {
-    expand = function(args)
-      luasnip.lsp_expand(args.body)
-    end,
-  },
+  snippet = { expand = function(args) luasnip.lsp_expand(args.body) end },
   mapping = {
     ['<C-j>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
     ['<C-k>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
@@ -33,12 +29,15 @@ cmp.setup({
       end
     end,
   },
-  sources = cmp.config.sources({
-    { name = 'nvim_lsp' },
-    { name = 'luasnip' },
-  }, {
-    { name = 'buffer' },
-  })
+  sources = cmp.config.sources(
+    {
+      { name = 'nvim_lsp' },
+      { name = 'luasnip' },
+    },
+    {
+      { name = 'buffer' },
+    }
+  )
 })
 
 cmp.setup.cmdline('/', {
@@ -48,9 +47,12 @@ cmp.setup.cmdline('/', {
 })
 
 cmp.setup.cmdline(':', {
-  sources = cmp.config.sources({
-    { name = 'path' }
-  }, {
-    { name = 'cmdline' }
-  })
+  sources = cmp.config.sources(
+    {
+      { name = 'path' }
+    },
+    {
+      { name = 'cmdline' }
+    }
+  )
 })

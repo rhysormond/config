@@ -26,7 +26,7 @@ return require 'packer'.startup(function(use)
   -- language server
   use {
     'neovim/nvim-lspconfig',
-    config = function() require 'plugins.lspconfig' end
+    config = function() require 'plugins.lspconfig' end,
   }
   use {
     'hrsh7th/nvim-cmp',
