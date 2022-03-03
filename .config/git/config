@@ -6,7 +6,12 @@
     editor = nvim
     filemode = false
     hooksPath = ~/.config/git/hooks
-    pager = diffr | less -FRX
+    pager = diffr \
+      --colors refine-added:none:background:0x33,0x99,0x33:bold \
+      --colors added:none:background:0x33,0x55,0x33 \
+      --colors refine-removed:none:background:0x99,0x33,0x33:bold \
+      --colors removed:none:background:0x55,0x33,0x33 \
+      | less -FRX
 [advice]
     addIgnoredFile = false
     pushUpdateRejected = false
@@ -53,8 +58,7 @@
     aa = add --all
     ap = add --patch
     bd = branch --delete --force
-    br = branch\
-        --format='%(HEAD) %(color:yellow)%(objectname:short) %(color:green)%(committerdate:short) %(color:reset)%(refname:short)'
+    br = branch --format='%(HEAD) %(color:yellow)%(objectname:short) %(color:green)%(committerdate:short) %(color:reset)%(refname:short)'
     ca = commit --amend
     cb = checkout -b
     ci = commit
@@ -63,10 +67,8 @@
     di = diff
     dm = diff master...HEAD
     dt = difftool
-    ls = stash list\
-        --pretty='%C(yellow)%h %>(12)%C(green)%cr %C(reset)%s'
-    lg = log --graph\
-        --format='%C(white)%S%C(auto)%d %n%C(yellow)%h %>(12)%C(green)%cr %<(25,trunc)%C(blue)%an %C(reset)%n%<(80,trunc)%s'
+    ls = stash list --pretty='%C(yellow)%h %>(12)%C(green)%cr %C(reset)%s'
+    lg = log --graph --format='%C(white)%S%C(auto)%d %n%C(yellow)%h %>(12)%C(green)%cr %<(25,trunc)%C(blue)%an %C(reset)%n%<(80,trunc)%s'
     mm = merge-base HEAD master
     mt = mergetool
     pu = push --set-upstream
