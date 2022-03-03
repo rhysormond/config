@@ -141,6 +141,6 @@ set ttimeoutlen=0 " set timeout length to 0
 set updatetime=300 " faster updates
 
 " source lua config
-for f in split(glob('~/.config/nvim/config/*.lua'), '\n')
+for f in split(glob('~/.config/nvim/lua/plugins/*.lua'), '\n')
   exe 'luafile' f
 endfor
