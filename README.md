@@ -43,4 +43,3 @@ yay -S \
   xcape \
   xsel
 ```
-

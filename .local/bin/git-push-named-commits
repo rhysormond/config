@@ -18,4 +18,3 @@ for commit in $(git rev-list master...HEAD); do
         git push --force-with-lease origin $commit:refs/heads/$branch
     fi
 done
-
