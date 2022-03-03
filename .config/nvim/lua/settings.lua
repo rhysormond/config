@@ -1,5 +1,3 @@
-require 'utils'
-
 -- general configuration
 vim.o.hidden = true -- hide buffers rather than abandoning them
 vim.o.spell = true -- enable spellchecking
