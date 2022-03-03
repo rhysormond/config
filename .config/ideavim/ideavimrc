@@ -4,6 +4,9 @@ set visualbell
 " highlight search results (on by default on neovim)
 set hlsearch
 
+" use enter to clear search results
+nnoremap <CR> :noh<CR><CR>
+
 " split window navigation (not properly sourced from nvim config)
 nnoremap <c-h> <c-w>h
 nnoremap <c-j> <c-w>j
