@@ -1,7 +1,7 @@
 require 'utils'
 
 -- leader key
-nnoremap('n', '<Space>', '', {})
+nnoremap('<Space>', '')
 vim.g.mapleader = ' '
 
 -- use the system clipboard with leader
