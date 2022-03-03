@@ -3,7 +3,7 @@ vim.o.hidden = true -- hide buffers rather than abandoning them
 
 -- spellcheck
 vim.o.spell = true -- enable spellchecking
-vim.o.spelllang = "en_us" -- set spellcheck language
+vim.o.spelllang = 'en_us' -- set spellcheck language
 
 -- whitespace
 vim.o.expandtab = true -- use spaces instead of tabs
@@ -36,7 +36,7 @@ vim.o.wildmode = 'longest:full,full' -- command line completion using wildmenu
 vim.o.shortmess = vim.o.shortmess .. 'c' -- don't pass messages to ins-completion-menu
 
 -- allow cursor wrapping when moving left/right
-vim.o.whichwrap = "h,l"
+vim.o.whichwrap = 'h,l'
 
 -- persist undo between sessions
 vim.o.undofile = true

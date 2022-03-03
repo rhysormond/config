@@ -4,7 +4,7 @@ if fn.empty(fn.glob(install_path)) > 0 then
   packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
 end
 
-return require('packer').startup(function(use)
+return require 'packer'.startup(function(use)
   -- ux improvements
   use 'tpope/vim-commentary'
   use 'tpope/vim-fugitive'
@@ -15,13 +15,13 @@ return require('packer').startup(function(use)
   use 'mhinz/vim-signify'
   use {
     'hoob3rt/lualine.nvim',
-    config = function() require('plugins.lualine') end,
+    config = function() require 'plugins.lualine' end,
   }
 
   -- language server
   use {
     'neovim/nvim-lspconfig',
-    config = function() require('plugins.lspconfig') end
+    config = function() require 'plugins.lspconfig' end
   }
   use {
     'hrsh7th/nvim-cmp',
@@ -33,7 +33,7 @@ return require('packer').startup(function(use)
       'hrsh7th/cmp-nvim-lua',
       'saadparwaiz1/cmp_luasnip',
     },
-    config = function() require('plugins.cmp') end,
+    config = function() require 'plugins.cmp' end,
   }
   use 'L3MON4D3/LuaSnip'
 
@@ -44,10 +44,10 @@ return require('packer').startup(function(use)
       {'nvim-lua/plenary.nvim'},
       {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
     },
-    config = function() require('plugins.telescope') end,
+    config = function() require 'plugins.telescope' end,
   }
 
   if packer_bootstrap then
-    require('packer').sync()
+    require 'packer'.sync()
   end
 end)

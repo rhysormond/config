@@ -24,7 +24,7 @@ nnoremap('<leader>sa', ':lua  require "telescope.builtin".lsp_workspace_symbols(
 -- language server config
 local servers = { 'rust_analyzer', 'metals' }
 for _, server in ipairs(servers) do
-  require('lspconfig')[server].setup {
-    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+  require 'lspconfig'[server].setup {
+    capabilities = require 'cmp_nvim_lsp'.update_capabilities(vim.lsp.protocol.make_client_capabilities()),
   }
 end

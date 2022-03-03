@@ -10,5 +10,5 @@ nnoremap('<Leader>ff', ':lua require "telescope.builtin".git_files()<CR>')
 nnoremap('<Leader>fb', ':lua require "telescope.builtin".buffers()<CR>')
 
 -- use native fzf to improve performance
-require('telescope').setup()
-require('telescope').load_extension('fzf')
+require 'telescope'.setup()
+require 'telescope'.load_extension('fzf')
