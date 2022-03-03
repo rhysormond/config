@@ -1,9 +1,11 @@
+require 'utils'
+
 -- [F]ind a line within [A]ll open buffers
-vim.api.nvim_set_keymap('n', '<Leader>fa', ':lua require "telescope.builtin".live_grep()<CR>', {noremap = true})
+nnoremap('<Leader>fa', ':lua require "telescope.builtin".live_grep()<CR>')
 -- [F]ind [L]ine in open buffer
-vim.api.nvim_set_keymap('n', '<Leader>fl', ':lua require "telescope.builtin".current_buffer_fuzzy_find()<CR>', {noremap = true})
+nnoremap('<Leader>fl', ':lua require "telescope.builtin".current_buffer_fuzzy_find()<CR>')
 -- [F]ind [F]ile in directory
-vim.api.nvim_set_keymap('n', '<Leader>ff', ':lua require "telescope.builtin".git_files()<CR>', {noremap = true})
+nnoremap('<Leader>ff', ':lua require "telescope.builtin".git_files()<CR>')
 -- [F]ind [B]uffer with name
-vim.api.nvim_set_keymap('n', '<Leader>fb', ':lua require "telescope.builtin".buffers()<CR>', {noremap = true})
+nnoremap('<Leader>fb', ':lua require "telescope.builtin".buffers()<CR>')
 

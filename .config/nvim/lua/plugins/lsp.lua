@@ -1,3 +1,5 @@
+require 'utils'
+
 -- use a completion menu instead of automatically completing things
 vim.o.completeopt=menuone,noinsert,noselect
 
@@ -5,22 +7,22 @@ vim.o.completeopt=menuone,noinsert,noselect
 vim.cmd([[autocmd BufWrite * silent! lua vim.lsp.buf.formatting()]])
 
 -- goto commands
-vim.api.nvim_set_keymap('n', 'gD', ':lua  vim.lsp.buf.declaration()<CR>', {noremap = true})
-vim.api.nvim_set_keymap('n', 'gd', ':lua  vim.lsp.buf.definition()<CR>', {noremap = true})
-vim.api.nvim_set_keymap('n', 'gi', ':lua  vim.lsp.buf.implementation()<CR>', {noremap = true})
-vim.api.nvim_set_keymap('n', 'gr', ':lua  require "telescope.builtin".lsp_references()<CR>', {noremap = true})
-vim.api.nvim_set_keymap('n', 'gy', ':lua  vim.lsp.buf.type_definition()<CR>', {noremap = true})
+nnoremap('gD', ':lua  vim.lsp.buf.declaration()<CR>')
+nnoremap('gd', ':lua  vim.lsp.buf.definition()<CR>')
+nnoremap('gi', ':lua  vim.lsp.buf.implementation()<CR>')
+nnoremap('gr', ':lua  require "telescope.builtin".lsp_references()<CR>')
+nnoremap('gy', ':lua  vim.lsp.buf.type_definition()<CR>')
 
 -- popup hints
-vim.api.nvim_set_keymap('n', 'K', ':lua  vim.lsp.buf.hover()<CR>', {noremap = true})
+nnoremap('K', ':lua  vim.lsp.buf.hover()<CR>')
 
 -- refactoring
-vim.api.nvim_set_keymap('n', 'ca', ':lua  vim.lsp.buf.code_action()<CR>', {noremap = true})
-vim.api.nvim_set_keymap('n', 'rn', ':lua  vim.lsp.buf.rename()<CR>', {noremap = true})
+nnoremap('ca', ':lua  vim.lsp.buf.code_action()<CR>')
+nnoremap('rn', ':lua  vim.lsp.buf.rename()<CR>')
 
 -- file and project outlines
-vim.api.nvim_set_keymap('n', 'sf', ':lua  require "telescope.builtin".lsp_document_symbols()<CR>', {noremap = true})
-vim.api.nvim_set_keymap('n', 'sa', ':lua  require "telescope.builtin".lsp_workspace_symbols()<CR>', {noremap = true})
+nnoremap('sf', ':lua  require "telescope.builtin".lsp_document_symbols()<CR>')
+nnoremap('sa', ':lua  require "telescope.builtin".lsp_workspace_symbols()<CR>')
 
 -- completion config
 local cmp = require('cmp')
