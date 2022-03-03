@@ -1,28 +1,28 @@
-" use a completion menu instead of automatically completing things
-set completeopt=menuone,noinsert,noselect
+-- use a completion menu instead of automatically completing things
+vim.o.completeopt=menuone,noinsert,noselect
 
-" format on save
-autocmd BufWrite * silent! lua vim.lsp.buf.formatting()
+-- format on save
+vim.cmd([[autocmd BufWrite * silent! lua vim.lsp.buf.formatting()]])
 
-" goto commands
-nnoremap gD <cmd>lua vim.lsp.buf.declaration()<CR>
-nnoremap gd <cmd>lua vim.lsp.buf.definition()<CR>
-nnoremap gi <cmd>lua vim.lsp.buf.implementation()<CR>
-nnoremap gr <cmd>lua require'telescope.builtin'.lsp_references()<CR>
-nnoremap gy <cmd>lua vim.lsp.buf.type_definition()<CR>
+-- goto commands
+vim.api.nvim_set_keymap('n', 'gD', ':lua  vim.lsp.buf.declaration()<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', 'gd', ':lua  vim.lsp.buf.definition()<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', 'gi', ':lua  vim.lsp.buf.implementation()<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', 'gr', ':lua  require "telescope.builtin".lsp_references()<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', 'gy', ':lua  vim.lsp.buf.type_definition()<CR>', {noremap = true})
 
-" popup hints
-nnoremap K <cmd>lua vim.lsp.buf.hover()<CR>
+-- popup hints
+vim.api.nvim_set_keymap('n', 'K', ':lua  vim.lsp.buf.hover()<CR>', {noremap = true})
 
-" refactoring
-nnoremap <leader>ca <cmd>lua vim.lsp.buf.code_action()<CR>
-nnoremap <leader>rn <cmd>lua vim.lsp.buf.rename()<CR>
+-- refactoring
+vim.api.nvim_set_keymap('n', 'ca', ':lua  vim.lsp.buf.code_action()<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', 'rn', ':lua  vim.lsp.buf.rename()<CR>', {noremap = true})
 
-" file and project outlines
-nnoremap <leader>sf <cmd>lua require'telescope.builtin'.lsp_document_symbols{}<CR>
-nnoremap <leader>sa <cmd>lua require'telescope.builtin'.lsp_workspace_symbols{}<CR>
+-- file and project outlines
+vim.api.nvim_set_keymap('n', 'sf', ':lua  require "telescope.builtin".lsp_document_symbols()<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', 'sa', ':lua  require "telescope.builtin".lsp_workspace_symbols()<CR>', {noremap = true})
 
-lua <<EOF
+-- completion config
 local cmp = require('cmp')
 local luasnip = require('luasnip')
 
@@ -77,10 +77,11 @@ cmp.setup.cmdline(':', {
   })
 })
 
+-- language server config
 local servers = { 'rust_analyzer', 'metals' }
 for _, server in ipairs(servers) do
   require('lspconfig')[server].setup {
     capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
   }
 end
-EOF
+
