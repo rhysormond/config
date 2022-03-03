@@ -1,9 +1,5 @@
 require 'utils'
 
--- leader key
-nnoremap('n', '<Space>', '', {})
-vim.g.mapleader = ' '
-
 -- general configuration
 vim.o.hidden = true -- hide buffers rather than abandoning them
 vim.o.spell = true -- enable spellchecking
@@ -18,12 +14,6 @@ vim.o.showmode = false -- don't show the current mode
 
 -- line wrapping
 vim.o.linebreak = true -- only wrap at specific characters
-
--- use the system clipboard with leader
-nnoremap('<leader>c', '"+c')
-nnoremap('<leader>d', '"+d')
-nnoremap('<leader>y', '"+y')
-nnoremap('<leader>p', '"+p')
 
 -- netrw
 vim.g.netrw_banner = 0 -- don't show the netrw banner
@@ -48,12 +38,6 @@ vim.o.shortmess = vim.o.shortmess .. 'c' -- don't pass messages to ins-completio
 -- allow cursor wrapping when moving left/right
 vim.o.whichwrap = "h,l"
 
--- unmap arrow keys
-nnoremap('<Up>', '<Nop>')
-nnoremap('<Down>', '<Nop>')
-nnoremap('<Left>', '<Nop>')
-nnoremap('<Right>', '<Nop>')
-
 -- persist undo between sessions
 vim.o.undofile = true
 
@@ -68,4 +52,11 @@ vim.o.lazyredraw = true -- don't redraw while executing macros
 vim.o.ttimeout = true -- enable escape code timeout
 vim.o.ttimeoutlen = 0 -- set timeout length to 0
 vim.o.updatetime = 300 -- faster updates
+
+-- persist cursor position between sessions
+vim.cmd([[autocmd BufReadPost * silent! normal! g`"zv]])
+
+-- highlight the current line for the active window
+vim.cmd([[autocmd WinEnter * set cursorline]])
+vim.cmd([[autocmd WinLeave * set nocursorline]])
 

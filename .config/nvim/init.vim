@@ -1,17 +1,11 @@
 " source lua config
 exe 'luafile' '~/.config/nvim/lua/plugins.lua'
 exe 'luafile' '~/.config/nvim/lua/settings.lua'
+exe 'luafile' '~/.config/nvim/lua/keybinds.lua'
 
 " colors
 set termguicolors
 colorscheme melange
-
-" focused window highlighting
-augroup FocusHighlight
-  autocmd!
-  autocmd WinEnter * set cursorline
-  autocmd WinLeave * set nocursorline
-augroup END
 
 " split window navigation
 if exists('$TMUX')
@@ -34,10 +28,4 @@ else
   nnoremap <c-k> <c-w>k
   nnoremap <c-l> <c-w>l
 endif
-
-" persist cursor position between sessions
-augroup PersistCursorPosition
-  autocmd!
-  autocmd BufReadPost * silent! normal! g`"zv
-augroup END
 
