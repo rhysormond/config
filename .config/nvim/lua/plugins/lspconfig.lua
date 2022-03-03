@@ -22,9 +22,29 @@ nnoremap('<leader>sf', ':lua  require "telescope.builtin".lsp_document_symbols()
 nnoremap('<leader>sa', ':lua  require "telescope.builtin".lsp_workspace_symbols()<CR>')
 
 -- language server config
+local capabilities = require 'cmp_nvim_lsp'.update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+
+require 'lspconfig'.sumneko_lua.setup {
+  capabilities = capabilities,
+  settings = {
+    Lua = {
+      runtime = {
+          version = 'LuaJIT',
+          path = runtime_path,
+      },
+      diagnostics = {
+          globals = { 'vim' },
+      },
+      workspace = {
+          library = vim.api.nvim_get_runtime_file("", true),
+      },
+    },
+  },
+}
+
 local servers = { 'rust_analyzer', 'metals' }
 for _, server in ipairs(servers) do
   require 'lspconfig'[server].setup {
-    capabilities = require 'cmp_nvim_lsp'.update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+    capabilities = capabilities,
   }
 end
