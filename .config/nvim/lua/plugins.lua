@@ -36,11 +36,11 @@ return require 'packer'.startup(function(use)
       'hrsh7th/cmp-path',
       'hrsh7th/cmp-cmdline',
       'hrsh7th/cmp-nvim-lua',
+      'L3MON4D3/LuaSnip',
       'saadparwaiz1/cmp_luasnip',
     },
     config = function() require 'plugins.cmp' end,
   }
-  use 'L3MON4D3/LuaSnip'
 
   -- fuzzy finding
   use {
