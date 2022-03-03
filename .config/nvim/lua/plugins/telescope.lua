@@ -8,3 +8,7 @@ nnoremap('<Leader>fl', ':lua require "telescope.builtin".current_buffer_fuzzy_fi
 nnoremap('<Leader>ff', ':lua require "telescope.builtin".git_files()<CR>')
 -- [F]ind [B]uffer with name
 nnoremap('<Leader>fb', ':lua require "telescope.builtin".buffers()<CR>')
+
+-- use native fzf to improve performance
+require('telescope').setup()
+require('telescope').load_extension('fzf')
