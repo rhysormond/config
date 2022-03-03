@@ -1,6 +1,3 @@
--- use a completion menu instead of automatically completing things
-vim.o.completeopt=menuone,noinsert,noselect
-
 local cmp = require 'cmp'
 local luasnip = require 'luasnip'
 

@@ -34,6 +34,7 @@ vim.o.ignorecase = true -- only search by case when uppercase letters are used
 -- completion
 vim.o.wildmode = 'longest:full,full' -- command line completion using wildmenu
 vim.o.shortmess = vim.o.shortmess .. 'c' -- don't pass messages to ins-completion-menu
+vim.o.completeopt = 'menuone,noinsert,noselect' -- use a completion menu instead of automatically completing things
 
 -- allow cursor wrapping when moving left/right
 vim.o.whichwrap = 'h,l'
