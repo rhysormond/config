@@ -5,7 +5,7 @@ nnoremap('<Space>', '')
 vim.g.mapleader = ' '
 
 -- use enter to clear search results
-vim.api.nvim_set_keymap('n', '<CR>', ':noh<CR><CR>', {noremap = true})
+nnoremap('<CR>', ':noh<CR><CR>')
 
 -- use the system clipboard with leader
 nnoremap('<leader>c', '"+c')
