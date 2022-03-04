@@ -27,15 +27,11 @@ cmp.setup {
       end
     end,
   },
-  sources = cmp.config.sources(
-    {
-      { name = 'nvim_lsp' },
-      { name = 'luasnip' },
-    },
-    {
-      { name = 'buffer' },
-    }
-  )
+  sources = cmp.config.sources {
+    { name = 'nvim_lsp' },
+    { name = 'luasnip' },
+    { name = 'buffer' },
+  }
 }
 
 -- completion for search
@@ -47,12 +43,8 @@ cmp.setup.cmdline('/', {
 
 -- completion for commands
 cmp.setup.cmdline(':', {
-  sources = cmp.config.sources(
-    {
-      { name = 'path' }
-    },
-    {
-      { name = 'cmdline' }
-    }
-  )
+  sources = cmp.config.sources {
+    { name = 'cmdline' },
+    { name = 'path' },
+  }
 })
