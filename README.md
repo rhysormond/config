@@ -9,6 +9,9 @@ Clone them directly into `$XDG_CONFIG_HOME` (e.g. `~/.config`).
 # install an ergonomic pacman wrapper
 sudo pacman -S yay
 
+# tell yay to always update git packages
+yay --save --devel
+
 # install build dependencies
 yay -S base-devel binutils
 
