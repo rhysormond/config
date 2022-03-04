@@ -1,7 +1,12 @@
 require 'utils'
 
 -- format on save
-vim.cmd([[autocmd BufWrite * silent! lua vim.lsp.buf.formatting()]])
+vim.api.nvim_create_augroup('format_on_save', { clear = true })
+vim.api.nvim_create_autocmd('BufWrite', {
+  group = 'format_on_save',
+  pattern = '*',
+  callback = function() vim.lsp.buf.formatting() end,
+})
 
 -- goto commands
 nnoremap('gD', ':lua  vim.lsp.buf.declaration()<CR>')
