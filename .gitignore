@@ -4,7 +4,6 @@
 # Track changes to these directories
 !/alacritty
 !/autostart
-!/environment.d
 !/fish
 !/git
 !/ideavim
