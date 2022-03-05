@@ -35,12 +35,12 @@ if [[ -z "$merge_commit" ]]; then
 
   # if we don't have a conventional commit, prompt to continue
   if [[ -z "$conventional_commit" ]]; then
-      exec prompt "[$commit_subject] is not a conventional commit. Continue?"
+      exec ~/.config/git/hooks/prompt "[$commit_subject] is not a conventional commit. Continue?"
   fi
 
   # if we don't have a commit that's too long, prompt to continue
   if ((${#conventional_commit} > 50)); then
-      exec prompt "[$commit_subject] is longer than 50 characters. Continue?"
+      exec ~/.config/git/hooks/prompt "[$commit_subject] is longer than 50 characters. Continue?"
   fi
 fi
 
