@@ -1,10 +1,10 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
-SETUVAR BROWSER:firefox
-SETUVAR EDITOR:nvim
-SETUVAR PAGER:nvim\x20\x2dR
-SETUVAR MANPAGER:nvim\x20\x2dc\x20\x27set\x20ft\x3dman\x27\x20\x2d
-SETUVAR GIT_BRANCH_PREFIX:ro\x2d
+SETUVAR --export BROWSER:firefox
+SETUVAR --export EDITOR:nvim
+SETUVAR --export GIT_BRANCH_PREFIX:ro\x2d
+SETUVAR --export MANPAGER:nvim\x20\x2bMan\x21
+SETUVAR --export PAGER:nvim\x20\x2dR
 SETUVAR __fish_git_prompt_char_dirtystate:\x25
 SETUVAR __fish_git_prompt_char_stagedstate:\x2b
 SETUVAR __fish_git_prompt_char_stateseparator:
