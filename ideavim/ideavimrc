@@ -1,3 +1,6 @@
+" line numbers
+set number relativenumber
+
 " no bells
 set visualbell
 
