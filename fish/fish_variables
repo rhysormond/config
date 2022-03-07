@@ -2,10 +2,10 @@
 # VERSION: 3.0
 SETUVAR --export BROWSER:firefox
 SETUVAR --export EDITOR:nvim
-SETUVAR --export GIT_BRANCH_PREFIX:ro\x2d
+SETUVAR --export PAGER:nvim\x20\x2dR
 SETUVAR --export MANPAGER:nvim\x20\x2bMan\x21
 SETUVAR --export MANWIDTH:999
-SETUVAR --export PAGER:nvim\x20\x2dR
+SETUVAR --export GIT_BRANCH_PREFIX:ro\x2d
 SETUVAR __fish_git_prompt_char_dirtystate:\x25
 SETUVAR __fish_git_prompt_char_stagedstate:\x2b
 SETUVAR __fish_git_prompt_char_stateseparator:
