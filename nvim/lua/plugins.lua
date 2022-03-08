@@ -6,8 +6,13 @@ end
 return require 'packer'.startup(function(use)
   -- ux improvements
   use 'tpope/vim-commentary'
-  use 'tpope/vim-fugitive'
   use 'tpope/vim-surround'
+  use {
+    'tpope/vim-fugitive',
+    requires = {
+      'tpope/vim-rhubarb'
+    }
+  }
 
   -- ui improvements
   use 'savq/melange'
