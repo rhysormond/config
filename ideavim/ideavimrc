@@ -4,6 +4,15 @@ set number relativenumber
 " no bells
 set visualbell
 
+" search
+set smartcase ignorecase
+
+" use system clipboard with leader
+nnoremap <leader>c "+c
+nnoremap <leader>d "+d
+nnoremap <leader>y "+y
+nnoremap <leader>p "+p
+
 " highlight search results (on by default on neovim)
 set hlsearch
 
