@@ -55,23 +55,23 @@ vim.o.ttimeoutlen = 0 -- set timeout length to 0
 vim.o.updatetime = 300 -- faster updates
 
 -- persist cursor position between sessions
-vim.api.nvim_create_augroup('persist_cursor_position', { clear = true })
+local persist_cursor = vim.api.nvim_create_augroup('persist_cursor_position', { clear = true })
 vim.api.nvim_create_autocmd('BufReadPost', {
-  group = 'persist_cursor_position',
+  group = persist_cursor,
   pattern = '*',
   command = 'silent! normal! g`"zv'
 })
 
 -- highlight the current line for the active window
 vim.o.cursorline = true
-vim.api.nvim_create_augroup('highlight_active_window', { clear = true })
+local highlight_active = vim.api.nvim_create_augroup('highlight_active_window', { clear = true })
 vim.api.nvim_create_autocmd('WinEnter', {
-  group = 'highlight_active_window',
+  group = highlight_active,
   pattern = '*',
   callback = function() vim.o.cursorline = true end,
 })
 vim.api.nvim_create_autocmd('WinLeave', {
-  group = 'highlight_active_window',
+  group = highlight_active,
   pattern = '*',
   callback = function() vim.o.cursorline = false end,
 })

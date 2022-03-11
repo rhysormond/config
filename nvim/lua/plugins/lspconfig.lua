@@ -1,9 +1,9 @@
 require 'utils'
 
 -- format on save
-vim.api.nvim_create_augroup('format_on_save', { clear = true })
+local format_save = vim.api.nvim_create_augroup('format_on_save', { clear = true })
 vim.api.nvim_create_autocmd('BufWrite', {
-  group = 'format_on_save',
+  group = format_save,
   pattern = '*',
   callback = function() vim.lsp.buf.formatting() end,
 })
