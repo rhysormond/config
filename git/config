@@ -6,12 +6,7 @@
   editor = nvim
   filemode = false
   hooksPath = ~/.config/git/hooks
-  pager = diffr \
-    --colors refine-added:none:background:0x33,0x99,0x33:bold \
-    --colors added:none:background:0x33,0x55,0x33 \
-    --colors refine-removed:none:background:0x99,0x33,0x33:bold \
-    --colors removed:none:background:0x55,0x33,0x33 \
-    | less -FRX
+  pager = delta
 [advice]
   addIgnoredFile = false
   pushUpdateRejected = false
@@ -26,19 +21,22 @@
 [commit]
   gpgsign = true
   verbose = true
+[delta]
+  navigate = true
+  pager = less -FRX
+  theme = zenburn
+  syntax-theme = zenburn
 [diff]
+  colorMoved = default
   algorithm = histogram
-  tool = nvimdiff
-[difftool "nvimdiff"]
-  cmd = "nvim -d $LOCAL $REMOTE"
 [help]
   autocorrect = 1
+[interactive]
+  diffFilter = delta --color-only
 [log]
   follow = true
 [merge]
-  tool = nvimdiff
-[mergetool "nvimdiff"]
-  cmd = "nvim -d $LOCAL $REMOTE $MERGED"
+  conflictstyle = diff3
 [pull]
   ff = only
 [push]

@@ -18,7 +18,7 @@ yay -S base-devel binutils
 # install everything else
 yay -S \
   alacritty \
-  diffr \
+  git-delta \
   fish \
   fisher \
   git-extras \
