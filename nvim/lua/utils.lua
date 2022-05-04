@@ -1,3 +1,3 @@
 function nnoremap(keys, fn)
-  vim.api.nvim_set_keymap('n', keys, fn, { noremap = true, silent = true })
+  vim.keymap.set('n', keys, fn, { silent = true })
 end
