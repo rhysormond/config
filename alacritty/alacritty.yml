@@ -9,11 +9,11 @@ window:
 
 font:
   normal:
-    family: Fira Code
+    family: Comic Code Ligatures
   bold:
-    family: Fira Code
+    family: Comic Code Ligatures
   italic:
-    family: Fira Code
+    family: Comic Code Ligatures
 
 colors:
   primary:
