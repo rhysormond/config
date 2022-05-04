@@ -17,15 +17,15 @@ yay -S base-devel binutils
 
 # install everything else
 yay -S \
-  alacritty \
-  git-delta \
   fish \
   fisher \
+  git-delta \
   git-extras \
+  kitty \
   neovim-git \
-  ttf-fira-code \
   ripgrep \
   tmux \
+  ttf-fira-code \
   xcape \
   xsel
 ```

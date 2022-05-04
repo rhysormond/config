@@ -2,10 +2,10 @@
 /*
 
 # Track changes to these directories
-!/alacritty
 !/autostart
 !/fish
 !/git
 !/ideavim
+!/kitty
 !/nvim
 !/tmux
