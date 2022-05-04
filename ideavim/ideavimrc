@@ -7,19 +7,19 @@ set visualbell
 " search
 set smartcase ignorecase
 
+" highlight search results 
+set hlsearch
+
 " use system clipboard with leader
 nnoremap <leader>c "+c
 nnoremap <leader>d "+d
 nnoremap <leader>y "+y
 nnoremap <leader>p "+p
 
-" highlight search results (on by default on neovim)
-set hlsearch
-
 " use enter to clear search results
 nnoremap <CR> :noh<CR><CR>
 
-" split window navigation (not properly sourced from nvim config)
+" split window navigation
 nnoremap <c-h> <c-w>h
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
