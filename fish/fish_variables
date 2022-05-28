@@ -19,7 +19,7 @@ SETUVAR __fish_git_prompt_showcolorhints:yes
 SETUVAR __fish_git_prompt_showdirtystate:yes
 SETUVAR __fish_git_prompt_showuntrackedfiles:yes
 SETUVAR __fish_git_prompt_showupstream:yes
-SETUVAR __fish_initialized:3400
+SETUVAR __fish_initialized:3100
 SETUVAR fish_color_autosuggestion:555
 SETUVAR fish_color_cancel:\x2d\x2dreverse
 SETUVAR fish_color_command:blue
