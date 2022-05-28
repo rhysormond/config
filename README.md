@@ -1,31 +1,27 @@
 # Setup
 
-I use these configs on top of Manjaro KDE.
+I use these configs on top of Ubuntu Gnome.
 Clone them directly into `$XDG_CONFIG_HOME` (e.g. `~/.config`).
 
 # Dependencies
 
-```fish
-# install an ergonomic pacman wrapper
-sudo pacman -S yay
+```sh
+sudo apt update
 
-# tell yay to always update git packages
-yay --save --devel
-
-# install build dependencies
-yay -S base-devel binutils
-
-# install everything else
-yay -S \
+sudo apt install \
   fish \
-  fisher \
-  git-delta \
   git-extras \
   kitty \
-  neovim-git \
   ripgrep \
   tmux \
-  ttf-fira-code \
   xcape \
   xsel
+
+# install neovim via PPA
+sudo add-apt-repository ppa:neovim-ppa/stable
+sudo apt-get update
+sudo apt-get install neovim
+
+# dpkg install delta via github releases
+# see: https://dandavison.github.io/delta/installation.html
 ```
