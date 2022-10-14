@@ -10,6 +10,9 @@ set smartcase ignorecase
 " highlight search results 
 set hlsearch
 
+" use space as the leader key
+let mapleader=" "
+
 " use system clipboard with leader
 nnoremap <leader>c "+c
 nnoremap <leader>d "+d
