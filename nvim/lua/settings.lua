@@ -50,7 +50,6 @@ vim.o.swapfile = false
 vim.o.writebackup = false
 
 -- performance optimizations
-vim.o.lazyredraw = true -- don't redraw while executing macros
 vim.o.ttimeout = true -- enable escape code timeout
 vim.o.ttimeoutlen = 0 -- set timeout length to 0
 vim.o.updatetime = 300 -- faster updates
