@@ -1,3 +1,6 @@
+-- prompts
+vim.o.shortmess = vim.o.shortmess .. 'I' -- ignore startup message
+
 -- buffers
 vim.o.hidden = true -- hide buffers rather than abandoning them
 
