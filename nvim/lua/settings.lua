@@ -15,7 +15,6 @@ vim.o.shiftwidth = 2 -- indents are 2 spaces
 -- status line
 vim.o.showmode = false -- don't show the current mode
 vim.o.laststatus = 3 -- use the global statusline
-vim.o.cmdheight = 0 -- don't show the command line unless it's being used
 
 -- line wrapping
 vim.o.linebreak = true -- only wrap at specific characters
