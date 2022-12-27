@@ -20,7 +20,6 @@
   ui = auto
 [commit]
   gpgsign = true
-  verbose = true
 [delta]
   navigate = true
   pager = less -FRX
@@ -57,10 +56,10 @@
   ap = add --patch
   bd = branch --delete --force
   br = branch --format='%(HEAD) %(color:yellow)%(objectname:short) %(color:green)%(committerdate:short) %(color:reset)%(refname:short)'
-  ca = commit --amend
+  ca = commit --verbose --amend
   cb = checkout -b
-  ci = commit
-  cm = commit --message
+  ci = commit --verbose
+  cm = commit --verbose --message
   co = checkout
   dm = diff master...HEAD
   ls = stash list --pretty='%C(yellow)%h %>(12)%C(green)%cr %C(reset)%s'
