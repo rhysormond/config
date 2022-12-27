@@ -35,6 +35,13 @@ local plugins = {
     'hoob3rt/lualine.nvim',
     config = function() require 'plugins.lualine' end,
   },
+  {
+    'folke/noice.nvim',
+    config = function() require 'plugins.noice' end,
+    dependencies = {
+      'MunifTanjim/nui.nvim',
+    },
+  },
 
   -- language server
   {

@@ -10,6 +10,8 @@
   "lazy.nvim": { "branch": "main", "commit": "0f3782c06657cb33c031bf92ae6692d8b47d83f2" },
   "lualine.nvim": { "branch": "master", "commit": "fffbcb829288c3ca366f17cdb8d46aefb5c1d6f3" },
   "melange": { "branch": "master", "commit": "78af754ad22828ea3558e2990326b8aa39730918" },
+  "noice.nvim": { "branch": "main", "commit": "585d24ec6e3fb4288414f864cfe2de7d025e8216" },
+  "nui.nvim": { "branch": "main", "commit": "4939282919885e1c83aff68ecb35b3cadf6015a9" },
   "nvim-cmp": { "branch": "main", "commit": "e55033fce468c9c578b946948807f2ac48a6ee08" },
   "nvim-lspconfig": { "branch": "master", "commit": "42ca8ce0f2252be795da4789fadfa91f6c3f7464" },
   "plenary.nvim": { "branch": "master", "commit": "4b7e52044bbb84242158d977a50c4cbcd85070c7" },
