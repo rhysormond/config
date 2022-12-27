@@ -1,41 +1,49 @@
-local install_path = vim.fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-  packer_bootstrap = vim.fn.system { 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path }
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "--single-branch",
+    "https://github.com/folke/lazy.nvim.git",
+    lazypath,
+  })
 end
+vim.opt.runtimepath:prepend(lazypath)
 
-return require 'packer'.startup(function(use)
+local plugins = {
   -- ux improvements
-  use 'tpope/vim-commentary'
-  use 'tpope/vim-surround'
-  use {
+  'tpope/vim-commentary',
+  'tpope/vim-surround',
+  {
     'tpope/vim-fugitive',
-    requires = {
+    dependencies = {
       'tpope/vim-rhubarb'
     }
-  }
+  },
 
   -- ui improvements
-  use 'savq/melange'
-  use {
+  'savq/melange',
+  {
     'lewis6991/gitsigns.nvim',
-    requires = {
+    dependencies = {
       'nvim-lua/plenary.nvim'
     },
     config = function() require 'gitsigns'.setup() end,
-  }
-  use {
+  },
+  {
     'hoob3rt/lualine.nvim',
     config = function() require 'plugins.lualine' end,
-  }
+  },
 
   -- language server
-  use {
+  {
     'neovim/nvim-lspconfig',
     config = function() require 'plugins.lspconfig' end,
-  }
-  use {
+  },
+  {
     'hrsh7th/nvim-cmp',
-    requires = {
+    dependencies = {
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-path',
@@ -45,19 +53,38 @@ return require 'packer'.startup(function(use)
       'saadparwaiz1/cmp_luasnip',
     },
     config = function() require 'plugins.cmp' end,
-  }
+  },
 
   -- fuzzy finding
-  use {
+  {
     'nvim-telescope/telescope.nvim',
-    requires = {
-      {'nvim-lua/plenary.nvim'},
-      {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      {'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
     },
     config = function() require 'plugins.telescope' end,
-  }
+  },
+}
 
-  if packer_bootstrap then
-    require 'packer'.sync()
-  end
-end)
+
+local opts = {
+  -- replace nerd font symbols with unicode icons
+  ui = {
+    icons = {
+      cmd = "⌘",
+      config = "🛠",
+      event = "📅",
+      ft = "📂",
+      init = "⚙",
+      keys = "🗝",
+      plugin = "🔌",
+      runtime = "💻",
+      source = "📄",
+      start = "🚀",
+      task = "📌",
+    },
+  },
+}
+
+require("lazy").setup(plugins, opts)
+

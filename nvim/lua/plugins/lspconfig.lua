@@ -27,7 +27,7 @@ nnoremap('<leader>sf', ':lua require "telescope.builtin".lsp_document_symbols()<
 nnoremap('<leader>sa', ':lua require "telescope.builtin".lsp_workspace_symbols()<CR>')
 
 -- language server config
-local capabilities = require 'cmp_nvim_lsp'.update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+local capabilities = require 'cmp_nvim_lsp'.default_capabilities(),
 
 require 'lspconfig'.sumneko_lua.setup {
   capabilities = capabilities,
