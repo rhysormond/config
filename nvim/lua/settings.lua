@@ -43,9 +43,6 @@ vim.o.whichwrap = 'h,l'
 -- persist undo between sessions
 vim.o.undofile = true
 
--- use the system clipboard by default
-vim.o.clipboard = 'unnamedplus'
-
 -- prevent automatic backups
 vim.o.wb = false
 vim.o.backup = false

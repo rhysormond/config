@@ -7,6 +7,12 @@ vim.g.mapleader = ' '
 -- use enter to clear search results
 nnoremap('<CR>', ':noh<CR><CR>')
 
+-- use the system clipboard with leader
+nnoremap('<leader>c', '"+c')
+nnoremap('<leader>d', '"+d')
+nnoremap('<leader>y', '"+y')
+nnoremap('<leader>p', '"+p')
+
 -- use ctrl + hjkl for split navigation
 nnoremap('<c-h>', '<c-w>h')
 nnoremap('<c-j>', '<c-w>j')

@@ -13,8 +13,11 @@ set hlsearch
 " use space as the leader key
 let mapleader=" "
 
-" use the system clipboard by default
-set clipboard=unnamedplus
+" use system clipboard with leader
+nnoremap <leader>c "+c
+nnoremap <leader>d "+d
+nnoremap <leader>y "+y
+nnoremap <leader>p "+p
 
 " use enter to clear search results
 nnoremap <CR> :noh<CR><CR>
