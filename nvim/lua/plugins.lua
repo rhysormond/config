@@ -1,11 +1,11 @@
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "--single-branch",
-    "https://github.com/folke/lazy.nvim.git",
+    'git',
+    'clone',
+    '--filter=blob:none',
+    '--single-branch',
+    'https://github.com/folke/lazy.nvim.git',
     lazypath,
   })
 end
@@ -67,7 +67,7 @@ local plugins = {
     'nvim-telescope/telescope.nvim',
     dependencies = {
       'nvim-lua/plenary.nvim',
-      {'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+      { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
     },
     config = function() require 'plugins.telescope' end,
   },
@@ -78,20 +78,19 @@ local opts = {
   -- replace nerd font symbols with unicode icons
   ui = {
     icons = {
-      cmd = "⌘",
-      config = "🛠",
-      event = "📅",
-      ft = "📂",
-      init = "⚙",
-      keys = "🗝",
-      plugin = "🔌",
-      runtime = "💻",
-      source = "📄",
-      start = "🚀",
-      task = "📌",
+      cmd = '⌘',
+      config = '🛠',
+      event = '📅',
+      ft = '📂',
+      init = '⚙',
+      keys = '🗝',
+      plugin = '🔌',
+      runtime = '💻',
+      source = '📄',
+      start = '🚀',
+      task = '📌',
     },
   },
 }
 
-require("lazy").setup(plugins, opts)
-
+require('lazy').setup(plugins, opts)

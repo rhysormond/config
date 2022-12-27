@@ -5,7 +5,7 @@ local format_save = vim.api.nvim_create_augroup('format_on_save', { clear = true
 vim.api.nvim_create_autocmd('BufWrite', {
   group = format_save,
   pattern = '*',
-  callback = function() vim.lsp.buf.formatting() end,
+  callback = function() vim.lsp.buf.format { async = true } end,
 })
 
 -- goto commands
@@ -29,23 +29,23 @@ nnoremap('<leader>sa', ':lua require "telescope.builtin".lsp_workspace_symbols()
 -- language server config
 local capabilities = require 'cmp_nvim_lsp'.default_capabilities(),
 
-require 'lspconfig'.sumneko_lua.setup {
-  capabilities = capabilities,
-  settings = {
-    Lua = {
-      runtime = {
-        version = 'LuaJIT',
-        path = runtime_path,
+    require 'lspconfig'.sumneko_lua.setup {
+      capabilities = capabilities,
+      settings = {
+        Lua = {
+          runtime = {
+            version = 'LuaJIT',
+            path = runtime_path,
+          },
+          diagnostics = {
+            globals = { 'vim' },
+          },
+          workspace = {
+            library = vim.api.nvim_get_runtime_file('', true),
+          },
+        },
       },
-      diagnostics = {
-        globals = { 'vim' },
-      },
-      workspace = {
-        library = vim.api.nvim_get_runtime_file("", true),
-      },
-    },
-  },
-}
+    }
 
 local servers = { 'rust_analyzer', 'metals' }
 for _, server in ipairs(servers) do
