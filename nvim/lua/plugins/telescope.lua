@@ -8,22 +8,22 @@ nnoremap(
 nnoremap(
   '[f]ind a line within [a]ll open buffers',
   '<Leader>fa',
-  ':lua require "telescope.builtin".live_grep()<CR>'
+  require 'telescope.builtin'.live_grep
 )
 nnoremap(
   '[f]ind [l]ine in open buffer',
   '<Leader>fl',
-  ':lua require "telescope.builtin".current_buffer_fuzzy_find()<CR>'
+  require 'telescope.builtin'.current_buffer_fuzzy_find
 )
 nnoremap(
   '[f]ind [f]ile in directory',
   '<Leader>ff',
-  ':lua require "telescope.builtin".git_files()<CR>'
+  require 'telescope.builtin'.find_files
 )
 nnoremap(
   '[f]ind [b]uffer with name',
   '<Leader>fb',
-  ':lua require "telescope.builtin".buffers()<CR>'
+  require 'telescope.builtin'.buffers
 )
 
 -- use native fzf to improve performance

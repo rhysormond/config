@@ -12,58 +12,58 @@ vim.api.nvim_create_autocmd('BufWrite', {
 nnoremap(
   '[g]o to [D]eclaration',
   'gD',
-  ':lua vim.lsp.buf.declaration()<CR>'
+  vim.lsp.buf.declaration
 )
 nnoremap(
   '[g]o to [d]efinition',
   'gd',
-  ':lua vim.lsp.buf.definition()<CR>'
+  vim.lsp.buf.definition
 )
 nnoremap(
   '[g]o to [i]mplementation',
   'gi',
-  ':lua vim.lsp.buf.implementation()<CR>'
+  vim.lsp.buf.implementation
 )
 nnoremap(
   '[g]o to [r]eference',
   'gr',
-  ':lua require "telescope.builtin".lsp_references()<CR>'
+  require "telescope.builtin".lsp_references
 )
 nnoremap(
   '[g]o to t[y]pe definition',
   'gy',
-  ':lua vim.lsp.buf.type_definition()<CR>'
+  vim.lsp.buf.type_definition
 )
 
 -- popup hints
 nnoremap(
   'hover',
   'K',
-  ':lua vim.lsp.buf.hover()<CR>'
+  vim.lsp.buf.hover
 )
 
 -- refactoring
 nnoremap(
   '[c]ode [a]ction',
   '<leader>ca',
-  ':lua vim.lsp.buf.code_action()<CR>'
+  vim.lsp.buf.code_action
 )
 nnoremap(
   '[r]e[n]ame',
   '<leader>rn',
-  ':lua vim.lsp.buf.rename()<CR>'
+  vim.lsp.buf.rename
 )
 
 -- file and project outlines
 nnoremap(
   '[s]ymbols in [f]ile/document',
   '<leader>sf',
-  ':lua require "telescope.builtin".lsp_document_symbols()<CR>'
+  require "telescope.builtin".lsp_document_symbols
 )
 nnoremap(
   '[s]ymbols [a]ll (all public symbols in workspace)',
   '<leader>sa',
-  ':lua require "telescope.builtin".lsp_workspace_symbols()<CR>'
+  require "telescope.builtin".lsp_workspace_symbols
 )
 
 -- language server config
