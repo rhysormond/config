@@ -82,7 +82,7 @@ require 'lspconfig'.sumneko_lua.setup {
     Lua = {
       runtime = {
         version = 'LuaJIT',
-        path = runtime_path,
+        path = vim.runtime_path,
       },
       diagnostics = {
         globals = { 'vim' },
