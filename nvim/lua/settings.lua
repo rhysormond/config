@@ -10,7 +10,6 @@ vim.o.spelllang = 'en_us' -- set spellcheck language
 
 -- whitespace
 vim.o.expandtab = true -- use spaces instead of tabs
-vim.o.shiftwidth = 2 -- indents are 2 spaces
 
 -- status line
 vim.o.showmode = false -- don't show the current mode

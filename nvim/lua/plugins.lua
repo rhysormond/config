@@ -13,9 +13,11 @@ vim.opt.runtimepath:prepend(lazypath)
 
 local plugins = {
   -- ux improvements
-  'tpope/vim-commentary',
-  'tpope/vim-surround',
+  'tpope/vim-commentary', -- commands for (un)commenting lines
+  'tpope/vim-surround', -- mappings for operating on surrounding text objects
+  'tpope/vim-sleuth', -- automatic tabstop and shiftwidth automatically
   {
+    -- git wrapper
     'tpope/vim-fugitive',
     dependencies = {
       'tpope/vim-rhubarb'
