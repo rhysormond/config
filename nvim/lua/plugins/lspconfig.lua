@@ -37,9 +37,14 @@ nnoremap(
 
 -- popup hints
 nnoremap(
-  'hover',
+  'hover documentation',
   'K',
   vim.lsp.buf.hover
+)
+nnoremap(
+  'signature documentation',
+  '<C-l>',
+  vim.lsp.buf.signature_help
 )
 
 -- refactoring
