@@ -48,6 +48,16 @@ local plugins = {
     config = function() require 'fidget'.setup() end,
   },
 
+  -- treesitter
+  {
+    'nvim-treesitter/nvim-treesitter',
+    build = function() pcall(require 'nvim-treesitter.install'.update { with_sync = true }) end,
+    config = function() require 'plugins.nvim-treesitter' end,
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter-textobjects',
+    }
+  },
+
   -- autocompletion
   {
     'hrsh7th/nvim-cmp',
