@@ -44,6 +44,12 @@ local plugins = {
     config = function() require 'plugins.lspconfig' end,
   },
   {
+    'j-hui/fidget.nvim',
+    config = function() require 'fidget'.setup() end,
+  },
+
+  -- autocompletion
+  {
     'hrsh7th/nvim-cmp',
     dependencies = {
       'hrsh7th/cmp-nvim-lsp',
