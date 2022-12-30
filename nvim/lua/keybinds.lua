@@ -1,26 +1,82 @@
 require 'utils'
 
 -- leader key
-nnoremap('<Space>', '')
+nnoremap(
+  'unmap space in normal mode',
+  '<Space>',
+  ''
+)
 vim.g.mapleader = ' '
 
 -- use enter to clear search results
-nnoremap('<CR>', ':noh<CR><CR>')
+nnoremap(
+  'use enter to clear search results',
+  '<CR>',
+  ':noh<CR><CR>'
+)
 
 -- use the system clipboard with leader
-nnoremap('<leader>c', '"+c')
-nnoremap('<leader>d', '"+d')
-nnoremap('<leader>y', '"+y')
-nnoremap('<leader>p', '"+p')
+nnoremap(
+  'use system clipboard to copy',
+  '<leader>c',
+  '"+c'
+)
+nnoremap(
+  'use system clipboard to delete',
+  '<leader>d',
+  '"+d'
+)
+nnoremap(
+  'use system clipboard to yank',
+  '<leader>y',
+  '"+y'
+)
+nnoremap(
+  'use system clipboard to paste',
+  '<leader>p',
+  '"+p'
+)
 
 -- use ctrl + hjkl for split navigation
-nnoremap('<c-h>', '<c-w>h')
-nnoremap('<c-j>', '<c-w>j')
-nnoremap('<c-k>', '<c-w>k')
-nnoremap('<c-l>', '<c-w>l')
+nnoremap(
+  'navigate one split left',
+  '<c-h>',
+  '<c-w>h'
+)
+nnoremap(
+  'navigate one split down',
+  '<c-j>',
+  '<c-w>j'
+)
+nnoremap(
+  'navigate one split up',
+  '<c-k>',
+  '<c-w>k'
+)
+nnoremap(
+  'navigate one split right',
+  '<c-l>',
+  '<c-w>l'
+)
 
 -- unmap arrow keys
-nnoremap('<Up>', '<Nop>')
-nnoremap('<Down>', '<Nop>')
-nnoremap('<Left>', '<Nop>')
-nnoremap('<Right>', '<Nop>')
+nnoremap(
+  'unmap the up arrow',
+  '<Up>',
+  '<Nop>'
+)
+nnoremap(
+  'unmap the down arrow',
+  '<Down>',
+  '<Nop>'
+)
+nnoremap(
+  'unmap the left arrow',
+  '<Left>',
+  '<Nop>'
+)
+nnoremap(
+  'unmap the right arrow',
+  '<Right>',
+  '<Nop>'
+)

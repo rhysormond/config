@@ -1,13 +1,30 @@
 require 'utils'
 
--- [F]ind a line within [A]ll open buffers
-nnoremap('<Leader>fa', ':lua require "telescope.builtin".live_grep()<CR>')
--- [F]ind [L]ine in open buffer
-nnoremap('<Leader>fl', ':lua require "telescope.builtin".current_buffer_fuzzy_find()<CR>')
--- [F]ind [F]ile in directory
-nnoremap('<Leader>ff', ':lua require "telescope.builtin".git_files()<CR>')
--- [F]ind [B]uffer with name
-nnoremap('<Leader>fb', ':lua require "telescope.builtin".buffers()<CR>')
+nnoremap(
+  '[f]ind [k]eymap',
+  '<Leader>fk',
+  ':Telescope keymaps <CR>'
+)
+nnoremap(
+  '[f]ind a line within [a]ll open buffers',
+  '<Leader>fa',
+  ':lua require "telescope.builtin".live_grep()<CR>'
+)
+nnoremap(
+  '[f]ind [l]ine in open buffer',
+  '<Leader>fl',
+  ':lua require "telescope.builtin".current_buffer_fuzzy_find()<CR>'
+)
+nnoremap(
+  '[f]ind [f]ile in directory',
+  '<Leader>ff',
+  ':lua require "telescope.builtin".git_files()<CR>'
+)
+nnoremap(
+  '[f]ind [b]uffer with name',
+  '<Leader>fb',
+  ':lua require "telescope.builtin".buffers()<CR>'
+)
 
 -- use native fzf to improve performance
 require 'telescope'.setup()

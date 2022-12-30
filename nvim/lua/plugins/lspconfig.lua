@@ -9,22 +9,62 @@ vim.api.nvim_create_autocmd('BufWrite', {
 })
 
 -- goto commands
-nnoremap('gD', ':lua vim.lsp.buf.declaration()<CR>')
-nnoremap('gd', ':lua vim.lsp.buf.definition()<CR>')
-nnoremap('gi', ':lua vim.lsp.buf.implementation()<CR>')
-nnoremap('gr', ':lua require "telescope.builtin".lsp_references()<CR>')
-nnoremap('gy', ':lua vim.lsp.buf.type_definition()<CR>')
+nnoremap(
+  '[g]o to [D]eclaration',
+  'gD',
+  ':lua vim.lsp.buf.declaration()<CR>'
+)
+nnoremap(
+  '[g]o to [d]efinition',
+  'gd',
+  ':lua vim.lsp.buf.definition()<CR>'
+)
+nnoremap(
+  '[g]o to [i]mplementation',
+  'gi',
+  ':lua vim.lsp.buf.implementation()<CR>'
+)
+nnoremap(
+  '[g]o to [r]eference',
+  'gr',
+  ':lua require "telescope.builtin".lsp_references()<CR>'
+)
+nnoremap(
+  '[g]o to t[y]pe definition',
+  'gy',
+  ':lua vim.lsp.buf.type_definition()<CR>'
+)
 
 -- popup hints
-nnoremap('K', ':lua vim.lsp.buf.hover()<CR>')
+nnoremap(
+  'hover',
+  'K',
+  ':lua vim.lsp.buf.hover()<CR>'
+)
 
 -- refactoring
-nnoremap('<leader>ca', ':lua vim.lsp.buf.code_action()<CR>')
-nnoremap('<leader>rn', ':lua vim.lsp.buf.rename()<CR>')
+nnoremap(
+  '[c]ode [a]ction',
+  '<leader>ca',
+  ':lua vim.lsp.buf.code_action()<CR>'
+)
+nnoremap(
+  '[r]e[n]ame',
+  '<leader>rn',
+  ':lua vim.lsp.buf.rename()<CR>'
+)
 
 -- file and project outlines
-nnoremap('<leader>sf', ':lua require "telescope.builtin".lsp_document_symbols()<CR>')
-nnoremap('<leader>sa', ':lua require "telescope.builtin".lsp_workspace_symbols()<CR>')
+nnoremap(
+  '[s]ymbols in [f]ile/document',
+  '<leader>sf',
+  ':lua require "telescope.builtin".lsp_document_symbols()<CR>'
+)
+nnoremap(
+  '[s]ymbols [a]ll (all public symbols in workspace)',
+  '<leader>sa',
+  ':lua require "telescope.builtin".lsp_workspace_symbols()<CR>'
+)
 
 -- language server config
 local capabilities = vim.lsp.protocol.make_client_capabilities()
