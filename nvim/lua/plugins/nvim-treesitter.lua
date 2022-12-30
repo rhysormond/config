@@ -1,5 +1,5 @@
 require('nvim-treesitter.configs').setup {
-  ensure_installed = { 'lua', 'rust', 'scala' },
+  ensure_installed = { 'lua', 'rust', 'scala', 'vim', 'help' },
 
   highlight = { enable = true },
   indent = { enable = true },
