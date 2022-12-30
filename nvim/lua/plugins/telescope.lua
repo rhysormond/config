@@ -6,22 +6,22 @@ nnoremap(
   ':Telescope keymaps <CR>'
 )
 nnoremap(
-  '[f]ind a line within [a]ll open buffers',
+  '[f]ind lines within [a]ll files in the project',
   '<Leader>fa',
   require 'telescope.builtin'.live_grep
 )
 nnoremap(
-  '[f]ind [l]ine in open buffer',
+  '[f]ind [l]ines in the open buffer',
   '<Leader>fl',
   require 'telescope.builtin'.current_buffer_fuzzy_find
 )
 nnoremap(
-  '[f]ind [f]ile in directory',
+  '[f]ind [f]iles in the project',
   '<Leader>ff',
   require 'telescope.builtin'.find_files
 )
 nnoremap(
-  '[f]ind [b]uffer with name',
+  '[f]ind [b]uffers',
   '<Leader>fb',
   require 'telescope.builtin'.buffers
 )
