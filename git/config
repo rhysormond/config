@@ -2,6 +2,8 @@
   email = git@rhysormond.com
   name = rhysormond
   signingkey = 9A822A229581A606
+[init]
+  defaultBranch = main
 [core]
   editor = nvim
   filemode = false
