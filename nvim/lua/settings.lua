@@ -5,7 +5,6 @@ vim.o.shortmess = vim.o.shortmess .. 'I' -- ignore startup message
 vim.o.hidden = true -- hide buffers rather than abandoning them
 
 -- spellcheck
-vim.o.spell = true -- enable spellchecking
 vim.o.spelllang = 'en_us' -- set spellcheck language
 
 -- whitespace
