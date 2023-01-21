@@ -41,11 +41,29 @@ local plugins = {
   -- language server
   {
     'neovim/nvim-lspconfig',
-    config = function() require 'plugins.lspconfig' end,
-  },
-  {
-    'j-hui/fidget.nvim',
-    config = function() require 'fidget'.setup() end,
+    dependencies = {
+      -- Automatically install LSPs to stdpath for neovim
+      {
+        'williamboman/mason.nvim',
+        config = function() require 'mason'.setup() end,
+      },
+      {
+        'williamboman/mason-lspconfig.nvim',
+        config = function() require 'plugins.lspconfig' end,
+      },
+
+      -- Better LSP status updates
+      {
+        'j-hui/fidget.nvim',
+        config = function() require 'fidget'.setup() end,
+      },
+
+      -- Configuration to work with the nvim API
+      {
+        'folke/neodev.nvim',
+        config = function() require 'neodev'.setup() end,
+      },
+    }
   },
 
   -- treesitter
