@@ -38,7 +38,7 @@ local on_attach = function()
 
   -- popup hints
   nnoremap('hover documentation', 'K', vim.lsp.buf.hover)
-  nnoremap('signature documentation', '<C-K>', vim.lsp.buf.signature_help)
+  -- nnoremap('signature documentation', '<C-K>', vim.lsp.buf.signature_help)
 
   -- refactoring
   nnoremap('[c]ode [a]ction', '<leader>ca', vim.lsp.buf.code_action)
