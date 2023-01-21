@@ -19,10 +19,10 @@ local servers = {
       },
       workspace = {
         library = vim.api.nvim_get_runtime_file('', true),
-        checkThirdParty = false
+        checkThirdParty = false,
       },
       telemetry = {
-        enable = false
+        enable = false,
       },
     },
   },
@@ -50,11 +50,14 @@ local on_attach = function()
 
   -- format on save
   local format_save = vim.api.nvim_create_augroup('format_on_save', { clear = true })
-  vim.api.nvim_create_autocmd('BufWrite', {
-    group = format_save,
-    pattern = '*',
-    callback = function() vim.lsp.buf.format { async = true } end,
-  })
+  vim.api.nvim_create_autocmd(
+    'BufWrite',
+    {
+      group = format_save,
+      pattern = '*',
+      callback = function() vim.lsp.buf.format { async = true } end,
+    }
+  )
 end
 
 mason_lspconfig.setup {

@@ -31,14 +31,14 @@ cmp.setup {
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
     { name = 'buffer' },
-  }
+  },
 }
 
 -- completion for search
 cmp.setup.cmdline('/', {
   sources = {
-    { name = 'buffer' }
-  }
+    { name = 'buffer' },
+  },
 })
 
 -- completion for commands

@@ -1,13 +1,13 @@
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
 if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
+  vim.fn.system {
     'git',
     'clone',
     '--filter=blob:none',
     '--single-branch',
     'https://github.com/folke/lazy.nvim.git',
     lazypath,
-  })
+  }
 end
 vim.opt.runtimepath:prepend(lazypath)
 
@@ -20,8 +20,8 @@ local plugins = {
     -- git wrapper
     'tpope/vim-fugitive',
     dependencies = {
-      'tpope/vim-rhubarb'
-    }
+      'tpope/vim-rhubarb',
+    },
   },
 
   -- ui improvements
@@ -29,7 +29,7 @@ local plugins = {
   {
     'lewis6991/gitsigns.nvim',
     dependencies = {
-      'nvim-lua/plenary.nvim'
+      'nvim-lua/plenary.nvim',
     },
     config = function() require 'gitsigns'.setup() end,
   },
@@ -63,7 +63,7 @@ local plugins = {
         'folke/neodev.nvim',
         config = function() require 'neodev'.setup() end,
       },
-    }
+    },
   },
 
   -- treesitter
@@ -73,7 +73,7 @@ local plugins = {
     config = function() require 'plugins.nvim-treesitter' end,
     dependencies = {
       'nvim-treesitter/nvim-treesitter-textobjects',
-    }
+    },
   },
 
   -- autocompletion
@@ -96,7 +96,10 @@ local plugins = {
     'nvim-telescope/telescope.nvim',
     dependencies = {
       'nvim-lua/plenary.nvim',
-      { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+      {
+        'nvim-telescope/telescope-fzf-native.nvim',
+        build = 'make',
+      },
     },
     config = function() require 'plugins.telescope' end,
   },
