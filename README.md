@@ -8,6 +8,7 @@ Clone them directly into `~/.config` with `git clone https://github.com/rhysormo
 Install:
  - [homebrew](https://brew.sh/)
  - [docker desktop](https://www.docker.com/products/docker-desktop/)
+ - [karabiner elements](https://karabiner-elements.pqrs.org/)
 
 ```sh
 brew install \
@@ -16,6 +17,7 @@ brew install \
   git-extras \
   kitty \
   neovim \
+  gpg2 \
   ripgrep \
   tmux
 ```
