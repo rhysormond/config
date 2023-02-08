@@ -15,6 +15,7 @@ brew install \
   fish \
   git-delta \
   git-extras \
+  jq \
   kitty \
   neovim \
   gpg2 \
