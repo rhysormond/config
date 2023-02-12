@@ -14,6 +14,7 @@ Install:
 ```sh
 brew install \
   fish \
+  fzf \
   git-delta \
   git-extras \
   jq \
