@@ -17,8 +17,8 @@ brew install \
   fzf \
   git-delta \
   git-extras \
+  iterm2 \
   jq \
-  kitty \
   neovim \
   ripgrep \
   tmux
