@@ -10,6 +10,7 @@ Install:
  - [docker desktop](https://www.docker.com/products/docker-desktop/)
  - [karabiner elements](https://karabiner-elements.pqrs.org/)
  - [gpgtools](https://gpgtools.org/)
+ - [comic code](https://tosche.net/fonts/comic-code)
 
 ```sh
 brew install \
