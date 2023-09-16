@@ -347,6 +347,8 @@
 			<real>1</real>
 			<key>Idle Code</key>
 			<integer>0</integer>
+			<key>Initial Text</key>
+			<string>tmux new -As0</string>
 			<key>Jobs to Ignore</key>
 			<array>
 				<string>rlogin</string>
