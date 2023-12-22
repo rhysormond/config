@@ -43,6 +43,7 @@
 [push]
   default = current
   gpgsign = if-asked
+  autoSetupRemote = true
 [status]
   short = true
 [tag]
@@ -50,7 +51,6 @@
 [alias]
   cfx = "!git commit --edit --file=`git rev-parse --git-dir`/COMMIT_EDITMSG"
   rem = "!git reset $(git merge-base master $(git branch --show-current))"
-  ups = "!git branch --set-upstream-to=origin/`git symbolic-ref --short HEAD`"
   lgb = lg --branches
   lgs = lg --stat
   lgx = lg --branches --stat
