@@ -8,7 +8,6 @@ Clone them directly into `~/.config` with `git clone https://github.com/rhysormo
 Install:
  - [homebrew](https://brew.sh/)
  - [docker desktop](https://www.docker.com/products/docker-desktop/)
- - [karabiner elements](https://karabiner-elements.pqrs.org/)
  - [gpgtools](https://gpgtools.org/)
  - [comic code](https://tosche.net/fonts/comic-code)
 
@@ -35,6 +34,3 @@ chsh -s /opt/homebrew/bin/fish
 
 Configure iterm2 to read config from `~/.config/iterm2` under Preferences > General > Preferences.
 
-Set up caps lock key in karabiner elements:
- - In "Complex Modifications", enable "Post Esc if Caps is tapped, Control if held."
- - In "Simple Modifications" > "For all devices" map `caps_lock` to `left_control`
