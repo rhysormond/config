@@ -2,9 +2,9 @@
 /*
 
 # Track changes to these directories
-!/fish
+!/zsh
+!/vim
 !/git
 !/ideavim
 !/iterm2
-!/nvim
 !/tmux

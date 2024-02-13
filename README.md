@@ -1,36 +1,24 @@
 # Setup
 
 I use these configs on top of macos.
-Clone them directly into `~/.config` with `git clone https://github.com/rhysormond/config.git ~/.config`.
+Clone them directly into `~/.config` with `git clone git@github.com:rhysormond/config.git ~/.config`.
 
 # Dependencies
-
-Install:
  - [homebrew](https://brew.sh/)
  - [docker desktop](https://www.docker.com/products/docker-desktop/)
- - [gpgtools](https://gpgtools.org/)
+ - [iTerm2](https://iterm2.com)
  - [comic code](https://tosche.net/fonts/comic-code)
 
+# Post-install
+
+Configure Iterm2 to use the correct config
 ```sh
-brew install \
-  fish \
-  fzf \
-  git-delta \
-  git-extras \
-  iterm2 \
-  jq \
-  neovim \
-  ripgrep \
-  tmux
+defaults write com.googlecode.iterm2 PrefsCustomFolder -string "~/.config/iterm2"
+defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool true
 ```
 
-# Post-Install
-
-Convince macos that fish is a shell worth knowing about, then set it as the default.
+Do the same for zsh
 ```sh
-sudo sh -c 'echo /opt/homebrew/bin/fish >> /etc/shells'
-chsh -s /opt/homebrew/bin/fish
+echo "ZDOTDIR=$HOME/.config/zsh" >> ~/.zshenv
 ```
-
-Configure iterm2 to read config from `~/.config/iterm2` under Preferences > General > Preferences.
 
