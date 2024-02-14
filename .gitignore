@@ -2,9 +2,8 @@
 /*
 
 # Track changes to these directories
-!/zsh
-!/vim
 !/git
 !/ideavim
 !/iterm2
-!/tmux
+!/vim
+!/zsh
