@@ -148,7 +148,7 @@ noremap <Right> <Nop>
 if !isdirectory("/tmp/.vim-undo")
     call mkdir("/tmp/.vim-undo", "", 0700)
 endif
-set undodir=/tmp/.vim-undo-dir
+set undodir=/tmp/.vim-undo
 set undofile
 
 " persist cursor position between sessions
