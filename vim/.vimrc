@@ -47,7 +47,6 @@ set spell spelllang=en_us
 set hlsearch " highlight search results
 set showmatch " highlight matching braces
 set cursorline " highlight current cursor line
-set colorcolumn=80 " highlight the over-length column
 
 " mode-dependent cursor style
 let &t_EI = "\<Esc>[2 q" " block in normal mode
