@@ -58,6 +58,9 @@ set wrap " visually wrap lines
 set nolist " list disables line break
 set linebreak " only wrap at specific characters
 
+" use enter to clear search results
+nnoremap <CR> :noh<CR><CR>
+
 " use the system clipboard with leader
 noremap <leader>c "*c
 noremap <leader>d "*d
