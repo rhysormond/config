@@ -17,7 +17,7 @@ defaults write com.googlecode.iterm2 PrefsCustomFolder -string "~/.config/iterm2
 defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool true
 ```
 
-Symlink zsh env vars since it zsh doesn't respect the XDG base directory spec
+Symlink zsh env vars since it doesn't respect the XDG base directory spec
 ```sh
 ln -Fis ~/.config/zsh/.zshenv ~/.zshenv
 ```
