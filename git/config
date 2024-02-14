@@ -36,6 +36,8 @@
   autoSetupRemote = true
 [status]
   short = true
+[rerere]
+  enabled = true
 [alias]
   cfx = "!git commit --edit --file=`git rev-parse --git-dir`/COMMIT_EDITMSG"
   lgb = lg --branches
