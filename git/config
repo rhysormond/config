@@ -1,7 +1,11 @@
 [user]
   email = git@rhysormond.com
   name = rhysormond
-  signingkey = 9A822A229581A606
+  signingkey = ~/.ssh/signing.id_rsa.pub
+[gpg]
+  format = ssh
+[gpg "ssh"]
+  allowedSignersFile = /Users/rhysormond/.ssh/allowed_signers
 [init]
   defaultBranch = main
 [core]
@@ -20,6 +24,8 @@
   sort = committerdate
 [color]
   ui = auto
+[commit]
+  gpgsign = true
 [diff]
   colorMoved = default
   algorithm = histogram
@@ -34,8 +40,11 @@
 [push]
   default = current
   autoSetupRemote = true
+  gpgsign = if-asked
 [status]
   short = true
+[tag]
+  gpgsign = true
 [rerere]
   enabled = true
 [alias]
