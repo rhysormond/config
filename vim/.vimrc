@@ -97,7 +97,7 @@ set cmdheight=1 " height of the command line
 " status line
 hi User1 ctermfg=white
 hi User2 ctermfg=darkgrey
-hi User3 ctermfg=darkmagenta
+hi User3 ctermfg=darkgreen
 hi User4 ctermfg=yellow cterm=bold
 hi User5 ctermfg=green cterm=bold
 hi User6 ctermfg=red cterm=bold
