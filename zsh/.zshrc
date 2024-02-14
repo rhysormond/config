@@ -38,6 +38,11 @@ export ACK_COLOR_MATCH='red'
 alias g="git"
 alias vim="vim -u $HOME/.config/vim/.vimrc"
 
+# Set up homebrew if it's installed
+if [ -f /opt/homebrew/bin/brew ]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
 # Source device-specific config
 if [ -f $HOME/.env ]; then
     source $HOME/.env
