@@ -13,6 +13,10 @@ set hlsearch
 " use space as the leader key
 let mapleader=" "
 
+" set jk to escape
+inoremap jk <Esc>
+cnoremap jk <Esc>
+
 " use system clipboard with leader
 nnoremap <leader>c "+c
 nnoremap <leader>d "+d

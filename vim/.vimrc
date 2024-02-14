@@ -139,6 +139,10 @@ set backspace=eol,indent,start
 " allow cursor wrapping when moving left/right
 set whichwrap+=h,l
 
+" set jk to escape
+inoremap jk <Esc>
+cnoremap jk <Esc>
+
 " unmap arrow keys
 noremap <Up> <Nop>
 noremap <Down> <Nop>
