@@ -33,7 +33,7 @@ alias g="git"
 
 # Set up homebrew if it's installed
 if [ -f /opt/homebrew/bin/brew ]; then
-    eval "$(/opt/homebrew/bin/brew shellenv)"
+    eval "$(/opt/homebrew/bin/brew shellenv &> /dev/null)"
 fi
 
 # Source device-specific config

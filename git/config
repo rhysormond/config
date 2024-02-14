@@ -5,7 +5,7 @@
 [gpg]
   format = ssh
 [gpg "ssh"]
-  allowedSignersFile = /Users/rhysormond/.ssh/allowed_signers
+  allowedSignersFile = ~/.ssh/allowed_signers
 [init]
   defaultBranch = main
 [core]
