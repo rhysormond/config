@@ -1,17 +1,11 @@
 # Prompt
-# Left prompt
-PROMPT='%(?.%F{green}√.%F{red}?%?) %B%F{240}%(5~|%-1~/…/%3~|%4~)%f%b %F{magenta}|> %f'
-# Right prompt
-# Load version control information
 autoload -Uz vcs_info
 precmd() { vcs_info }
-zstyle ':vcs_info:git:*' formats '%F{240}%r (%b) %m%u%c%f'
+zstyle ':vcs_info:git:*' formats '%F{yellow}(%b)%m%u%c%f'
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' enable git
-# Enable prompt substitution
 setopt prompt_subst
-# Define the right prompt
-RPROMPT=\$vcs_info_msg_0_
+PROMPT='%(?.%F{green}√.%F{red}?%?) %B%F{240}%(5~|%-1~/…/%3~|%4~)%f%b $vcs_info_msg_0_ %F{magenta}|> %f'
 
 # Initialize completion
 autoload -U compinit
