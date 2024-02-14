@@ -17,8 +17,9 @@ defaults write com.googlecode.iterm2 PrefsCustomFolder -string "~/.config/iterm2
 defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool true
 ```
 
-Do the same for zsh
+Tell vim and zsh to do the same
 ```sh
-echo "ZDOTDIR=$HOME/.config/zsh" >> ~/.zshenv
+echo 'export VIMINIT="set nocp | source ${XDG_CONFIG_HOME:-$HOME/.config}/vim/.vimrc"' >> ~/.zshenv
+echo 'ZDOTDIR=$HOME/.config/zsh' >> ~/.zshenv
 ```
 

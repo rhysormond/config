@@ -36,7 +36,6 @@ export ACK_COLOR_MATCH='red'
 
 # Aliases
 alias g="git"
-alias vim="vim -u $HOME/.config/vim/.vimrc"
 
 # Set up homebrew if it's installed
 if [ -f /opt/homebrew/bin/brew ]; then
