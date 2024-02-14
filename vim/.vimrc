@@ -40,6 +40,7 @@ set t_Co=256
 set background=dark
 colorscheme jellybeans
 hi Normal ctermbg=NONE
+hi EndOfBuffer guibg=black
 hi SpellBad ctermbg=NONE cterm=bold,underline
 set spell spelllang=en_us
 
