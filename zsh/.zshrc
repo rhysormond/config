@@ -40,3 +40,8 @@ fi
 if [ -f $HOME/.env ]; then
     source $HOME/.env
 fi
+
+# Diff two JSON files with jq
+jd () {
+    diff <(jq --sort-keys . $1) <(jq --sort-keys . $2)
+}
