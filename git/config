@@ -26,6 +26,7 @@
   ui = auto
 [commit]
   gpgsign = true
+  verbose = true
 [diff]
   colorMoved = default
   algorithm = histogram
@@ -56,10 +57,10 @@
   ap = add --patch
   bd = branch --delete --force
   br = branch --format='%(HEAD) %(color:yellow)%(objectname:short) %(color:green)%(committerdate:short) %(color:reset)%(refname:short)'
-  ca = commit --verbose --amend
+  ca = commit --amend
   cb = checkout -b
-  ci = commit --verbose
-  cm = commit --verbose --message
+  ci = commit
+  cm = commit --message
   co = checkout
   dm = diff master...HEAD
   ls = stash list --pretty='%C(yellow)%h %>(12)%C(green)%cr %C(reset)%s'
