@@ -66,4 +66,4 @@
   ls = stash list --pretty='%C(yellow)%h %>(12)%C(green)%cr %C(reset)%s'
   lg = log --graph --format='%C(white)%S%C(auto)%d %n%C(yellow)%h %>(12)%C(green)%cr %<(25,trunc)%C(blue)%an %C(reset)%n%<(80,trunc)%s'
   mm = merge-base HEAD master
-  wd = diff --word-diff
+  wd = diff --word-diff=color
