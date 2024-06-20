@@ -63,7 +63,7 @@ set linebreak " only wrap at specific characters
 nnoremap <CR> :noh<CR><CR>
 
 " always use the system clipboard
-set clipboard=unnamedplus
+set clipboard=unnamed
 
 " open the netrw explorer
 noremap <leader>e :Explore<cr>
