@@ -6,8 +6,9 @@
 merge_commit_regex="^Merge branch .* into .*$"
 
 # build a regex for conventional commits
-commit_types=(
+commit_type_enum=(
   "build"
+  "chore"
   "ci"
   "docs"
   "feat"
@@ -20,27 +21,29 @@ commit_types=(
   "wip"
 )
 
-type_alternatives=$(printf "\|%s" "${commit_types[@]}")
-type_regex="\(${type_alternatives:2}\)"
+commit_types=$(printf "\|%s" "${commit_type_enum[@]}")
+type_regex="\(${commit_types:2}\)"
 scope_regex="\((.\+)\)\?"
-conventional_commit_regex="^$type_regex$scope_regex!\?: .*$"
+conventional_title_regex="^$type_regex$scope_regex!\?: .*$"
 
-# check if the commit subject conforms to the regex
-commit_subject=$(head -n1 $1)
-merge_commit=$(echo "$commit_subject" | grep "$merge_commit_regex")
+# separate out the commit title from the commit body
+commit_title=$(head -n1 $1)
+
+# check if we have a merge commit
+merge_commit=$(echo "$commit_title" | grep "$merge_commit_regex")
 
 # if we don't have a merge commit, check for conventional commits
 if [[ -z "$merge_commit" ]]; then
-  conventional_commit=$(echo "$commit_subject" | grep "$conventional_commit_regex")
+  conventional_title=$(echo "$commit_title" | grep "$conventional_title_regex")
 
   # if we don't have a conventional commit, prompt to continue
-  if [[ -z "$conventional_commit" ]]; then
-    exec "~/.config/git/hooks/prompt" "[$commit_subject] is not a conventional commit. Continue?"
+  if [[ -z "$conventional_title" ]]; then
+    exec "~/.config/git/hooks/prompt" "[$commit_title] is improperly formatted. Continue?"
   fi
 
-  # if we don't have a commit that's too long, prompt to continue
-  if ((${#conventional_commit} > 50)); then
-    exec "~/.config/git/hooks/prompt" "[$commit_subject] is longer than 50 characters. Continue?"
+  # if we have a commit that's too long, prompt to continue
+  if ((${#conventional_title} > 50)); then
+    exec "~/.config/git/hooks/prompt" "[$commit_title] is longer than 50 characters. Continue?"
   fi
 fi
 
