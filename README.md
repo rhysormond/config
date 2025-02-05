@@ -22,8 +22,7 @@ Symlink zsh env vars since it doesn't respect the XDG base directory spec
 ln -Fis ~/.config/zsh/.zshenv ~/.zshenv
 ```
 
-Install tmux and rectangle
+Install tmux
 ```sh
 brew install tmux
-brew install --cask rectangle
 ```
