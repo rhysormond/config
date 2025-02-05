@@ -62,8 +62,11 @@ set linebreak " only wrap at specific characters
 " use enter to clear search results
 nnoremap <CR> :noh<CR><CR>
 
-" always use the system clipboard
-set clipboard=unnamed
+" use system clipboard with leader
+nnoremap <leader>c "+c
+nnoremap <leader>d "+d
+nnoremap <leader>y "+y
+nnoremap <leader>p "+p
 
 " open the netrw explorer
 noremap <leader>e :Explore<cr>

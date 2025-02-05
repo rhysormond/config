@@ -10,8 +10,11 @@ set smartcase ignorecase
 " highlight search results 
 set hlsearch
 
-" use system clipboard always
-set clipboard=unnamedplus
+" use the system clipboard with leader
+noremap <leader>c "*c
+noremap <leader>d "*d
+noremap <leader>y "*y
+noremap <leader>p "*p
 
 " use space as the leader key
 let mapleader=" "
