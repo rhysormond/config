@@ -30,6 +30,7 @@ export ACK_COLOR_MATCH='red'
 
 # Aliases
 alias g="git"
+alias pk="ps -a | fzf | cut -f1 -d' ' | xargs kill -9"
 
 # Set up homebrew if it's installed
 if [ -f /opt/homebrew/bin/brew ]; then
